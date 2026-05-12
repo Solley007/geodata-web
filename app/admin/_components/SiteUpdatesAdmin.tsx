@@ -53,6 +53,24 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   const [progress,     setProgress]     = useState(0);
   const [msg,          setMsg]          = useState<{ ok: boolean; text: string } | null>(null);
 
+  // Video paste-URL mode
+  const [videoInputMode, setVideoInputMode] = useState<"upload" | "paste">("upload");
+  const [pastedVideoUrl, setPastedVideoUrl] = useState("");
+
+  // Custom project dropdown
+  const [projOpen, setProjOpen] = useState(false);
+  const projRef = useRef<HTMLDivElement>(null);
+
+  // Close project dropdown on outside click
+  useEffect(() => {
+    if (!projOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (!projRef.current?.contains(e.target as Node)) setProjOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [projOpen]);
+
   const [updates,      setUpdates]      = useState<SiteUpdate[]>([]);
   const [loadingList,  setLoadingList]  = useState(false);
 
@@ -134,10 +152,12 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
     e.preventDefault();
     if (!title.trim()) { setMsg({ ok: false, text: "Title is required." }); return; }
 
-    if (mediaType === "gallery" && galleryFiles.length === 0) {
+    // Validate media
+    if (mediaType === "video" && videoInputMode === "paste") {
+      if (!pastedVideoUrl.trim()) { setMsg({ ok: false, text: "Paste a Cloudinary video URL." }); return; }
+    } else if (mediaType === "gallery" && galleryFiles.length === 0) {
       setMsg({ ok: false, text: "Select at least one photo." }); return;
-    }
-    if (mediaType !== "gallery" && !file) {
+    } else if (mediaType !== "gallery" && !file && !(mediaType === "video" && videoInputMode === "paste")) {
       setMsg({ ok: false, text: `Select a ${mediaType} file.` }); return;
     }
 
@@ -151,9 +171,15 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
         const result = await uploadToCloudinary(file!, setProgress);
         coverImage = result.secure_url;
       } else if (mediaType === "video") {
-        const result = await uploadToCloudinary(file!, setProgress);
-        videoUrl = result.secure_url;
-        coverImage = cloudinaryVideoPoster(result.secure_url);
+        if (videoInputMode === "paste") {
+          // User pasted an existing Cloudinary URL
+          videoUrl   = pastedVideoUrl.trim();
+          coverImage = cloudinaryVideoPoster(videoUrl);
+        } else {
+          const result = await uploadToCloudinary(file!, setProgress);
+          videoUrl   = result.secure_url;
+          coverImage = cloudinaryVideoPoster(result.secure_url);
+        }
       } else if (mediaType === "gallery") {
         const urls: string[] = [];
         for (let i = 0; i < galleryFiles.length; i++) {
@@ -178,6 +204,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
       if (res.ok) {
         setMsg({ ok: true, text: "Update published. Commit and push to deploy." });
         reset();
+        setPastedVideoUrl("");
         fetchList();
       } else {
         setMsg({ ok: false, text: data.error ?? "Failed to save metadata." });
@@ -230,9 +257,30 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
             </div>
             <div>
               <label className="admin-label">Project</label>
-              <select value={projectSlug} onChange={(e) => setProjectSlug(e.target.value)} className="admin-select">
-                {PROJECTS.map((p) => <option key={p.slug} value={p.slug}>{p.title}</option>)}
-              </select>
+              <div ref={projRef} className="relative">
+                <button
+                  type="button"
+                  onClick={() => setProjOpen((v) => !v)}
+                  className="w-full flex items-center justify-between border-b border-navy-900 py-2 text-sm text-navy-950 bg-transparent outline-none cursor-pointer text-left"
+                >
+                  <span>{PROJECTS.find((p) => p.slug === projectSlug)?.name ?? "Select project"}</span>
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform ${projOpen ? "rotate-180" : ""}`}><polyline points="4 6 8 10 12 6"/></svg>
+                </button>
+                {projOpen && (
+                  <div className="absolute z-50 top-full left-0 right-0 bg-white border border-hairline shadow-lg max-h-56 overflow-y-auto">
+                    {PROJECTS.map((p) => (
+                      <button
+                        key={p.slug}
+                        type="button"
+                        onClick={() => { setProjectSlug(p.slug); setProjOpen(false); }}
+                        className={`w-full text-left px-3 py-2 text-sm transition-colors hover:bg-bone-100 ${projectSlug === p.slug ? "font-medium text-navy-950 bg-bone" : "text-navy-900"}`}
+                      >
+                        {p.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -256,37 +304,71 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
             </div>
           </div>
 
-          {/* File picker */}
+          {/* File picker / URL paste */}
           <div>
-            <label className="admin-label">
-              {mediaType === "photo" ? "Photo file" :
-               mediaType === "video" ? "Video file" : "Photos (multiple)"}
-            </label>
-            <div
-              className="border-2 border-dashed border-hairline hover:border-navy-900 transition-colors cursor-pointer text-center p-6"
-              onClick={() => fileRef.current?.click()}
-              onDragOver={(e) => e.preventDefault()}
-              onDrop={(e) => { e.preventDefault(); handleFilePick(e.dataTransfer.files); }}
-            >
-              {preview ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={preview} alt="preview" className="max-h-40 mx-auto object-contain" />
-              ) : (
-                <div>
-                  <p className="text-ink-muted text-sm">Drag & drop or click to select</p>
-                  <p className="text-xs text-ink-faint mt-1">
-                    {mediaType === "video" ? "MP4, MOV, WebM" : "JPG, PNG, WebP"}
-                  </p>
+            <div className="flex items-center justify-between mb-1">
+              <label className="admin-label !mb-0">
+                {mediaType === "photo" ? "Photo file" :
+                 mediaType === "video" ? "Video" : "Photos (multiple)"}
+              </label>
+              {/* Toggle: upload vs paste URL — only for video */}
+              {mediaType === "video" && (
+                <div className="flex text-[11px] border border-hairline">
+                  {(["upload", "paste"] as const).map((mode) => (
+                    <button
+                      key={mode}
+                      type="button"
+                      onClick={() => { setVideoInputMode(mode); setFile(null); setPastedVideoUrl(""); setPreview(null); }}
+                      className={`px-3 py-1 uppercase tracking-wider transition-colors ${videoInputMode === mode ? "bg-navy-900 text-bone" : "text-ink-muted hover:text-navy-950"}`}
+                    >
+                      {mode === "upload" ? "Upload file" : "Paste URL"}
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
-            <input ref={fileRef} type="file"
-              accept={mediaType === "video" ? "video/*" : "image/*"}
-              multiple={mediaType === "gallery"}
-              className="hidden"
-              onChange={(e) => handleFilePick(e.target.files)} />
-            {file && <p className="mt-2 text-xs text-ink-muted">{file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)</p>}
-            {galleryFiles.length > 0 && <p className="mt-2 text-xs text-ink-muted">{galleryFiles.length} files selected ({(galleryFiles.reduce((s, f) => s + f.size, 0) / 1024 / 1024).toFixed(2)} MB total)</p>}
+
+            {/* Paste URL input — video only */}
+            {mediaType === "video" && videoInputMode === "paste" ? (
+              <div>
+                <input
+                  type="url"
+                  value={pastedVideoUrl}
+                  onChange={(e) => setPastedVideoUrl(e.target.value)}
+                  placeholder="https://res.cloudinary.com/your-cloud/video/upload/..."
+                  className="w-full border border-hairline bg-white px-3 py-2.5 text-sm text-navy-950 placeholder:text-ink-faint focus:outline-none focus:border-gold"
+                />
+                <p className="mt-1.5 text-xs text-ink-muted">Paste any Cloudinary video URL. The thumbnail is generated automatically.</p>
+              </div>
+            ) : (
+              <>
+                <div
+                  className="border-2 border-dashed border-hairline hover:border-navy-900 transition-colors cursor-pointer text-center p-6"
+                  onClick={() => fileRef.current?.click()}
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={(e) => { e.preventDefault(); handleFilePick(e.dataTransfer.files); }}
+                >
+                  {preview ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={preview} alt="preview" className="max-h-40 mx-auto object-contain" />
+                  ) : (
+                    <div>
+                      <p className="text-ink-muted text-sm">Drag & drop or click to select</p>
+                      <p className="text-xs text-ink-faint mt-1">
+                        {mediaType === "video" ? "MP4, MOV, WebM" : "JPG, PNG, WebP"}
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <input ref={fileRef} type="file"
+                  accept={mediaType === "video" ? "video/*" : "image/*"}
+                  multiple={mediaType === "gallery"}
+                  className="hidden"
+                  onChange={(e) => handleFilePick(e.target.files)} />
+                {file && <p className="mt-2 text-xs text-ink-muted">{file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)</p>}
+                {galleryFiles.length > 0 && <p className="mt-2 text-xs text-ink-muted">{galleryFiles.length} files selected ({(galleryFiles.reduce((s, f) => s + f.size, 0) / 1024 / 1024).toFixed(2)} MB total)</p>}
+              </>
+            )}
           </div>
 
           {uploading && progress > 0 && (
@@ -334,7 +416,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
                     <img src={u.coverImage} alt={u.title} className="h-20 w-20 object-cover shrink-0 bg-navy-100" />
                     <div className="flex-1 min-w-0">
                       <p className="text-xs text-ink-faint uppercase tracking-widest mb-1">
-                        {proj?.title ?? u.projectSlug}{" · "}{u.mediaType}{" · "}{formatUpdateDate(u.date)}
+                        {proj?.name ?? u.projectSlug}{" · "}{u.mediaType}{" · "}{formatUpdateDate(u.date)}
                       </p>
                       <p className="text-sm text-navy-950 leading-snug truncate font-medium">{u.title}</p>
                       {u.body && <p className="text-xs text-ink-muted leading-snug line-clamp-1 mt-1">{u.body}</p>}

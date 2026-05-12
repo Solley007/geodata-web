@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     if (!update) return NextResponse.json({ error: "Update not found" }, { status: 404 });
 
     const project   = PROJECTS.find((p) => p.slug === update.projectSlug);
-    const projectName = project?.title ?? update.projectSlug;
+    const projectName = project?.name ?? update.projectSlug;
     const baseUrl   = process.env.NEXT_PUBLIC_SITE_URL ?? "https://geodata.com.ng";
     const updateUrl = `${baseUrl}/updates/${update.slug}`;
 
