@@ -7,6 +7,7 @@ import FeaturedProperties from "@/components/home/FeaturedProperties";
 import HomeUpdates from "@/components/home/HomeUpdates";
 import BriefAboutUs from "@/components/home/BriefAboutUs";
 import MreifSection from "@/components/home/MreifSection";
+import SubscribePopup from "@/components/shared/SubscribePopup";
 
 export const metadata: Metadata = {
   title: "Premium Real Estate in Abuja", // template adds " | Geodata World Services"
@@ -70,6 +71,7 @@ export default function HomePage() {
       <HomeUpdates />
       <BriefAboutUs />
       <MreifSection />
+      <SubscribePopup />
     </>
   );
 }

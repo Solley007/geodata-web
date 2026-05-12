@@ -18,7 +18,7 @@ const NAV_ITEMS = [
   { label: "Projects", mega: "projects" as MegaKey },
   { label: "Updates", href: "/updates" },
   { label: "MREIF", href: "/mortgage" },
-  { label: "Journal", href: "/blog" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

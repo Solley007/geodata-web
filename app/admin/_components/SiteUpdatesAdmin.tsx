@@ -56,6 +56,11 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   const [updates,      setUpdates]      = useState<SiteUpdate[]>([]);
   const [loadingList,  setLoadingList]  = useState(false);
 
+  // Notify subscribers state
+  const [notifyingId,   setNotifyingId]   = useState<string | null>(null);
+  const [notifyMsg,     setNotifyMsg]     = useState<{ id: string; ok: boolean; text: string } | null>(null);
+  const [subscriberCount, setSubscriberCount] = useState<number | null>(null);
+
   const fileRef = useRef<HTMLInputElement>(null);
 
   const fetchList = useCallback(async () => {
@@ -67,7 +72,40 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
     } finally { setLoadingList(false); }
   }, []);
 
-  useEffect(() => { fetchList(); }, [fetchList]);
+  const fetchSubscriberCount = useCallback(async () => {
+    try {
+      const res = await fetch("/api/admin/notify", {
+        headers: { "x-admin-password": pw },
+      });
+      const data = await res.json();
+      setSubscriberCount(typeof data?.count === "number" ? data.count : null);
+    } catch { /* ignore */ }
+  }, [pw]);
+
+  useEffect(() => { fetchList(); fetchSubscriberCount(); }, [fetchList, fetchSubscriberCount]);
+
+  async function handleNotify(id: string) {
+    if (!confirm("Send email notification to all subscribers about this update?")) return;
+    setNotifyingId(id);
+    setNotifyMsg(null);
+    try {
+      const res  = await fetch("/api/admin/notify", {
+        method:  "POST",
+        headers: { "x-admin-password": pw, "Content-Type": "application/json" },
+        body:    JSON.stringify({ updateId: id }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setNotifyMsg({ id, ok: true, text: "Notification sent to subscribers." });
+      } else {
+        setNotifyMsg({ id, ok: false, text: data.error ?? "Failed to send." });
+      }
+    } catch (err: any) {
+      setNotifyMsg({ id, ok: false, text: err.message });
+    } finally {
+      setNotifyingId(null);
+    }
+  }
 
   function handleFilePick(files: FileList | null) {
     if (!files || files.length === 0) return;
@@ -271,7 +309,14 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
 
       {/* Existing updates */}
       <div>
-        <h2 className="font-display text-2xl text-navy-950 mb-4">Published updates</h2>
+        <div className="flex items-baseline justify-between gap-4 mb-4">
+          <h2 className="font-display text-2xl text-navy-950">Published updates</h2>
+          {subscriberCount !== null && (
+            <p className="text-xs text-ink-muted">
+              <span className="font-medium text-navy-950">{subscriberCount}</span> subscriber{subscriberCount === 1 ? "" : "s"}
+            </p>
+          )}
+        </div>
         {loadingList ? (
           <p className="text-sm text-ink-muted">Loading…</p>
         ) : updates.length === 0 ? (
@@ -283,17 +328,32 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
             {updates.map((u) => {
               const proj = PROJECTS.find((p) => p.slug === u.projectSlug);
               return (
-                <div key={u.id} className="bg-bone border border-hairline flex gap-4 p-4">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={u.coverImage} alt={u.title} className="h-20 w-20 object-cover shrink-0 bg-navy-100" />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs text-ink-faint uppercase tracking-widest mb-1">
-                      {proj?.title ?? u.projectSlug}{" · "}{u.mediaType}{" · "}{formatUpdateDate(u.date)}
-                    </p>
-                    <p className="text-sm text-navy-950 leading-snug truncate font-medium">{u.title}</p>
-                    {u.body && <p className="text-xs text-ink-muted leading-snug line-clamp-1 mt-1">{u.body}</p>}
+                <div key={u.id} className="bg-bone border border-hairline p-4">
+                  <div className="flex gap-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={u.coverImage} alt={u.title} className="h-20 w-20 object-cover shrink-0 bg-navy-100" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs text-ink-faint uppercase tracking-widest mb-1">
+                        {proj?.title ?? u.projectSlug}{" · "}{u.mediaType}{" · "}{formatUpdateDate(u.date)}
+                      </p>
+                      <p className="text-sm text-navy-950 leading-snug truncate font-medium">{u.title}</p>
+                      {u.body && <p className="text-xs text-ink-muted leading-snug line-clamp-1 mt-1">{u.body}</p>}
+                    </div>
+                    <button onClick={() => handleDelete(u.id)} className="shrink-0 text-red-400 hover:text-red-600 text-sm px-2" title="Delete">✕</button>
                   </div>
-                  <button onClick={() => handleDelete(u.id)} className="shrink-0 text-red-400 hover:text-red-600 text-sm px-2" title="Delete">✕</button>
+                  {/* Notify action row */}
+                  <div className="mt-3 pt-3 border-t border-hairline flex items-center justify-between gap-3">
+                    <button
+                      onClick={() => handleNotify(u.id)}
+                      disabled={notifyingId === u.id}
+                      className="text-xs font-medium text-navy-900 hover:text-gold-dark transition-colors uppercase tracking-widest disabled:opacity-50"
+                    >
+                      {notifyingId === u.id ? "Sending…" : "✉ Notify subscribers"}
+                    </button>
+                    {notifyMsg?.id === u.id && (
+                      <p className={`text-xs ${notifyMsg.ok ? "text-green-700" : "text-red-500"}`}>{notifyMsg.text}</p>
+                    )}
+                  </div>
                 </div>
               );
             })}
