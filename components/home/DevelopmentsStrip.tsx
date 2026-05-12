@@ -36,7 +36,7 @@ const DEVELOPMENTS: Development[] = [
     location: "Idu, Abuja",
     description: "321 residences across five typologies. MREIF-eligible mortgages from 9.75% fixed.",
     image:
-      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1200&q=85&auto=format&fit=crop",
+      "/SBC-poster.png",
     status: "Available",
   },
   {
@@ -45,16 +45,16 @@ const DEVELOPMENTS: Development[] = [
     location: "Idu, Abuja",
     description: "27-residence estate with full infrastructure. Few units remain for sale.",
     image:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=85&auto=format&fit=crop",
+      "/SBDrone7.webp",
     status: "Limited",
   },
   {
-    slug: "mabushi-shopping-complex",
-    name: "Mabushi Shopping Complex",
-    location: "Mabushi District, Abuja",
-    description: "Six-storey commercial development. Retail and office leasing opens in 2026.",
+    slug: "ize-hostel",
+    name: "Ize Hostel",
+    location: "Jabi, Abuja",
+    description: "Luxury student hostel for Nile & Baze students.",
     image:
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=85&auto=format&fit=crop",
+      "/Ize-Hostel.JPG",
     status: "Selling Soon",
   },
   {
@@ -63,7 +63,7 @@ const DEVELOPMENTS: Development[] = [
     location: "Abuja, FCT",
     description: "24 residences across three typologies. Delivered 2022 and fully occupied.",
     image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=85&auto=format&fit=crop",
+      "/DRONECC5.png",
     status: "Sold Out",
   },
   {

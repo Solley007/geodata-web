@@ -206,32 +206,32 @@ const ALL_PROPERTIES: Property[] = [
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7258/approach_elevation_3d.png",
         alt: "The Semi-Detached front facade at Southern Bridge City",
         ratio: "tall",
       },
       {
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7258/site_masterplan_3d.png",
         alt: "Open-plan living area with north-facing glazing",
         ratio: "wide",
       },
       {
-        src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7258/roof_massing_3d.png",
         alt: "Kitchen and dining with quartz worktops",
         ratio: "square",
       },
       {
-        src: "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7258/rear_side_exterior_3d.png",
         alt: "Master bedroom suite",
         ratio: "tall",
       },
       {
-        src: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7258/first.png",
         alt: "Aerial view of Southern Bridge City development",
         ratio: "wide",
       },
       {
-        src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7258/ground.jpg",
         alt: "Landscaped private courtyard garden",
         ratio: "square",
       },

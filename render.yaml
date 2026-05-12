@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: geodata-web
+    env: node
+    region: oregon        # change to: frankfurt (EU), singapore (Asia), ohio (US East)
+    plan: starter         # upgrade to 'standard' to avoid the 15-min sleep on free tier
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production
+      # ── All other env vars are set in the Render dashboard (Environment tab)
+      # ── Never commit secret values to this file
+      # Required:
+      #   RESEND_API_KEY
+      #   CONTACT_FROM
+      #   CONTACT_TO
+      #   NEXT_PUBLIC_MAPBOX_TOKEN
+      #   ADMIN_PASSWORD
+      #   NEXT_PUBLIC_SITE_URL   ← set to your Render URL once deployed
+      # Optional (for email subscriptions):
+      #   RESEND_AUDIENCE_ID
+      #   RESEND_TOPIC_ID_UPDATES
+      #   RESEND_TOPIC_ID_BLOG
+      #   RESEND_TOPIC_ID_PROPERTIES
+      #   RESEND_TOPIC_ID_ANNOUNCEMENTS
+      # Optional (for video uploads via admin):
+      #   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+      #   NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET

@@ -3,9 +3,12 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      // PLACEHOLDER IMAGES — swap to your CDN / public/ folder before launch
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "plus.unsplash.com" },
+      // Cloudinary — site update photos and video posters
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      // S3 — hero video poster and any S3-hosted assets
+      { protocol: "https", hostname: "geodata-wsl.s3.us-east-1.amazonaws.com" },
     ],
   },
   webpack: (config, { isServer }) => {
