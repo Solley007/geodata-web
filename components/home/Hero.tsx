@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { gsap, motionMatch } from "@/lib/gsap";
+import { HERO, COMPANY } from "@/lib/site-content";
 
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -109,79 +110,58 @@ export default function Hero() {
           to fail in some Chromium/WebKit versions. */}
       <div className="hero-bg absolute inset-0 will-change-transform [clip-path:inset(0)]">
         <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          disablePictureInPicture
-          poster="/collage-1.jpg"
+          autoPlay muted loop playsInline disablePictureInPicture
+          poster={HERO.videoPoster}
           className="absolute inset-0 h-full w-full object-cover"
           preload="metadata"
         >
-          <source
-            src="https://geodata-wsl.s3.us-east-1.amazonaws.com/Showcase.mp4"
-            type="video/mp4"
-          />
+          <source src={HERO.videoUrl} type="video/mp4" />
           Your browser doesn't support video. Please upgrade.
         </video>
-        {/* Two-layer gradient — vertical for legibility, vignette for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/70" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(10,22,40,0.45)_100%)]" />
       </div>
 
-      {/* Content — pt-24/pt-32 ensures the headline always starts below
-          the fixed navbar (80px) with comfortable breathing room. Without
-          this, a tall headline at justify-end can extend behind the nav
-          on shorter viewports or when the heading itself fills most of
-          the hero height. */}
       <div className="relative z-10 container-editorial flex h-full flex-col justify-end pt-24 md:pt-32 pb-20 md:pb-28">
         <div className="max-w-5xl">
           <p className="hero-eyebrow eyebrow text-bone/85 mb-8">
-            Southern Bridge City — Phase One
+            {HERO.eyebrow}
           </p>
 
-          {/* Lines wrapped for staggered slide-up reveal */}
           <h1 className="text-display-xl font-display text-bone tracking-tightest">
-            <span className="block overflow-hidden">
-              <span className="hero-line block">Reimagining</span>
-            </span>
-            <span className="block overflow-hidden">
-              <span className="hero-line block italic font-light">
-                urban living
+            {HERO.headline.split("\n").map((line, i) => (
+              <span key={i} className="block overflow-hidden">
+                <span className={`hero-line block${i === 1 ? " italic font-light" : ""}`}>
+                  {line}
+                </span>
               </span>
-            </span>
-            <span className="block overflow-hidden">
-              <span className="hero-line block">in Abuja.</span>
-            </span>
+            ))}
           </h1>
 
           <p className="hero-sub mt-10 max-w-xl text-lg text-bone/80 leading-relaxed">
-            A 320-unit residential development by Geodata World Services, financed
-            by Zenith Bank and qualified for the MREIF mortgage programme — 9.75%
-            fixed for 20 years.
+            {HERO.subheadline}
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href="/properties"
+              href={HERO.cta1Href}
               className="hero-cta inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-900 dark:text-bone/90 transition-colors duration-400 hover:bg-gold-soft"
             >
-              Explore residences
+              {HERO.cta1Label}
               <span aria-hidden>→</span>
             </a>
             <a
-              href="#progress"
+              href={HERO.cta2Href}
               className="hero-cta inline-flex items-center gap-3 border border-bone/30 px-7 py-4 text-sm font-medium text-bone backdrop-blur-sm transition-colors duration-400 hover:border-bone hover:bg-bone/10"
             >
-              View construction progress
+              {HERO.cta2Label}
             </a>
           </div>
         </div>
 
-        {/* Bottom meta row — small but considered */}
         <div className="hero-meta mt-20 flex items-center justify-between border-t border-bone/15 pt-6">
           <p className="text-[11px] uppercase tracking-eyebrow text-bone/60">
-            RC 688927 · CAC Registered
+            {HERO.footerTag}
           </p>
           <p className="text-[11px] uppercase tracking-eyebrow text-bone/60 hidden md:block">
             Scroll <span className="ml-2">↓</span>

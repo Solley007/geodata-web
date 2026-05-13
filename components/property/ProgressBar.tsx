@@ -1,10 +1,17 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 import clsx from "clsx";
 import { gsap } from "@/lib/gsap";
 import type { Property, PropertyPhase } from "@/lib/property-data";
-import ConstructionGallery from "./ConstructionGallery";
+import {
+  fetchConstructionUpdates,
+  filterUpdates,
+  formatUpdateDate,
+  type ConstructionUpdate,
+} from "@/lib/construction-updates";
+
 interface Props {
   property: Property;
 }
@@ -16,172 +23,194 @@ export default function ProgressBar({ property }: Props) {
   const { currentPhase, percent } = property.progress;
   const currentIndex = PHASES.indexOf(currentPhase);
 
-  // null = no phase selected yet, gallery hidden until user clicks
-  const [selectedPhase, setSelectedPhase] = useState<PropertyPhase | null>(null);
+  const [updates, setUpdates] = useState<ConstructionUpdate[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  // Fetch all updates for THIS property's current phase, newest first
+  useEffect(() => {
+    fetchConstructionUpdates()
+      .then((all) => setUpdates(filterUpdates(all, property.slug, currentPhase)))
+      .finally(() => setLoading(false));
+  }, [property.slug, currentPhase]);
+
+  // Hero = most recent update; recent strip = next 3
+  const hero    = updates[0];
+  const recents = updates.slice(1, 5);
+
+  // Lightbox for any photo
+  const [lightbox, setLightbox] = useState<ConstructionUpdate | null>(null);
+  useEffect(() => {
+    if (!lightbox) return;
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightbox(null); };
+    window.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox]);
+
+  // Animate the progress fill on scroll-in
   useLayoutEffect(() => {
     if (!root.current) return;
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".progress-fill",
+      gsap.fromTo(".progress-fill",
         { scaleX: 0 },
         {
           scaleX: percent / 100,
-          duration: 1.8,
+          duration: 1.6,
           ease: "power3.out",
           scrollTrigger: { trigger: root.current, start: "top 75%", once: true },
         }
       );
-      gsap.from(".progress-marker", {
-        opacity: 0,
-        y: 8,
-        duration: 0.6,
-        ease: "power3.out",
-        stagger: 0.12,
-        scrollTrigger: { trigger: root.current, start: "top 75%" },
-      });
-      gsap.from(".progress-text > *", {
-        y: 16,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: root.current, start: "top 75%" },
-      });
     }, root);
     return () => ctx.revert();
   }, [percent]);
 
   return (
-    <section ref={root} className="bg-bone-100 dark:bg-navy-900 py-24 md:py-32">
+    <section ref={root} id="progress" className="py-20 md:py-24 bg-bone dark:bg-navy-950">
       <div className="container-editorial">
 
-        {/* Header */}
-        <div className="grid grid-cols-12 gap-12 mb-16">
-          <div className="col-span-12 lg:col-span-5 progress-text">
-            <p className="eyebrow mb-6">Construction</p>
-            <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest">
-              Currently in <em className="font-light">{currentPhase}.</em>
-            </h2>
-          </div>
-          <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-6 progress-text">
-            <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
-              Select a phase below to view site photographs from that stage
-              of construction. Updated regularly by the site team.
+        {/* Eyebrow + headline */}
+        <p className="eyebrow text-ink-muted dark:text-bone/50 mb-4">Construction progress</p>
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+          <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest leading-none">
+            On site, {percent}% complete.
+          </h2>
+          {hero && (
+            <p className="text-sm text-ink-muted dark:text-bone/50">
+              Last updated {formatUpdateDate(hero.date)}
             </p>
-          </div>
+          )}
         </div>
 
-        {/* The bar */}
-        <div className="relative pt-16 pb-2">
-          <div className="relative h-[2px] w-full bg-hairline">
-            <div
-              className="progress-fill absolute inset-y-0 left-0 right-0 bg-navy-900 origin-left"
-              style={{ transform: "scaleX(0)" }}
+        {/* HERO — current state of construction */}
+        {loading ? (
+          <div className="aspect-[16/9] bg-hairline/40 dark:bg-white/5 animate-pulse" />
+        ) : hero ? (
+          <button
+            type="button"
+            onClick={() => setLightbox(hero)}
+            className="relative block w-full aspect-[16/9] overflow-hidden group cursor-zoom-in"
+          >
+            <Image
+              src={hero.imageUrl}
+              alt={hero.caption}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1100px"
+              className="object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]"
             />
+            {/* Bottom gradient + caption */}
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-950/85 via-navy-950/30 to-transparent pt-20 pb-6 px-6 md:px-10 text-left">
+              <p className="text-[11px] uppercase tracking-eyebrow text-bone/70">
+                {currentPhase} phase
+              </p>
+              <p className="mt-1 text-bone text-lg md:text-xl font-display tracking-tight">
+                {hero.caption}
+              </p>
+            </div>
+          </button>
+        ) : (
+          <div className="aspect-[16/9] bg-hairline/30 dark:bg-white/5 flex items-center justify-center">
+            <p className="text-ink-muted dark:text-bone/50 text-sm">No construction photos yet for the {currentPhase} phase.</p>
           </div>
+        )}
 
-          {/* Phase markers — now buttons */}
-          <div className="absolute inset-x-0 top-0 grid grid-cols-4">
+        {/* Progress timeline — visual indicator only, not clickable */}
+        <div className="mt-12 md:mt-16">
+          <div className="relative h-px bg-hairline dark:bg-white/10 mb-6">
+            <div className="progress-fill absolute inset-y-0 left-0 right-0 bg-navy-900 dark:bg-gold origin-left" />
+          </div>
+          <div className="grid grid-cols-4 gap-4">
             {PHASES.map((phase, i) => {
-              const reached = i <= currentIndex;
-              const isSelected = selectedPhase === phase;              const isLast = i === PHASES.length - 1;
               const isCurrent = phase === currentPhase;
-
+              const isPast    = i < currentIndex;
               return (
-                <div
-                  key={phase}
-                  className={clsx(
-                    "progress-marker flex flex-col",
-                    isLast ? "items-end" : "items-start"
-                  )}
-                >
-                  <button
-                    onClick={() => setSelectedPhase(phase)}
+                <div key={phase} className="flex flex-col items-start">
+                  <span
                     className={clsx(
-                      "group flex flex-col gap-1 transition-opacity duration-300",
-                      isLast ? "items-end text-right" : "items-start text-left",
-                      !reached && "opacity-50 cursor-default"
+                      "inline-block h-2 w-2 rounded-full mb-3",
+                      isPast    && "bg-navy-900 dark:bg-gold",
+                      isCurrent && "bg-gold ring-4 ring-gold/20 animate-pulse",
+                      !isPast && !isCurrent && "bg-hairline dark:bg-white/15"
                     )}
-                    disabled={!reached}
-                    aria-pressed={isSelected}
-                    aria-label={`View ${phase} phase photos`}
-                  >
-                    <span className="flex items-center gap-2">
-                      <span
-                        className={clsx(
-                          "eyebrow transition-colors duration-300 hidden md:block",
-                          isSelected ? "text-gold-dark" : reached ? "text-navy-900 dark:text-bone/90" : "text-ink-faint dark:text-bone/40"
-                        )}
-                      >
-                        {phase}
-                      </span>
-                      {isCurrent && (
-                        <span className="hidden md:inline-flex items-center gap-1 text-[9px] uppercase tracking-eyebrow text-gold-dark">
-                          <span className="h-1 w-1 rounded-full bg-gold-dark animate-pulse block" />
-                          Live
-                        </span>
-                      )}
-                    </span>
-                    <span
-                      className={clsx(
-                        "font-display text-2xl transition-colors duration-300",
-                        isSelected ? "text-gold-dark" : reached ? "text-navy-950 dark:text-bone" : "text-ink-faint dark:text-bone/40"
-                      )}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {/* Short label — mobile only, won't overlap */}
-                    <span
-                      className={clsx(
-                        "md:hidden text-[9px] uppercase tracking-widest transition-colors duration-300",
-                        isSelected ? "text-gold-dark" : reached ? "text-navy-900 dark:text-bone/90" : "text-ink-faint dark:text-bone/40"
-                      )}
-                    >
-                      {phase.slice(0, 3)}
-                    </span>
-                  </button>
-
-                  {/* Dot — gold when selected */}
-                  <div className="relative w-full mt-4">
-                    <span
-                      className={clsx(
-                        "absolute top-2 h-3 w-3 rounded-full border-2 transition-colors duration-300",
-                        isSelected
-                          ? "bg-gold-dark border-gold-dark"
-                          : reached
-                          ? "bg-navy-900 border-navy-900 dark:border-white/20"
-                          : "bg-bone dark:bg-navy-950 border-hairline dark:border-white/10",
-                        isLast ? "right-0" : "left-0"
-                      )}
-                    />
-                  </div>
+                  />
+                  <p className={clsx(
+                    "text-xs uppercase tracking-widest font-medium",
+                    isCurrent ? "text-navy-950 dark:text-bone" : "text-ink-muted dark:text-bone/40"
+                  )}>
+                    {phase}
+                  </p>
                 </div>
               );
             })}
           </div>
         </div>
 
-        <p className="mt-12 text-sm text-ink-muted dark:text-bone/60">
-          {percent}% complete · Last updated May 2026
-        </p>
-
-        {/* Hint — only show when nothing selected yet */}
-        {!selectedPhase && (
-          <p className="mt-3 text-xs text-ink-faint dark:text-bone/40">
-            ↑ Click any completed phase to see site photographs
-          </p>
-        )}
-
-        {/* Gallery — only renders after a phase tab is clicked */}
-        {selectedPhase && (
-          <ConstructionGallery
-            propertySlug={property.slug}
-            selectedPhase={selectedPhase}
-          />
+        {/* Recent updates strip — quick visual proof of progress */}
+        {recents.length > 0 && (
+          <div className="mt-16">
+            <div className="flex items-center justify-between mb-4">
+              <p className="eyebrow text-ink-muted dark:text-bone/50">Recent updates</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {recents.map((u) => (
+                <button
+                  key={u.id}
+                  onClick={() => setLightbox(u)}
+                  className="group relative aspect-[4/3] overflow-hidden cursor-zoom-in"
+                >
+                  <Image
+                    src={u.imageUrl}
+                    alt={u.caption}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-950/80 to-transparent pt-12 pb-2 px-3">
+                    <p className="text-[10px] text-bone/80 uppercase tracking-widest">
+                      {formatUpdateDate(u.date)}
+                    </p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
         )}
 
       </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] bg-navy-950/95 flex items-center justify-center p-6 md:p-12"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            className="absolute top-6 right-6 text-bone hover:text-gold transition-colors text-3xl leading-none"
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <div className="relative w-full h-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={lightbox.imageUrl}
+              alt={lightbox.caption}
+              className="w-full h-full object-contain"
+            />
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-950/90 to-transparent pt-12 pb-6 px-6 text-center">
+              <p className="text-bone text-lg">{lightbox.caption}</p>
+              <p className="text-bone/60 text-xs mt-1 uppercase tracking-widest">
+                {lightbox.phase} · {formatUpdateDate(lightbox.date)}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

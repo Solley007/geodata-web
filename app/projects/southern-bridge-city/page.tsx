@@ -128,7 +128,7 @@ export default function SouthernBridgeCityPage() {
               { label: "Construction finance", value: "Zenith Bank" },
               { label: "Mortgage guarantee", value: "ARM Investment Managers / MREIF" },
               { label: "Phase 1 units", value: "321 residences" },
-              { label: "Compliance", value: "REDAN Member · CAC RC 688927" },
+              { label: "Compliance", value: "REDAN Member · RC 688927" },
             ].map((f) => (
               <div key={f.label} className="border-r border-b border-hairline dark:border-white/10 p-8">
                 <p className="eyebrow text-ink-faint dark:text-bone/40 mb-3">{f.label}</p>

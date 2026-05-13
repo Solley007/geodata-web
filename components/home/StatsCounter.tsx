@@ -2,32 +2,14 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { COMPANY_FACTS } from "@/lib/about-data";
+import { STATS } from "@/lib/site-content";
 
-// Company-level stats — same source of truth as the About page hero.
-// This ensures both sections always show identical numbers.
-const STATS = [
-  {
-    value: new Date().getFullYear() - COMPANY_FACTS.founded,
-    suffix: "",
-    label: "Years active",
-  },
-  {
-    value: 500,
-    suffix: "+",
-    label: "Units delivered",
-  },
-  {
-    value: 80,
-    suffix: "+",
-    label: "In-house specialists",
-  },
-  {
-    value: 11,
-    suffix: "",
-    label: "Regulatory bodies",
-  },
-];
+// Stats sourced from lib/site-content.ts — edit there to update numbers.
+const STAT_ITEMS = STATS.map((s) => ({
+  value:  parseInt(s.value.replace(/\D/g, ""), 10) || 0,
+  suffix: s.value.replace(/[0-9]/g, ""),
+  label:  s.label,
+}));
 
 export default function StatsCounter() {
   const root = useRef<HTMLElement>(null);
@@ -99,7 +81,7 @@ export default function StatsCounter() {
         <div className="stat-rule h-px w-full bg-bone/15 mb-20 origin-left" />
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6">
-          {STATS.map((s) => (
+          {STAT_ITEMS.map((s) => (
             <div key={s.label} className="border-l border-bone/15 pl-6">
               <p className="font-display text-6xl md:text-7xl tracking-tightest leading-none">
                 <span
@@ -109,7 +91,7 @@ export default function StatsCounter() {
                 >
                   0
                 </span>
-                <span className="text-gold">{s.suffix}</span>
+                
               </p>
               <p className="mt-6 text-sm text-bone/70 leading-relaxed max-w-[220px]">
                 {s.label}

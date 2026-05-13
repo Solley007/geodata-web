@@ -86,9 +86,9 @@ export default function Navbar() {
               width={36}
               height={36}
               priority
-              className="h-9 w-9 shrink-0"
+              className="h-9 w-9 shrink-0 translate-y-0"
             />
-            <span>
+            <span className="leading-none translate-y-1">
               GEODATA<span className="text-gold">.</span>
             </span>
           </Link>

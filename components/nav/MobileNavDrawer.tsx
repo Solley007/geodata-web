@@ -1,4 +1,5 @@
 "use client";
+import { PROPERTY_NAV } from "@/lib/site-content";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -19,14 +20,12 @@ const DEVELOPMENTS = [
   { href: "/projects/mabushi-shopping-complex", name: "Mabushi Shopping Complex", status: "Selling Soon" },
 ];
 
-// Individual units in the Properties expansion
-const PROPERTY_UNITS = [
-  { href: "/properties/4-bed-semi-detached", label: "The Semi-Detached", sub: "4 bed · From ₦180M" },
-  { href: "/properties/4-bed-terrace", label: "The Terrace", sub: "4 bed · From ₦150M" },
-  { href: "/properties/6-bed-terrace", label: "The Six", sub: "6 bed · From ₦220M" },
-  { href: "/properties/5-bed-semi-detached", label: "The Five", sub: "5 bed · From ₦220M" },
-  { href: "/properties/4-bed-block-flats", label: "The Pavilion", sub: "From ₦130M" },
-];
+// Individual units — sourced from lib/site-content.ts, edit prices there
+const PROPERTY_UNITS = PROPERTY_NAV.map((p) => ({
+  href:  `/properties/${p.slug}`,
+  label: p.label,
+  sub:   p.sub,
+}));
 
 // Project categories shown in the Projects expansion
 const PROJECT_CATEGORIES = ["Residential", "Commercial", "Institutional", "Infrastructure"] as const;
@@ -88,7 +87,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
               height={36}
               className="h-9 w-9 shrink-0"
             />
-            <span>
+            <span className="leading-none translate-y-1">
               GEODATA<span className="text-gold">.</span>
             </span>
           </Link>

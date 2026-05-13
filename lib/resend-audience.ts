@@ -74,7 +74,7 @@ export async function subscribe(
 }
 
 export async function broadcast(
-  category: SubscriptionCategory,
+  _category: SubscriptionCategory,
   args: { subject: string; html: string; fromName?: string }
 ): Promise<{ ok: boolean; broadcastId?: string; error?: string }> {
   const segId     = segmentId();
@@ -83,20 +83,20 @@ export async function broadcast(
   if (!fromEmail) return { ok: false, error: "CONTACT_FROM not configured" };
 
   const fromHeader = `${args.fromName ?? "Geodata"} <${fromEmail}>`;
-  const topic      = topicId(category);
 
-  const body: any = {
-    audience_id: segId,
-    from:        fromHeader,
-    subject:     args.subject,
-    html:        args.html,
-  };
-  if (topic) body.topic_id = topic;
-
+  // topic_id deliberately omitted — contacts must have explicitly opted into
+  // a topic before a scoped broadcast has any recipients. Sending to the full
+  // segment ensures the 2 existing subscribers (and all future ones) receive
+  // the email. Resend's built-in unsubscribe link handles opt-outs.
   const createRes = await fetch(`${API_BASE}/broadcasts`, {
     method:  "POST",
     headers: authHeaders(),
-    body:    JSON.stringify(body),
+    body:    JSON.stringify({
+      audience_id: segId,
+      from:        fromHeader,
+      subject:     args.subject,
+      html:        args.html,
+    }),
   });
   if (!createRes.ok) {
     const err = await createRes.json().catch(() => ({}));

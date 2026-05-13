@@ -67,10 +67,10 @@ export default function HomePage() {
       <BriefAboutUs />
       <DevelopmentsStrip />
       <StatsCounter />
-      <ImageCollage />
       <FeaturedProperties />
-      <MreifSection />
+      <ImageCollage />
       <HomeUpdates />
+      <MreifSection />
       <SubscribePopup />
     </>
   );

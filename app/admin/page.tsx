@@ -4,6 +4,65 @@ import { useState, useRef, useEffect } from "react";
 import ConstructionAdmin from "./_components/ConstructionAdmin";
 import SiteUpdatesAdmin  from "./_components/SiteUpdatesAdmin";
 
+function BlogNotifyForm({ pw }: { pw: string }) {
+  const [title,       setTitle]       = useState("");
+  const [slug,        setSlug]        = useState("");
+  const [excerpt,     setExcerpt]     = useState("");
+  const [sending,     setSending]     = useState(false);
+  const [msg,         setMsg]         = useState<{ ok: boolean; text: string } | null>(null);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSending(true); setMsg(null);
+    try {
+      const res  = await fetch("/api/admin/notify-blog", {
+        method: "POST",
+        headers: { "x-admin-password": pw, "Content-Type": "application/json" },
+        body: JSON.stringify({ title, slug, excerpt }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMsg({ ok: true, text: "Notification sent to all blog subscribers." });
+        setTitle(""); setSlug(""); setExcerpt("");
+      } else {
+        setMsg({ ok: false, text: data.error ?? "Failed to send." });
+      }
+    } catch (err: any) {
+      setMsg({ ok: false, text: err.message });
+    } finally { setSending(false); }
+  }
+
+  return (
+    <div className="bg-bone border border-hairline p-8 mt-8">
+      <h2 className="font-display text-2xl text-navy-950 mb-1">Notify blog subscribers</h2>
+      <p className="text-sm text-ink-muted mb-6">After publishing a new blog post, send a notification to all subscribers.</p>
+      <form onSubmit={handleSubmit} className="space-y-4 max-w-lg">
+        <div>
+          <label className="admin-label">Post title</label>
+          <input required value={title} onChange={(e) => setTitle(e.target.value)}
+            placeholder="e.g. Understanding MREIF financing" className="admin-input" />
+        </div>
+        <div>
+          <label className="admin-label">Post slug (URL)</label>
+          <input required value={slug} onChange={(e) => setSlug(e.target.value)}
+            placeholder="e.g. understanding-mreif-financing" className="admin-input" />
+          <p className="text-[11px] text-ink-faint mt-1">The link in the email will be: /blog/<span className="font-mono">{slug || "your-slug"}</span></p>
+        </div>
+        <div>
+          <label className="admin-label">Excerpt (optional)</label>
+          <input value={excerpt} onChange={(e) => setExcerpt(e.target.value)}
+            placeholder="A short preview shown in the email body" className="admin-input" />
+        </div>
+        {msg && <p className={`text-sm ${msg.ok ? "text-green-700" : "text-red-500"}`}>{msg.text}</p>}
+        <button type="submit" disabled={sending}
+          className="bg-navy-900 text-bone px-6 py-3 text-xs uppercase tracking-widest hover:bg-navy-800 transition-colors disabled:opacity-50">
+          {sending ? "Sending…" : "Send notification"}
+        </button>
+      </form>
+    </div>
+  );
+}
+
 type Tab = "site-updates" | "construction";
 
 export default function AdminPage() {
@@ -92,6 +151,7 @@ export default function AdminPage() {
       <div className="max-w-5xl mx-auto px-6 py-10">
         {tab === "site-updates" && <SiteUpdatesAdmin pw={pw.current} />}
         {tab === "construction" && <ConstructionAdmin pw={pw.current} />}
+        <BlogNotifyForm pw={pw.current} />
       </div>
 
       <style jsx global>{`

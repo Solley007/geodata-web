@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
+import { ABOUT } from "@/lib/site-content";
 
 export default function BriefAboutUs() {
   const root = useRef<HTMLElement>(null);
@@ -76,9 +77,7 @@ export default function BriefAboutUs() {
           {/* Right — manifesto headline + mission/vision */}
           <div className="col-span-12 lg:col-span-8">
             <h2 className="about-fade text-display-lg font-display text-bone tracking-tightest leading-[1.05] mb-16">
-              We build places{" "}
-              <em className="font-light">that hold their value</em>{" "}
-              across generations.
+              {ABOUT.manifesto}
             </h2>
 
             <div className="about-rule h-px w-full bg-bone/25 mb-12 origin-left" />
@@ -86,23 +85,12 @@ export default function BriefAboutUs() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="about-fade">
                 <p className="eyebrow text-bone/50 mb-5">Mission</p>
-                {/* PLACEHOLDER MISSION — replace with the company's actual mission statement */}
-                <p className="text-lg leading-relaxed text-bone/80">
-                  To deliver world-class residential, commercial, and
-                  infrastructure projects that meet international standards —
-                  built honestly, finished considerately, and engineered to
-                  last.
-                </p>
+                <p className="text-lg leading-relaxed text-bone/80">{ABOUT.mission}</p>
               </div>
 
               <div className="about-fade">
                 <p className="eyebrow text-bone/50 mb-5">Vision</p>
-                {/* PLACEHOLDER VISION — replace with the company's actual vision statement */}
-                <p className="text-lg leading-relaxed text-bone/80">
-                  To be Nigeria's most trusted real estate developer — known
-                  for the quiet quality of our work and the integrity of every
-                  transaction.
-                </p>
+                <p className="text-lg leading-relaxed text-bone/80">{ABOUT.vision}</p>
               </div>
             </div>
 

@@ -4,44 +4,41 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "@/lib/gsap";
+import { PROPERTY_NAV } from "@/lib/site-content";
 
-// PLACEHOLDER LISTINGS — these mirror your current ₦130M–₦220M lineup
+// Prices come from lib/site-content.ts — edit PROPERTY_NAV to update them.
 const PROPERTIES = [
   {
-    slug: "4-bed-semi-detached",
-    title: "4-Bedroom Semi-Detached",
+    slug:     "4-bed-semi-detached",
+    title:    "4-Bedroom Semi-Detached",
     location: "Southern Bridge City, Idu",
-    price: "₦180,000,000",
-    specs: { beds: 4, baths: 5, area: "340m²" },
-    image:
-      "/properties/4-bed-semi-detached.jpg",
+    price:    PROPERTY_NAV.find((p) => p.slug === "4-bed-semi-detached")?.price ?? "₦180M",
+    specs:    { beds: 4, baths: 5, area: "340m²" },
+    image:    "/properties/4-bed-semi-detached.jpg",
   },
   {
-    slug: "4-bed-terrace",
-    title: "4-Bedroom Terrace Duplex",
+    slug:     "4-bed-terrace",
+    title:    "4-Bedroom Terrace Duplex",
     location: "Southern Bridge City, Idu",
-    price: "₦150,000,000",
-    specs: { beds: 4, baths: 5, area: "240m²" },
-    image:
-      "/properties/4-bed-terrace.jpg",
+    price:    PROPERTY_NAV.find((p) => p.slug === "4-bed-terrace")?.price ?? "₦150M",
+    specs:    { beds: 4, baths: 5, area: "240m²" },
+    image:    "/properties/4-bed-terrace.jpg",
   },
   {
-    slug: "6-bed-terrace",
-    title: "6-Bedroom Terrace",
+    slug:     "6-bed-terrace",
+    title:    "6-Bedroom Terrace",
     location: "Southern Bridge City, Idu",
-    price: "₦220,000,000",
-    specs: { beds: 6, baths: 7, area: "250m²" },
-    image:
-      "/properties/6-bed-terrace.jpg",
+    price:    PROPERTY_NAV.find((p) => p.slug === "6-bed-terrace")?.price ?? "₦220M",
+    specs:    { beds: 6, baths: 7, area: "250m²" },
+    image:    "/properties/6-bed-terrace.jpg",
   },
   {
-    slug: "5-bed-semi-detached",
-    title: "5-Bedroom Semi-Detached",
+    slug:     "5-bed-semi-detached",
+    title:    "5-Bedroom Semi-Detached",
     location: "Southern Bridge City, Idu",
-    price: "₦220,000,000",
-    specs: { beds: 5, baths: 6, area: "440m²" },
-    image:
-      "/properties/5-bed-semi-detached.jpg",
+    price:    PROPERTY_NAV.find((p) => p.slug === "5-bed-semi-detached")?.price ?? "₦220M",
+    specs:    { beds: 5, baths: 6, area: "440m²" },
+    image:    "/properties/5-bed-semi-detached.jpg",
   },
 ];
 

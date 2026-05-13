@@ -5,77 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 import { gsap } from "@/lib/gsap";
-
-/**
- * DevelopmentsStrip
- * ----
- * Curated body-of-work showcase positioned just under the hero.
- * Five developments — three residential complete/ongoing, one historical
- * residential, one commercial. Sales status is the headline data point.
- *
- * Layout: horizontal scroll on all viewports. Desktop shows ~3.5 cards
- * (the partial card 4 signals "more to scroll"). Mobile shows ~1.2 cards
- * (single-card-at-a-time with peek). Snap-scrolling for clean UX.
- */
+import { DEVELOPMENTS } from "@/lib/site-content";
 
 type SalesStatus = "Available" | "Limited" | "Sold Out" | "Selling Soon";
-
-interface Development {
-  slug: string;       // links to /projects/[slug]
-  name: string;
-  location: string;
-  description: string;
-  image: string;
-  status: SalesStatus;
-}
-
-const DEVELOPMENTS: Development[] = [
-  {
-    slug: "southern-bridge-city",
-    name: "Southern Bridge City",
-    location: "Idu, Abuja",
-    description: "321 residences across five typologies. MREIF-eligible mortgages from 9.75% fixed.",
-    image:
-      "/SBC-poster.png",
-    status: "Available",
-  },
-  {
-    slug: "southern-bridge-estate",
-    name: "Southern Bridge Estate",
-    location: "Idu, Abuja",
-    description: "27-residence estate with full infrastructure. Few units remain for sale.",
-    image:
-      "/SBDrone7.webp",
-    status: "Limited",
-  },
-  {
-    slug: "ize-hostel",
-    name: "Ize Hostel",
-    location: "Jabi, Abuja",
-    description: "Luxury student hostel for Nile & Baze students.",
-    image:
-      "/Ize-Hostel.JPG",
-    status: "Selling Soon",
-  },
-  {
-    slug: "country-court-estate",
-    name: "Country Court Estate",
-    location: "Abuja, FCT",
-    description: "24 residences across three typologies. Delivered 2022 and fully occupied.",
-    image:
-      "/DRONECC5.png",
-    status: "Sold Out",
-  },
-  {
-    slug: "sil-estate",
-    name: "SIL Estate",
-    location: "Abuja, FCT",
-    description: "180+ residences. The largest single development Geodata has delivered.",
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85&auto=format&fit=crop",
-    status: "Sold Out",
-  },
-];
 
 export default function DevelopmentsStrip() {
   const root = useRef<HTMLElement>(null);

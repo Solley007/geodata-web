@@ -8,12 +8,12 @@ import Compliance from "@/components/about/Compliance";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "An 18-year track record in Nigerian real estate, infrastructure, and federal construction. CAC RC 688927. REDAN member. Federal government clients including CBN, FIRS, and the Federal Ministry of Lands.",
+    "An 18-year track record in Nigerian real estate, infrastructure, and federal construction. RC 688927. REDAN member. Federal government clients including CBN, FIRS, and the Federal Ministry of Lands.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Geodata World Services",
     description:
-      "Building, slowly, since 2007. CBN and FIRS contractor. REDAN member. CAC RC 688927.",
+      "Building, slowly, since 2007. CBN and FIRS contractor. REDAN member. RC 688927.",
     url: "/about",
     images: [
       {
@@ -61,7 +61,7 @@ const organizationSchema = {
   ],
   identifier: {
     "@type": "PropertyValue",
-    propertyID: "CAC Registration Number",
+    propertyID: "Registration Number",
     value: "RC 688927",
   },
 };

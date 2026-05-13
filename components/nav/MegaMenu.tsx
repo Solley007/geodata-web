@@ -1,4 +1,5 @@
 "use client";
+import { PROPERTY_NAV } from "@/lib/site-content";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -43,25 +44,21 @@ const DEVELOPMENTS = [
   },
 ];
 
-// Two featured unit types from Southern Bridge City — currently on active sale
+// Two featured unit types from Southern Bridge City — pulled from site-content.ts
 const FEATURED_UNITS = [
   {
-    title: "The Semi-Detached",
+    title:   PROPERTY_NAV.find((p) => p.slug === "4-bed-semi-detached")?.label ?? "The Semi-Detached",
     eyebrow: "Southern Bridge City · 4 bed",
-    price: "From ₦180M",
-    // PLACEHOLDER — replace with real photography of the semi-detached typology
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80&auto=format&fit=crop",
-    slug: "4-bed-semi-detached",
+    price:   PROPERTY_NAV.find((p) => p.slug === "4-bed-semi-detached")?.price  ?? "From ₦180M",
+    image:   "/properties/4-bed-semi-detached.jpg",
+    slug:    "4-bed-semi-detached",
   },
   {
-    title: "The Terrace",
+    title:   PROPERTY_NAV.find((p) => p.slug === "4-bed-terrace")?.label ?? "The Terrace",
     eyebrow: "Southern Bridge City · 4 bed",
-    price: "From ₦150M",
-    // PLACEHOLDER — replace with real photography of the terrace typology
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80&auto=format&fit=crop",
-    slug: "4-bed-terrace",
+    price:   PROPERTY_NAV.find((p) => p.slug === "4-bed-terrace")?.price  ?? "From ₦150M",
+    image:   "/properties/4-bed-terrace.jpg",
+    slug:    "4-bed-terrace",
   },
 ];
 
