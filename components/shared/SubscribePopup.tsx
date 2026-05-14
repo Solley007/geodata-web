@@ -22,12 +22,8 @@ function shouldShow(): boolean {
   if (typeof window === "undefined") return false;
   // Don't show inside admin pages
   if (window.location.pathname.startsWith("/admin")) return false;
+  // Only check subscription state — non-subscribers see the popup every visit
   if (localStorage.getItem("geodata_subscribed") === "true") return false;
-  const dismissedAt = localStorage.getItem("geodata_popup_dismissed");
-  if (dismissedAt) {
-    const t = new Date(dismissedAt).getTime();
-    if (!isNaN(t) && Date.now() - t < DISMISS_COOLDOWN) return false;
-  }
   return true;
 }
 
@@ -55,7 +51,6 @@ export default function SubscribePopup() {
   }
 
   function dismiss() {
-    localStorage.setItem("geodata_popup_dismissed", new Date().toISOString());
     setVisible(false);
   }
 

@@ -74,6 +74,10 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   const [updates,      setUpdates]      = useState<SiteUpdate[]>([]);
   const [loadingList,  setLoadingList]  = useState(false);
 
+  // Edit mode — null = creating new; string = editing this update id
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const formTopRef = useRef<HTMLDivElement>(null);
+
   // Notify subscribers state
   const [notifyingId,   setNotifyingId]   = useState<string | null>(null);
   const [notifyMsg,     setNotifyMsg]     = useState<{ id: string; ok: boolean; text: string } | null>(null);
@@ -144,43 +148,73 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   function reset() {
     setFile(null); setGalleryFiles([]); setPreview(null);
     setTitle(""); setBody("");
+    setEditingId(null);
+    setPastedVideoUrl("");
     if (fileRef.current) fileRef.current.value = "";
     setProgress(0);
+  }
+
+  function startEdit(u: SiteUpdate) {
+    setEditingId(u.id);
+    setTitle(u.title);
+    setBody(u.body ?? "");
+    setDate(u.date);
+    setProjectSlug(u.projectSlug);
+    setMediaType(u.mediaType);
+    // Don't pre-fill file inputs (browsers won't allow it). User keeps existing
+    // media by leaving the file pickers empty.
+    setFile(null);
+    setGalleryFiles([]);
+    setPreview(u.coverImage);
+    setPastedVideoUrl(u.videoUrl ?? "");
+    setVideoInputMode(u.mediaType === "video" ? "paste" : "upload");
+    setMsg(null);
+    // Scroll the form into view
+    formTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function cancelEdit() {
+    reset();
+    setMsg(null);
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!title.trim()) { setMsg({ ok: false, text: "Title is required." }); return; }
 
-    // Validate media
-    if (mediaType === "video" && videoInputMode === "paste") {
-      if (!pastedVideoUrl.trim()) { setMsg({ ok: false, text: "Paste a Cloudinary video URL." }); return; }
-    } else if (mediaType === "gallery" && galleryFiles.length === 0) {
-      setMsg({ ok: false, text: "Select at least one photo." }); return;
-    } else if (mediaType !== "gallery" && !file && !(mediaType === "video" && videoInputMode === "paste")) {
-      setMsg({ ok: false, text: `Select a ${mediaType} file.` }); return;
+    const isEditing = editingId !== null;
+
+    // Validate media — only required when CREATING; editing can keep existing media
+    if (!isEditing) {
+      if (mediaType === "video" && videoInputMode === "paste") {
+        if (!pastedVideoUrl.trim()) { setMsg({ ok: false, text: "Paste a Cloudinary video URL." }); return; }
+      } else if (mediaType === "gallery" && galleryFiles.length === 0) {
+        setMsg({ ok: false, text: "Select at least one photo." }); return;
+      } else if (mediaType !== "gallery" && !file && !(mediaType === "video" && videoInputMode === "paste")) {
+        setMsg({ ok: false, text: `Select a ${mediaType} file.` }); return;
+      }
     }
 
     setUploading(true); setMsg(null); setProgress(0);
     try {
-      let coverImage = "";
-      let videoUrl: string | undefined;
-      let gallery: string[] | undefined;
+      // Media handling: undefined means "keep existing" when editing
+      let coverImage: string | undefined;
+      let videoUrl:   string | undefined;
+      let gallery:    string[] | undefined;
 
-      if (mediaType === "photo") {
-        const result = await uploadToCloudinary(file!, setProgress);
+      if (mediaType === "photo" && file) {
+        const result = await uploadToCloudinary(file, setProgress);
         coverImage = result.secure_url;
       } else if (mediaType === "video") {
-        if (videoInputMode === "paste") {
-          // User pasted an existing Cloudinary URL
+        if (videoInputMode === "paste" && pastedVideoUrl.trim()) {
           videoUrl   = pastedVideoUrl.trim();
           coverImage = cloudinaryVideoPoster(videoUrl);
-        } else {
-          const result = await uploadToCloudinary(file!, setProgress);
+        } else if (videoInputMode === "upload" && file) {
+          const result = await uploadToCloudinary(file, setProgress);
           videoUrl   = result.secure_url;
           coverImage = cloudinaryVideoPoster(result.secure_url);
         }
-      } else if (mediaType === "gallery") {
+      } else if (mediaType === "gallery" && galleryFiles.length > 0) {
         const urls: string[] = [];
         for (let i = 0; i < galleryFiles.length; i++) {
           const result = await uploadToCloudinary(galleryFiles[i], (p) => {
@@ -192,19 +226,23 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
         coverImage = urls[0];
       }
 
-      // Save metadata
+      // Build payload — omit media fields that are undefined so the PUT handler
+      // keeps the existing values
+      const payload: any = { title, date, body, projectSlug, mediaType };
+      if (coverImage !== undefined) payload.coverImage = coverImage;
+      if (videoUrl   !== undefined) payload.videoUrl   = videoUrl;
+      if (gallery    !== undefined) payload.gallery    = gallery;
+      if (isEditing) payload.id = editingId;
+
       const res = await fetch("/api/admin/site-updates", {
-        method: "POST",
+        method: isEditing ? "PUT" : "POST",
         headers: { "x-admin-password": pw, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title, date, body, projectSlug, mediaType, coverImage, videoUrl, gallery,
-        }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (res.ok) {
-        setMsg({ ok: true, text: "Update published. Commit and push to deploy." });
+        setMsg({ ok: true, text: isEditing ? "Update edited. Commit and push to deploy." : "Update published. Commit and push to deploy." });
         reset();
-        setPastedVideoUrl("");
         fetchList();
       } else {
         setMsg({ ok: false, text: data.error ?? "Failed to save metadata." });
@@ -231,9 +269,26 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
       {/* Form */}
-      <div className="bg-bone border border-hairline p-8">
-        <h2 className="font-display text-2xl text-navy-950 mb-2">Publish site update</h2>
-        <p className="text-xs text-ink-muted mb-7">Photos and videos appear on the homepage, the Updates feed, and the project page.</p>
+      <div ref={formTopRef} className={`bg-bone border p-8 ${editingId ? "border-gold" : "border-hairline"}`}>
+        <div className="flex items-start justify-between gap-4 mb-2">
+          <h2 className="font-display text-2xl text-navy-950">
+            {editingId ? "Edit site update" : "Publish site update"}
+          </h2>
+          {editingId && (
+            <button
+              type="button"
+              onClick={cancelEdit}
+              className="text-xs uppercase tracking-widest text-ink-muted hover:text-navy-950 transition-colors px-3 py-1.5 border border-hairline"
+            >
+              Cancel edit
+            </button>
+          )}
+        </div>
+        <p className="text-xs text-ink-muted mb-7">
+          {editingId
+            ? "Update title, body, date, or replace the media. Leave file pickers empty to keep existing media."
+            : "Photos and videos appear on the homepage, the Updates feed, and the project page."}
+        </p>
 
         {!cloudinaryReady && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 text-xs text-red-700">
@@ -383,8 +438,12 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
           {msg && <p className={`text-sm ${msg.ok ? "text-green-700" : "text-red-500"}`}>{msg.text}</p>}
 
           <button type="submit" disabled={uploading || !cloudinaryReady}
-            className="w-full bg-navy-900 text-bone py-3 text-xs uppercase tracking-widest hover:bg-navy-800 transition-colors disabled:opacity-50">
-            {uploading ? "Publishing…" : "Publish update"}
+            className={`w-full text-bone py-3 text-xs uppercase tracking-widest transition-colors disabled:opacity-50 ${
+              editingId ? "bg-gold-dark hover:bg-gold text-navy-950" : "bg-navy-900 hover:bg-navy-800"
+            }`}>
+            {uploading
+              ? (editingId ? "Saving…" : "Publishing…")
+              : (editingId ? "Save changes" : "Publish update")}
           </button>
         </form>
       </div>
@@ -421,7 +480,18 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
                       <p className="text-sm text-navy-950 leading-snug truncate font-medium">{u.title}</p>
                       {u.body && <p className="text-xs text-ink-muted leading-snug line-clamp-1 mt-1">{u.body}</p>}
                     </div>
-                    <button onClick={() => handleDelete(u.id)} className="shrink-0 text-red-400 hover:text-red-600 text-sm px-2" title="Delete">✕</button>
+                    <div className="shrink-0 flex items-start gap-1">
+                      <button
+                        onClick={() => startEdit(u)}
+                        className="text-navy-900 hover:text-gold-dark text-sm px-2"
+                        title="Edit"
+                      >✎</button>
+                      <button
+                        onClick={() => handleDelete(u.id)}
+                        className="text-red-400 hover:text-red-600 text-sm px-2"
+                        title="Delete"
+                      >✕</button>
+                    </div>
                   </div>
                   {/* Notify action row */}
                   <div className="mt-3 pt-3 border-t border-hairline flex items-center justify-between gap-3">

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { SiteUpdate } from "@/lib/site-updates-types";
+import { cloudinaryHLSUrl } from "@/lib/site-updates-types";
+import HLSVideoPlayer from "@/components/shared/HLSVideoPlayer";
 
 export default function UpdateMedia({ update }: { update: SiteUpdate }) {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
@@ -10,12 +12,11 @@ export default function UpdateMedia({ update }: { update: SiteUpdate }) {
   if (update.mediaType === "video" && update.videoUrl) {
     return (
       <div className="relative w-full aspect-video bg-navy-950 overflow-hidden">
-        <video
-          src={update.videoUrl}
+        <HLSVideoPlayer
+          src={cloudinaryHLSUrl(update.videoUrl)}
+          fallbackSrc={update.videoUrl}
           poster={update.coverImage}
           controls
-          playsInline
-          preload="metadata"
           className="absolute inset-0 w-full h-full object-contain bg-black"
         />
       </div>

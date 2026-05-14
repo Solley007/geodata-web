@@ -53,3 +53,17 @@ export function cloudinaryVideoPoster(videoUrl: string): string {
     .replace(/\.(mp4|mov|webm|avi)$/i, ".jpg")
     .replace("/upload/", "/upload/so_0/");
 }
+
+/**
+ * Convert a Cloudinary video URL to an HLS adaptive bitrate manifest URL.
+ * Uses Cloudinary's sp_hd streaming profile — serves 360p / 480p / 720p
+ * and the player picks the right quality automatically based on network speed.
+ * Falls back gracefully: returns the original URL unchanged for non-Cloudinary
+ * sources so the player can still play them as regular MP4.
+ */
+export function cloudinaryHLSUrl(videoUrl: string): string {
+  if (!videoUrl || !videoUrl.includes("cloudinary.com")) return videoUrl;
+  return videoUrl
+    .replace("/upload/", "/upload/sp_hd/")
+    .replace(/\.(mp4|mov|webm|avi|mkv)(\?.*)?$/i, ".m3u8");
+}

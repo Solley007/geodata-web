@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import HLSVideoPlayer from "@/components/shared/HLSVideoPlayer";
+import { cloudinaryHLSUrl } from "@/lib/site-updates-types";
+import Image from "next/image";
 
 export interface GalleryItem {
   type:    "photo" | "video";
@@ -109,7 +112,14 @@ export default function ProjectGallery({ items, eyebrow = "Gallery", title = "Se
 
           <div className="relative max-w-6xl w-full max-h-full" onClick={(e) => e.stopPropagation()}>
             {current.type === "video" ? (
-              <video src={current.src} controls autoPlay className="max-h-[85vh] w-full" poster={current.poster} />
+              <HLSVideoPlayer
+                src={cloudinaryHLSUrl(current.src)}
+                fallbackSrc={current.src}
+                poster={current.poster}
+                controls
+                autoPlay
+                className="max-h-[85vh] w-full"
+              />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={current.src} alt={current.caption ?? ""} className="max-h-[85vh] mx-auto object-contain" />
