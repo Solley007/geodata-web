@@ -386,32 +386,32 @@ const ALL_PROPERTIES: Property[] = [
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7270/front-elevation.png",
         alt: "The Six — four-storey facade at Southern Bridge City",
         ratio: "tall",
       },
       {
-        src: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7270/site-masterplan.png",
         alt: "Double-height living space",
         ratio: "wide",
       },
       {
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7270/street-view.png",
         alt: "Open kitchen and breakfast room",
         ratio: "square",
       },
       {
-        src: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7270/rear_elevation_3d.png",
         alt: "Ground floor home study",
         ratio: "tall",
       },
       {
-        src: "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7270/ground-floor.png",
         alt: "Principal master suite — third floor",
         ratio: "wide",
       },
       {
-        src: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7270/first-floor.png",
         alt: "Rear garden with mature planting",
         ratio: "square",
       },
@@ -485,34 +485,29 @@ const ALL_PROPERTIES: Property[] = [
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7261/front-elevation.png",
         alt: "The Five — semi-detached facade with side courtyard",
         ratio: "tall",
       },
       {
-        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7261/site-masterplan.png",
         alt: "Triple-aspect living and dining space",
         ratio: "wide",
       },
       {
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7261/roof-massing.png",
         alt: "Ground-floor guest suite",
         ratio: "square",
       },
       {
-        src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7261/ground-floor.png",
         alt: "Master suite with freestanding bath",
-        ratio: "tall",
+        ratio: "square",
       },
       {
-        src: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7261/first-floor.png",
         alt: "Private roof terrace off the master level",
         ratio: "wide",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1600&q=85&auto=format&fit=crop",
-        alt: "Side courtyard garden accessed from kitchen",
-        ratio: "square",
       },
     ],
     // PLACEHOLDER — add images to /public/floor-plans/5-bed-semi-detached/
@@ -584,32 +579,37 @@ const ALL_PROPERTIES: Property[] = [
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7266/approach-elevation.png",
         alt: "The Pavilion block facade at Southern Bridge City",
         ratio: "tall",
       },
       {
-        src: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7266/site-masterplan.png",
         alt: "Open-plan living and dining with balcony",
         ratio: "wide",
       },
       {
-        src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7266/rear-elevation.png",
         alt: "Kitchen with integrated appliances",
         ratio: "square",
       },
       {
-        src: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7266/roof-massing.png",
         alt: "Master bedroom with east-facing balcony",
         ratio: "tall",
       },
       {
-        src: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7266/street-view.png",
         alt: "Living balcony overlooking estate garden",
         ratio: "wide",
       },
       {
-        src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7266/ground-floor.png",
+        alt: "Living balcony overlooking estate garden",
+        ratio: "square",
+      },
+      {
+        src: "/properties/7266/typical-upper-floor.png",
         alt: "Bathroom with thermostatic fittings",
         ratio: "square",
       },
