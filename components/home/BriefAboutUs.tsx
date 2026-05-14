@@ -51,27 +51,17 @@ export default function BriefAboutUs() {
       <div className="relative z-10 container-editorial">
         <div className="grid grid-cols-12 gap-12">
 
-          {/* Left — cube mark + wordmark */}
+          {/* Left — full logo */}
           <div className="col-span-12 lg:col-span-4 about-fade">
             <p className="eyebrow text-bone/60 mb-8">About Geodata</p>
-            <div className="flex items-center gap-3 mb-10">
-              <Image
-                src="/geodata-mark.png"
-                alt=""
-                width={52}
-                height={52}
-                className="h-13 w-13 shrink-0"
-                aria-hidden
-              />
-              <div>
-                <p className="font-brand text-2xl text-bone tracking-tight leading-none">
-                  GEODATA<span className="text-gold">.</span>
-                </p>
-                <p className="text-[11px] uppercase tracking-widest text-bone/55 mt-1">
-                  World Services Limited
-                </p>
-              </div>
-            </div>
+            <Image
+              src="/geodata-full-logo-white.png"
+              alt="Geodata World Services Limited"
+              width={300}
+              height={114}
+              className="h-auto w-auto max-w-[300px] mb-10"
+              priority
+            />
           </div>
 
           {/* Right — manifesto headline + mission/vision */}

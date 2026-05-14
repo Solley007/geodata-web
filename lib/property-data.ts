@@ -292,34 +292,35 @@ const ALL_PROPERTIES: Property[] = [
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7253/wide-view.png",
         alt: "The Terrace street frontage at Southern Bridge City",
         ratio: "tall",
       },
       {
-        src: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7253/7253-full-view.png",
         alt: "Open-plan kitchen and dining area",
         ratio: "wide",
       },
+
       {
-        src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=85&auto=format&fit=crop",
-        alt: "Living room with garden aspect",
-        ratio: "square",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=1600&q=85&auto=format&fit=crop",
-        alt: "Master bedroom top floor suite",
-        ratio: "tall",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7253/elevation-approach.png",
         alt: "Rear garden with terrace paving",
         ratio: "wide",
       },
       {
-        src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1600&q=85&auto=format&fit=crop",
+        src: "/properties/7253/7253-estate-view.png",
         alt: "Bathroom with full-height tile",
         ratio: "square",
+      },
+      {
+        src: "/properties/7253/ground-floor.png",
+        alt: "Living room with garden aspect",
+        ratio: "square",
+      },
+      {
+        src: "/properties/7253/first-floor.png",
+        alt: "Master bedroom top floor suite",
+        ratio: "tall",
       },
     ],
     // PLACEHOLDER — add images to /public/floor-plans/4-bed-terrace/

@@ -23,26 +23,13 @@ export default function Footer() {
         {/* Middle */}
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-12 py-12">
           <div className="col-span-2 lg:col-span-4">
-            <div className="flex items-center gap-3 mb-6">
-              <img
-                src="/geodata-mark.png"
-                alt=""
-                width={44}
-                height={44}
-                className="h-11 w-11 shrink-0"
-                aria-hidden="true"
-              />
-              <div>
-                <p className="font-brand text-xl text-bone tracking-tight leading-none">
-                  GEODATA<span className="text-gold">.</span>
-                </p>
-                <p className="text-[11px] text-bone/50 uppercase tracking-widest mt-1">
-                  World Services Limited
-                </p>
-              </div>
-            </div>
-            <p className="text-sm text-bone/60 leading-relaxed max-w-xs">{COMPANY.tagline}</p>
-            <p className="mt-1 text-xs text-bone/40">{COMPANY.rc}</p>
+            <img
+              src="/geodata-full-logo-white.png"
+              alt="Geodata World Services Limited"
+              width={260}
+              height={99}
+              className="h-auto w-auto max-w-[240px]"
+            />
           </div>
 
           <div>

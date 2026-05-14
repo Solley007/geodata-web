@@ -23,9 +23,10 @@ export default function ConstructionAdmin({ pw }: { pw: string }) {
   const [slug,         setSlug]         = useState(PROPERTIES[0].slug);
   const [date,         setDate]         = useState(today());
   const [caption,      setCaption]      = useState("");
-  const [file,         setFile]         = useState<File | null>(null);
-  const [preview,      setPreview]      = useState<string | null>(null);
+  const [files,        setFiles]        = useState<File[]>([]);
+  const [previews,     setPreviews]     = useState<string[]>([]);
   const [uploading,    setUploading]    = useState(false);
+  const [progress,     setProgress]     = useState({ done: 0, total: 0 });
   const [msg,          setMsg]          = useState<{ ok: boolean; text: string } | null>(null);
 
   const [updates,      setUpdates]      = useState<Update[]>([]);
@@ -45,35 +46,66 @@ export default function ConstructionAdmin({ pw }: { pw: string }) {
 
   useEffect(() => { fetchUpdates(); }, [fetchUpdates]);
 
-  function handleFilePick(f: File) {
-    setFile(f);
-    const reader = new FileReader();
-    reader.onload = (e) => setPreview(e.target?.result as string);
-    reader.readAsDataURL(f);
+  function handleFilePick(fileList: FileList | File[]) {
+    const arr = Array.from(fileList).filter((f) => f.type.startsWith("image/"));
+    if (arr.length === 0) return;
+    setFiles(arr);
+    // Generate previews for all
+    Promise.all(
+      arr.map((f) => new Promise<string>((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target?.result as string);
+        reader.readAsDataURL(f);
+      }))
+    ).then(setPreviews);
   }
 
   async function handleUpload(e: React.FormEvent) {
     e.preventDefault();
-    if (!file) { setMsg({ ok: false, text: "Select a photo first." }); return; }
-    setUploading(true); setMsg(null);
-    try {
-      const fd = new FormData();
-      fd.append("file", file); fd.append("phase", phase);
-      fd.append("date", date); fd.append("caption", caption);
-      fd.append("propertySlug", slug);
-      const res  = await fetch("/api/admin/upload", {
-        method: "POST", headers: { "x-admin-password": pw }, body: fd,
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setMsg({ ok: true, text: "Photo uploaded and saved to codebase." });
-        setFile(null); setPreview(null); setCaption("");
-        if (fileRef.current) fileRef.current.value = "";
-        fetchUpdates();
-      } else setMsg({ ok: false, text: data.error ?? "Upload failed." });
-    } catch (err: any) {
-      setMsg({ ok: false, text: err.message });
-    } finally { setUploading(false); }
+    if (files.length === 0) { setMsg({ ok: false, text: "Select at least one photo." }); return; }
+    setUploading(true); setMsg(null); setProgress({ done: 0, total: files.length });
+
+    let succeeded = 0;
+    let failedAt: string | null = null;
+
+    for (let i = 0; i < files.length; i++) {
+      const f = files[i];
+      try {
+        const fd = new FormData();
+        fd.append("file", f);
+        fd.append("phase", phase);
+        fd.append("date", date);
+        // Add an index to caption when multiple files share one caption
+        fd.append("caption", caption + (files.length > 1 && caption ? ` (${i + 1}/${files.length})` : ""));
+        fd.append("propertySlug", slug);
+
+        const res = await fetch("/api/admin/upload", {
+          method:  "POST",
+          headers: { "x-admin-password": pw },
+          body:    fd,
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          failedAt = `${f.name}: ${data.error ?? "upload failed"}`;
+          break;
+        }
+        succeeded++;
+        setProgress({ done: succeeded, total: files.length });
+      } catch (err: any) {
+        failedAt = `${f.name}: ${err.message}`;
+        break;
+      }
+    }
+
+    if (failedAt) {
+      setMsg({ ok: false, text: `Uploaded ${succeeded} of ${files.length}. Stopped at ${failedAt}` });
+    } else {
+      setMsg({ ok: true, text: `${succeeded} ${succeeded === 1 ? "photo" : "photos"} uploaded. Commit and push to deploy.` });
+      setFiles([]); setPreviews([]); setCaption("");
+      if (fileRef.current) fileRef.current.value = "";
+    }
+    fetchUpdates();
+    setUploading(false);
   }
 
   async function handleDelete(id: string) {
@@ -122,33 +154,53 @@ export default function ConstructionAdmin({ pw }: { pw: string }) {
           </div>
 
           <div>
-            <label className="admin-label">Photo</label>
+            <label className="admin-label">Photos</label>
             <div
-              className="border-2 border-dashed border-hairline hover:border-navy-900 transition-colors cursor-pointer text-center p-6"
+              className="border-2 border-dashed border-hairline hover:border-navy-900 transition-colors cursor-pointer p-6"
               onClick={() => fileRef.current?.click()}
               onDragOver={(e) => e.preventDefault()}
-              onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f) handleFilePick(f); }}
+              onDrop={(e) => { e.preventDefault(); if (e.dataTransfer.files.length) handleFilePick(e.dataTransfer.files); }}
             >
-              {preview ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={preview} alt="preview" className="max-h-40 mx-auto object-contain" />
+              {previews.length > 0 ? (
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  {previews.map((src, i) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img key={i} src={src} alt={`preview ${i + 1}`} className="aspect-square w-full object-cover" />
+                  ))}
+                </div>
               ) : (
-                <div>
-                  <p className="text-ink-muted text-sm">Drag & drop or click to select</p>
-                  <p className="text-xs text-ink-faint mt-1">JPG, PNG, WebP</p>
+                <div className="text-center">
+                  <p className="text-ink-muted text-sm">Drag &amp; drop or click to select</p>
+                  <p className="text-xs text-ink-faint mt-1">JPG, PNG, WebP — select multiple at once</p>
                 </div>
               )}
             </div>
-            <input ref={fileRef} type="file" accept="image/*" className="hidden"
-              onChange={(e) => { const f = e.target.files?.[0]; if (f) handleFilePick(f); }} />
-            {file && <p className="mt-2 text-xs text-ink-muted">{file.name} ({(file.size / 1024).toFixed(0)} KB)</p>}
+            <input ref={fileRef} type="file" accept="image/*" multiple className="hidden"
+              onChange={(e) => { if (e.target.files) handleFilePick(e.target.files); }} />
+            {files.length > 0 && (
+              <p className="mt-2 text-xs text-ink-muted">
+                {files.length} {files.length === 1 ? "photo" : "photos"} selected ({(files.reduce((s, f) => s + f.size, 0) / 1024 / 1024).toFixed(2)} MB total)
+              </p>
+            )}
+            {uploading && progress.total > 0 && (
+              <div className="mt-3">
+                <div className="text-xs text-ink-muted mb-1">Uploading {progress.done} of {progress.total}…</div>
+                <div className="h-1 bg-hairline overflow-hidden">
+                  <div className="h-full bg-navy-900 transition-all" style={{ width: `${(progress.done / progress.total) * 100}%` }} />
+                </div>
+              </div>
+            )}
           </div>
 
           {msg && <p className={`text-sm ${msg.ok ? "text-green-700" : "text-red-500"}`}>{msg.text}</p>}
 
-          <button type="submit" disabled={uploading}
+          <button type="submit" disabled={uploading || files.length === 0}
             className="w-full bg-navy-900 text-bone py-3 text-xs uppercase tracking-widest hover:bg-navy-800 transition-colors disabled:opacity-50">
-            {uploading ? "Uploading…" : "Upload photo"}
+            {uploading
+              ? `Uploading ${progress.done}/${progress.total}…`
+              : files.length > 1
+                ? `Upload ${files.length} photos`
+                : "Upload photo"}
           </button>
         </form>
 

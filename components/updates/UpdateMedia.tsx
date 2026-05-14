@@ -47,41 +47,26 @@ export default function UpdateMedia({ update }: { update: SiteUpdate }) {
           ))}
         </div>
 
-        {/* Lightbox */}
         {lightboxIdx !== null && (
           <div
             className="fixed inset-0 z-[150] bg-navy-950/95 flex items-center justify-center p-6"
             onClick={() => setLightboxIdx(null)}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={update.gallery[lightboxIdx]}
-              alt=""
-              className="max-h-full max-w-full object-contain"
-            />
-            <button
-              onClick={() => setLightboxIdx(null)}
-              className="absolute top-6 right-6 text-bone text-2xl"
-              aria-label="Close"
-            >
-              ✕
-            </button>
+            <img src={update.gallery[lightboxIdx]} alt="" className="max-h-full max-w-full object-contain" />
+            <button onClick={() => setLightboxIdx(null)} className="absolute top-6 right-6 text-bone text-2xl" aria-label="Close">✕</button>
             {update.gallery.length > 1 && (
               <>
                 <button
                   onClick={(e) => { e.stopPropagation(); setLightboxIdx((lightboxIdx - 1 + update.gallery!.length) % update.gallery!.length); }}
                   className="absolute left-6 top-1/2 -translate-y-1/2 text-bone text-2xl bg-navy-950/50 w-10 h-10 flex items-center justify-center"
                   aria-label="Previous"
-                >
-                  ←
-                </button>
+                >←</button>
                 <button
                   onClick={(e) => { e.stopPropagation(); setLightboxIdx((lightboxIdx + 1) % update.gallery!.length); }}
                   className="absolute right-6 top-1/2 -translate-y-1/2 text-bone text-2xl bg-navy-950/50 w-10 h-10 flex items-center justify-center"
                   aria-label="Next"
-                >
-                  →
-                </button>
+                >→</button>
               </>
             )}
           </div>
@@ -90,7 +75,6 @@ export default function UpdateMedia({ update }: { update: SiteUpdate }) {
     );
   }
 
-  // Single photo
   return (
     <div className="relative w-full aspect-[16/9] bg-navy-100 dark:bg-navy-900 overflow-hidden">
       <Image

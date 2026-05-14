@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     location: "Idu, Abuja",
     scope: "321 units · five housing typologies · M&E infrastructure",
     coverImage:
-      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=2000&q=85&auto=format&fit=crop",
+      "/SBC-poster.png",
     gallery: [
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop", alt: "Semi-detached residence facade" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop", alt: "Living area with morning light" },
@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
     location: "Owerri, Imo State",
     scope: "Mixed housing types",
     coverImage:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=85&auto=format&fit=crop",
+      "/SBC-poster.png",
     gallery: [
       { src: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1600&q=85&auto=format&fit=crop", alt: "Site overview" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop", alt: "Construction progress" },
@@ -133,7 +133,7 @@ export const PROJECTS: Project[] = [
     location: "Idu, Abuja",
     scope: "27 units · full infrastructure",
     coverImage:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=2000&q=85&auto=format&fit=crop",
+      "",
     gallery: [
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop", alt: "Completed residence interior" },
       { src: "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?w=1600&q=85&auto=format&fit=crop", alt: "Bedroom suite" },

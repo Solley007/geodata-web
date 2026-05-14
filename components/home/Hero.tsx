@@ -1,173 +1,252 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap, motionMatch } from "@/lib/gsap";
-import { HERO, COMPANY } from "@/lib/site-content";
+import { HERO_SLIDES, type HeroSlide } from "@/lib/site-content";
+
+const DEFAULT_DURATION = 6000;
 
 export default function Hero() {
-  const root = useRef<HTMLElement>(null);
+  const [current,  setCurrent]  = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [paused,   setPaused]   = useState(false);
+  const [loaded,   setLoaded]   = useState(false);
 
-  useLayoutEffect(() => {
-    if (!root.current) return;
+  const containerRef = useRef<HTMLElement>(null);
+  const textRef      = useRef<HTMLDivElement>(null);
+  const timerRef     = useRef<ReturnType<typeof setInterval> | null>(null);
+  const startRef     = useRef<number>(0);
+  const pausedAtRef  = useRef<number>(0);
 
-    // gsap.context scopes selectors to the hero and gives us automatic
-    // cleanup — non-negotiable in React or animations will multiply on
-    // route changes and HMR.
-    const ctx = gsap.context(() => {
-      motionMatch({
-        // Full motion — staggered headline reveal + slow ken-burns drift
-        full: () => {
-          const tl = gsap.timeline({
-            defaults: { ease: "power3.out" },
-            delay: 0.1,
-          });
+  const slide = HERO_SLIDES[current];
+  const total = HERO_SLIDES.length;
 
-          tl.from(".hero-eyebrow", {
-            y: 20,
-            opacity: 0,
-            duration: 0.8,
-          })
-            .from(
-              ".hero-line",
-              {
-                yPercent: 110,
-                duration: 1.1,
-                stagger: 0.08,
-                ease: "expo.out",
-              },
-              "-=0.5"
-            )
-            .from(
-              ".hero-sub",
-              {
-                y: 16,
-                opacity: 0,
-                duration: 0.8,
-              },
-              "-=0.6"
-            )
-            .from(
-              ".hero-cta",
-              {
-                y: 12,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.08,
-              },
-              "-=0.5"
-            )
-            .from(
-              ".hero-meta",
-              {
-                opacity: 0,
-                duration: 0.8,
-              },
-              "-=0.4"
-            );
+  // ── Auto-advance timer ──────────────────────────────────────────────────
+  const startTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    startRef.current = Date.now() - pausedAtRef.current;
+    const dur = (slide.duration ?? DEFAULT_DURATION);
 
-          // Slow Ken Burns drift on the background — desktop only.
-          // On mobile, scale() transforms can escape overflow containment
-          // in some Chromium/WebKit versions, causing horizontal overflow.
-          const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-          if (isDesktop) {
-            gsap.to(".hero-bg", {
-              scale: 1.08,
-              duration: 18,
-              ease: "none",
-              repeat: -1,
-              yoyo: true,
-            });
-          }
-        },
+    timerRef.current = setInterval(() => {
+      const elapsed = Date.now() - startRef.current;
+      const p = Math.min((elapsed / dur) * 100, 100);
+      setProgress(p);
+      if (p >= 100) {
+        pausedAtRef.current = 0;
+        setCurrent((c) => (c + 1) % total);
+      }
+    }, 50);
+  }, [slide, total]);
 
-        // Reduced motion — gentle fades only, no transforms or ken-burns
-        reduced: () => {
-          gsap.set([".hero-line"], { yPercent: 0 });
-          const tl = gsap.timeline({ defaults: { ease: "none" }, delay: 0.05 });
-          tl.from(".hero-eyebrow", { opacity: 0, duration: 0.3 })
-            .from(".hero-line", { opacity: 0, duration: 0.4, stagger: 0.04 }, "-=0.1")
-            .from(".hero-sub", { opacity: 0, duration: 0.3 }, "-=0.2")
-            .from(".hero-cta", { opacity: 0, duration: 0.3, stagger: 0.04 }, "-=0.2")
-            .from(".hero-meta", { opacity: 0, duration: 0.3 }, "-=0.1");
-        },
-      });
-    }, root);
+  useEffect(() => {
+    if (!paused) {
+      startTimer();
+    } else {
+      if (timerRef.current) clearInterval(timerRef.current);
+      pausedAtRef.current = Date.now() - startRef.current;
+    }
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [paused, startTimer]);
 
-    return () => ctx.revert();
+  // Reset timer on slide change
+  useEffect(() => {
+    setProgress(0);
+    pausedAtRef.current = 0;
+  }, [current]);
+
+  // ── Text entrance animation ─────────────────────────────────────────────
+  const animateText = useCallback(() => {
+    if (!textRef.current) return;
+    const els = textRef.current.querySelectorAll(".slide-anim");
+    motionMatch({
+      full: () => {
+        gsap.fromTo(els,
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: "power3.out", clearProps: "all" }
+        );
+      },
+      reduced: () => {
+        gsap.set(els, { opacity: 1, y: 0 });
+      },
+    });
   }, []);
+
+  // Initial mount animation
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    const ctx = gsap.context(() => {
+      // Backgrounds use CSS transitions for slide changes — no GSAP here,
+      // because GSAP from() leaves inline opacity styles that block CSS transitions
+      setTimeout(animateText, 100);
+    }, containerRef);
+    setLoaded(true);
+    return () => ctx.revert();
+  }, [animateText]);
+
+  // Slide change animation
+  useEffect(() => {
+    if (!loaded) return;
+    animateText();
+  }, [current, loaded, animateText]);
+
+  // ── Helpers ─────────────────────────────────────────────────────────────
+  function goTo(i: number) {
+    if (i === current) return;
+    pausedAtRef.current = 0;
+    setCurrent(i);
+  }
 
   return (
     <section
-      ref={root}
-      className="relative h-[100svh] min-h-[640px] w-full overflow-hidden"
+      ref={containerRef}
+      className="relative w-full h-screen min-h-[640px] overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
-      {/* Background — video plate with image fallback.
-          Drop your real walkthrough/montage video at /public/hero-video.mp4
-          (recommended: 1920x1080, H.264 MP4, under 5MB, 15-30 second loop).
-          The poster image shows while the video loads or if it fails.
-          clip-path: inset(0) is here as belt-and-suspenders — it clips
-          children even when will-change:transform causes overflow:hidden
-          to fail in some Chromium/WebKit versions. */}
-      <div className="hero-bg absolute inset-0 will-change-transform [clip-path:inset(0)]">
-        <video
-          autoPlay muted loop playsInline disablePictureInPicture
-          poster={HERO.videoPoster}
-          className="absolute inset-0 h-full w-full object-cover"
-          preload="metadata"
-        >
-          <source src={HERO.videoUrl} type="video/mp4" />
-          Your browser doesn't support video. Please upgrade.
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(10,22,40,0.45)_100%)]" />
-      </div>
+      {/* ── Backgrounds — all stacked, only active one visible ───────── */}
+      {HERO_SLIDES.map((s, i) => (
+        <SlideBackground key={i} slide={s} active={i === current} />
+      ))}
 
-      <div className="relative z-10 container-editorial flex h-full flex-col justify-end pt-24 md:pt-32 pb-20 md:pb-28">
-        <div className="max-w-5xl">
-          <p className="hero-eyebrow eyebrow text-bone/85 mb-8">
-            {HERO.eyebrow}
-          </p>
+      {/* ── Dark overlay ─────────────────────────────────────────────── */}
+      {/* Overlays for legibility on any background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/55 via-navy-950/40 to-navy-950/85 pointer-events-none z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/55 via-navy-950/20 to-transparent pointer-events-none z-[2]" />
+
+      {/* ── Content ──────────────────────────────────────────────────── */}
+      <div className="relative z-10 container-editorial flex h-full flex-col justify-end pt-24 md:pt-32 pb-20 md:pb-24">
+        <div ref={textRef} className="max-w-5xl">
+
+          <p className="slide-anim eyebrow text-bone/80 mb-6">{slide.eyebrow}</p>
 
           <h1 className="text-display-xl font-display text-bone tracking-tightest">
-            {HERO.headline.split("\n").map((line, i) => (
+            {slide.headline.split("\n").map((line, i) => (
               <span key={i} className="block overflow-hidden">
-                <span className={`hero-line block${i === 1 ? " italic font-light" : ""}`}>
-                  {line}
-                </span>
+                <span className={`slide-anim block${i === 1 ? " italic font-light" : ""}`}>{line}</span>
               </span>
             ))}
           </h1>
 
-          <p className="hero-sub mt-10 max-w-xl text-lg text-bone/80 leading-relaxed">
-            {HERO.subheadline}
-          </p>
+          {slide.subheadline && (
+            <p className="slide-anim mt-8 max-w-xl text-lg text-bone/80 leading-relaxed">
+              {slide.subheadline}
+            </p>
+          )}
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href={HERO.cta1Href}
-              className="hero-cta inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-900 dark:text-bone/90 transition-colors duration-400 hover:bg-gold-soft"
-            >
-              {HERO.cta1Label}
-              <span aria-hidden>→</span>
-            </a>
-            <a
-              href={HERO.cta2Href}
-              className="hero-cta inline-flex items-center gap-3 border border-bone/30 px-7 py-4 text-sm font-medium text-bone backdrop-blur-sm transition-colors duration-400 hover:border-bone hover:bg-bone/10"
-            >
-              {HERO.cta2Label}
-            </a>
+          <div className="slide-anim mt-10 flex flex-wrap items-center gap-4">
+            {slide.cta1 && (
+              <a href={slide.cta1.href}
+                className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-900 dark:text-bone/90 hover:bg-gold-soft transition-colors duration-400">
+                {slide.cta1.label} <span aria-hidden>→</span>
+              </a>
+            )}
+            {slide.cta2 && (
+              <a href={slide.cta2.href}
+                className="inline-flex items-center gap-3 border border-bone/30 px-7 py-4 text-sm font-medium text-bone backdrop-blur-sm hover:border-bone hover:bg-bone/10 transition-colors duration-400">
+                {slide.cta2.label}
+              </a>
+            )}
           </div>
         </div>
 
-        <div className="hero-meta mt-20 flex items-center justify-between border-t border-bone/15 pt-6">
-          <p className="text-[11px] uppercase tracking-eyebrow text-bone/60">
-            {HERO.footerTag}
-          </p>
-          <p className="text-[11px] uppercase tracking-eyebrow text-bone/60 hidden md:block">
-            Scroll <span className="ml-2">↓</span>
-          </p>
+        {/* ── Slide indicators ─────────────────────────────────────────── */}
+        <div className="mt-14 flex items-center justify-end gap-8 border-t border-bone/15 pt-6">
+
+          {/* Progress bars + counter */}
+          <div className="flex items-center gap-3">
+            {HERO_SLIDES.length > 1 && (
+              <div className="flex gap-2">
+                {HERO_SLIDES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    aria-label={`Slide ${i + 1}`}
+                    className="group relative h-0.5 w-12 bg-bone/25 overflow-hidden"
+                  >
+                    {i === current ? (
+                      <span
+                        className="absolute inset-y-0 left-0 bg-bone transition-none"
+                        style={{ width: `${progress}%` }}
+                      />
+                    ) : i < current ? (
+                      <span className="absolute inset-0 bg-bone/60" />
+                    ) : null}
+                  </button>
+                ))}
+              </div>
+            )}
+            <p className="text-[11px] uppercase tracking-eyebrow text-bone/50 hidden md:block tabular-nums">
+              {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+            </p>
+          </div>
         </div>
       </div>
+
+      {/* ── Prev / next arrows (hover-only) ──────────────────────────── */}
+      {total > 1 && (
+        <>
+          <button
+            onClick={() => goTo((current - 1 + total) % total)}
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 h-10 w-10 flex items-center justify-center text-bone/60 hover:text-bone transition-colors opacity-0 hover:opacity-100 focus:opacity-100"
+            aria-label="Previous slide"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            onClick={() => goTo((current + 1) % total)}
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 h-10 w-10 flex items-center justify-center text-bone/60 hover:text-bone transition-colors opacity-0 hover:opacity-100 focus:opacity-100"
+            aria-label="Next slide"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </>
+      )}
     </section>
+  );
+}
+
+// ── Slide background component ─────────────────────────────────────────────
+
+function SlideBackground({ slide, active }: { slide: HeroSlide; active: boolean }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Pause video when slide is inactive, resume when active
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (active) v.play().catch(() => {});
+    else        v.pause();
+  }, [active]);
+
+  return (
+    <div
+      className={`hero-bg-layer absolute inset-0 transition-opacity duration-[1000ms] ease-in-out ${
+        active ? "opacity-100 z-[1]" : "opacity-0 z-0 pointer-events-none"
+      }`}
+    >
+      {slide.type === "video" && slide.videoUrl ? (
+        <video
+          ref={videoRef}
+          autoPlay muted loop playsInline disablePictureInPicture
+          poster={slide.videoPoster}
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src={slide.videoUrl} type="video/mp4" />
+        </video>
+      ) : slide.image ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={slide.image}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+    </div>
   );
 }

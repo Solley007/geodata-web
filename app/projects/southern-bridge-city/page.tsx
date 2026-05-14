@@ -50,7 +50,7 @@ export default function SouthernBridgeCityPage() {
       {/* ─── HERO ─────────────────────────────────────────────────── */}
       <section className="relative min-h-[80vh] flex items-end bg-navy-950 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2400&q=85&auto=format&fit=crop"
+          src="/SBC-poster.png"
           alt="Southern Bridge City aerial — Idu, Abuja"
           fill
           priority

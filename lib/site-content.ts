@@ -47,19 +47,72 @@ export const SOCIAL = {
 
 // ─── 3. Hero section ─────────────────────────────────────────────────────────
 
-export const HERO = {
-  eyebrow:    "Southern Bridge City — Phase One",
-  headline:   "Reimagining\nurban living\nin Abuja.",
-  subheadline:
-    "A 320-unit residential development by Geodata World Services, financed by Zenith Bank and qualified for the MREIF mortgage programme — 9.75% fixed for 20 years.",
-  cta1Label:  "Explore residences",
-  cta1Href:   "/properties",
-  cta2Label:  "View construction progress",
-  cta2Href:   "/properties/4-bed-semi-detached#progress",
-  footerTag:  "RC 688927",
-  videoUrl:   "https://geodata-wsl.s3.us-east-1.amazonaws.com/Showcase.mp4",
-  videoPoster: "/collage-1.jpg",
+// ─── 3. Hero slideshow ───────────────────────────────────────────────────────
+// First slide is the video; add as many image slides as you like below.
+// Each slide:  type | background | eyebrow | headline (use \n for line breaks)
+//              subheadline | cta1 | cta2 | duration (ms, default 6000)
+//
+// For image slides, drop photos in /public/ and reference them here.
+// Images are NEVER overwritten by code updates.
+
+export type HeroSlide = {
+  type:         "video" | "image";
+  videoUrl?:    string;
+  videoPoster?: string;
+  image?:       string;
+  eyebrow:      string;
+  headline:     string;
+  subheadline?: string;
+  cta1?:        { label: string; href: string };
+  cta2?:        { label: string; href: string };
+  duration?:    number;   // milliseconds — default 6000
 };
+
+export const HERO_SLIDES: HeroSlide[] = [
+  // ── Slide 1 — Southern Bridge City (video) ──────────────────────────────
+  {
+    type:        "video",
+    videoUrl:    "https://geodata-wsl.s3.us-east-1.amazonaws.com/Showcase.mp4",
+    videoPoster: "/collage-1.jpg",
+    eyebrow:     "Southern Bridge City — Phase One",
+    headline:    "Reimagining\nurban living\nin Abuja.",
+    subheadline: "A 320-unit residential development by Geodata World Services, financed by Zenith Bank and qualified for the MREIF mortgage programme — 9.75% fixed for 20 years.",
+    cta1:        { label: "Explore residences",         href: "/properties" },
+    cta2:        { label: "View construction progress", href: "/properties/4-bed-semi-detached#progress" },
+    duration:    8000,
+  },
+  // ── Slide 2 — Southern Bridge Estate ────────────────────────────────────
+  {
+    type:        "image",
+    image:       "/collage-2.jpg",   // ← replace with a real SBE photo
+    eyebrow:     "Southern Bridge Estate — Idu, Abuja",
+    headline:    "Nine residences\nstill available.",
+    subheadline: "Two completed units ready for immediate occupancy. Seven more at finishing stage.",
+    cta1:        { label: "View available units", href: "/projects/southern-bridge-estate" },
+    duration:    6000,
+  },
+  // ── Slide 3 — Cool Army Estate ──────────────────────────────────────────
+  {
+    type:        "image",
+    image:       "/collage-4.jpg",   // ← replace with a real CAE photo
+    eyebrow:     "Cool Army Estate — Owerri, Imo State",
+    headline:    "Twenty homes.\nDelivered.",
+    subheadline: "A mixed-typology residential estate designed and built for Cool Real Estate.",
+    cta1:        { label: "See the estate", href: "/projects/cool-army-estate" },
+    duration:    6000,
+  },
+  // ── Add more slides here ─────────────────────────────────────────────────
+  // {
+  //   type:    "image",
+  //   image:   "/your-photo.jpg",
+  //   eyebrow: "Project Name — Location",
+  //   headline: "Your headline\nhere.",
+  //   cta1:    { label: "Learn more", href: "/projects/your-project" },
+  // },
+];
+
+// Keep HERO for any component that still references it directly
+export const HERO = HERO_SLIDES[0];
 
 // ─── 4. Stats counter ────────────────────────────────────────────────────────
 // Each stat: value (displayed large) + label (displayed below)
