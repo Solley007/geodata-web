@@ -9,6 +9,8 @@ const PROPERTIES = [
   { slug: "6-bed-terrace",        label: "The Six (6 bed)" },
   { slug: "5-bed-semi-detached",  label: "The Five (5 bed)" },
   { slug: "4-bed-block-flats",    label: "The Pavilion (4 bed flats)" },
+  // ── Projects (non-property construction targets) ──────────────────
+  { slug: "cool-army-estate",     label: "Cool Army Estate (Owerri)" },
 ];
 
 type Update = {

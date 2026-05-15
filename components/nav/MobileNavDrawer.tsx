@@ -17,6 +17,7 @@ interface Props {
 const DEVELOPMENTS = [
   { href: "/projects/southern-bridge-city", name: "Southern Bridge City", status: "Available" },
   { href: "/projects/southern-bridge-estate", name: "Southern Bridge Estate", status: "Limited" },
+  { href: "/projects/ize-hostel", name: "Ize Hostel", status: "Available" },
   { href: "/projects/mabushi-shopping-complex", name: "Mabushi Shopping Complex", status: "Selling Soon" },
 ];
 

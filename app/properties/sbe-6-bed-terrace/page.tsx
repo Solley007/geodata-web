@@ -6,9 +6,9 @@ import ProjectGallery, { type GalleryItem } from "@/components/project/ProjectGa
 //  EDIT GALLERY HERE — drop your own image / Cloudinary video URLs in
 // ============================================================================
 const GALLERY: GalleryItem[] = [
-  { type: "photo", src: "/collage-4.jpg", caption: "Estate aerial view" },
-  { type: "photo", src: "/collage-2.jpg", caption: "Streetscape" },
-  { type: "photo", src: "/collage-3.jpg", caption: "Roofline detail" },
+  { type: "photo", src: "/properties/SBE/SBE-TERRACE.jpeg", caption: "Estate aerial view" },
+  { type: "photo", src: "/SBDrone3.webp", caption: "Streetscape" },
+  { type: "photo", src: "/SBDrone2.webp", caption: "Roofline detail" },
   // { type: "video", src: "https://res.cloudinary.com/.../terrace-walkthrough.mp4", poster: "/poster.jpg" },
 ];
 // ============================================================================
@@ -24,7 +24,7 @@ export default function SBETerracePage() {
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[520px] overflow-hidden">
-        <Image src="/collage-4.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src="/SBDrone4.webp" alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/80" />
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20">
           <Link href="/projects/southern-bridge-estate" className="eyebrow text-bone/70 mb-6 hover:text-gold transition-colors inline-block">

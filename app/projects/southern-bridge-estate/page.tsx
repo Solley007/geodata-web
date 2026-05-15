@@ -4,14 +4,21 @@ import { notFound } from "next/navigation";
 import { PROJECTS } from "@/lib/projects-data";
 import { SOCIAL } from "@/lib/site-content";
 import ProjectGallery, { type GalleryItem } from "@/components/project/ProjectGallery";
+import PropertyMap from "@/components/property/PropertyMap";
 
 // ============================================================================
 //  EDIT GALLERY HERE — drop your own image / Cloudinary video URLs in
 // ============================================================================
 const GALLERY: GalleryItem[] = [
-  { type: "photo", src: "/collage-2.jpg", caption: "Phase One streetscape" },
-  { type: "photo", src: "/collage-3.jpg", caption: "Estate aerial" },
-  { type: "photo", src: "/collage-4.jpg", caption: "Roofline detail" },
+  { type: "photo", src: "/SBDrone6.webp", caption: "Phase One streetscape" },
+  { type: "photo", src: "/SBDrone7.webp", caption: "Estate aerial" },
+  { type: "photo", src: "/SBDrone9.webp", caption: "Roofline detail" },
+  { type: "photo", src: "/SBDrone5.webp", caption: "Roofline detail" },
+  { type: "photo", src: "/SBDrone2.webp", caption: "Roofline detail" },
+  { type: "photo", src: "/properties/SBE/SBE-VIEWS.jpeg", caption: "Roofline detail" },
+  { type: "photo", src: "/properties/SBE/SBE0.jpeg", caption: "Roofline detail" },
+  { type: "photo", src: "/properties/SBE/SBE7.jpeg", caption: "Roofline detail" },
+
   // { type: "video", src: "https://res.cloudinary.com/.../walkthrough.mp4", poster: "/poster.jpg" },
 ];
 
@@ -25,7 +32,7 @@ const UNITS = [
     count:       12,
     status:      "Sold Out" as const,
     description: "Twelve terraced family residences delivered and fully occupied.",
-    image:       "/collage-4.jpg",
+    image:       "/properties/SBE/SBE-TERRACE.jpeg",
     price:       null,
     detailHref:  "/properties/sbe-6-bed-terrace",
   },
@@ -37,8 +44,8 @@ const UNITS = [
     available:   2,
     status:      "2 Available" as const,
     description: "Eight semi-detached residences fully built and finished. Two units remain for sale.",
-    image:       "/collage-2.jpg",
-    price:       "₦XX,000,000",
+    image:       "/properties/SBE/SBE-COMPLETE-2.jpeg",
+    price:       "₦650,000,000",
     detailHref:  "/properties/sbe-6-bed-semi-detached",
   },
   {
@@ -49,7 +56,7 @@ const UNITS = [
     available:   7,
     status:      "Under Construction" as const,
     description: "Seven additional semi-detached residences currently in the finishing phase. Early access pricing available.",
-    image:       "/collage-3.jpg",
+    image:       "/properties/SBE/SBE-1.jpeg",
     price:       "₦XX,000,000",
     detailHref:  "/properties/sbe-6-bed-semi-detached",
   },
@@ -167,16 +174,37 @@ export default function SouthernBridgeEstatePage() {
 
       {/* ─── Location ──────────────────────────────────────────────── */}
       <section className="py-20 md:py-24 border-t border-hairline dark:border-white/10">
-        <div className="container-editorial grid grid-cols-12 gap-12">
-          <div className="col-span-12 md:col-span-5">
-            <p className="eyebrow text-ink-muted dark:text-bone/50 mb-4">Location</p>
-            <h2 className="text-display-md font-display tracking-tightest leading-tight mb-6">
-              Idu, Abuja.
-            </h2>
-            <p className="text-ink-muted dark:text-bone/70 leading-relaxed">
-              A residential pocket inside Abuja's Idu district. A few hundred metres from Southern Bridge City — close enough to share infrastructure, far enough to feel like its own neighbourhood.
-            </p>
+        <div className="container-editorial">
+          <div className="grid grid-cols-12 gap-12 mb-10">
+            <div className="col-span-12 md:col-span-5">
+              <p className="eyebrow text-ink-muted dark:text-bone/50 mb-4">Location</p>
+              <h2 className="text-display-md font-display tracking-tightest leading-tight mb-6">
+                Jabi, Abuja.
+              </h2>
+              <p className="text-ink-muted dark:text-bone/70 leading-relaxed mb-8">
+                A residential pocket inside Jabi, Abuja's. A few hundred metres from Southern Bridge City — close enough to share infrastructure, far enough to feel like its own neighbourhood.
+              </p>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=9.0252,7.3685"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-navy-950 dark:text-bone border-b border-navy-950/30 dark:border-bone/30 hover:border-gold hover:text-gold-dark dark:hover:text-gold transition-colors pb-0.5"
+              >
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+                Get directions on Google Maps
+              </a>
+            </div>
           </div>
+
+          {/* Mapbox map */}
+          <PropertyMap
+            latitude={9.04739952921162}
+            longitude={7.41298425593227}
+            label="Southern Bridge Estate — Jabi, Abuja"
+          />
         </div>
       </section>
 

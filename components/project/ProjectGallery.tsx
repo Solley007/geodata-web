@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import HLSVideoPlayer from "@/components/shared/HLSVideoPlayer";
 import { cloudinaryHLSUrl } from "@/lib/site-updates-types";
-import Image from "next/image";
 
 export interface GalleryItem {
   type:    "photo" | "video";

@@ -83,17 +83,30 @@ export default function ProjectHero({ project }: Props) {
         </div>
       </div>
 
-      {/* Cover image — full container width */}
+      {/* Cover — video or image, full container width */}
       <div className="container-editorial mt-16 md:mt-20">
         <div className="pdh-cover relative aspect-[16/9] overflow-hidden bg-navy-100 dark:bg-navy-800">
-          <Image
-            src={project.coverImage}
-            alt={`${project.name} — cover image showing ${project.location}`}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
+          {project.heroVideoUrl ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={project.heroVideoPoster ?? project.coverImage}
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src={project.heroVideoUrl} type="video/mp4" />
+            </video>
+          ) : (
+            <Image
+              src={project.coverImage}
+              alt={`${project.name} — cover image showing ${project.location}`}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          )}
         </div>
       </div>
     </section>

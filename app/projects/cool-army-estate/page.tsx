@@ -2,20 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PROJECTS } from "@/lib/projects-data";
-import ProjectGallery, { type GalleryItem } from "@/components/project/ProjectGallery";
+import ProjectConstructionGallery from "@/components/project/ProjectConstructionGallery";
 import { readSiteUpdates } from "@/lib/site-updates";
 import { formatUpdateDate } from "@/lib/site-updates-types";
-
-// ============================================================================
-//  EDIT GALLERY HERE
-// ============================================================================
-const GALLERY: GalleryItem[] = [
-  { type: "photo", src: "/collage-1.jpg", caption: "Estate overview" },
-  { type: "photo", src: "/collage-2.jpg", caption: "Streetscape" },
-  { type: "photo", src: "/collage-3.jpg", caption: "Roofline detail" },
-  // { type: "video", src: "https://res.cloudinary.com/.../cae-walkthrough.mp4", poster: "/poster.jpg" },
-];
-// ============================================================================
 
 // ============================================================================
 //  Cool Army Estate — built by Geodata for Cool Real Estate.
@@ -77,7 +66,7 @@ export default async function CoolArmyEstatePage() {
 
       {/* ─── Hero ───────────────────────────────────────────────────── */}
       <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
-        <Image src={project.coverImage} alt={project.name} fill priority sizes="100vw" className="object-cover" />
+        <Image src="/Cool.png" alt={project.name} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/80" />
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20 md:pb-28">
           <p className="eyebrow text-bone/80 mb-6">{project.location}</p>
@@ -133,20 +122,32 @@ export default async function CoolArmyEstatePage() {
             Five configurations. Four units each.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="border-t border-hairline dark:border-white/10">
             {UNITS.map((unit) => (
-              <article key={unit.id} className="group">
-                <div className="relative aspect-[4/3] overflow-hidden bg-bone-100 dark:bg-white/[0.03]">
-                  <Image src={unit.image} alt={unit.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" />
-                  <span className="absolute top-3 left-3 bg-navy-950/85 text-bone px-3 py-1 text-[10px] uppercase tracking-widest">
-                    {unit.count} units
-                  </span>
-                </div>
-                <div className="mt-5">
+              <article
+                key={unit.id}
+                className="border-b border-hairline dark:border-white/10 py-8 md:py-10 grid grid-cols-12 gap-6 md:gap-10 items-baseline"
+              >
+                {/* Left: name + subtitle */}
+                <div className="col-span-12 md:col-span-7">
                   {unit.subtitle && (
-                    <p className="text-[11px] uppercase tracking-widest text-ink-muted dark:text-bone/50 mb-1">{unit.subtitle}</p>
+                    <p className="text-[11px] uppercase tracking-widest text-ink-muted dark:text-bone/50 mb-2">
+                      {unit.subtitle}
+                    </p>
                   )}
-                  <h3 className="font-display text-2xl tracking-tight leading-tight">{unit.name}</h3>
+                  <h3 className="font-display text-2xl md:text-3xl tracking-tight leading-tight">
+                    {unit.name}
+                  </h3>
+                </div>
+
+                {/* Right: count */}
+                <div className="col-span-12 md:col-span-5 md:text-right">
+                  <p className="font-display text-4xl md:text-5xl tracking-tight text-gold-dark dark:text-gold leading-none">
+                    {unit.count}
+                  </p>
+                  <p className="text-[11px] uppercase tracking-widest text-ink-muted dark:text-bone/50 mt-2">
+                    {unit.count === 1 ? "unit" : "units"}
+                  </p>
                 </div>
               </article>
             ))}
@@ -154,8 +155,16 @@ export default async function CoolArmyEstatePage() {
         </div>
       </section>
 
-      {/* ─── Gallery ───────────────────────────────────────────────── */}
-      <ProjectGallery items={GALLERY} eyebrow="Gallery" title="See the estate." />
+      {/* ─── Construction progress ─────────────────────────────────── */}
+      <div className="border-t border-hairline dark:border-white/10">
+        <ProjectConstructionGallery
+          slug="cool-army-estate"
+          eyebrow="Construction progress"
+          headline="On site at Cool Army Estate."
+          status="Photos from the active site in Owerri."
+        />
+      </div>
+
 
       {/* ─── Site updates ──────────────────────────────────────────── */}
       {projectUpdates.length > 0 && (

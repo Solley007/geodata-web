@@ -7,14 +7,18 @@ import { SOCIAL } from "@/lib/site-content";
 //  EDIT PRICES + GALLERY HERE
 // ============================================================================
 const PRICES = {
-  phase1Completed:        "₦XX,000,000",   // 2 finished units, ready to move in
+  phase1Completed:        "₦650,000,000",   // 2 finished units, ready to move in
   phase2UnderConstruction: "₦XX,000,000",  // 7 finishing stage, early-access price
 };
 
 const GALLERY: GalleryItem[] = [
-  { type: "photo", src: "/collage-2.jpg", caption: "Phase One completed unit" },
-  { type: "photo", src: "/collage-3.jpg", caption: "Streetscape" },
-  { type: "photo", src: "/collage-4.jpg", caption: "Estate aerial" },
+  { type: "photo", src: "/properties/SBE/SBE-COMPLETE.jpeg", caption: "Phase One completed unit" },
+  { type: "photo", src: "/properties/SBE/SBE-VIEWS.jpeg", caption: "Streetscape" },
+  { type: "photo", src: "/properties/SBE/SBE7.jpeg", caption: "Estate aerial" },
+  { type: "photo", src: "/properties/SBE/SBE-1.jpeg", caption: "Estate aerial" },
+  { type: "photo", src: "/properties/SBE/SBE-UNCOMPLETE.jpeg", caption: "Estate aerial" },
+  { type: "photo", src: "/properties/SBE/SBE-15.jpeg", caption: "Estate aerial" },
+
   // { type: "video", src: "https://res.cloudinary.com/.../sbe-walkthrough.mp4", poster: "/poster.jpg" },
 ];
 // ============================================================================
@@ -33,7 +37,7 @@ export default function SBESemiDetachedPage() {
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[520px] overflow-hidden">
-        <Image src="/collage-2.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src="/properties/SBE/SBE-COMPLETE.jpeg" alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/80" />
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20">
           <Link href="/projects/southern-bridge-estate" className="eyebrow text-bone/70 mb-6 hover:text-gold transition-colors inline-block">
@@ -69,7 +73,7 @@ export default function SBESemiDetachedPage() {
               <Spec label="Bedrooms"      value="6" />
               <Spec label="Bathrooms"     value="7" />
               <Spec label="Configuration" value="Semi-Detached" />
-              <Spec label="Floors"        value="2" />
+              <Spec label="Floors"        value="3" />
               <Spec label="Total units"   value="15" />
               <Spec label="Available"     value="9" />
             </dl>

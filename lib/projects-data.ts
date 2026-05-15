@@ -39,6 +39,8 @@ export interface Project {
   client?: string; // For institutional/government work
   scope: string; // "27 units · full infrastructure"
   coverImage: string;
+  heroVideoUrl?: string;      // mp4 URL — if set, hero plays video instead of image
+  heroVideoPoster?: string;   // fallback image shown before video loads
   gallery: ProjectGalleryImage[];
   overview: string[]; // 2-3 paragraphs
   keyFacts: ProjectKeyFact[];
@@ -69,7 +71,7 @@ export const PROJECTS: Project[] = [
     location: "Idu, Abuja",
     scope: "321 units · five housing typologies · M&E infrastructure",
     coverImage:
-      "/SBC-poster.png",
+      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=2000&q=85&auto=format&fit=crop",
     gallery: [
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop", alt: "Semi-detached residence facade" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop", alt: "Living area with morning light" },
@@ -101,7 +103,7 @@ export const PROJECTS: Project[] = [
     location: "Owerri, Imo State",
     scope: "Mixed housing types",
     coverImage:
-      "/SBC-poster.png",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=85&auto=format&fit=crop",
     gallery: [
       { src: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1600&q=85&auto=format&fit=crop", alt: "Site overview" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop", alt: "Construction progress" },
@@ -116,6 +118,32 @@ export const PROJECTS: Project[] = [
       { label: "Location", value: "Owerri, Imo State" },
       { label: "Type", value: "Mixed residential" },
       { label: "Region", value: "South-East Nigeria" },
+    ],
+  },
+  {
+    slug: "ize-hostel",
+    name: "Ize Hostel",
+    subtitle: "A 23-room purpose-built student hostel in Abuja",
+    category: "Residential",
+    status: "Ongoing",
+    year: 2025,
+    location: "Abuja, FCT",
+    scope: "23 rooms · 50 bed spaces · student housing",
+    coverImage: "/collage-1.jpg",
+    gallery: [
+      { src: "/collage-1.jpg", alt: "Ize Hostel exterior" },
+      { src: "/collage-2.jpg", alt: "Communal spaces" },
+      { src: "/collage-3.jpg", alt: "Room interior" },
+    ],
+    overview: [
+      "Ize Hostel is a purpose-built student residence designed to serve students of Nile University and Baze University in Abuja. The hostel comprises 23 rooms offering 50 bed spaces in total, with thoughtful layouts that prioritise study, rest, and community.",
+      "Every room is engineered to support academic life — proper desks, generous storage, and reliable utilities — within a managed building that takes the friction out of off-campus living.",
+    ],
+    keyFacts: [
+      { label: "Rooms", value: "23" },
+      { label: "Bed spaces", value: "50" },
+      { label: "Serving", value: "Nile · Baze" },
+      { label: "Location", value: "Abuja, FCT" },
     ],
   },
 
@@ -133,7 +161,7 @@ export const PROJECTS: Project[] = [
     location: "Idu, Abuja",
     scope: "27 units · full infrastructure",
     coverImage:
-      "",
+      "/SBDrone7.webp",
     gallery: [
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop", alt: "Completed residence interior" },
       { src: "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?w=1600&q=85&auto=format&fit=crop", alt: "Bedroom suite" },
@@ -162,6 +190,8 @@ export const PROJECTS: Project[] = [
     scope: "24 units · mixed housing types · full infrastructure",
     coverImage:
       "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2000&q=85&auto=format&fit=crop",
+    heroVideoUrl: "https://geodata-wsl.s3.us-east-1.amazonaws.com/Country%20court%20Edited.mp4",
+    heroVideoPoster: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2000&q=85&auto=format&fit=crop",
     gallery: [
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop", alt: "Estate frontage" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85&auto=format&fit=crop", alt: "Internal road" },
@@ -387,12 +417,12 @@ export const PROJECTS: Project[] = [
   {
     slug: "kogi-state-infrastructure",
     name: "Kogi State Infrastructure Programme",
-    subtitle: "Rural road upgrading and agricultural logistics centre",
+    subtitle: "World Bank-funded rural roads and agricultural logistics in Kogi State",
     category: "Infrastructure",
     status: "Ongoing",
     year: 2024,
     location: "Kogi State",
-    client: "Kogi State Government / RAAMP",
+    client: "World Bank / Kogi State Government — KOGI RAAMP",
     scope: "33.56km rural roads · AKU & Agro Logistic Centre, Adavi LGA",
     coverImage:
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=2000&q=85&auto=format&fit=crop",
@@ -401,17 +431,18 @@ export const PROJECTS: Project[] = [
       { src: "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=1600&q=85&auto=format&fit=crop", alt: "Logistics centre construction" },
     ],
     overview: [
-      "An active two-strand infrastructure programme in Kogi State. The first strand: upgrading of 33.56 kilometres of rural roads under the Rural Access and Agricultural Marketing Project (RAAMP), Lots 1 and 2. The second: construction and physical improvement of the AKU and Agro Logistic Centre at Adavi Local Government Area (Contract NG-KOGIRAAMP-459307-CWRFB/LOT 3).",
-      "Together the programmes support agricultural value-chain development and rural connectivity in central Nigeria. Both projects are currently in execution.",
+      "Geodata is engaged on two contracts under the Kogi State Rural Access & Agricultural Marketing Project (KOGI RAAMP) — a World Bank-funded programme delivered in partnership with the Kogi State Government to expand rural connectivity and agricultural value-chain infrastructure.",
+      "The first contract covers upgrading of 33.56 kilometres of rural roads across Lots 1 and 2. The second is the construction and physical improvement of the AKU and Agro Logistic Centre in Adavi Local Government Area (Contract NG-KOGIRAAMP-459307-CW-RFB/LOT 3). Both projects are currently in execution and support farmer access to markets and post-harvest storage capacity across central Nigeria.",
     ],
     keyFacts: [
-      { label: "Programme", value: "RAAMP / Kogi State" },
-      { label: "Roads", value: "33.56 km" },
-      { label: "Status", value: "Ongoing" },
-      { label: "Region", value: "Central Nigeria" },
+      { label: "Funded by",      value: "The World Bank" },
+      { label: "Programme",      value: "KOGI RAAMP" },
+      { label: "Roads upgraded", value: "33.56 km" },
+      { label: "Logistics hub",  value: "Adavi LGA" },
     ],
   },
 ];
+ 
 
 /** All slugs — used by generateStaticParams */
 export function getAllProjectSlugs(): string[] {
