@@ -210,7 +210,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
               {expanded === "projects" && (
                 <div className="pb-6 space-y-5">
                   {PROJECT_CATEGORIES.map((cat) => {
-                    const catProjects = PROJECTS.filter((p) => p.category === cat);
+                    const catProjects = PROJECTS.filter((p) => p.category === cat && !p.hideFromNav);
                     if (catProjects.length === 0) return null;
                     return (
                       <div key={cat}>

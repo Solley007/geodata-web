@@ -139,7 +139,7 @@ export default function SouthernBridgeCityPage() {
         </div>
       </section>
 
-      {/* ─── MASTER PLAN ──────────────────────────────────────────── */}
+      {/* ─── MASTER PLAN (commented out — no site plan available yet) ───
       <section id="masterplan" className="bg-bone-100 dark:bg-navy-900 py-32 md:py-48">
         <div className="container-editorial">
           <div className="grid grid-cols-12 gap-12 mb-16">
@@ -159,9 +159,9 @@ export default function SouthernBridgeCityPage() {
             </div>
           </div>
 
-          {/* Master plan image placeholder */}
+          Master plan image placeholder
           <div className="relative aspect-[16/9] bg-navy-100 overflow-hidden mb-12">
-            {/* PLACEHOLDER — replace with real master plan image */}
+            PLACEHOLDER — replace with real master plan image
             <Image
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=2400&q=85&auto=format&fit=crop"
               alt="Southern Bridge City site plan — Idu, Abuja"
@@ -174,7 +174,7 @@ export default function SouthernBridgeCityPage() {
             </div>
           </div>
 
-          {/* Infrastructure features */}
+          Infrastructure features
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -207,6 +207,43 @@ export default function SouthernBridgeCityPage() {
                 <p className="text-sm text-ink-muted dark:text-bone/60 leading-relaxed">{f.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      ─── END MASTER PLAN ─── */}
+
+      {/* ─── BROCHURE ─────────────────────────────────────────────── */}
+      <section id="brochure" className="bg-bone-100 dark:bg-navy-900 py-24 md:py-32 border-t border-hairline dark:border-white/10">
+        <div className="container-editorial">
+          <div className="grid grid-cols-12 gap-12 items-center">
+            <div className="col-span-12 md:col-span-7">
+              <p className="eyebrow text-ink-muted dark:text-bone/50 mb-5">The brochure</p>
+              <h2 className="font-display text-display-md text-navy-950 dark:text-bone tracking-tightest leading-tight mb-6">
+                Take the full <em className="font-light">details</em> with you.
+              </h2>
+              <p className="text-lg text-ink-muted dark:text-bone/70 leading-relaxed max-w-xl">
+                Floor plans, typology specifications,  — the complete Southern Bridge City brochure, ready to download and share.
+              </p>
+            </div>
+ 
+            <div className="col-span-12 md:col-span-5 md:flex md:justify-end">
+              <a
+                href="https://geodata-wsl.s3.us-east-1.amazonaws.com/Southern%20Bridge%20City.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-4 bg-navy-900 dark:bg-bone dark:text-navy-950 text-bone px-8 py-5 hover:bg-navy-800 dark:hover:bg-bone-100 transition-colors"
+              >
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" className="shrink-0">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span className="text-left">
+                  <span className="block text-sm font-medium">Download brochure</span>
+                  <span className="block text-[11px] uppercase tracking-widest opacity-60">PDF</span>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

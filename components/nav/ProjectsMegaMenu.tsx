@@ -30,7 +30,7 @@ export default function ProjectsMegaMenu() {
           {CATEGORY_COLUMNS.map((cats, ci) => (
             <div key={ci} className="space-y-8">
               {cats.map((category) => {
-                const projects = PROJECTS.filter((p) => p.category === category);
+                const projects = PROJECTS.filter((p) => p.category === category && !p.hideFromNav);
                 if (projects.length === 0) return null;
                 return (
                   <div key={category}>

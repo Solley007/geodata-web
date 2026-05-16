@@ -44,6 +44,7 @@ export interface Project {
   gallery: ProjectGalleryImage[];
   overview: string[]; // 2-3 paragraphs
   keyFacts: ProjectKeyFact[];
+  hideFromNav?: boolean; // if true, project stays on /projects but is hidden from nav menus
 }
 
 export const PROJECT_CATEGORIES: ("All" | ProjectCategory)[] = [
@@ -161,7 +162,7 @@ export const PROJECTS: Project[] = [
     location: "Idu, Abuja",
     scope: "27 units · full infrastructure",
     coverImage:
-      "/SBDrone7.webp",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=2000&q=85&auto=format&fit=crop",
     gallery: [
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop", alt: "Completed residence interior" },
       { src: "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?w=1600&q=85&auto=format&fit=crop", alt: "Bedroom suite" },
@@ -188,14 +189,17 @@ export const PROJECTS: Project[] = [
     completionYear: 2022,
     location: "Abuja, FCT",
     scope: "24 units · mixed housing types · full infrastructure",
-    coverImage:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/DRONECC3.webp",
     heroVideoUrl: "https://geodata-wsl.s3.us-east-1.amazonaws.com/Country%20court%20Edited.mp4",
-    heroVideoPoster: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2000&q=85&auto=format&fit=crop",
+    heroVideoPoster: "/DRONECC3.webp",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop", alt: "Estate frontage" },
-      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85&auto=format&fit=crop", alt: "Internal road" },
-      { src: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1600&q=85&auto=format&fit=crop", alt: "Residence detail" },
+      { src: "/DRONECC2.webp", alt: "Country Court Estate aerial view" },
+      { src: "/DRONECC3.webp", alt: "Country Court Estate drone overview" },
+      { src: "/DRONECC4.webp", alt: "Country Court Estate site perspective" },
+      { src: "/DRONECC5.webp", alt: "Country Court Estate rooftop view" },
+      { src: "/DRONECC6.webp", alt: "Country Court Estate streetscape" },
+      { src: "/DRONECC7.webp", alt: "Country Court Estate compound" },
+      { src: "/DRONECC8.webp", alt: "Country Court Estate estate overview" },
     ],
     overview: [
       "Country Court Estate is a 24-unit gated residential development completed in Abuja in 2022. The project blended three housing typologies — semi-detached, terrace, and detached — into a single coherent estate plan, with shared infrastructure and a managed estate office.",
@@ -234,6 +238,7 @@ export const PROJECTS: Project[] = [
       { label: "Completed", value: "2018" },
       { label: "Location", value: "Gombe State" },
     ],
+    hideFromNav: true,
   },
   {
     slug: "sil-estate",
@@ -245,12 +250,13 @@ export const PROJECTS: Project[] = [
     completionYear: 2015,
     location: "Abuja, FCT",
     scope: "180+ units",
-    coverImage:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/sil/sil-estate-overview.jpg",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1600&q=85&auto=format&fit=crop", alt: "Estate aerial" },
-      { src: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1600&q=85&auto=format&fit=crop", alt: "Residential row" },
-      { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=85&auto=format&fit=crop", alt: "Streetscape" },
+      { src: "/sil/sil-estate-overview.jpg", alt: "SIL Estate overview" },
+      { src: "/sil/sil-estate-area-view.jpg", alt: "SIL Estate area view" },
+      { src: "/sil/sil-estate-access-road.jpg", alt: "SIL Estate access road" },
+      { src: "/sil/sil-estate-bridge-construction.jpg", alt: "SIL Estate bridge construction" },
+      { src: "/sil/sil-estate-construction-site.jpg", alt: "SIL Estate construction site" },
     ],
     overview: [
       "SIL Estate remains the largest single residential project Geodata has delivered to date — over 180 housing units, completed in 2015. The development demonstrates the firm's capacity to manage and deliver large-scale housing programmes against fixed timelines.",
@@ -276,12 +282,11 @@ export const PROJECTS: Project[] = [
     year: 2024,
     location: "Mabushi District, Abuja",
     scope: "Six-storey commercial complex",
-    coverImage:
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/mabushi/scaffolded-building-aerial.jpg",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&auto=format&fit=crop", alt: "Commercial interior" },
-      { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=85&auto=format&fit=crop", alt: "Retail space" },
-      { src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600&q=85&auto=format&fit=crop", alt: "Building facade" },
+      { src: "/mabushi/scaffolded-building-aerial.jpg", alt: "Mabushi Shopping Complex under construction — aerial" },
+      { src: "/mabushi/building-frame-aerial.jpg", alt: "Mabushi Shopping Complex structural frame — aerial" },
+      { src: "/mabushi/roadside-building-aerial.jpg", alt: "Mabushi Shopping Complex roadside view — aerial" },
     ],
     overview: [
       "A six-storey commercial complex currently under construction in Mabushi District, Abuja. The development represents Geodata's first standalone commercial building project, designed to serve retail, food and beverage, and small office tenants.",
@@ -326,6 +331,7 @@ export const PROJECTS: Project[] = [
       { label: "Year", value: "2019" },
       { label: "Locations", value: "Usuma & Vattern, Maitama" },
     ],
+    hideFromNav: true,
   },
   {
     slug: "firs-office-programme",
@@ -338,11 +344,12 @@ export const PROJECTS: Project[] = [
     location: "Multiple FIRS offices",
     client: "Federal Inland Revenue Service",
     scope: "Five contracts · office retrofit, partitioning, and survey work",
-    coverImage:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/firs/firs-office-renovation.jpg",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&auto=format&fit=crop", alt: "Office interior" },
-      { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=85&auto=format&fit=crop", alt: "Glass partitioning" },
+      { src: "/firs/firs-office-renovation.jpg", alt: "FIRS office renovation" },
+      { src: "/firs/firs-office-during-renovation.jpg", alt: "FIRS office during renovation" },
+      { src: "/firs/firs-warehouse-remodel.jpg", alt: "FIRS warehouse remodel" },
+      { src: "/firs/glass-partitioning-tax-office.jpg", alt: "Glass partitioning at FIRS tax office" },
     ],
     overview: [
       "Between 2014 and 2018, Geodata delivered a programme of office construction, retrofit, and surveying work for the Federal Inland Revenue Service. Contracts included retrofitting of the FIRS office building at Wuse Zone 5, glass partitioning of the Katampe FIRS GBTO/MSTO Office, warehouse remodelling for the Investigation and Enforcement Unit at Wuse II, glass partitioning of the Lafia Prototype ITO/MSTO Office, and geophysical surveys for motorised borehole installation in Abuja and Gombe.",
@@ -382,6 +389,7 @@ export const PROJECTS: Project[] = [
       { label: "Location", value: "Gombe State" },
       { label: "Completed", value: "2018" },
     ],
+    hideFromNav: true,
   },
 
   // -------------------------------------------------------------------------
@@ -413,6 +421,7 @@ export const PROJECTS: Project[] = [
       { label: "Location", value: "Okpella, Edo State" },
       { label: "Completed", value: "2017" },
     ],
+    hideFromNav: true,
   },
   {
     slug: "kogi-state-infrastructure",
@@ -442,7 +451,7 @@ export const PROJECTS: Project[] = [
     ],
   },
 ];
- 
+
 
 /** All slugs — used by generateStaticParams */
 export function getAllProjectSlugs(): string[] {
