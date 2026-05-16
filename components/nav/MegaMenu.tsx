@@ -160,7 +160,7 @@ export default function MegaMenu() {
                   <h3 className="font-display text-2xl text-bone leading-tight">
                     {unit.title}
                   </h3>
-                  <p className="text-sm text-gold mt-1 font-medium">{unit.price}</p>
+                  <p className="text-sm text-accent mt-1 font-medium">{unit.price}</p>
                 </div>
               </div>
             </Link>

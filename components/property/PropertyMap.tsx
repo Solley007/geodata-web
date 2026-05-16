@@ -100,7 +100,7 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
         <Marker longitude={longitude} latitude={latitude} anchor="center">
           <div className="relative flex items-center justify-center">
             {/* Outer pulse */}
-            <div className="absolute h-12 w-12 rounded-full bg-gold/20 animate-pulse-slow" />
+            <div className="absolute h-12 w-12 rounded-full bg-accent/20 animate-pulse-slow" />
             {/* Middle ring */}
             <div className="absolute h-6 w-6 rounded-full bg-bone dark:bg-navy-950 border-2 border-navy-900 dark:border-white/20" />
             {/* Inner dot */}

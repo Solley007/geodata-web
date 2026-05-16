@@ -89,7 +89,7 @@ export default function ProgressBar({ property }: Props) {
           <div>
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-3">Construction progress</p>
             <h2 className="text-2xl md:text-3xl font-display text-navy-950 dark:text-bone tracking-tight leading-[1.1] mb-2">
-              On site, <span className="text-gold-dark dark:text-gold">{percent}%</span> complete.
+              On site, <span className="text-gold-dark dark:text-accent">{percent}%</span> complete.
             </h2>
             {hero && (
               <p className="text-xs text-ink-muted dark:text-bone/50 mb-5">
@@ -99,7 +99,7 @@ export default function ProgressBar({ property }: Props) {
 
             {/* Inline timeline */}
             <div className="relative h-px bg-hairline dark:bg-white/10 mb-3">
-              <div className="progress-fill absolute inset-y-0 left-0 right-0 bg-navy-900 dark:bg-gold origin-left" />
+              <div className="progress-fill absolute inset-y-0 left-0 right-0 bg-navy-900 dark:bg-accent origin-left" />
             </div>
             <div className="grid grid-cols-4 gap-2">
               {PHASES.map((phase, i) => {
@@ -110,8 +110,8 @@ export default function ProgressBar({ property }: Props) {
                     <span
                       className={clsx(
                         "inline-block h-1.5 w-1.5 rounded-full mb-1.5",
-                        isPast    && "bg-navy-900 dark:bg-gold",
-                        isCurrent && "bg-gold ring-2 ring-gold/20 animate-pulse",
+                        isPast    && "bg-navy-900 dark:bg-accent",
+                        isCurrent && "bg-accent ring-2 ring-accent/20 animate-pulse",
                         !isPast && !isCurrent && "bg-hairline dark:bg-white/15"
                       )}
                     />
@@ -134,7 +134,7 @@ export default function ProgressBar({ property }: Props) {
                   {updates.length > 1 && (
                     <button
                       onClick={() => openLightbox(0)}
-                      className="text-[10px] uppercase tracking-widest text-navy-950 dark:text-bone hover:text-gold-dark dark:hover:text-gold transition-colors"
+                      className="text-[10px] uppercase tracking-widest text-navy-950 dark:text-bone hover:text-gold-dark dark:hover:text-accent transition-colors"
                     >
                       View all ({updates.length}) →
                     </button>
@@ -224,7 +224,7 @@ export default function ProgressBar({ property }: Props) {
           <button
             type="button"
             onClick={closeLightbox}
-            className="absolute top-6 right-6 z-20 text-bone hover:text-gold transition-colors text-3xl leading-none"
+            className="absolute top-6 right-6 z-20 text-bone hover:text-accent transition-colors text-3xl leading-none"
             aria-label="Close"
           >
             ×

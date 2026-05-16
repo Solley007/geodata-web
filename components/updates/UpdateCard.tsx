@@ -40,7 +40,7 @@ export default function UpdateCard({ update }: { update: SiteUpdate }) {
       <p className="text-[11px] uppercase tracking-widest text-ink-faint dark:text-bone/40 mb-2">
         {project?.title ?? "Geodata"}{" · "}{formatUpdateDate(update.date)}
       </p>
-      <h3 className="text-lg md:text-xl font-display text-navy-950 dark:text-bone leading-tight group-hover:text-gold-dark dark:group-hover:text-gold transition-colors duration-400">
+      <h3 className="text-lg md:text-xl font-display text-navy-950 dark:text-bone leading-tight group-hover:text-gold-dark dark:group-hover:text-accent transition-colors duration-400">
         {update.title}
       </h3>
     </Link>

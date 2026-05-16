@@ -67,7 +67,7 @@ export default function IzeHostelPage() {
         <Image src="/ize-hostel/Exterior.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/80" />
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20">
-          <Link href="/projects" className="eyebrow text-bone/70 mb-6 hover:text-gold transition-colors inline-block">
+          <Link href="/projects" className="eyebrow text-bone/70 mb-6 hover:text-accent transition-colors inline-block">
             ← All projects
           </Link>
           <h1 className="text-display-xl font-display text-bone tracking-tightest leading-none max-w-3xl">
@@ -142,7 +142,7 @@ export default function IzeHostelPage() {
 function Fact({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <p className="font-display text-4xl md:text-5xl tracking-tight text-gold-dark dark:text-gold leading-none">
+      <p className="font-display text-4xl md:text-5xl tracking-tight text-gold-dark dark:text-accent leading-none">
         {value}
       </p>
       <p className="text-[11px] uppercase tracking-widest text-ink-muted dark:text-bone/50 mt-3">

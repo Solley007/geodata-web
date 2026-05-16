@@ -40,10 +40,10 @@ export default function SBESemiDetachedPage() {
         <Image src="/properties/SBE/SBE-COMPLETE.jpeg" alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/80" />
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20">
-          <Link href="/projects/southern-bridge-estate" className="eyebrow text-bone/70 mb-6 hover:text-gold transition-colors inline-block">
+          <Link href="/projects/southern-bridge-estate" className="eyebrow text-bone/70 mb-6 hover:text-accent transition-colors inline-block">
             ← Southern Bridge Estate
           </Link>
-          <div className="inline-flex self-start items-center gap-2 bg-gold text-navy-950 px-3 py-1.5 text-[10px] uppercase tracking-widest mb-6">
+          <div className="inline-flex self-start items-center gap-2 bg-accent text-navy-950 px-3 py-1.5 text-[10px] uppercase tracking-widest mb-6">
             9 Available
           </div>
           <h1 className="text-display-xl font-display text-bone tracking-tightest leading-none max-w-3xl">
@@ -110,19 +110,19 @@ export default function SBESemiDetachedPage() {
             </article>
 
             {/* Phase 2 */}
-            <article className="border border-gold/40 bg-gold/[0.04] p-8 md:p-10">
-              <p className="eyebrow text-gold mb-3">Phase Two · Early access</p>
+            <article className="border border-accent/40 bg-accent/[0.04] p-8 md:p-10">
+              <p className="eyebrow text-accent mb-3">Phase Two · Early access</p>
               <h3 className="font-display text-3xl tracking-tight mb-2">At finishing stage.</h3>
               <p className="text-ink-muted dark:text-bone/60 mb-6 leading-relaxed">
                 Seven additional residences currently in the finishing phase. Reserve now before completion pricing applies.
               </p>
-              <dl className="space-y-3 mb-8 border-t border-gold/30 pt-5 text-sm">
+              <dl className="space-y-3 mb-8 border-t border-accent/30 pt-5 text-sm">
                 <Row k="Status"    v="Finishing stage" />
                 <Row k="Available" v="7 units" />
                 <Row k="From"      v={PRICES.phase2UnderConstruction} />
               </dl>
               <a href={WA_PHASE2} target="_blank" rel="noopener noreferrer"
-                 className="inline-flex items-center gap-3 bg-gold text-navy-950 px-6 py-3 text-sm font-medium hover:bg-gold-dark transition-colors">
+                 className="inline-flex items-center gap-3 bg-accent text-navy-950 px-6 py-3 text-sm font-medium hover:bg-gold-dark transition-colors">
                 Reserve on WhatsApp <span aria-hidden>→</span>
               </a>
             </article>

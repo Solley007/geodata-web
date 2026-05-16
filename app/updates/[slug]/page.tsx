@@ -49,7 +49,7 @@ export default async function UpdatePage({ params }: PageProps) {
         <nav className="mb-10">
           <Link
             href="/updates"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink-muted dark:text-bone/60 hover:text-gold-dark dark:hover:text-gold transition-colors"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink-muted dark:text-bone/60 hover:text-gold-dark dark:hover:text-accent transition-colors"
           >
             <span aria-hidden>←</span> All updates
           </Link>
@@ -81,7 +81,7 @@ export default async function UpdatePage({ params }: PageProps) {
         {project && (
           <div className="max-w-2xl mt-12 pt-8 border-t border-hairline dark:border-white/10">
             <p className="text-xs uppercase tracking-widest text-ink-faint dark:text-bone/40 mb-2">About this project</p>
-            <Link href={`/projects/${project.slug}`} className="inline-flex items-center gap-2 text-base font-medium text-navy-900 dark:text-bone hover:text-gold-dark dark:hover:text-gold border-b border-navy-900 dark:border-bone/40 hover:border-gold-dark dark:hover:border-gold transition-colors pb-1">
+            <Link href={`/projects/${project.slug}`} className="inline-flex items-center gap-2 text-base font-medium text-navy-900 dark:text-bone hover:text-gold-dark dark:hover:text-accent border-b border-navy-900 dark:border-bone/40 hover:border-gold-dark dark:hover:border-accent transition-colors pb-1">
               View {project.title}
               <span aria-hidden>→</span>
             </Link>

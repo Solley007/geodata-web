@@ -114,7 +114,7 @@ export default function ProjectConstructionGallery({
                   {updates.length > 1 && (
                     <button
                       onClick={() => open(0)}
-                      className={`text-[10px] uppercase tracking-widest hover:text-gold transition-colors ${isDark ? "text-bone" : "text-navy-950 dark:text-bone"}`}
+                      className={`text-[10px] uppercase tracking-widest hover:text-accent transition-colors ${isDark ? "text-bone" : "text-navy-950 dark:text-bone"}`}
                     >
                       View all ({updates.length}) →
                     </button>
@@ -195,7 +195,7 @@ export default function ProjectConstructionGallery({
         >
           <button
             onClick={close}
-            className="absolute top-6 right-6 z-20 text-bone hover:text-gold transition-colors text-3xl leading-none"
+            className="absolute top-6 right-6 z-20 text-bone hover:text-accent transition-colors text-3xl leading-none"
             aria-label="Close"
           >×</button>
           <p className="absolute top-7 left-6 z-20 text-bone/60 text-xs uppercase tracking-widest">

@@ -99,7 +99,7 @@ export async function GET(request: NextRequest) {
                 fontWeight: 400,
               }}
             >
-              GEODATA<span style={{ color: "#C9A961" }}>.</span>
+              GEODATA
             </div>
           </div>
 

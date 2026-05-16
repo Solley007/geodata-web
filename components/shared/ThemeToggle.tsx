@@ -18,7 +18,7 @@ export default function ThemeToggle({ className }: Props) {
       className={clsx(
         "relative flex items-center justify-center w-9 h-9 rounded-full transition-colors duration-300",
         "hover:bg-navy-900/10 dark:hover:bg-bone/10",
-        "focus-visible:outline-2 focus-visible:outline-gold",
+        "focus-visible:outline-2 focus-visible:outline-accent",
         className
       )}
     >

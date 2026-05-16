@@ -114,7 +114,7 @@ export default function SubscribePopup() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/geodata-mark.png" alt="" className="h-8 w-8" />
             <p className="font-brand text-base text-navy-950 dark:text-bone leading-none">
-              GEODATA<span className="text-gold">.</span>
+              GEODATA
             </p>
           </div>
 
@@ -192,7 +192,7 @@ export default function SubscribePopup() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  className="w-full bg-transparent border-b border-navy-900 dark:border-white/20 py-3 text-navy-950 dark:text-bone placeholder:text-ink-faint dark:placeholder:text-bone/30 focus:outline-none focus:border-gold transition-colors"
+                  className="w-full bg-transparent border-b border-navy-900 dark:border-white/20 py-3 text-navy-950 dark:text-bone placeholder:text-ink-faint dark:placeholder:text-bone/30 focus:outline-none focus:border-accent transition-colors"
                 />
 
                 {status === "error" && (

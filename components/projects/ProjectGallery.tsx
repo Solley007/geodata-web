@@ -167,7 +167,7 @@ export default function ProjectGallery({ project }: Props) {
                   key={i}
                   type="button"
                   onClick={(e) => { e.stopPropagation(); open(i); }}
-                  className={`relative h-12 w-16 overflow-hidden transition-opacity duration-200 ${i === lightboxIdx ? "opacity-100 ring-1 ring-gold" : "opacity-40 hover:opacity-70"}`}
+                  className={`relative h-12 w-16 overflow-hidden transition-opacity duration-200 ${i === lightboxIdx ? "opacity-100 ring-1 ring-accent" : "opacity-40 hover:opacity-70"}`}
                 >
                   <Image src={img.src} alt="" fill sizes="64px" className="object-cover" />
                 </button>

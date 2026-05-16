@@ -35,22 +35,22 @@ export default function Footer() {
           <div>
             <p className="eyebrow text-bone/60 mb-5">Properties</p>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/properties" className="hover:text-gold transition-colors">All listings</Link></li>
-              <li><Link href="/projects/southern-bridge-city" className="hover:text-gold transition-colors">Southern Bridge City</Link></li>
-              <li><Link href="/properties?type=outright" className="hover:text-gold transition-colors">Buy outright</Link></li>
-              <li><Link href="/mortgage" className="hover:text-gold transition-colors">MREIF mortgage</Link></li>
+              <li><Link href="/properties" className="hover:text-accent transition-colors">All listings</Link></li>
+              <li><Link href="/projects/southern-bridge-city" className="hover:text-accent transition-colors">Southern Bridge City</Link></li>
+              <li><Link href="/properties?type=outright" className="hover:text-accent transition-colors">Buy outright</Link></li>
+              <li><Link href="/mortgage" className="hover:text-accent transition-colors">MREIF mortgage</Link></li>
             </ul>
           </div>
 
           <div>
             <p className="eyebrow text-bone/60 mb-5">Company</p>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/" className="hover:text-gold transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-gold transition-colors">About</Link></li>
-              <li><Link href="/projects" className="hover:text-gold transition-colors">Projects</Link></li>
-              <li><Link href="/updates" className="hover:text-gold transition-colors">Updates</Link></li>
-              <li><Link href="/blog" className="hover:text-gold transition-colors">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-gold transition-colors">Contact</Link></li>
+              <li><Link href="/" className="hover:text-accent transition-colors">Home</Link></li>
+              <li><Link href="/about" className="hover:text-accent transition-colors">About</Link></li>
+              <li><Link href="/projects" className="hover:text-accent transition-colors">Projects</Link></li>
+              <li><Link href="/updates" className="hover:text-accent transition-colors">Updates</Link></li>
+              <li><Link href="/blog" className="hover:text-accent transition-colors">Blog</Link></li>
+              <li><Link href="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -60,10 +60,10 @@ export default function Footer() {
               {COMPANY.address.line1}<br />{COMPANY.address.line2}
             </p>
             <p className="mt-4 text-sm">
-              <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="hover:text-gold transition-colors">{COMPANY.phone}</a>
+              <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="hover:text-accent transition-colors">{COMPANY.phone}</a>
             </p>
             <p className="text-sm">
-              <a href={`mailto:${COMPANY.email}`} className="hover:text-gold transition-colors">{COMPANY.email}</a>
+              <a href={`mailto:${COMPANY.email}`} className="hover:text-accent transition-colors">{COMPANY.email}</a>
             </p>
           </div>
         </div>

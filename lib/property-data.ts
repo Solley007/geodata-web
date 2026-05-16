@@ -175,7 +175,6 @@ const ALL_PROPERTIES: Property[] = [
       "/properties/4-bed-semi-detached.jpg",
     specs: [
       { label: "Type", value: "Semi-Detached", hint: "4 bedroom" },
-      { label: "Available", value: "12 of 64", hint: "Phase One" },
       { label: "Price", value: "₦180M", hint: "From" },
       { label: "Bedrooms", value: "4" },
       { label: "Bathrooms", value: "5" },
@@ -261,7 +260,6 @@ const ALL_PROPERTIES: Property[] = [
     heroImage: "/properties/4-bed-terrace.jpg",
     specs: [
       { label: "Type", value: "Terrace", hint: "4 bedroom" },
-      { label: "Available", value: "18 of 80", hint: "Phase One" },
       { label: "Price", value: "₦150M", hint: "From" },
       { label: "Bedrooms", value: "4" },
       { label: "Bathrooms", value: "4" },
@@ -349,7 +347,6 @@ const ALL_PROPERTIES: Property[] = [
       "/properties/6-bed-terrace.jpg",
     specs: [
       { label: "Type", value: "Terrace", hint: "6 bedroom" },
-      { label: "Available", value: "6 of 32", hint: "Phase One" },
       { label: "Price", value: "₦220M", hint: "From" },
       { label: "Bedrooms", value: "6" },
       { label: "Bathrooms", value: "6" },
@@ -443,7 +440,6 @@ const ALL_PROPERTIES: Property[] = [
       "/properties/5-bed-semi-detached.jpg",
     specs: [
       { label: "Type", value: "Semi-Detached", hint: "5 bedroom" },
-      { label: "Available", value: "5 of 48", hint: "Phase One" },
       { label: "Price", value: "₦220M", hint: "From" },
       { label: "Bedrooms", value: "5" },
       { label: "Bathrooms", value: "5" },
@@ -536,7 +532,6 @@ const ALL_PROPERTIES: Property[] = [
       "/properties/4-bed-block-flats.jpg",
     specs: [
       { label: "Type", value: "Apartment", hint: "4 bedroom" },
-      { label: "Available", value: "22 of 96", hint: "Phase One" },
       { label: "Price", value: "₦130M", hint: "From" },
       { label: "Bedrooms", value: "4" },
       { label: "Bathrooms", value: "3" },

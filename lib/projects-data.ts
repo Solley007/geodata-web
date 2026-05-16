@@ -71,14 +71,13 @@ export const PROJECTS: Project[] = [
     year: 2024,
     location: "Idu, Abuja",
     scope: "321 units · five housing typologies · M&E infrastructure",
-    coverImage:
-      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/SBC-poster.png",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop", alt: "Semi-detached residence facade" },
-      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop", alt: "Living area with morning light" },
-      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=85&auto=format&fit=crop", alt: "Residential street view" },
-      { src: "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?w=1600&q=85&auto=format&fit=crop", alt: "Master suite interior" },
-      { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=85&auto=format&fit=crop", alt: "Aerial site progress" },
+      { src: "/SBC-poster.png", alt: "Southern Bridge City — site overview" },
+      { src: "/Aerial+1.webp", alt: "Southern Bridge City — aerial view 1" },
+      { src: "/Aerial+2.webp", alt: "Southern Bridge City — aerial view 2" },
+      { src: "/Aerial+view+3.webp", alt: "Southern Bridge City — aerial view 3" },
+      { src: "/Drone10.webp", alt: "Southern Bridge City — drone perspective" },
     ],
     overview: [
       "Southern Bridge City is Geodata's flagship residential development — a 321-unit master-planned community currently under construction at Idu, in Abuja's quiet northern growth corridor. The site spans Phase One of a larger 2,000+ unit vision, organised around five distinct housing typologies and a central park spine.",
@@ -103,12 +102,11 @@ export const PROJECTS: Project[] = [
     year: 2024,
     location: "Owerri, Imo State",
     scope: "Mixed housing types",
-    coverImage:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/Cool.png",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1600&q=85&auto=format&fit=crop", alt: "Site overview" },
-      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop", alt: "Construction progress" },
-      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85&auto=format&fit=crop", alt: "Architectural detail" },
+      { src: "/Cool.png", alt: "Cool Army Estate — site overview" },
+      { src: "/construction/structure-cool-army-estate-1778773244315.jpg", alt: "Cool Army Estate — structural progress" },
+      { src: "/construction/structure-cool-army-estate-1778773244331.jpg", alt: "Cool Army Estate — construction detail" },
     ],
     overview: [
       "Cool Army Estate represents Geodata's expansion beyond Abuja into the South-East corridor. The development comprises mixed residential typologies designed for officers and middle-income families in Owerri, Imo State.",
@@ -130,11 +128,13 @@ export const PROJECTS: Project[] = [
     year: 2025,
     location: "Abuja, FCT",
     scope: "23 rooms · 50 bed spaces · student housing",
-    coverImage: "/collage-1.jpg",
+    coverImage: "/ize-hostel/Exterior.JPG",
     gallery: [
-      { src: "/collage-1.jpg", alt: "Ize Hostel exterior" },
-      { src: "/collage-2.jpg", alt: "Communal spaces" },
-      { src: "/collage-3.jpg", alt: "Room interior" },
+      { src: "/ize-hostel/Exterior.JPG", alt: "Ize Hostel exterior" },
+      { src: "/ize-hostel/common-area.JPG", alt: "Common area" },
+      { src: "/ize-hostel/pool.JPG", alt: "Swimming pool" },
+      { src: "/ize-hostel/1-bed.JPG", alt: "1-bed room" },
+      { src: "/ize-hostel/2-bed.JPG", alt: "2-bed room" },
     ],
     overview: [
       "Ize Hostel is a purpose-built student residence designed to serve students of Nile University and Baze University in Abuja. The hostel comprises 23 rooms offering 50 bed spaces in total, with thoughtful layouts that prioritise study, rest, and community.",
@@ -161,12 +161,14 @@ export const PROJECTS: Project[] = [
     completionYear: 2025,
     location: "Idu, Abuja",
     scope: "27 units · full infrastructure",
-    coverImage:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/SBDrone2.webp",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop", alt: "Completed residence interior" },
-      { src: "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?w=1600&q=85&auto=format&fit=crop", alt: "Bedroom suite" },
-      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=85&auto=format&fit=crop", alt: "Estate streetscape" },
+      { src: "/SBDrone2.webp", alt: "Southern Bridge Estate — aerial overview" },
+      { src: "/SBDrone5.webp", alt: "Southern Bridge Estate — roofline" },
+      { src: "/SBDrone6.webp", alt: "Southern Bridge Estate — streetscape" },
+      { src: "/SBDrone7.webp", alt: "Southern Bridge Estate — estate aerial" },
+      { src: "/properties/SBE/SBE-VIEWS.jpeg", alt: "Southern Bridge Estate — street view" },
+      { src: "/properties/SBE/SBE0.jpeg", alt: "Southern Bridge Estate — frontage" },
     ],
     overview: [
       "Southern Bridge Estate is the predecessor development to Southern Bridge City and the proof point for the Idu site selection. Twenty-seven residences across multiple typologies, delivered with full estate infrastructure — roads, drainage, perimeter security, and underground utilities.",
@@ -211,34 +213,6 @@ export const PROJECTS: Project[] = [
       { label: "Location", value: "Abuja FCT" },
       { label: "Typologies", value: "3 housing types" },
     ],
-  },
-  {
-    slug: "kashere-bungalows",
-    name: "Kashere Bungalow Project",
-    subtitle: "20 three-bedroom bungalows in Gombe State",
-    category: "Residential",
-    status: "Completed",
-    year: 2017,
-    completionYear: 2018,
-    location: "Kashere, Gombe State",
-    scope: "20 three-bedroom bungalows with BQ",
-    coverImage:
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=2000&q=85&auto=format&fit=crop",
-    gallery: [
-      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85&auto=format&fit=crop", alt: "Bungalow frontage" },
-      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85&auto=format&fit=crop", alt: "Compound view" },
-    ],
-    overview: [
-      "Twenty three-bedroom bungalows with attached boys' quarters, delivered at Kashere in Gombe State. The project served institutional residential demand around the Federal University Kashere campus, where Geodata had concurrent construction work.",
-      "Built to standard residential specification with concrete frame, blockwork infill, and corrugated steel roofing — adapted for the harsher northern climate.",
-    ],
-    keyFacts: [
-      { label: "Units", value: "20" },
-      { label: "Type", value: "3-bedroom bungalow + BQ" },
-      { label: "Completed", value: "2018" },
-      { label: "Location", value: "Gombe State" },
-    ],
-    hideFromNav: true,
   },
   {
     slug: "sil-estate",
@@ -304,36 +278,6 @@ export const PROJECTS: Project[] = [
   // INSTITUTIONAL — federal agencies, banks, universities
   // -------------------------------------------------------------------------
   {
-    slug: "cbn-maitama-portfolio",
-    name: "Central Bank of Nigeria — Maitama Portfolio",
-    subtitle: "Six property renovations across CBN's Maitama estate",
-    category: "Institutional",
-    status: "Completed",
-    year: 2019,
-    completionYear: 2019,
-    location: "Maitama, Abuja",
-    client: "Central Bank of Nigeria",
-    scope: "Six properties · two addresses · multiple scopes of work",
-    coverImage:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&q=85&auto=format&fit=crop",
-    gallery: [
-      { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=85&auto=format&fit=crop", alt: "Renovated interior" },
-      { src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600&q=85&auto=format&fit=crop", alt: "Building exterior" },
-      { src: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=85&auto=format&fit=crop", alt: "Architectural detail" },
-    ],
-    overview: [
-      "Through 2019, Geodata executed a programme of six renovation and improvement contracts across the Central Bank of Nigeria's Maitama property portfolio. Work spanned two addresses — 51A Usuma Street and 14 Vattern Street — with scopes including full property renovation, outdoor kitchen and poolside development, swimming pool facility re-roofing and kitchen installation, balcony tile and POP ceiling replacement, and re-tiling and alteration works.",
-      "Engagement by an institution of CBN's standards reflects the firm's regulatory compliance, audit-ready financial systems, and capacity to deliver discreet, high-quality work to government and financial-sector clients. All six contracts were delivered on programme.",
-    ],
-    keyFacts: [
-      { label: "Client", value: "Central Bank of Nigeria" },
-      { label: "Properties", value: "Six" },
-      { label: "Year", value: "2019" },
-      { label: "Locations", value: "Usuma & Vattern, Maitama" },
-    ],
-    hideFromNav: true,
-  },
-  {
     slug: "firs-office-programme",
     name: "Federal Inland Revenue Service — Office Programme",
     subtitle: "Office retrofitting and partitioning across FIRS facilities",
@@ -362,67 +306,11 @@ export const PROJECTS: Project[] = [
       { label: "Scope", value: "Retrofit, partitioning, surveys" },
     ],
   },
-  {
-    slug: "federal-university-kashere",
-    name: "Federal University Kashere",
-    subtitle: "Construction and furnishing of Schools of Remedial Studies",
-    category: "Institutional",
-    status: "Completed",
-    year: 2018,
-    completionYear: 2018,
-    location: "Kashere, Gombe State",
-    client: "Federal University Kashere",
-    scope: "Schools of Remedial Studies · construction and furnishing",
-    coverImage:
-      "https://images.unsplash.com/photo-1562774053-701939374585?w=2000&q=85&auto=format&fit=crop",
-    gallery: [
-      { src: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1600&q=85&auto=format&fit=crop", alt: "Academic building" },
-      { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&auto=format&fit=crop", alt: "Classroom interior" },
-    ],
-    overview: [
-      "Geodata delivered the construction and furnishing of the Schools of Remedial Studies facility at Federal University Kashere in Gombe State. The project encompassed structural construction, internal fit-out, and full furnishing supply for academic use.",
-      "The contract was executed alongside Geodata's residential bungalow project in the same location, demonstrating the firm's ability to manage concurrent civil and institutional construction programmes within a single regional engagement.",
-    ],
-    keyFacts: [
-      { label: "Client", value: "Federal University Kashere" },
-      { label: "Scope", value: "Construction + furnishing" },
-      { label: "Location", value: "Gombe State" },
-      { label: "Completed", value: "2018" },
-    ],
-    hideFromNav: true,
-  },
+
 
   // -------------------------------------------------------------------------
   // INFRASTRUCTURE
   // -------------------------------------------------------------------------
-  {
-    slug: "okpella-community-centre",
-    name: "Okpella Community Centre",
-    subtitle: "Community centre and sporting facilities",
-    category: "Infrastructure",
-    status: "Completed",
-    year: 2017,
-    completionYear: 2017,
-    location: "Okpella, Edo State",
-    client: "Federal Ministry of Lands, Housing & Urban Development",
-    scope: "Community centre · sporting facilities",
-    coverImage:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=2000&q=85&auto=format&fit=crop",
-    gallery: [
-      { src: "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=1600&q=85&auto=format&fit=crop", alt: "Community building" },
-      { src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=85&auto=format&fit=crop", alt: "Sporting facility" },
-    ],
-    overview: [
-      "Construction of a community centre and sporting facilities at Okpella in Edo State, delivered for the Federal Ministry of Lands, Housing and Urban Development. The project served public infrastructure objectives in support of community development in the region.",
-    ],
-    keyFacts: [
-      { label: "Client", value: "Federal Ministry of Lands" },
-      { label: "Scope", value: "Community + sporting facilities" },
-      { label: "Location", value: "Okpella, Edo State" },
-      { label: "Completed", value: "2017" },
-    ],
-    hideFromNav: true,
-  },
   {
     slug: "kogi-state-infrastructure",
     name: "Kogi State Infrastructure Programme",
@@ -433,11 +321,14 @@ export const PROJECTS: Project[] = [
     location: "Kogi State",
     client: "World Bank / Kogi State Government — KOGI RAAMP",
     scope: "33.56km rural roads · AKU & Agro Logistic Centre, Adavi LGA",
-    coverImage:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/kogi/freshly-paved-road.jpeg",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=85&auto=format&fit=crop", alt: "Rural infrastructure" },
-      { src: "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=1600&q=85&auto=format&fit=crop", alt: "Logistics centre construction" },
+      { src: "/kogi/freshly-paved-road.jpeg", alt: "Kogi RAAMP — freshly paved road" },
+      { src: "/kogi/asphalt-road-streetlight.jpeg", alt: "Kogi RAAMP — road with streetlights" },
+      { src: "/kogi/road-roller.jpeg", alt: "Kogi RAAMP — road compaction" },
+      { src: "/kogi/asphalt-paving.jpeg", alt: "Kogi RAAMP — asphalt laying" },
+      { src: "/kogi/lockup-shop.jpeg", alt: "Kogi RAAMP — agro logistic centre" },
+      { src: "/kogi/warehouse.jpeg", alt: "Kogi RAAMP — warehouse construction" },
     ],
     overview: [
       "Geodata is engaged on two contracts under the Kogi State Rural Access & Agricultural Marketing Project (KOGI RAAMP) — a World Bank-funded programme delivered in partnership with the Kogi State Government to expand rural connectivity and agricultural value-chain infrastructure.",

@@ -55,7 +55,7 @@ export default function AboutHero() {
           </div>
           <div className="border-l border-hairline dark:border-white/10 pl-5">
             <p className="font-display text-5xl text-navy-950 dark:text-bone tracking-tightest leading-none">
-              500<span className="text-gold">+</span>
+              500<span className="text-accent">+</span>
             </p>
             <p className="mt-3 eyebrow text-ink-muted dark:text-bone/60">Units delivered</p>
           </div>

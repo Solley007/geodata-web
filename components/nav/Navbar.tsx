@@ -89,7 +89,7 @@ export default function Navbar() {
               className="h-9 w-9 shrink-0 translate-y-0"
             />
             <span className="leading-none translate-y-1">
-              GEODATA<span className="text-gold">.</span>
+              GEODATA
             </span>
           </Link>
 
@@ -111,8 +111,8 @@ export default function Navbar() {
                   className={clsx(
                     "text-sm font-medium tracking-wide transition-colors duration-400 flex items-center gap-1",
                     isScrolled
-                      ? "text-navy-900 hover:text-gold-dark dark:text-bone/90 dark:hover:text-gold"
-                      : "text-bone hover:text-gold-soft"
+                      ? "text-navy-900 hover:text-accent-dark dark:text-bone/90 dark:hover:text-accent"
+                      : "text-bone hover:text-accent-soft"
                   )}
                 >
                   {item.label}
@@ -139,7 +139,7 @@ export default function Navbar() {
             />
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 bg-navy-900 dark:bg-bone dark:text-navy-950 px-5 py-3 text-xs uppercase tracking-eyebrow font-medium text-bone hover:bg-navy-800 dark:hover:bg-gold-soft transition-colors duration-400"
+              className="inline-flex items-center gap-3 bg-navy-900 dark:bg-bone dark:text-navy-950 px-5 py-3 text-xs uppercase tracking-eyebrow font-medium text-bone hover:bg-navy-800 dark:hover:bg-accent-soft transition-colors duration-400"
             >
               Schedule Visit
             </Link>

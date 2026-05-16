@@ -124,7 +124,7 @@ export default function ConstructionGallery({ propertySlug, selectedPhase }: Pro
             <button
               key={i}
               onClick={() => setLightbox(update)}
-              className="group block text-left focus-visible:outline-2 focus-visible:outline-gold"
+              className="group block text-left focus-visible:outline-2 focus-visible:outline-accent"
               aria-label={`View photo: ${update.caption}`}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-navy-100">

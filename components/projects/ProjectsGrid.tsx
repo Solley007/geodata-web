@@ -70,7 +70,7 @@ export default function ProjectsGrid({ projects }: Props) {
                   className={clsx(
                     "absolute top-6 left-6 inline-flex items-center px-3 py-1.5 backdrop-blur-sm",
                     p.status === "Ongoing"
-                      ? "bg-gold/95 text-navy-950 dark:text-bone"
+                      ? "bg-accent/95 text-navy-950 dark:text-bone"
                       : "bg-bone/95 text-navy-900 dark:text-bone/90"
                   )}
                 >

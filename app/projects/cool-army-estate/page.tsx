@@ -142,7 +142,7 @@ export default async function CoolArmyEstatePage() {
 
                 {/* Right: count */}
                 <div className="col-span-12 md:col-span-5 md:text-right">
-                  <p className="font-display text-4xl md:text-5xl tracking-tight text-gold-dark dark:text-gold leading-none">
+                  <p className="font-display text-4xl md:text-5xl tracking-tight text-gold-dark dark:text-accent leading-none">
                     {unit.count}
                   </p>
                   <p className="text-[11px] uppercase tracking-widest text-ink-muted dark:text-bone/50 mt-2">
@@ -201,7 +201,7 @@ export default async function CoolArmyEstatePage() {
                   <p className="text-[11px] uppercase tracking-widest text-ink-muted dark:text-bone/50 mb-1">
                     {formatUpdateDate(u.date)}
                   </p>
-                  <h3 className="font-display text-xl tracking-tight leading-tight group-hover:text-gold transition-colors">
+                  <h3 className="font-display text-xl tracking-tight leading-tight group-hover:text-accent transition-colors">
                     {u.title}
                   </h3>
                 </Link>
@@ -209,7 +209,7 @@ export default async function CoolArmyEstatePage() {
             </div>
 
             <div className="mt-12 text-center">
-              <Link href="/updates?project=cool-army-estate" className="inline-flex items-center gap-2 text-sm hover:text-gold transition-colors">
+              <Link href="/updates?project=cool-army-estate" className="inline-flex items-center gap-2 text-sm hover:text-accent transition-colors">
                 View all site updates <span aria-hidden>→</span>
               </Link>
             </div>
@@ -249,7 +249,7 @@ export default async function CoolArmyEstatePage() {
 
       {/* Back link */}
       <div className="py-8 border-t border-hairline dark:border-white/10 text-center">
-        <Link href="/projects" className="text-sm text-ink-muted dark:text-bone/50 hover:text-gold transition-colors">
+        <Link href="/projects" className="text-sm text-ink-muted dark:text-bone/50 hover:text-accent transition-colors">
           ← View all Geodata projects
         </Link>
       </div>

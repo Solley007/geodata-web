@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/about/AboutHero";
+import MissionValues from "@/components/about/MissionValues";
 import TrackRecord from "@/components/about/TrackRecord";
 import InstitutionalClients from "@/components/about/InstitutionalClients";
 import Leadership from "@/components/about/Leadership";
@@ -74,6 +75,7 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <AboutHero />
+      <MissionValues />
       <TrackRecord />
       <InstitutionalClients />
       <Leadership />

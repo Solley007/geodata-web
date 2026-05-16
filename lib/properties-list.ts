@@ -29,17 +29,16 @@ export const PROPERTIES: PropertyListItem[] = [
     slug: "4-bed-semi-detached",
     title: "The Semi-Detached",
     type: "Semi-Detached",
-    status: "Limited",
+    status: "Available",
     location: "Southern Bridge City, Idu",
     price: 180_000_000,
     priceLabel: "₦180M",
     beds: 4,
     baths: 5,
     area: "340m²",
-    available: 12,
-    totalUnits: 64,
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85&auto=format&fit=crop",
+    available: 0,
+    totalUnits: 0,
+    image: "/properties/4-bed-semi-detached.jpg",
   },
   {
     slug: "4-bed-terrace",
@@ -54,8 +53,7 @@ export const PROPERTIES: PropertyListItem[] = [
     area: "240m²",
     available: 38,
     totalUnits: 96,
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=85&auto=format&fit=crop",
+    image: "/properties/4-bed-terrace.jpg",
   },
   {
     slug: "6-bed-terrace",
@@ -70,24 +68,22 @@ export const PROPERTIES: PropertyListItem[] = [
     area: "250m²",
     available: 24,
     totalUnits: 48,
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85&auto=format&fit=crop",
+    image: "/properties/6-bed-terrace.jpg",
   },
   {
     slug: "5-bed-semi-detached",
     title: "The Five",
     type: "Semi-Detached",
-    status: "Limited",
+    status: "Available",
     location: "Southern Bridge City, Idu",
     price: 220_000_000,
     priceLabel: "₦220M",
     beds: 5,
     baths: 6,
     area: "440m²",
-    available: 8,
-    totalUnits: 32,
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop",
+    available: 0,
+    totalUnits: 0,
+    image: "/properties/5-bed-semi-detached.jpg",
   },
   {
     slug: "4-bed-block-flats",
@@ -102,8 +98,24 @@ export const PROPERTIES: PropertyListItem[] = [
     area: "250m²",
     available: 56,
     totalUnits: 80,
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=85&auto=format&fit=crop",
+    image: "/properties/4-bed-block-flats.jpg",
+  },
+
+  // ─── Southern Bridge Estate ─────────────────────────────────────────────
+  {
+    slug: "sbe-6-bed-semi-detached",
+    title: "SBE 6-Bedroom Semi-Detached",
+    type: "Semi-Detached",
+    status: "Limited",
+    location: "Southern Bridge Estate, Idu",
+    price: 0,
+    priceLabel: "Price on request",
+    beds: 6,
+    baths: 7,
+    area: "400m²",
+    available: 9,          // 2 Phase One + 7 Phase Two
+    totalUnits: 15,        // 8 Phase One + 7 Phase Two
+    image: "/properties/SBE/SBE-COMPLETE-2.jpeg",
   },
 ];
 

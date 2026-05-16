@@ -148,7 +148,7 @@ export default function FloatingActions() {
           "flex items-center justify-center w-12 h-12 rounded-full shadow-lg",
           "bg-navy-900 dark:bg-bone text-bone dark:text-navy-950",
           "hover:bg-navy-800 dark:hover:bg-gold-soft",
-          "transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold"
+          "transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent"
         )}
       >
         <svg
@@ -179,7 +179,7 @@ export default function FloatingActions() {
           "bg-bone dark:bg-navy-800 border border-hairline dark:border-white/10",
           "text-navy-900 dark:text-bone",
           "hover:bg-bone-100 dark:hover:bg-navy-700 hover:shadow-lg",
-          "transition-all duration-400 focus-visible:outline-2 focus-visible:outline-gold",
+          "transition-all duration-400 focus-visible:outline-2 focus-visible:outline-accent",
           showTop
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-4 pointer-events-none"

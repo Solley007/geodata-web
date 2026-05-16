@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 function statusStyle(status: string) {
   if (status.includes("Available") && !status.includes("Limited"))
     return "bg-bone/95 text-navy-900 dark:text-bone/90";
-  if (status.includes("Limited")) return "bg-gold/95 text-navy-950 dark:text-bone";
+  if (status.includes("Limited")) return "bg-accent/95 text-navy-950 dark:text-bone";
   return "bg-navy-950/80 text-bone/70";
 }
 
@@ -404,7 +404,7 @@ export default function SouthernBridgeCityPage() {
               <span className="text-right text-bone/85">
                 ₦{(row.price / 1_000_000).toFixed(0)}M
               </span>
-              <span className="text-right text-gold">
+              <span className="text-right text-accent">
                 ₦{(row.price * 0.1 / 1_000_000).toFixed(1)}M
               </span>
               <span className="text-right text-bone/85">

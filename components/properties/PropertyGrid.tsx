@@ -73,14 +73,14 @@ export default function PropertyGrid({ properties }: Props) {
                   className={clsx(
                     "absolute top-6 left-6 inline-flex items-center px-3 py-1.5 backdrop-blur-sm",
                     p.status === "Limited"
-                      ? "bg-gold/95 text-navy-950 dark:text-bone"
+                      ? "bg-accent/95 text-navy-950 dark:text-bone"
                       : p.status === "Sold Out"
                       ? "bg-navy-950/90 text-bone"
                       : "bg-bone/95 text-navy-900 dark:text-bone/90"
                   )}
                 >
                   <span className="text-[10px] uppercase tracking-eyebrow font-medium">
-                    {p.status === "Limited" ? `${p.available} remaining` : p.status}
+                    {p.status}
                   </span>
                 </div>
                 {/* Type label — bottom left */}

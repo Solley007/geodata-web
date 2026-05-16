@@ -26,7 +26,7 @@ export default function HomeUpdates() {
           </div>
           <Link
             href="/updates"
-            className="inline-flex items-center gap-2 text-sm font-medium text-navy-900 dark:text-bone hover:text-gold-dark dark:hover:text-gold transition-colors pb-1 border-b border-navy-900 dark:border-bone/40 hover:border-gold-dark dark:hover:border-gold"
+            className="inline-flex items-center gap-2 text-sm font-medium text-navy-900 dark:text-bone hover:text-gold-dark dark:hover:text-accent transition-colors pb-1 border-b border-navy-900 dark:border-bone/40 hover:border-gold-dark dark:hover:border-accent"
           >
             View all updates
             <span aria-hidden>→</span>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, DM_Sans } from "next/font/google";
+import { Fraunces } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import SmoothScrollProvider from "@/lib/SmoothScrollProvider";
 import Navbar from "@/components/nav/Navbar";
@@ -18,10 +19,22 @@ const fraunces = Fraunces({
   style: ["normal", "italic"],
 });
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
+// Euclid Circular B — Geodata brand body font (all weights + italics)
+const euclid = localFont({
+  src: [
+    { path: "../public/fonts/euclid/Euclid_Circular_B_Light.ttf",         weight: "300", style: "normal" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_Light_Italic.ttf",  weight: "300", style: "italic" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_Regular.ttf",       weight: "400", style: "normal" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_Italic.ttf",        weight: "400", style: "italic" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_Medium.ttf",        weight: "500", style: "normal" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_Medium_Italic.ttf", weight: "500", style: "italic" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_SemiBold.ttf",      weight: "600", style: "normal" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_SemiBold_Italic.ttf", weight: "600", style: "italic" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_Bold.ttf",          weight: "700", style: "normal" },
+    { path: "../public/fonts/euclid/Euclid_Circular_B_Bold_Italic.ttf",   weight: "700", style: "italic" },
+  ],
   display: "swap",
-  variable: "--font-sans",
+  variable: "--font-body",
 });
 
 const SITE_URL = "https://geodata.com.ng";
@@ -134,7 +147,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${dmSans.variable}`}
+      className={`${fraunces.variable} ${euclid.variable}`}
       suppressHydrationWarning
     >
       <body>

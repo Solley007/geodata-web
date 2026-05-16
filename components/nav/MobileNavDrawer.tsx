@@ -89,7 +89,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
               className="h-9 w-9 shrink-0"
             />
             <span className="leading-none translate-y-1">
-              GEODATA<span className="text-gold">.</span>
+              GEODATA
             </span>
           </Link>
           <div className="flex items-center gap-2">
@@ -97,7 +97,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
             <button
               onClick={onClose}
               aria-label="Close menu"
-              className="text-navy-900 dark:text-bone text-2xl leading-none p-2 -m-2 hover:text-gold-dark transition-colors"
+              className="text-navy-900 dark:text-bone text-2xl leading-none p-2 -m-2 hover:text-accent-dark transition-colors"
             >
               ×
             </button>
@@ -116,13 +116,13 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
               <button
                 onClick={() => toggle("properties")}
                 aria-expanded={expanded === "properties"}
-                className="w-full flex items-center justify-between py-4 font-display text-3xl text-navy-950 hover:text-gold-dark transition-colors duration-300"
+                className="w-full flex items-center justify-between py-4 font-display text-3xl text-navy-950 dark:text-bone hover:text-accent-dark dark:hover:text-accent transition-colors duration-300"
               >
                 Properties
                 <span
                   aria-hidden
                   className={clsx(
-                    "text-base text-ink-faint transition-transform duration-300",
+                    "text-base text-ink-faint dark:text-bone/40 transition-transform duration-300",
                     expanded === "properties" ? "rotate-180" : ""
                   )}
                 >
@@ -134,21 +134,21 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
                 <div className="pb-6 space-y-6">
                   {/* Developments */}
                   <div>
-                    <p className="eyebrow text-ink-faint mb-3">Developments</p>
+                    <p className="eyebrow text-ink-faint dark:text-bone/40 mb-3">Developments</p>
                     <ul className="space-y-0">
                       {DEVELOPMENTS.map((dev) => (
                         <li key={dev.href}>
                           <Link
                             href={dev.href}
                             onClick={onClose}
-                            className="flex items-center justify-between py-3 border-b border-hairline text-navy-900 hover:text-gold-dark transition-colors duration-300"
+                            className="flex items-center justify-between py-3 border-b border-hairline dark:border-white/10 text-navy-900 dark:text-bone hover:text-accent-dark dark:hover:text-accent transition-colors duration-300"
                           >
                             <span className="font-medium text-base">{dev.name}</span>
                             <span className={clsx(
                               "text-[10px] uppercase tracking-eyebrow shrink-0 ml-3",
-                              dev.status === "Available" ? "text-navy-900" :
-                              dev.status === "Limited" ? "text-gold-dark" :
-                              "text-ink-faint"
+                              dev.status === "Available" ? "text-navy-900 dark:text-bone" :
+                              dev.status === "Limited" ? "text-accent-dark" :
+                              "text-ink-faint dark:text-bone/40"
                             )}>
                               {dev.status}
                             </span>
@@ -160,17 +160,17 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
 
                   {/* Unit types */}
                   <div>
-                    <p className="eyebrow text-ink-faint mb-3">Southern Bridge City</p>
+                    <p className="eyebrow text-ink-faint dark:text-bone/40 mb-3">Southern Bridge City</p>
                     <ul className="space-y-0">
                       {PROPERTY_UNITS.map((unit) => (
                         <li key={unit.href}>
                           <Link
                             href={unit.href}
                             onClick={onClose}
-                            className="flex items-baseline justify-between py-3 border-b border-hairline text-navy-900 hover:text-gold-dark transition-colors duration-300"
+                            className="flex items-baseline justify-between py-3 border-b border-hairline dark:border-white/10 text-navy-900 dark:text-bone hover:text-accent-dark dark:hover:text-accent transition-colors duration-300"
                           >
                             <span className="font-medium text-base">{unit.label}</span>
-                            <span className="text-xs text-ink-faint shrink-0 ml-3">{unit.sub}</span>
+                            <span className="text-xs text-ink-faint dark:text-bone/40 shrink-0 ml-3">{unit.sub}</span>
                           </Link>
                         </li>
                       ))}
@@ -180,7 +180,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
                   <Link
                     href="/properties"
                     onClick={onClose}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-navy-900 hover:text-gold-dark transition-colors duration-400 pb-1 border-b border-navy-900 hover:border-gold-dark"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-navy-900 hover:text-accent-dark transition-colors duration-400 pb-1 border-b border-navy-900 dark:border-bone hover:border-accent-dark dark:hover:border-accent"
                   >
                     View all available units →
                   </Link>
@@ -193,13 +193,13 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
               <button
                 onClick={() => toggle("projects")}
                 aria-expanded={expanded === "projects"}
-                className="w-full flex items-center justify-between py-4 font-display text-3xl text-navy-950 hover:text-gold-dark transition-colors duration-300"
+                className="w-full flex items-center justify-between py-4 font-display text-3xl text-navy-950 dark:text-bone hover:text-accent-dark dark:hover:text-accent transition-colors duration-300"
               >
                 Projects
                 <span
                   aria-hidden
                   className={clsx(
-                    "text-base text-ink-faint transition-transform duration-300",
+                    "text-base text-ink-faint dark:text-bone/40 transition-transform duration-300",
                     expanded === "projects" ? "rotate-180" : ""
                   )}
                 >
@@ -214,19 +214,19 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
                     if (catProjects.length === 0) return null;
                     return (
                       <div key={cat}>
-                        <p className="eyebrow text-ink-faint mb-2">{cat}</p>
+                        <p className="eyebrow text-ink-faint dark:text-bone/40 mb-2">{cat}</p>
                         <ul className="space-y-0">
                           {catProjects.map((p) => (
                             <li key={p.slug}>
                               <Link
                                 href={`/projects/${p.slug}`}
                                 onClick={onClose}
-                                className="flex items-center justify-between py-2.5 border-b border-hairline text-navy-900 hover:text-gold-dark transition-colors duration-300"
+                                className="flex items-center justify-between py-2.5 border-b border-hairline dark:border-white/10 text-navy-900 dark:text-bone hover:text-accent-dark dark:hover:text-accent transition-colors duration-300"
                               >
                                 <span className="text-sm font-medium">{p.name}</span>
                                 {p.status === "Ongoing" && (
-                                  <span className="flex items-center gap-1 text-[10px] uppercase tracking-eyebrow text-gold-dark shrink-0 ml-3">
-                                    <span className="block h-1 w-1 rounded-full bg-gold-dark" />
+                                  <span className="flex items-center gap-1 text-[10px] uppercase tracking-eyebrow text-accent-dark shrink-0 ml-3">
+                                    <span className="block h-1 w-1 rounded-full bg-accent-dark" />
                                     Live
                                   </span>
                                 )}
@@ -241,7 +241,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
                   <Link
                     href="/projects"
                     onClick={onClose}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-navy-900 hover:text-gold-dark transition-colors duration-400 pb-1 border-b border-navy-900 hover:border-gold-dark"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-navy-900 hover:text-accent-dark transition-colors duration-400 pb-1 border-b border-navy-900 dark:border-bone hover:border-accent-dark dark:hover:border-accent"
                   >
                     View full portfolio →
                   </Link>
@@ -267,11 +267,11 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
           >
             Schedule a visit →
           </Link>
-          <div className="mt-6 flex flex-col gap-2 text-sm text-ink-muted">
-            <a href="tel:+2347047620492" className="hover:text-navy-900 transition-colors">
+          <div className="mt-6 flex flex-col gap-2 text-sm text-ink-muted dark:text-bone/60">
+            <a href="tel:+2347047620492" className="hover:text-navy-900 dark:hover:text-bone transition-colors">
               +234 704 762 0492
             </a>
-            <a href="mailto:hello@geodata.com.ng" className="hover:text-navy-900 transition-colors">
+            <a href="mailto:hello@geodata.com.ng" className="hover:text-navy-900 dark:hover:text-bone transition-colors">
               hello@geodata.com.ng
             </a>
           </div>
@@ -296,7 +296,7 @@ function NavItem({
       <Link
         href={href}
         onClick={onClose}
-        className="block py-4 font-display text-3xl text-navy-950 hover:text-gold-dark transition-colors duration-300"
+        className="block py-4 font-display text-3xl text-navy-950 dark:text-bone hover:text-accent-dark dark:hover:text-accent transition-colors duration-300"
       >
         {children}
       </Link>

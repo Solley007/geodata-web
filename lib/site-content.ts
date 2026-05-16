@@ -129,9 +129,17 @@ export const STATS = [
 export const ABOUT = {
   manifesto: "We build places that hold their value across generations.",
   mission:
-    "To deliver world-class residential, commercial, and infrastructure projects that meet international standards — built honestly, finished considerately, and engineered to last.",
+    "We deliver trusted real estate services that prioritize client satisfaction, quality developments and long-term value guided by ethics, expertise and innovation. Our team approaches every project with meticulous planning, market insight and a commitment to excellence, ensuring that each development is both impactful and sustainable.",
   vision:
-    "To be Nigeria's most trusted real estate developer — known for the quiet quality of our work and the integrity of every transaction.",
+    "To create enduring homes and vibrant communities, built on integrity and high-quality standards, where people thrive and prosper.",
+  values: [
+    "Integrity",
+    "Innovation",
+    "Excellence",
+    "Teamwork",
+    "Exceptional quality",
+    "Client-centric",
+  ],
 };
 
 // ─── 6. MREIF mortgage terms ─────────────────────────────────────────────────
@@ -195,7 +203,7 @@ export const DEVELOPMENTS = [
     name:        "Southern Bridge City",
     location:    "Idu, Abuja",
     description: "321 residences across five typologies. MREIF-eligible mortgages from 9.75% fixed.",
-    image:       "/collage-2.jpg",
+    image:       "/SBC-poster.png",
     status:      "Available" as const,
   },
   {
@@ -203,7 +211,7 @@ export const DEVELOPMENTS = [
     name:        "Southern Bridge Estate",
     location:    "Idu, Abuja",
     description: "27 completed semi-detached and terraced homes in a gated community.",
-    image:       "/collage-4.jpg",
+    image:       "/SBDrone4.webp",
     status:      "Sold Out" as const,
   },
   {
@@ -211,23 +219,23 @@ export const DEVELOPMENTS = [
     name:        "Country Court Estate",
     location:    "Abuja",
     description: "24 mixed-unit development delivered across two phases.",
-    image:       "/collage-3.jpg",
+    image:       "/DRONECC8.png",
     status:      "Sold Out" as const,
+  },
+  {
+    slug:        "ize-hostel",
+    name:        "Ize Hostel",
+    location:    "Jabi, Abuja",
+    description: "Student Hostel for Nile and Baze Student",
+    image:       "/ize-hostel/Exterior.JPG",
+    status:      "Available" as const,
   },
   {
     slug:        "cool-army-estate",
     name:        "Cool Army Estate",
-    location:    "Owerri, Imo State",
-    description: "Mixed housing development for serving and retired military personnel.",
-    image:       "/collage-5.jpg",
-    status:      "Sold Out" as const,
-  },
-  {
-    slug:        "mabushi-shopping-complex",
-    name:        "Mabushi Shopping Complex",
     location:    "Mabushi, Abuja",
-    description: "6-storey commercial development. Retail, office, and parking.",
-    image:       "/collage-1.jpg",
+    description: "Army Estate in Imo State.",
+    image:       "/Cool.png",
     status:      "Selling Soon" as const,
   },
 ];

@@ -12,8 +12,8 @@
   --color-navy-deep: #0A1628;
   --color-bone: #FAFAF7;
   --color-bone-100: #F4F2EC;
-  --color-gold: #C9A961;
-  --color-gold-dark: #A88B47;
+  --color-accent: #C9A961;
+  --color-accent-dark: #A88B47;
   --color-hairline: #E5E0D5;
   --color-ink-muted: #5C6B7E;
 
@@ -87,7 +87,7 @@ body {
   body {
     background-color: var(--color-bone);
     color: var(--color-navy-deep);
-    font-family: var(--font-sans), system-ui, sans-serif;
+    font-family: var(--font-body), system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
   }
 
@@ -115,7 +115,7 @@ body {
     outline: none;
   }
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
     border-radius: 1px;
   }
@@ -123,7 +123,7 @@ body {
      elsewhere, the outline-offset prevents visual collisions. */
   .bg-navy-950 :focus-visible,
   .bg-navy-900 :focus-visible {
-    outline-color: var(--color-gold);
+    outline-color: var(--color-accent);
   }
 }
 
@@ -283,7 +283,7 @@ html.lenis body {
   border: none;
   border-bottom: 1px solid var(--color-hairline);
   padding: 12px 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 1rem;
   color: var(--color-navy-deep);
   transition: border-color 300ms var(--ease-editorial);
@@ -402,7 +402,7 @@ html.dark textarea.cf-input:focus {
 
 .prose {
   color: var(--color-navy-deep);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 1.125rem; /* 18px — publishing standard */
   line-height: 1.75;
   max-width: 68ch;     /* readable measure */
@@ -453,7 +453,7 @@ html.dark textarea.cf-input:focus {
 }
 
 .prose h4 {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.6875rem;
   font-weight: 600;
   line-height: 1.5;
@@ -476,7 +476,7 @@ html.dark textarea.cf-input:focus {
   position: absolute;
   left: -1.5ch;
   top: 0;
-  color: var(--color-gold);
+  color: var(--color-accent);
   opacity: 0;
   transition: opacity 200ms var(--ease-editorial);
   font-weight: 400;
@@ -497,7 +497,7 @@ html.dark textarea.cf-input:focus {
 }
 
 .prose a:not(.heading-anchor):hover {
-  text-decoration-color: var(--color-gold);
+  text-decoration-color: var(--color-accent);
 }
 
 /* Strong / emphasis */
@@ -514,7 +514,7 @@ html.dark textarea.cf-input:focus {
 .prose blockquote {
   margin: 2em 0 2em -1em;
   padding-left: 1.5em;
-  border-left: 2px solid var(--color-gold);
+  border-left: 2px solid var(--color-accent);
   font-family: var(--font-display), Georgia, serif;
   font-style: italic;
   font-size: 1.5rem;
@@ -550,7 +550,7 @@ html.dark textarea.cf-input:focus {
   top: 0.7em;
   width: 0.4em;
   height: 1px;
-  background: var(--color-gold);
+  background: var(--color-accent);
 }
 
 .prose ol {
@@ -571,7 +571,7 @@ html.dark textarea.cf-input:focus {
   left: -2.2em;
   top: 0.05em;
   font-family: var(--font-display), Georgia, serif;
-  color: var(--color-gold);
+  color: var(--color-accent);
   font-size: 0.875em;
   font-variant-numeric: tabular-nums;
 }
@@ -651,7 +651,7 @@ html.dark textarea.cf-input:focus {
 .prose th {
   padding: 0.8em 1em 0.8em 0;
   text-align: left;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -699,7 +699,7 @@ html.dark textarea.cf-input:focus {
   font-size: 1.125rem; /* 18px */
   line-height: 1.7;
   color: var(--color-navy-deep);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
 }
 
 /* Drop-cap on the very first paragraph — subtle editorial flourish */
@@ -742,7 +742,7 @@ html.dark textarea.cf-input:focus {
 }
 
 .prose h4 {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -781,7 +781,7 @@ html.dark textarea.cf-input:focus {
   transition: text-decoration-color 200ms;
 }
 .prose a:hover {
-  text-decoration-color: var(--color-gold);
+  text-decoration-color: var(--color-accent);
 }
 
 /* Strong / emphasis */
@@ -812,7 +812,7 @@ html.dark textarea.cf-input:focus {
   content: "—";
   position: absolute;
   left: -1.25em;
-  color: var(--color-gold-dark, #A88B47);
+  color: var(--color-accent-dark, #A88B47);
 }
 .prose ol {
   list-style-type: decimal;
@@ -822,7 +822,7 @@ html.dark textarea.cf-input:focus {
   padding-left: 0.25em;
 }
 .prose ol > li::marker {
-  color: var(--color-gold-dark, #A88B47);
+  color: var(--color-accent-dark, #A88B47);
   font-family: var(--font-display), Georgia, serif;
 }
 
@@ -830,7 +830,7 @@ html.dark textarea.cf-input:focus {
 .prose blockquote {
   margin: 2.5rem 0;
   padding: 0 0 0 1.5rem;
-  border-left: 2px solid var(--color-gold);
+  border-left: 2px solid var(--color-accent);
   font-family: var(--font-display), Georgia, serif;
   font-size: 1.5rem;
   line-height: 1.4;

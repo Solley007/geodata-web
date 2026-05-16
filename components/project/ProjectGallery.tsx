@@ -99,15 +99,15 @@ export default function ProjectGallery({ items, eyebrow = "Gallery", title = "Se
           onClick={() => setActive(null)}
         >
           <button onClick={() => setActive(null)} aria-label="Close"
-            className="absolute top-6 right-6 text-bone hover:text-gold text-3xl leading-none">×</button>
+            className="absolute top-6 right-6 text-bone hover:text-accent text-3xl leading-none">×</button>
 
           <button onClick={(e) => { e.stopPropagation(); setActive((active - 1 + items.length) % items.length); }}
             aria-label="Previous"
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-bone hover:text-gold text-3xl px-3 py-2">‹</button>
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-bone hover:text-accent text-3xl px-3 py-2">‹</button>
 
           <button onClick={(e) => { e.stopPropagation(); setActive((active + 1) % items.length); }}
             aria-label="Next"
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-bone hover:text-gold text-3xl px-3 py-2">›</button>
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-bone hover:text-accent text-3xl px-3 py-2">›</button>
 
           <div className="relative max-w-6xl w-full max-h-full" onClick={(e) => e.stopPropagation()}>
             {current.type === "video" ? (

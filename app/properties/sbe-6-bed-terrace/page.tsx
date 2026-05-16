@@ -27,7 +27,7 @@ export default function SBETerracePage() {
         <Image src="/SBDrone4.webp" alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/80" />
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20">
-          <Link href="/projects/southern-bridge-estate" className="eyebrow text-bone/70 mb-6 hover:text-gold transition-colors inline-block">
+          <Link href="/projects/southern-bridge-estate" className="eyebrow text-bone/70 mb-6 hover:text-accent transition-colors inline-block">
             ← Southern Bridge Estate
           </Link>
           <div className="inline-flex self-start items-center gap-2 bg-navy-950/85 text-bone px-3 py-1.5 text-[10px] uppercase tracking-widest mb-6">

@@ -269,7 +269,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
       {/* Form */}
-      <div ref={formTopRef} className={`bg-bone border p-8 ${editingId ? "border-gold" : "border-hairline"}`}>
+      <div ref={formTopRef} className={`bg-bone border p-8 ${editingId ? "border-accent" : "border-hairline"}`}>
         <div className="flex items-start justify-between gap-4 mb-2">
           <h2 className="font-display text-2xl text-navy-950">
             {editingId ? "Edit site update" : "Publish site update"}
@@ -343,7 +343,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
             <label className="admin-label">Description</label>
             <textarea value={body} onChange={(e) => setBody(e.target.value)} rows={4}
               placeholder="A few sentences about this update — what was done, what's next."
-              className="w-full border border-hairline bg-bone px-3 py-2 text-sm text-navy-950 focus:outline-none focus:border-gold resize-none" />
+              className="w-full border border-hairline bg-bone px-3 py-2 text-sm text-navy-950 focus:outline-none focus:border-accent resize-none" />
           </div>
 
           {/* Media type selector */}
@@ -391,7 +391,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
                   value={pastedVideoUrl}
                   onChange={(e) => setPastedVideoUrl(e.target.value)}
                   placeholder="https://res.cloudinary.com/your-cloud/video/upload/..."
-                  className="w-full border border-hairline bg-white px-3 py-2.5 text-sm text-navy-950 placeholder:text-ink-faint focus:outline-none focus:border-gold"
+                  className="w-full border border-hairline bg-white px-3 py-2.5 text-sm text-navy-950 placeholder:text-ink-faint focus:outline-none focus:border-accent"
                 />
                 <p className="mt-1.5 text-xs text-ink-muted">Paste any Cloudinary video URL. The thumbnail is generated automatically.</p>
               </div>
@@ -430,7 +430,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
             <div>
               <div className="text-xs text-ink-muted mb-1">Uploading to Cloudinary… {progress}%</div>
               <div className="h-1 bg-hairline overflow-hidden">
-                <div className="h-full bg-gold transition-all duration-300" style={{ width: `${progress}%` }} />
+                <div className="h-full bg-accent transition-all duration-300" style={{ width: `${progress}%` }} />
               </div>
             </div>
           )}
@@ -439,7 +439,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
 
           <button type="submit" disabled={uploading || !cloudinaryReady}
             className={`w-full text-bone py-3 text-xs uppercase tracking-widest transition-colors disabled:opacity-50 ${
-              editingId ? "bg-gold-dark hover:bg-gold text-navy-950" : "bg-navy-900 hover:bg-navy-800"
+              editingId ? "bg-gold-dark hover:bg-accent text-navy-950" : "bg-navy-900 hover:bg-navy-800"
             }`}>
             {uploading
               ? (editingId ? "Saving…" : "Publishing…")

@@ -38,7 +38,7 @@ export default function ReadingProgress({ targetId }: { targetId: string }) {
     <div className="fixed top-0 inset-x-0 z-[55] h-px bg-hairline">
       <div
         ref={fill}
-        className="h-full bg-gold origin-left"
+        className="h-full bg-accent origin-left"
         style={{ transform: "scaleX(0)" }}
       />
     </div>

@@ -139,9 +139,9 @@ function statusPillStyle(status: SalesStatus): string {
     case "Available":
       return clsx(base, "bg-bone/95 text-navy-900 dark:text-bone/90");
     case "Limited":
-      return clsx(base, "bg-gold/95 text-navy-950 dark:text-bone");
+      return clsx(base, "bg-accent/95 text-navy-950 dark:text-bone");
     case "Selling Soon":
-      return clsx(base, "bg-navy-950/85 text-gold");
+      return clsx(base, "bg-navy-950/85 text-accent");
     case "Sold Out":
       return clsx(base, "bg-navy-950/80 text-bone/70");
   }

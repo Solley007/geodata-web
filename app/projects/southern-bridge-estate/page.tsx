@@ -136,7 +136,7 @@ export default function SouthernBridgeEstatePage() {
                   <Image src={unit.image} alt={unit.name} fill sizes="(max-width: 768px) 100vw, 60vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   <span className={`absolute top-4 left-4 px-3 py-1.5 text-[10px] uppercase tracking-widest font-medium ${
                     unit.status === "Sold Out"            ? "bg-navy-950/85 text-bone" :
-                    unit.status === "Under Construction"  ? "bg-gold text-navy-950" :
+                    unit.status === "Under Construction"  ? "bg-accent text-navy-950" :
                                                             "bg-bone text-navy-950"
                   }`}>
                     {unit.status}
@@ -148,7 +148,7 @@ export default function SouthernBridgeEstatePage() {
                     <p className="eyebrow text-ink-muted dark:text-bone/50 mb-3">{unit.subtitle}</p>
                   )}
                   <h3 className="text-3xl md:text-4xl font-display tracking-tight leading-tight mb-4">
-                    <Link href={unit.detailHref} className="hover:text-gold transition-colors">{unit.name}</Link>
+                    <Link href={unit.detailHref} className="hover:text-accent transition-colors">{unit.name}</Link>
                   </h3>
                   <p className="text-ink-muted dark:text-bone/60 leading-relaxed mb-6">
                     {unit.description}
@@ -188,7 +188,7 @@ export default function SouthernBridgeEstatePage() {
                 href="https://www.google.com/maps/dir/?api=1&destination=9.0252,7.3685"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-navy-950 dark:text-bone border-b border-navy-950/30 dark:border-bone/30 hover:border-gold hover:text-gold-dark dark:hover:text-gold transition-colors pb-0.5"
+                className="inline-flex items-center gap-2 text-sm font-medium text-navy-950 dark:text-bone border-b border-navy-950/30 dark:border-bone/30 hover:border-accent hover:text-gold-dark dark:hover:text-accent transition-colors pb-0.5"
               >
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
@@ -225,7 +225,7 @@ export default function SouthernBridgeEstatePage() {
 
       {/* Back link */}
       <div className="py-8 border-t border-hairline dark:border-white/10 text-center">
-        <Link href="/projects" className="text-sm text-ink-muted dark:text-bone/50 hover:text-gold transition-colors">
+        <Link href="/projects" className="text-sm text-ink-muted dark:text-bone/50 hover:text-accent transition-colors">
           ← View all Geodata projects
         </Link>
       </div>

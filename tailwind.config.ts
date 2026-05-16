@@ -7,8 +7,8 @@ const config: Config = {
     extend: {
       // ---------------------------------------------------------------------
       // Brand color tokens — Geodata
-      // Primary navy is the anchor. Warm gold is rare and intentional.
-      // Never reach for raw hex in components — always use these tokens.
+      // Primary navy is the anchor. Accent (cobalt blue, drawn from the cube
+      // logo) is rare and intentional. Never reach for raw hex in components.
       // ---------------------------------------------------------------------
       colors: {
         navy: {
@@ -24,10 +24,10 @@ const config: Config = {
           100: "#F4F2EC",
           200: "#E8E4D9",
         },
-        gold: {
-          DEFAULT: "#C9A961", // accent — emphasis only, never decoration
-          dark: "#A88B47",
-          soft: "#E5D4A8",
+        accent: {
+          DEFAULT: "#D44455", // brand accent — coral red (cube logo)
+          dark: "#A93340",    // deeper red for hover, light-bg contrast
+          soft: "#F2C5CC",    // soft tint for backgrounds, ghost states
         },
         ink: {
           DEFAULT: "#0A1628",
@@ -38,7 +38,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-body)", "system-ui", "sans-serif"],
         // Adobe Caslon Pro — used ONLY for the GEODATA. wordmark in navbar and footer
         brand: ["adobe-caslon-pro", "Georgia", "serif"],
       },

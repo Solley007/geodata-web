@@ -45,7 +45,7 @@ export default function MortgageApplicationPage() {
     return (
       <main className="bg-bone dark:bg-navy-950 min-h-screen flex items-center">
         <div className="container-editorial py-24 max-w-2xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gold/15 text-gold border border-gold/30 mb-8">
+          <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-accent/15 text-accent border border-accent/30 mb-8">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="20 6 9 17 4 12"/>
             </svg>
@@ -100,7 +100,7 @@ export default function MortgageApplicationPage() {
             Your details.
           </h2>
           <p className="text-ink-muted dark:text-bone/60 mb-12">
-            All fields marked <span className="text-gold">*</span> are required. Your information is handled in confidence.
+            All fields marked <span className="text-accent">*</span> are required. Your information is handled in confidence.
           </p>
 
           <form onSubmit={submit} className="space-y-8">
@@ -218,7 +218,7 @@ function Field({ label, name, children }: { label: string; name: string; childre
 function Step({ n, title, body }: { n: number; title: string; body: string }) {
   return (
     <div>
-      <div className="font-display text-3xl text-gold mb-3">{String(n).padStart(2, "0")}</div>
+      <div className="font-display text-3xl text-accent mb-3">{String(n).padStart(2, "0")}</div>
       <h3 className="font-display text-xl tracking-tight mb-2">{title}</h3>
       <p className="text-sm leading-relaxed text-ink-muted dark:text-bone/60">{body}</p>
     </div>

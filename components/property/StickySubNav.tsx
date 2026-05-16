@@ -100,7 +100,7 @@ export default function StickySubNav({ property }: Props) {
                       {s.label}
                       <span
                         className={clsx(
-                          "absolute -bottom-0.5 left-0 right-0 h-px bg-gold transition-all duration-400 ease-editorial",
+                          "absolute -bottom-0.5 left-0 right-0 h-px bg-accent transition-all duration-400 ease-editorial",
                           activeId === s.id ? "scale-x-100" : "scale-x-0"
                         )}
                         style={{ transformOrigin: "left center" }}

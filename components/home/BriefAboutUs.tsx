@@ -32,7 +32,7 @@ export default function BriefAboutUs() {
   }, []);
 
   return (
-    <section ref={root} className="relative py-16 md:py-24 overflow-hidden">
+    <section ref={root} className="relative py-10 md:py-14 overflow-hidden">
 
       {/* Background photo */}
       <Image

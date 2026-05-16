@@ -94,7 +94,7 @@ export default function AdminPage() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/geodata-mark.png" alt="" className="h-10 w-10" />
           <div>
-            <p className="font-brand text-lg text-navy-950">GEODATA<span className="text-gold">.</span></p>
+            <p className="font-brand text-lg text-navy-950">GEODATA</p>
             <p className="text-xs text-ink-muted">Admin Console</p>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function AdminPage() {
             <label className="block text-xs uppercase tracking-widest text-ink-muted mb-2">Password</label>
             <input type="password" value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border-b border-navy-900 bg-transparent py-2 text-navy-950 focus:outline-none focus:border-gold"
+              className="w-full border-b border-navy-900 bg-transparent py-2 text-navy-950 focus:outline-none focus:border-accent"
               autoFocus />
             {authError && <p className="mt-2 text-xs text-red-500">Incorrect password.</p>}
           </div>
@@ -122,7 +122,7 @@ export default function AdminPage() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/geodata-mark.png" alt="" className="h-8 w-8" />
           <div>
-            <p className="font-brand text-base leading-tight">GEODATA<span className="text-gold">.</span></p>
+            <p className="font-brand text-base leading-tight">GEODATA</p>
             <p className="text-[11px] text-bone/50 uppercase tracking-wider">Admin Console</p>
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function AdminPage() {
           ] as const).map((t) => (
             <button key={t.id} onClick={() => setTab(t.id)}
               className={`px-5 py-3 text-xs uppercase tracking-widest transition-colors ${
-                tab === t.id ? "text-gold border-b-2 border-gold" : "text-bone/55 hover:text-bone border-b-2 border-transparent"
+                tab === t.id ? "text-accent border-b-2 border-accent" : "text-bone/55 hover:text-bone border-b-2 border-transparent"
               }`}>
               {t.label}
             </button>

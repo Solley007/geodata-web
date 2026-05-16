@@ -88,7 +88,7 @@ export default function InstitutionalClients() {
                   className={clsx(
                     "shrink-0 lg:w-full text-left py-5 px-4 lg:px-0 lg:border-l-2 transition-all duration-400 ease-editorial",
                     active === i
-                      ? "lg:border-gold lg:pl-6 bg-bone/5 lg:bg-transparent"
+                      ? "lg:border-accent lg:pl-6 bg-bone/5 lg:bg-transparent"
                       : "lg:border-bone/10 lg:pl-6 hover:lg:border-bone/40"
                   )}
                 >
@@ -103,7 +103,7 @@ export default function InstitutionalClients() {
                   <p
                     className={clsx(
                       "mt-2 text-xs uppercase tracking-eyebrow transition-colors duration-300",
-                      active === i ? "text-gold" : "text-bone/40"
+                      active === i ? "text-accent" : "text-bone/40"
                     )}
                   >
                     {client.projects.length}{" "}
@@ -130,7 +130,7 @@ export default function InstitutionalClients() {
                     key={i}
                     className="flex items-baseline gap-6 py-4 border-t border-bone/10"
                   >
-                    <span className="font-display text-sm text-gold tabular-nums shrink-0">
+                    <span className="font-display text-sm text-accent tabular-nums shrink-0">
                       {project.year}
                     </span>
                     <span className="text-bone/85 leading-relaxed">
@@ -144,7 +144,7 @@ export default function InstitutionalClients() {
               {CLIENT_PROJECT_LINKS[INSTITUTIONAL_WORK[active].client] && (
                 <Link
                   href={CLIENT_PROJECT_LINKS[INSTITUTIONAL_WORK[active].client]}
-                  className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-bone transition-colors duration-400 pb-1 border-b border-gold hover:border-bone"
+                  className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-bone transition-colors duration-400 pb-1 border-b border-accent hover:border-bone"
                 >
                   View project page
                   <span aria-hidden>→</span>
