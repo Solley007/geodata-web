@@ -74,12 +74,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Blog post pages — lastModified pulled from frontmatter
-  const blogRoutes: MetadataRoute.Sitemap = getAllPostsMeta().map((post) => ({
+const blogRoutes: MetadataRoute.Sitemap = getAllPostsMeta()
+  .filter((post) => post.date && !isNaN(new Date(post.date).getTime()))
+  .map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
-
+  
   return [...staticRoutes, ...propertyRoutes, ...projectRoutes, ...blogRoutes];
 }
