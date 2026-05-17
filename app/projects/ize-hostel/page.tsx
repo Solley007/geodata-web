@@ -64,7 +64,7 @@ export default function IzeHostelPage() {
       {/* ─── Hero ───────────────────────────────────────────────────── */}
       <section className="relative h-[70vh] min-h-[520px] overflow-hidden">
         {/* Replace this image with your actual hero photo/render */}
-        <Image src="/ize-hostel/Exterior.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src="/ize-hostel/Exterior.JPG" alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/30 to-navy-950/80" />
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20">
           <Link href="/projects" className="eyebrow text-bone/70 mb-6 hover:text-accent transition-colors inline-block">
