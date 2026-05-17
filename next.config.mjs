@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    outputFileTracingExcludes: {
+      "/api/admin/notify":       ["./public/**"],
+      "/api/admin/notify-blog":  ["./public/**"],
+      "/api/admin/updates":      ["./public/**"],
+      "/api/admin/upload":       ["./public/**"],
+      "/api/admin/site-updates": ["./public/**"],
+    },
+  }, 
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
