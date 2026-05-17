@@ -58,7 +58,7 @@ export default async function UpdatePage({ params }: PageProps) {
         {/* Header */}
         <header className="max-w-3xl mb-12 md:mb-16">
           <p className="text-[11px] uppercase tracking-widest text-ink-faint dark:text-bone/40 mb-5">
-            {project?.title ?? "Geodata"}{" · "}{formatUpdateDate(update.date)}
+            {project?.name ?? "Geodata"}{" · "}{formatUpdateDate(update.date)}
           </p>
           <h1 className="text-display-lg md:text-display-xl font-display text-navy-950 dark:text-bone tracking-tightest leading-[1.05]">
             {update.title}
@@ -82,7 +82,7 @@ export default async function UpdatePage({ params }: PageProps) {
           <div className="max-w-2xl mt-12 pt-8 border-t border-hairline dark:border-white/10">
             <p className="text-xs uppercase tracking-widest text-ink-faint dark:text-bone/40 mb-2">About this project</p>
             <Link href={`/projects/${project.slug}`} className="inline-flex items-center gap-2 text-base font-medium text-navy-900 dark:text-bone hover:text-gold-dark dark:hover:text-accent border-b border-navy-900 dark:border-bone/40 hover:border-gold-dark dark:hover:border-accent transition-colors pb-1">
-              View {project.title}
+              View {project.name}
               <span aria-hidden>→</span>
             </Link>
           </div>
