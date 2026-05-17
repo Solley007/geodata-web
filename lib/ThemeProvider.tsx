@@ -61,7 +61,7 @@ export const themeScript = `(function(){
   try {
     var saved = localStorage.getItem("${STORAGE_KEY}");
     var preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    var theme = saved || preferred;
+    var theme = saved || "light";
     if (theme === "dark") document.documentElement.classList.add("dark");
   } catch(e) {}
 })();`;
