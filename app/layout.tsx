@@ -11,6 +11,8 @@ import FloatingActions from "@/components/shared/FloatingActions";
 import Preloader from "@/components/shared/Preloader";
 import { SavedResidencesProvider } from "@/lib/SavedResidencesProvider";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const fraunces = Fraunces({
   subsets: ["latin"],
