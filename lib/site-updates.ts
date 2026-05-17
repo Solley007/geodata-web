@@ -6,7 +6,7 @@ import fs   from "fs";
 import path from "path";
 import type { SiteUpdate } from "./site-updates-types";
 
-const META_FILE = path.join(process.cwd(), "public", "site-updates.json");
+const META_FILE = path.join(process.cwd(), "data", "site-updates.json");
 
 export function readSiteUpdates(): SiteUpdate[] {
   try {
