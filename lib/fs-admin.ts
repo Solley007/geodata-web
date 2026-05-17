@@ -23,7 +23,7 @@ export interface ConstructionUpdate {
 
 const PUBLIC_DIR  = path.join(process.cwd(), "public");
 const UPLOADS_DIR = path.join(PUBLIC_DIR, "construction");
-const META_FILE   = path.join(PUBLIC_DIR, "construction-updates.json");
+const META_FILE   = path.join(process.cwd(), "data", "construction-updates.json");
 
 /** Read all updates from the JSON file */
 export function readUpdates(): ConstructionUpdate[] {
