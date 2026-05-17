@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { COMPANY } from "@/lib/site-content";
+import BookViewingButton from "@/components/shared/BookViewingButton";
 
 export default function Footer() {
   return (
@@ -14,9 +15,12 @@ export default function Footer() {
             <h2 className="text-display-md font-display tracking-tightest leading-none">
               Visit Southern <br />Bridge City <em className="font-light">in person.</em>
             </h2>
-            <Link href="/contact" className="mt-10 inline-flex items-center gap-3 bg-bone px-7 py-4 text-sm font-medium text-navy-950 hover:bg-gold-soft transition-colors duration-400">
+            <BookViewingButton
+              calLink="geodata/sbc-viewing"
+              className="mt-10 inline-flex items-center gap-3 bg-bone px-7 py-4 text-sm font-medium text-navy-950 hover:bg-accent-soft transition-colors duration-400"
+            >
               Schedule visit <span aria-hidden>→</span>
-            </Link>
+            </BookViewingButton>
           </div>
         </div>
 

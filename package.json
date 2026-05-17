@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@studio-freight/lenis": "^1.0.42",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",

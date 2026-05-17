@@ -9,6 +9,7 @@ import NavigationProgress from "@/components/shared/NavigationProgress";
 import { ThemeProvider, themeScript } from "@/lib/ThemeProvider";
 import FloatingActions from "@/components/shared/FloatingActions";
 import Preloader from "@/components/shared/Preloader";
+import { SavedResidencesProvider } from "@/lib/SavedResidencesProvider";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -167,14 +168,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
         <ThemeProvider>
-          <Preloader />
-          <SmoothScrollProvider>
-            <NavigationProgress />
-            <Navbar />
-            <main className="overflow-x-hidden">{children}</main>
-            <Footer />
-            <FloatingActions />
-          </SmoothScrollProvider>
+          <SavedResidencesProvider>
+            <Preloader />
+            <SmoothScrollProvider>
+              <NavigationProgress />
+              <Navbar />
+              <main className="overflow-x-hidden">{children}</main>
+              <Footer />
+              <FloatingActions />
+            </SmoothScrollProvider>
+          </SavedResidencesProvider>
         </ThemeProvider>
       </body>
     </html>

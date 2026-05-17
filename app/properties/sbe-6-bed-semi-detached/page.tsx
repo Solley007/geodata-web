@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProjectGallery, { type GalleryItem } from "@/components/project/ProjectGallery";
 import { SOCIAL } from "@/lib/site-content";
+import BookViewingButton from "@/components/shared/BookViewingButton";
 
 // ============================================================================
 //  EDIT PRICES + GALLERY HERE
@@ -103,6 +104,9 @@ export default function SBESemiDetachedPage() {
                 <Row k="Available" v="2 units" />
                 <Row k="From"      v={PRICES.phase1Completed} />
               </dl>
+              <BookViewingButton calLink="geodata/sbe-viewing" className="inline-flex items-center gap-3 bg-navy-900 dark:bg-bone dark:text-navy-950 text-bone px-7 py-4 text-sm font-medium hover:bg-navy-800 dark:hover:bg-bone-100 transition-colors duration-400">
+                Reserve a viewing <span aria-hidden>→</span>
+              </BookViewingButton>
               <a href={WA_PHASE1} target="_blank" rel="noopener noreferrer"
                  className="inline-flex items-center gap-3 bg-navy-900 dark:bg-bone dark:text-navy-950 text-bone px-6 py-3 text-sm font-medium hover:bg-navy-800 transition-colors">
                 Enquire on WhatsApp <span aria-hidden>→</span>

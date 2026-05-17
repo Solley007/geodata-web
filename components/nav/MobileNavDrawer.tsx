@@ -7,6 +7,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { PROJECTS } from "@/lib/projects-data";
 import ThemeToggle from "@/components/shared/ThemeToggle";
+import BookViewingButton from "@/components/shared/BookViewingButton";
 
 interface Props {
   open: boolean;
@@ -260,13 +261,12 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
 
         {/* Bottom CTA */}
         <div className="border-t border-hairline px-8 py-8 shrink-0">
-          <Link
-            href="/contact"
-            onClick={onClose}
-            className="block w-full bg-navy-900 text-bone text-center px-7 py-4 text-xs uppercase tracking-eyebrow font-medium hover:bg-navy-800 transition-colors duration-400"
+          <BookViewingButton
+            calLink="geodata/sbc-viewing"
+            className="block w-full text-center bg-navy-900 text-bone px-7 py-4 text-xs uppercase tracking-eyebrow font-medium hover:bg-navy-800 transition-colors duration-400"
           >
             Schedule a visit →
-          </Link>
+          </BookViewingButton>
           <div className="mt-6 flex flex-col gap-2 text-sm text-ink-muted dark:text-bone/60">
             <a href="tel:+2347047620492" className="hover:text-navy-900 dark:hover:text-bone transition-colors">
               +234 704 762 0492

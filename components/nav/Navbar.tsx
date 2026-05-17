@@ -8,6 +8,8 @@ import MegaMenu from "./MegaMenu";
 import ProjectsMegaMenu from "./ProjectsMegaMenu";
 import MobileNavDrawer from "./MobileNavDrawer";
 import ThemeToggle from "@/components/shared/ThemeToggle";
+import BookViewingButton from "@/components/shared/BookViewingButton";
+import SavedIndicator from "@/components/shared/SavedIndicator";
 
 // Which mega panel is open — null when both are closed
 type MegaKey = "properties" | "projects";
@@ -134,32 +136,36 @@ export default function Navbar() {
 
           {/* Theme toggle + Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
+            <SavedIndicator variant="auto" isScrolled={isScrolled} />
             <ThemeToggle
               className={isScrolled ? "text-navy-900 dark:text-bone" : "text-bone"}
             />
-            <Link
-              href="/contact"
+            <BookViewingButton
+              calLink="geodata/sbc-viewing"
               className="inline-flex items-center gap-3 bg-navy-900 dark:bg-bone dark:text-navy-950 px-5 py-3 text-xs uppercase tracking-eyebrow font-medium text-bone hover:bg-navy-800 dark:hover:bg-accent-soft transition-colors duration-400"
             >
               Schedule Visit
-            </Link>
+            </BookViewingButton>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMobileOpen(true)}
-            className={clsx(
-              "lg:hidden p-2 -m-2 transition-colors duration-400",
-              isScrolled ? "text-navy-900 dark:text-bone" : "text-bone"
-            )}
-            aria-label="Open menu"
-            aria-expanded={mobileOpen}
-          >
-            <svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden>
-              <rect width="28" height="1.5" fill="currentColor" />
-              <rect y="10.5" width="20" height="1.5" fill="currentColor" />
-            </svg>
-          </button>
+          {/* Mobile hamburger + saved indicator */}
+          <div className="lg:hidden flex items-center gap-2">
+            <SavedIndicator variant="auto" isScrolled={isScrolled} />
+            <button
+              onClick={() => setMobileOpen(true)}
+              className={clsx(
+                "p-2 -m-2 transition-colors duration-400",
+                isScrolled ? "text-navy-900 dark:text-bone" : "text-bone"
+              )}
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
+            >
+              <svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden>
+                <rect width="28" height="1.5" fill="currentColor" />
+                <rect y="10.5" width="20" height="1.5" fill="currentColor" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Properties mega menu */}

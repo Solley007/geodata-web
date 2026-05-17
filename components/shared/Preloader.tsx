@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import clsx from "clsx";
 
 export default function Preloader() {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(true);
   const [exiting, setExiting] = useState(false);
 
@@ -14,6 +16,8 @@ export default function Preloader() {
     return () => { clearTimeout(exitTimer); clearTimeout(removeTimer); };
   }, []);
 
+  // Only show preloader on the homepage
+  if (pathname !== "/") return null;
   if (!mounted) return null;
 
   return (

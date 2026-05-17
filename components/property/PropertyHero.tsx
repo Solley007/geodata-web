@@ -62,7 +62,7 @@ export default function PropertyHero({ property }: Props) {
   return (
     <section
       ref={root}
-      className="relative h-[100svh] min-h-[680px] w-full overflow-hidden"
+      className="relative h-[85svh] min-h-[580px] md:h-[100svh] md:min-h-[680px] w-full overflow-hidden"
     >
       {/* Background plate */}
       <div className="phero-bg absolute inset-0 scale-110 will-change-transform">
@@ -72,7 +72,7 @@ export default function PropertyHero({ property }: Props) {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-bottom"
+          className="object-cover object-[center_65%] md:object-bottom"
         />
         {/* Layered scrim — vertical for legibility, vignette for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/20 via-navy-950/30 to-navy-950/60" />

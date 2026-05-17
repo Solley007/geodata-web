@@ -1,11 +1,11 @@
 ---
-title: "Understanding MREIF — what 9.75% fixed actually means for your money"
+title: "Understanding MREIF.  what 9.75% fixed actually means for your money"
 excerpt: "Most Nigerian buyers have never seen a fixed-rate mortgage. Here's a plain-English breakdown of what the MREIF programme is, why it exists, and how to evaluate whether it suits you."
 date: "2026-03-15"
-author: "Suleiman A."
-authorRole: "Sales Director"
+author: "Suleiman Y."
+authorRole: "Sales"
 category: "Mortgage"
-coverImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=2000&q=85&auto=format&fit=crop"
+coverImage: "/mreif-header-logo.png?w=2000&q=85&auto=format&fit=crop"
 ---
 
 When buyers first see the MREIF rate of 9.75% fixed for 20 years, the first reaction is usually disbelief. Commercial mortgage rates in Nigeria currently sit between 22% and 30%, and even those are floating — meaning they go up when the Central Bank tightens.
@@ -14,7 +14,7 @@ So MREIF feels too good to be true. It isn't. But it is a specific product, desi
 
 ## What MREIF actually is
 
-MREIF stands for **Ministry of Finance Real Estate Investment Fund** — a federal initiative created to address the housing affordability gap for working Nigerians. The fund's structure has three layers:
+MREIF stands for **Ministry of Finance Incorporated Real Estate Investment Fund** — a federal initiative created to address the housing affordability gap for working Nigerians. The fund's structure has three layers:
 
 1. **Capital provider:** Federal Government of Nigeria, through the Ministry of Finance
 2. **Fund manager:** ARM Investment Managers Limited (one of Nigeria's largest asset managers)

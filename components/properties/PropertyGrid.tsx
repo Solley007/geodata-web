@@ -6,6 +6,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { gsap } from "@/lib/gsap";
 import type { PropertyListItem } from "@/lib/properties-list";
+import SaveButton from "@/components/shared/SaveButton";
 
 interface Props {
   properties: PropertyListItem[];
@@ -68,6 +69,8 @@ export default function PropertyGrid({ properties }: Props) {
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-1200 ease-editorial group-hover:scale-[1.04]"
                 />
+                {/* Save button — top right (sits above the image, ignores parent link click via stopPropagation) */}
+                <SaveButton slug={p.slug} variant="overlay" />
                 {/* Status pill — top left */}
                 <div
                   className={clsx(
@@ -80,7 +83,9 @@ export default function PropertyGrid({ properties }: Props) {
                   )}
                 >
                   <span className="text-[10px] uppercase tracking-eyebrow font-medium">
-                    {p.status}
+                    {p.status === "Limited" && p.available > 0
+                      ? `${p.available} remaining`
+                      : p.status}
                   </span>
                 </div>
                 {/* Type label — bottom left */}

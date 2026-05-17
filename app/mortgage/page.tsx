@@ -4,6 +4,7 @@ import MortgageHowItWorks from "@/components/mortgage/MortgageHowItWorks";
 import MortgageCalculator from "@/components/mortgage/MortgageCalculator";
 import MortgageEligibilityFaq from "@/components/mortgage/MortgageEligibilityFaq";
 import SectionErrorBoundary from "@/components/shared/SectionErrorBoundary";
+import MortgageQuizClient from "./quiz/MortgageQuizClient";
 
 export const metadata: Metadata = {
   title: "MREIF Mortgage — 9.75% Fixed for 20 Years",
@@ -30,6 +31,12 @@ export default function MortgagePage() {
   return (
     <>
       <MortgageHero />
+
+      {/* Embedded affordability quiz — primary engagement tool */}
+      <SectionErrorBoundary sectionName="MortgageQuiz">
+        <MortgageQuizClient inline />
+      </SectionErrorBoundary>
+
       <MortgageHowItWorks />
       {/* Calculator has complex client state — guard against runtime errors
           so a calc bug doesn't take down the whole mortgage page */}

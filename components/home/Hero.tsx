@@ -99,27 +99,32 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen min-h-[640px] overflow-hidden"
+      className="relative w-full md:h-svh md:min-h-[680px] bg-navy-950 overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* ── Backgrounds — all stacked, only active one visible ───────── */}
-      {HERO_SLIDES.map((s, i) => (
-        <SlideBackground key={i} slide={s} active={i === current} />
-      ))}
+      {/* ── IMAGE AREA ──────────────────────────────────────────────────
+          Mobile: 4:3 banner (taller than 16:9, ~25% side crop on landscape source)
+          Desktop: fills entire section (current behaviour) */}
+      <div className="relative w-full aspect-[4/3] md:absolute md:inset-0 md:aspect-auto md:h-full">
+        {HERO_SLIDES.map((s, i) => (
+          <SlideBackground key={i} slide={s} active={i === current} />
+        ))}
 
-      {/* ── Dark overlay ─────────────────────────────────────────────── */}
-      {/* Overlays for legibility on any background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/55 via-navy-950/40 to-navy-950/85 pointer-events-none z-[2]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/55 via-navy-950/20 to-transparent pointer-events-none z-[2]" />
+        {/* Dark overlays — desktop only (mobile has no text over image to obscure) */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-navy-950/55 via-navy-950/40 to-navy-950/85 pointer-events-none z-[2]" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-navy-950/55 via-navy-950/20 to-transparent pointer-events-none z-[2]" />
+      </div>
 
-      {/* ── Content ──────────────────────────────────────────────────── */}
-      <div className="relative z-10 container-editorial flex h-full flex-col justify-end pt-24 md:pt-32 pb-20 md:pb-24">
+      {/* ── CONTENT AREA ────────────────────────────────────────────────
+          Mobile: flows naturally below the image, on navy bg
+          Desktop: absolute overlay on bottom of image */}
+      <div className="relative z-10 container-editorial pt-6 pb-8 md:absolute md:inset-0 md:flex md:h-full md:flex-col md:justify-end md:pt-32 md:pb-24">
         <div ref={textRef} className="max-w-5xl">
 
-          <p className="slide-anim eyebrow text-bone/80 mb-6">{slide.eyebrow}</p>
+          <p className="slide-anim eyebrow text-bone/80 mb-2 md:mb-6">{slide.eyebrow}</p>
 
-          <h1 className="text-display-xl font-display text-bone tracking-tightest">
+          <h1 className="text-[1.875rem] md:text-display-xl font-display text-bone tracking-tightest leading-[1.1] md:leading-none">
             {slide.headline.split("\n").map((line, i) => (
               <span key={i} className="block overflow-hidden">
                 <span className={`slide-anim block${i === 1 ? " italic font-light" : ""}`}>{line}</span>
@@ -128,15 +133,15 @@ export default function Hero() {
           </h1>
 
           {slide.subheadline && (
-            <p className="slide-anim mt-8 max-w-xl text-lg text-bone/80 leading-relaxed">
+            <p className="slide-anim mt-4 md:mt-8 max-w-xl text-sm md:text-lg text-bone/80 leading-relaxed">
               {slide.subheadline}
             </p>
           )}
 
-          <div className="slide-anim mt-10 flex flex-wrap items-center gap-4">
+          <div className="slide-anim mt-5 md:mt-10 flex flex-wrap items-center gap-4">
             {slide.cta1 && (
               <a href={slide.cta1.href}
-                className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-900 dark:text-bone/90 hover:bg-gold-soft transition-colors duration-400">
+                className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-900 dark:text-bone/90 hover:bg-accent-soft transition-colors duration-400">
                 {slide.cta1.label} <span aria-hidden>→</span>
               </a>
             )}
@@ -150,7 +155,7 @@ export default function Hero() {
         </div>
 
         {/* ── Slide indicators ─────────────────────────────────────────── */}
-        <div className="mt-14 flex items-center justify-end gap-8 border-t border-bone/15 pt-6">
+        <div className="mt-6 md:mt-14 flex items-center justify-end gap-8 border-t border-bone/15 pt-3 md:pt-6">
 
           {/* Progress bars + counter */}
           <div className="flex items-center gap-3">
@@ -234,7 +239,7 @@ function SlideBackground({ slide, active }: { slide: HeroSlide; active: boolean 
           autoPlay muted loop playsInline disablePictureInPicture
           poster={slide.videoPoster}
           preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-[center_60%] md:object-center"
         >
           <source src={slide.videoUrl} type="video/mp4" />
         </video>
@@ -244,7 +249,7 @@ function SlideBackground({ slide, active }: { slide: HeroSlide; active: boolean 
           src={slide.image}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-[center_60%] md:object-center"
         />
       ) : null}
     </div>

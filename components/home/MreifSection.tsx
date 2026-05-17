@@ -121,17 +121,17 @@ export default function MreifSection() {
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
-            href="/mortgage"
+            href="/mortgage#quiz"
             className="inline-flex items-center gap-3 bg-navy-900 px-7 py-4 text-sm font-medium text-bone hover:bg-navy-800 transition-colors duration-400"
           >
-            Calculate your mortgage
+            Take the 30-second quiz
             <span aria-hidden>→</span>
           </a>
           <a
-            href="/mortgage/application"
-            className="inline-flex items-center gap-3 px-7 py-4 text-sm font-medium text-navy-900 dark:text-bone/90 border-b border-navy-900 dark:border-white/20 hover:text-gold-dark hover:border-gold-dark transition-colors duration-400"
+            href="/mortgage"
+            className="inline-flex items-center gap-3 px-7 py-4 text-sm font-medium text-navy-900 dark:text-bone/90 border-b border-navy-900 dark:border-white/20 hover:text-accent-dark hover:border-accent-dark transition-colors duration-400"
           >
-            Begin application
+            Learn about MREIF
           </a>
         </div>
       </div>

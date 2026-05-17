@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import type { Property } from "@/lib/property-data";
+import BookViewingButton from "@/components/shared/BookViewingButton";
 
 interface Props {
   property: Property;
@@ -59,15 +60,15 @@ export default function PropertyEnquire({ property }: Props) {
             </p>
 
             <div className="enquire-fade mt-12 flex flex-wrap items-center gap-4">
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-950 dark:text-bone hover:bg-gold-soft transition-colors duration-400"
+              <BookViewingButton
+                calLink="geodata/sbc-viewing"
+                className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-950 dark:text-bone hover:bg-accent-soft transition-colors duration-400"
               >
-                Schedule a visit <span aria-hidden>→</span>
-              </a>
+                Reserve a viewing <span aria-hidden>→</span>
+              </BookViewingButton>
               <a
                 href="tel:+2347047620492"
-                className="inline-flex items-center gap-3 px-7 py-4 text-sm font-medium text-bone border-b border-bone hover:text-gold-soft hover:border-gold-soft transition-colors duration-400"
+                className="inline-flex items-center gap-3 px-7 py-4 text-sm font-medium text-bone border-b border-bone hover:text-accent-soft hover:border-accent-soft transition-colors duration-400"
               >
                 +234 704 762 0492
               </a>

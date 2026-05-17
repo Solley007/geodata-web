@@ -677,6 +677,71 @@ html.dark textarea.cf-input:focus {
   accent-color: var(--color-navy);
 }
 
+/* ──────────────────────────────────────────────────────────────────
+   Dark mode overrides for .prose
+   The base prose colors are navy variants for an editorial look on
+   bone backgrounds. In dark mode the section bg is navy-950, so navy
+   text becomes invisible. Override to bone variants throughout.
+   ────────────────────────────────────────────────────────────────── */
+.dark .prose {
+  color: rgb(250 250 247 / 0.85);
+}
+
+.dark .prose > p:first-of-type::first-letter {
+  color: rgb(250 250 247 / 0.95);
+}
+
+.dark .prose h2,
+.dark .prose h3 {
+  color: rgb(250 250 247);
+}
+
+.dark .prose h4 {
+  color: rgb(250 250 247 / 0.55);
+}
+
+.dark .prose a:not(.heading-anchor) {
+  color: rgb(250 250 247 / 0.95);
+  text-decoration-color: rgb(255 255 255 / 0.2);
+}
+
+.dark .prose a:not(.heading-anchor):hover {
+  text-decoration-color: var(--color-accent);
+}
+
+.dark .prose strong {
+  color: rgb(250 250 247);
+}
+
+.dark .prose blockquote {
+  color: rgb(250 250 247 / 0.9);
+}
+
+.dark .prose ol > li::before,
+.dark .prose th {
+  color: rgb(250 250 247);
+}
+
+.dark .prose td {
+  border-bottom-color: rgb(255 255 255 / 0.1);
+}
+
+.dark .prose th {
+  border-bottom-color: rgb(255 255 255 / 0.3);
+}
+
+.dark .prose hr {
+  border-top-color: rgb(255 255 255 / 0.1);
+}
+
+.dark .prose del {
+  color: rgb(250 250 247 / 0.4);
+}
+
+.dark .prose input[type="checkbox"] {
+  accent-color: var(--color-bone);
+}
+
 /* line-clamp utility for cards */
 .line-clamp-3 {
   display: -webkit-box;

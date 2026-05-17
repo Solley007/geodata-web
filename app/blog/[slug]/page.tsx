@@ -5,6 +5,7 @@ import ReadingProgress from "@/components/blog/ReadingProgress";
 import PostHero from "@/components/blog/PostHero";
 import PostBody from "@/components/blog/PostBody";
 import RelatedPosts from "@/components/blog/RelatedPosts";
+import BookViewingButton from "@/components/shared/BookViewingButton";
 
 interface PageProps {
   params: { slug: string };
@@ -108,15 +109,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                 questions answered directly.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-950 dark:text-bone hover:bg-gold-soft transition-colors duration-400"
+                <BookViewingButton
+                  calLink="geodata/sbc-viewing"
+                  className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-7 py-4 text-sm font-medium text-navy-950 dark:text-bone hover:bg-accent-soft transition-colors duration-400"
                 >
                   Schedule a visit <span aria-hidden>→</span>
-                </a>
+                </BookViewingButton>
                 <a
                   href="/properties"
-                  className="inline-flex items-center gap-3 px-7 py-4 text-sm font-medium text-bone border-b border-bone hover:text-gold-soft hover:border-gold-soft transition-colors duration-400"
+                  className="inline-flex items-center gap-3 px-7 py-4 text-sm font-medium text-bone border-b border-bone hover:text-accent-soft hover:border-accent-soft transition-colors duration-400"
                 >
                   Browse residences
                 </a>

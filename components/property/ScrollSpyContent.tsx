@@ -5,6 +5,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import BookViewingButton from "@/components/shared/BookViewingButton";
 import { useActiveSection } from "@/lib/ActiveSectionContext";
 import { PROPERTY_SECTIONS, type Property } from "@/lib/property-data";
 import SectionErrorBoundary from "@/components/shared/SectionErrorBoundary";
@@ -280,7 +281,7 @@ export default function ScrollSpyContent({ property }: Props) {
                         <span
                           className={clsx(
                             "font-display text-sm tabular-nums transition-colors duration-400",
-                            activeId === s.id ? "text-gold-dark" : "text-ink-faint dark:text-bone/40"
+                            activeId === s.id ? "text-accent-dark" : "text-ink-faint dark:text-bone/40"
                           )}
                         >
                           {String(i + 1).padStart(2, "0")}
@@ -314,9 +315,12 @@ export default function ScrollSpyContent({ property }: Props) {
                 <p className="text-lg leading-snug mb-6">
                   See the residence in person at our Idu sales pavilion.
                 </p>
-                <button className="w-full bg-bone dark:bg-navy-950 text-navy-950 dark:text-bone px-5 py-3 text-xs uppercase tracking-eyebrow font-medium hover:bg-gold-soft transition-colors duration-400">
+                <BookViewingButton
+                  calLink="geodata/sbc-viewing"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-bone dark:bg-navy-950 text-navy-950 dark:text-bone px-5 py-3 text-xs uppercase tracking-eyebrow font-medium hover:bg-accent-soft transition-colors duration-400"
+                >
                   Book a visit →
-                </button>
+                </BookViewingButton>
               </div>
             </div>
           </aside>

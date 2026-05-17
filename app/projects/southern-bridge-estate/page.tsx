@@ -5,6 +5,7 @@ import { PROJECTS } from "@/lib/projects-data";
 import { SOCIAL } from "@/lib/site-content";
 import ProjectGallery, { type GalleryItem } from "@/components/project/ProjectGallery";
 import PropertyMap from "@/components/property/PropertyMap";
+import BookViewingButton from "@/components/shared/BookViewingButton";
 
 // ============================================================================
 //  EDIT GALLERY HERE — drop your own image / Cloudinary video URLs in
@@ -217,9 +218,9 @@ export default function SouthernBridgeEstatePage() {
           <p className="text-bone/70 max-w-xl mx-auto mb-10">
             See the completed units, the finishing-stage residences, and the surrounding neighbourhood in person.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-3 bg-bone text-navy-950 px-7 py-4 text-sm font-medium hover:bg-gold-soft transition-colors">
+          <BookViewingButton calLink="geodata/sbe-viewing" className="inline-flex items-center gap-3 bg-bone text-navy-950 px-7 py-4 text-sm font-medium hover:bg-gold-soft transition-colors">
             Book a visit <span aria-hidden>→</span>
-          </Link>
+          </BookViewingButton>
         </div>
       </section>
 

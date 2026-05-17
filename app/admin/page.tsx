@@ -5,25 +5,31 @@ import ConstructionAdmin from "./_components/ConstructionAdmin";
 import SiteUpdatesAdmin  from "./_components/SiteUpdatesAdmin";
 
 function BlogNotifyForm({ pw }: { pw: string }) {
-  const [title,       setTitle]       = useState("");
-  const [slug,        setSlug]        = useState("");
-  const [excerpt,     setExcerpt]     = useState("");
-  const [sending,     setSending]     = useState(false);
-  const [msg,         setMsg]         = useState<{ ok: boolean; text: string } | null>(null);
+  const [slug,    setSlug]    = useState("");
+  const [title,   setTitle]   = useState("");
+  const [excerpt, setExcerpt] = useState("");
+  const [sending, setSending] = useState(false);
+  const [msg,     setMsg]     = useState<{ ok: boolean; text: string } | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSending(true); setMsg(null);
     try {
+      // Body only includes overrides if they were filled in.
+      // The API auto-pulls title, excerpt, and cover image from the .md file.
+      const payload: Record<string, string> = { slug };
+      if (title.trim())   payload.title   = title.trim();
+      if (excerpt.trim()) payload.excerpt = excerpt.trim();
+
       const res  = await fetch("/api/admin/notify-blog", {
         method: "POST",
         headers: { "x-admin-password": pw, "Content-Type": "application/json" },
-        body: JSON.stringify({ title, slug, excerpt }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (res.ok) {
         setMsg({ ok: true, text: "Notification sent to all blog subscribers." });
-        setTitle(""); setSlug(""); setExcerpt("");
+        setSlug(""); setTitle(""); setExcerpt("");
       } else {
         setMsg({ ok: false, text: data.error ?? "Failed to send." });
       }
@@ -35,26 +41,31 @@ function BlogNotifyForm({ pw }: { pw: string }) {
   return (
     <div className="bg-bone border border-hairline p-8 mt-8">
       <h2 className="font-display text-2xl text-navy-950 mb-1">Notify blog subscribers</h2>
-      <p className="text-sm text-ink-muted mb-6">After publishing a new blog post, send a notification to all subscribers.</p>
+      <p className="text-sm text-ink-muted mb-6">After publishing a new blog post, send a notification to all subscribers. Title, excerpt, and cover image are pulled automatically from the post's markdown file.</p>
       <form onSubmit={handleSubmit} className="space-y-4 max-w-lg">
-        <div>
-          <label className="admin-label">Post title</label>
-          <input required value={title} onChange={(e) => setTitle(e.target.value)}
-            placeholder="e.g. Understanding MREIF financing" className="admin-input" />
-        </div>
         <div>
           <label className="admin-label">Post slug (URL)</label>
           <input required value={slug} onChange={(e) => setSlug(e.target.value)}
-            placeholder="e.g. understanding-mreif-financing" className="admin-input" />
-          <p className="text-[11px] text-ink-faint mt-1">The link in the email will be: /blog/<span className="font-mono">{slug || "your-slug"}</span></p>
+            placeholder="e.g. why-idu" className="admin-input" />
+          <p className="text-[11px] text-ink-faint mt-1">Must match a file in <span className="font-mono">content/blog/</span>. Email link will be: /blog/<span className="font-mono">{slug || "your-slug"}</span></p>
         </div>
-        <div>
-          <label className="admin-label">Excerpt (optional)</label>
-          <input value={excerpt} onChange={(e) => setExcerpt(e.target.value)}
-            placeholder="A short preview shown in the email body" className="admin-input" />
-        </div>
+        <details className="text-sm">
+          <summary className="cursor-pointer text-ink-muted hover:text-navy-950">Override title or excerpt (optional)</summary>
+          <div className="mt-4 space-y-4 pl-4 border-l border-hairline">
+            <div>
+              <label className="admin-label">Title override</label>
+              <input value={title} onChange={(e) => setTitle(e.target.value)}
+                placeholder="Leave blank to use post title" className="admin-input" />
+            </div>
+            <div>
+              <label className="admin-label">Excerpt override</label>
+              <input value={excerpt} onChange={(e) => setExcerpt(e.target.value)}
+                placeholder="Leave blank to use post excerpt" className="admin-input" />
+            </div>
+          </div>
+        </details>
         {msg && <p className={`text-sm ${msg.ok ? "text-green-700" : "text-red-500"}`}>{msg.text}</p>}
-        <button type="submit" disabled={sending}
+        <button type="submit" disabled={sending || !slug.trim()}
           className="bg-navy-900 text-bone px-6 py-3 text-xs uppercase tracking-widest hover:bg-navy-800 transition-colors disabled:opacity-50">
           {sending ? "Sending…" : "Send notification"}
         </button>

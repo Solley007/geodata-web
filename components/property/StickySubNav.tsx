@@ -73,9 +73,9 @@ export default function StickySubNav({ property }: Props) {
           )}
         >
           <div className="bg-bone/85 backdrop-blur-xl border-b border-hairline dark:border-white/10">
-            <div className="container-editorial flex h-[72px] items-center justify-between gap-4">
-              {/* Property identity */}
-              <div className="flex items-baseline gap-4 min-w-0">
+            <div className="container-editorial flex h-[72px] items-center md:justify-between justify-end gap-4">
+              {/* Property identity — hidden on mobile to give buttons room */}
+              <div className="hidden md:flex items-baseline gap-4 min-w-0">
                 <p className="font-display text-lg text-navy-900 dark:text-bone/90 truncate">
                   {property.title}
                 </p>
@@ -164,7 +164,7 @@ export default function StickySubNav({ property }: Props) {
                   <span
                     className={clsx(
                       "font-display text-sm tabular-nums",
-                      activeId === s.id ? "text-gold-dark" : "text-ink-faint dark:text-bone/40"
+                      activeId === s.id ? "text-accent-dark" : "text-ink-faint dark:text-bone/40"
                     )}
                   >
                     {String(i + 1).padStart(2, "0")}

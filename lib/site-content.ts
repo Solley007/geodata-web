@@ -91,10 +91,20 @@ export const HERO_SLIDES: HeroSlide[] = [
     cta1:        { label: "View available units", href: "/projects/southern-bridge-estate" },
     duration:    6000,
   },
-  // ── Slide 3 — Cool Army Estate ──────────────────────────────────────────
+  // ── Slide 3 — Ize Hostel ────────────────────────────────────────────────
   {
     type:        "image",
-    image:       "/collage-4.jpg",   // ← replace with a real CAE photo
+    image:       "/ize-hostel/Exterior.JPG",
+    eyebrow:     "Ize Hostel — Jabi, Abuja",
+    headline:    "Purpose-built\nstudent living.",
+    subheadline: "Modern hostel accommodation serving Nile University and Baze University students.",
+    cta1:        { label: "Explore the hostel", href: "/projects/ize-hostel" },
+    duration:    6000,
+  },
+  // ── Slide 4 — Cool Army Estate ──────────────────────────────────────────
+  {
+    type:        "image",
+    image:       "/Cool.png",
     eyebrow:     "Cool Army Estate — Owerri, Imo State",
     headline:    "Twenty homes.\nDelivered.",
     subheadline: "A mixed-typology residential estate designed and built for Cool Real Estate.",
@@ -233,7 +243,7 @@ export const DEVELOPMENTS = [
   {
     slug:        "cool-army-estate",
     name:        "Cool Army Estate",
-    location:    "Mabushi, Abuja",
+    location:    "Owerri, Imo State",
     description: "Army Estate in Imo State.",
     image:       "/Cool.png",
     status:      "Selling Soon" as const,
