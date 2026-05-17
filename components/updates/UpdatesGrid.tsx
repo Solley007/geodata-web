@@ -54,7 +54,7 @@ export default function UpdatesGrid({ updates }: { updates: SiteUpdate[] }) {
                     : "bg-transparent text-ink-muted dark:text-bone/60 border-hairline dark:border-white/15 hover:border-navy-900 dark:hover:border-bone/40"
                 }`}
               >
-                {p.title} ({count})
+                {p.name} ({count})
               </button>
             );
           })}

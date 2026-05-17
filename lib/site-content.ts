@@ -207,7 +207,16 @@ export const PROPERTY_NAV = [
 // Images and text for the scrolling cards just below the hero.
 // Replace image paths with your own photos — they won't be overwritten.
 
-export const DEVELOPMENTS = [
+type DevelopmentItem = {
+  slug: string;
+  name: string;
+  location: string;
+  description: string;
+  image: string;
+  status: "Available" | "Limited" | "Sold Out" | "Selling Soon";
+};
+
+export const DEVELOPMENTS: DevelopmentItem[] =  [
   {
     slug:        "southern-bridge-city",
     name:        "Southern Bridge City",

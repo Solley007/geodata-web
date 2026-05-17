@@ -87,7 +87,6 @@ export default function StatsCounter() {
                 <span
                   className="stat-number"
                   data-value={s.value}
-                  data-decimals={s.decimals ?? 0}
                 >
                   0
                 </span>
