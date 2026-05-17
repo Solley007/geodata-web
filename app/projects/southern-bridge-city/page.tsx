@@ -125,7 +125,6 @@ export default function SouthernBridgeCityPage() {
             {[
               { label: "Location", value: "Idu Industrial Layout, Abuja FCT" },
               { label: "Developer", value: "Geodata World Services Limited" },
-              { label: "Construction finance", value: "Zenith Bank" },
               { label: "Mortgage guarantee", value: "ARM Investment Managers / MREIF" },
               { label: "Phase 1 units", value: "321 residences" },
               { label: "Compliance", value: "REDAN Member · RC 688927" },
