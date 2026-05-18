@@ -262,7 +262,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
         <div className="border-t border-hairline px-8 py-8 shrink-0">
           <BookViewingButton
             calLink="geodata/sbc-viewing"
-            className="block w-full text-center bg-navy-900 text-bone px-7 py-4 text-xs uppercase tracking-eyebrow font-medium hover:bg-navy-800 transition-colors duration-400"
+            className="flex items-center justify-center gap-3 w-full bg-navy-900 text-bone px-7 py-4 text-xs uppercase tracking-eyebrow font-medium hover:bg-navy-800 transition-colors duration-400"
           >
             Schedule a visit →
           </BookViewingButton>

@@ -103,11 +103,11 @@ export default function ProjectGallery({ project }: Props) {
           onClick={close}
         >
           <button
-            type="button" onClick={close}
-            className="absolute top-6 right-6 z-20 text-bone/70 hover:text-bone transition-colors"
+            type="button" onClick={(e) => { e.stopPropagation(); close(); }}
+            className="absolute top-4 right-4 z-20 h-12 w-12 flex items-center justify-center bg-white/10 hover:bg-white/20 text-bone transition-colors"
             aria-label="Close"
           >
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M18 6 6 18M6 6l12 12" />
             </svg>
           </button>
