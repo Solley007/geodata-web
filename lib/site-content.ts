@@ -231,7 +231,7 @@ export const DEVELOPMENTS: DevelopmentItem[] =  [
     location:    "Idu, Abuja",
     description: "27 completed semi-detached and terraced homes in a gated community.",
     image:       "/SBDrone4.webp",
-    status:      "Sold Out" as const,
+    status:      "Limited" as const,
   },
   {
     slug:        "country-court-estate",
