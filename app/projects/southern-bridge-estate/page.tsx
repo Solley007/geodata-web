@@ -102,7 +102,7 @@ export default function SouthernBridgeEstatePage() {
 
       {/* ─── Overview ──────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="container-editorial grid grid-cols-12 gap-12">
+        <div className="container-editorial grid grid-cols-12 gap-y-12 lg:gap-12">
           <div className="col-span-12 lg:col-span-8">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">About the development</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight mb-8">

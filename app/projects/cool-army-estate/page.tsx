@@ -94,7 +94,7 @@ export default async function CoolArmyEstatePage() {
 
       {/* ─── Overview ──────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="container-editorial grid grid-cols-12 gap-12">
+        <div className="container-editorial grid grid-cols-12 gap-y-12 lg:gap-12">
           <div className="col-span-12 lg:col-span-8">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">About the development</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight mb-8">
@@ -219,7 +219,7 @@ export default async function CoolArmyEstatePage() {
 
       {/* ─── Location ──────────────────────────────────────────────── */}
       <section className="py-20 md:py-24 border-t border-hairline dark:border-white/10">
-        <div className="container-editorial grid grid-cols-12 gap-12">
+        <div className="container-editorial grid grid-cols-12 gap-y-12 lg:gap-12">
           <div className="col-span-12 md:col-span-5">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-4">Location</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight mb-6">
