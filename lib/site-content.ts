@@ -167,10 +167,10 @@ export const MREIF_TERMS = [
 
 export const PROPERTY_NAV = [
   {
-    slug:   "4-bed-semi-detached",
-    label:  "The Semi-Detached",
-    sub:    "4 bed · From ₦180M",
-    price:  "From ₦180M",
+    slug:   "4-bed-block-flats",
+    label:  "The Pavilion",
+    sub:    "Block of flats · From ₦130M",
+    price:  "From ₦130M",
     status: "For sale",
   },
   {
@@ -180,11 +180,12 @@ export const PROPERTY_NAV = [
     price:  "From ₦150M",
     status: "For sale",
   },
+
   {
-    slug:   "6-bed-terrace",
-    label:  "The Six",
-    sub:    "6 bed · From ₦220M",
-    price:  "From ₦220M",
+    slug:   "4-bed-semi-detached",
+    label:  "The Semi-Detached",
+    sub:    "4 bed · From ₦180M",
+    price:  "From ₦180M",
     status: "For sale",
   },
   {
@@ -194,13 +195,15 @@ export const PROPERTY_NAV = [
     price:  "From ₦220M",
     status: "For sale",
   },
+  
   {
-    slug:   "4-bed-block-flats",
-    label:  "The Pavilion",
-    sub:    "Block of flats · From ₦130M",
-    price:  "From ₦130M",
+    slug:   "6-bed-terrace",
+    label:  "The Six",
+    sub:    "6 bed · From ₦220M",
+    price:  "From ₦220M",
     status: "For sale",
   },
+
 ];
 
 // ─── 8. Development strip cards ──────────────────────────────────────────────
