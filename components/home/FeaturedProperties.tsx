@@ -102,7 +102,7 @@ export default function FeaturedProperties() {
                   className="object-cover object-bottom transition-transform duration-1200 ease-editorial group-hover:scale-[1.04]"
                 />
                 <div className="absolute top-6 left-6 inline-flex items-center px-3 py-1.5 bg-bone/90 backdrop-blur-sm">
-                  <span className="text-[10px] uppercase tracking-eyebrow font-medium text-navy-900 dark:text-bone/90">
+                  <span className="text-[10px] uppercase tracking-eyebrow font-medium text-navy-900">
                     Available
                   </span>
                 </div>
