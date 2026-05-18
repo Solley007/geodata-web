@@ -120,9 +120,8 @@ Reply to this email to start a conversation.`;
 <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;max-width:600px;">
 
   <!-- ── Brand header ─────────────────────────────────────────── -->
-  <tr><td style="padding:32px 40px 24px;text-align:center;border-bottom:1px solid #e5e0d5;">
-    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:24px;font-weight:600;color:#0a1628;letter-spacing:4px;">GEODATA</p>
-    <p style="margin:6px 0 0;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#5c6b7e;">World Services Limited</p>
+  <tr><td style="padding:22px 30px;background:#0f2547;text-align:center;">
+    <img src="${process.env.NEXT_PUBLIC_SITE_URL ?? "https://geodata.com.ng"}/geodata-full-logo-white.png" alt="Geodata World Services Limited" width="200" style="display:block;width:200px;max-width:200px;height:auto;border:0;outline:none;margin:0 auto;" />
   </td></tr>
 
   <tr><td style="padding:36px 40px 24px;border-bottom:1px solid #e5e0d5;">
@@ -169,8 +168,7 @@ Reply to this email to start a conversation.`;
   </td></tr>
 
   <tr><td style="padding:28px 40px 32px;background:#0F2547;color:#fafaf7;border-top:1px solid #0a1628;">
-    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:18px;font-weight:600;color:#fafaf7;letter-spacing:3px;">GEODATA</p>
-    <p style="margin:4px 0 16px;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#bfd4f2;">World Services Limited</p>
+    <img src="${process.env.NEXT_PUBLIC_SITE_URL ?? "https://geodata.com.ng"}/geodata-full-logo-white.png" alt="Geodata World Services Limited" width="180" style="display:block;width:180px;max-width:180px;height:auto;border:0;outline:none;margin:0 0 20px 0;" />
     <p style="margin:0 0 14px;font-size:13px;color:#bfd4f2;line-height:1.6;">
       This calculation is indicative. Final approval depends on bank assessment by an MREIF Eligible Financial Institution. Reply to this email if you'd like us to walk you through the next steps personally.
     </p>

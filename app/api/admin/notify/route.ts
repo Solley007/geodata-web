@@ -51,14 +51,9 @@ export async function POST(req: NextRequest) {
       <table cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;background:#FAFAF7;">
 
         <!-- Header -->
-        <tr><td style="padding:32px 40px 24px;border-bottom:1px solid #E5E0D5;">
-          <p style="margin:0;font-family:Georgia,serif;font-size:22px;letter-spacing:-0.01em;color:#0A1628;">
-            GEODATA<span style="color:#C9A961;">.</span>
-          </p>
-          <p style="margin:4px 0 0;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#94A0B0;">
-            World Services Limited
-          </p>
-        </td></tr>
+        <tr><td style="padding:22px 30px;background:#0f2547;text-align:center;">
+    <img src="${process.env.NEXT_PUBLIC_SITE_URL ?? "https://geodata.com.ng"}/geodata-full-logo-white.png" alt="Geodata World Services Limited" width="200" style="display:block;width:200px;max-width:200px;height:auto;border:0;outline:none;margin:0 auto;" />
+  </td></tr>
 
         <!-- Cover image -->
         ${update.coverImage ? `

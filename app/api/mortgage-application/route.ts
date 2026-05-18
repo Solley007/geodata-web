@@ -22,14 +22,9 @@ export async function POST(req: NextRequest) {
 <!DOCTYPE html>
 <html><body style="font-family:Georgia,serif;background:#F4F2EC;padding:40px 20px;color:#0A1628;">
   <table cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;margin:0 auto;background:#FAFAF7;">
-    <tr><td style="padding:32px 40px 16px;border-bottom:1px solid #E5E0D5;">
-      <p style="margin:0;font-family:Georgia,serif;font-size:20px;letter-spacing:-0.01em;">
-        GEODATA<span style="color:#C9A961;">.</span>
-      </p>
-      <p style="margin:6px 0 0;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#94A0B0;">
-        New MREIF mortgage enquiry
-      </p>
-    </td></tr>
+    <tr><td style="padding:22px 30px;background:#0f2547;text-align:center;">
+    <img src="${process.env.NEXT_PUBLIC_SITE_URL ?? "https://geodata.com.ng"}/geodata-full-logo-white.png" alt="Geodata World Services Limited" width="200" style="display:block;width:200px;max-width:200px;height:auto;border:0;outline:none;margin:0 auto;" />
+  </td></tr>
 
     <tr><td style="padding:32px 40px;">
       <h1 style="margin:0 0 24px;font-family:Georgia,serif;font-size:24px;line-height:1.2;color:#0A1628;">
@@ -75,11 +70,9 @@ export async function POST(req: NextRequest) {
 <!DOCTYPE html>
 <html><body style="font-family:Georgia,serif;background:#F4F2EC;padding:40px 20px;color:#0A1628;">
   <table cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;margin:0 auto;background:#FAFAF7;">
-    <tr><td style="padding:32px 40px 16px;border-bottom:1px solid #E5E0D5;">
-      <p style="margin:0;font-family:Georgia,serif;font-size:20px;letter-spacing:-0.01em;">
-        GEODATA<span style="color:#C9A961;">.</span>
-      </p>
-    </td></tr>
+    <tr><td style="padding:22px 30px;background:#0f2547;text-align:center;">
+    <img src="${process.env.NEXT_PUBLIC_SITE_URL ?? "https://geodata.com.ng"}/geodata-full-logo-white.png" alt="Geodata World Services Limited" width="200" style="display:block;width:200px;max-width:200px;height:auto;border:0;outline:none;margin:0 auto;" />
+  </td></tr>
 
     <tr><td style="padding:36px 40px;">
       <h1 style="margin:0 0 16px;font-family:Georgia,serif;font-size:26px;line-height:1.2;letter-spacing:-0.01em;">
