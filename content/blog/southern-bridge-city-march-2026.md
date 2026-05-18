@@ -5,7 +5,7 @@ date: "2026-03-28"
 author: "Geodata Editorial"
 authorRole: "Editorial"
 category: "Development"
-coverImage: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=2000&q=85&auto=format&fit=crop"
+coverImage: "/blog-image.png"
 featured: true
 ---
 
@@ -25,11 +25,6 @@ Site clearance and substructure works for the first 24 Phase Two units began in 
 
 Phase Two's footprint mirrors Phase One's masterplan, with one notable addition: a central park spine that connects the two phases at the western boundary, designed by landscape architect Tope Ogunbiyi.
 
-## A new partnership with Lafarge
-
-We've finalised an exclusive Phase Two supply agreement with Lafarge Africa for low-carbon concrete. The mix uses 30% supplementary cementitious materials — primarily ground granulated blast furnace slag — which reduces embodied carbon by approximately 25% compared to standard OPC concrete.
-
-The cost difference is roughly 4% over standard mix; we're absorbing it. There are perhaps eight residential developments across Sub-Saharan Africa using this specification at scale. We want Geodata's name on that list.
 
 ## What residents can expect through Q2
 
