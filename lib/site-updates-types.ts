@@ -64,6 +64,6 @@ export function cloudinaryVideoPoster(videoUrl: string): string {
 export function cloudinaryHLSUrl(videoUrl: string): string {
   if (!videoUrl || !videoUrl.includes("cloudinary.com")) return videoUrl;
   return videoUrl
-    .replace("/upload/", "/upload/sp_hd/")
+    .replace("/upload/", "/upload/sp_auto/")
     .replace(/\.(mp4|mov|webm|avi|mkv)(\?.*)?$/i, ".m3u8");
 }
