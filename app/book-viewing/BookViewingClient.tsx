@@ -41,7 +41,7 @@ export default function BookViewingClient() {
         <div className="mb-12 md:mb-16">
           <p className="eyebrow text-ink-muted dark:text-bone/50 mb-4">Reserve a viewing</p>
           <h1 className="font-display text-display-md md:text-display-lg text-navy-950 dark:text-bone tracking-tightest leading-[1.1] mb-6">
-            See <em className="font-light">the work</em> in person.
+            See the work in person.
           </h1>
           <p className="text-lg text-ink-muted dark:text-bone/70 leading-relaxed max-w-2xl">
             Pick a one-hour slot — Monday to Saturday — and we'll meet you on site. Morning tours work best for daylight inspection. Afternoon tours catch the golden hour for photos.

@@ -262,12 +262,12 @@ const ALL_PROPERTIES: Property[] = [
       { label: "Type", value: "Terrace", hint: "4 bedroom" },
       { label: "Price", value: "₦150M", hint: "From" },
       { label: "Bedrooms", value: "4" },
-      { label: "Bathrooms", value: "4" },
-      { label: "Built area", value: "280m²" },
+      { label: "Bathrooms", value: "5" },
+      { label: "Built area", value: "240m²" },
     ],
     progress: CURRENT_PROGRESS,
     overview: [
-      "The Terrace is the entry point to Southern Bridge City — a four-bedroom residence designed for families who understand that quality and scale are not the same thing. At 280m², it is precisely sized: no wasted circulation, no rooms that exist for status rather than use.",
+      "The Terrace is the entry point to Southern Bridge City — a four-bedroom residence designed for families who understand that quality and scale are not the same thing. At 240m², it is precisely sized: no wasted circulation, no rooms that exist for status rather than use.",
       "The ground floor opens generously from a covered entrance to a connected kitchen, dining, and living zone that extends to a private walled garden at the rear. The first floor holds three bedrooms and a family bathroom arranged around a landing that doubles as a reading nook. The second floor is the master suite — the whole floor, with a dressing room, a double-aspect bathroom, and its own small terrace.",
       "The Terrace is also the most MREIF-accessible typology at Southern Bridge City. At ₦150M, the required 10% equity contribution is ₦15M, with a monthly repayment on MREIF terms that compares favourably to the equivalent rent in the surrounding area.",
     ],
@@ -349,12 +349,12 @@ const ALL_PROPERTIES: Property[] = [
       { label: "Type", value: "Terrace", hint: "6 bedroom" },
       { label: "Price", value: "₦220M", hint: "From" },
       { label: "Bedrooms", value: "6" },
-      { label: "Bathrooms", value: "6" },
-      { label: "Built area", value: "420m²" },
+      { label: "Bathrooms", value: "7" },
+      { label: "Built area", value: "250m²" },
     ],
     progress: CURRENT_PROGRESS,
     overview: [
-      "The Six is the largest typology at Southern Bridge City — a six-bedroom terrace residence for households that need space without sacrificing the close-knit feeling of a well-planned home. At 420m² across four floors, it is more house than most Abuja neighbourhoods can offer at any price.",
+      "The Six is the largest typology at Southern Bridge City — a six-bedroom terrace residence for households that need space without sacrificing the close-knit feeling of a well-planned home. At 250m² per floor across four storeys — close to 1,000m² of built area in total — it is more house than most Abuja neighbourhoods can offer at any price.",
       "The plan is organised by generation: the ground floor hosts guests and formal gatherings; the first floor is the family heart — open kitchen, double-height living space, a breakfast room that becomes a homework room by afternoon. The second and third floors divide cleanly into two zones, each with its own bathrooms and adequate natural light, so parents and children each have a floor that feels like theirs.",
       "For those who work from home, The Six includes a dedicated study on the ground floor — a room that closes properly, with acoustic separation from the main living spaces, independent air conditioning, and its own WC. It reads as a proper office, not an afterthought.",
     ],
@@ -442,8 +442,8 @@ const ALL_PROPERTIES: Property[] = [
       { label: "Type", value: "Semi-Detached", hint: "5 bedroom" },
       { label: "Price", value: "₦220M", hint: "From" },
       { label: "Bedrooms", value: "5" },
-      { label: "Bathrooms", value: "5" },
-      { label: "Built area", value: "380m²" },
+      { label: "Bathrooms", value: "6" },
+      { label: "Built area", value: "440m²" },
     ],
     progress: CURRENT_PROGRESS,
     overview: [
@@ -534,8 +534,8 @@ const ALL_PROPERTIES: Property[] = [
       { label: "Type", value: "Apartment", hint: "4 bedroom" },
       { label: "Price", value: "₦130M", hint: "From" },
       { label: "Bedrooms", value: "4" },
-      { label: "Bathrooms", value: "3" },
-      { label: "Built area", value: "220m²" },
+      { label: "Bathrooms", value: "5" },
+      { label: "Built area", value: "250m²" },
     ],
     progress: CURRENT_PROGRESS,
     overview: [
@@ -627,9 +627,20 @@ const ALL_PROPERTIES: Property[] = [
 // LOOKUP HELPERS
 // ---------------------------------------------------------------------------
 
+// Display order for listing pages — low → high price, with The Six last.
+const DISPLAY_ORDER: string[] = [
+  "4-bed-block-flats",   // The Pavilion   — ₦130M
+  "4-bed-terrace",       // The Terrace    — ₦150M
+  "4-bed-semi-detached", // The Semi-Det.  — ₦180M
+  "5-bed-semi-detached", // The Five       — ₦220M
+  "6-bed-terrace",       // The Six        — ₦220M (6-bed, shown last)
+];
+
 /** Get all properties — for listing pages and static generation */
 export function getAllProperties(): Property[] {
-  return ALL_PROPERTIES;
+  return [...ALL_PROPERTIES].sort(
+    (a, b) => DISPLAY_ORDER.indexOf(a.slug) - DISPLAY_ORDER.indexOf(b.slug),
+  );
 }
 
 /** Get all slugs — for generateStaticParams */

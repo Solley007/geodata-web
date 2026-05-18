@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { gsap } from "@/lib/gsap";
 import { DEVELOPMENTS } from "@/lib/site-content";
 
-type SalesStatus = "Available" | "Limited" | "Sold Out" | "Selling Soon";
+type SalesStatus = "Available" | "Limited" | "Sold Out" | "Selling Soon" | undefined;
 
 export default function DevelopmentsStrip() {
   const root = useRef<HTMLElement>(null);
@@ -42,7 +42,7 @@ export default function DevelopmentsStrip() {
           <div className="col-span-12 lg:col-span-7">
             <p className="dev-fade eyebrow mb-6">Our developments</p>
             <h2 className="dev-fade text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              The body of <em className="font-light">work.</em>
+              The body of work.
             </h2>
           </div>
           <div className="col-span-12 lg:col-span-4 lg:col-start-9">
@@ -78,14 +78,16 @@ export default function DevelopmentsStrip() {
                   />
 
                   {/* Status pill — top left. Color signals availability. */}
-                  <div className={clsx("absolute top-5 left-5", statusPillStyle(d.status))}>
-                    {(d.status === "Available" || d.status === "Limited") && (
-                      <span className="block h-1.5 w-1.5 rounded-full bg-current mr-2 animate-pulse" />
-                    )}
-                    <span className="text-[10px] uppercase tracking-eyebrow font-medium">
-                      {d.status}
-                    </span>
-                  </div>
+                  {d.status && (
+                    <div className={clsx("absolute top-5 left-5", statusPillStyle(d.status))}>
+                      {(d.status === "Available" || d.status === "Limited") && (
+                        <span className="block h-1.5 w-1.5 rounded-full bg-current mr-2 animate-pulse" />
+                      )}
+                      <span className="text-[10px] uppercase tracking-eyebrow font-medium">
+                        {d.status}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <div>
@@ -111,7 +113,7 @@ export default function DevelopmentsStrip() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-bone p-8 text-center">
                   <p className="eyebrow text-bone/60 mb-6">More work</p>
                   <p className="font-display text-3xl leading-tight mb-8">
-                    View the full <em className="font-light">portfolio</em>
+                    View the full portfolio
                   </p>
                   <span className="inline-flex items-center gap-2 text-xs uppercase tracking-eyebrow font-medium border-b border-bone pb-1 transition-transform duration-500 ease-editorial group-hover:translate-x-2">
                     All projects <span aria-hidden>→</span>
@@ -133,11 +135,11 @@ export default function DevelopmentsStrip() {
  *  - Selling Soon: navy background, gold text — anticipatory
  *  - Sold Out: muted, low-contrast — historical credibility marker
  */
-function statusPillStyle(status: SalesStatus): string {
+function statusPillStyle(status: Exclude<SalesStatus, undefined>): string {
   const base = "inline-flex items-center px-3 py-1.5 backdrop-blur-sm";
   switch (status) {
     case "Available":
-      return clsx(base, "bg-bone/95 text-navy-900 dark:text-bone/90");
+      return clsx(base, "bg-bone/95 text-navy-900");
     case "Limited":
       return clsx(base, "bg-accent/95 text-navy-950 dark:text-bone");
     case "Selling Soon":

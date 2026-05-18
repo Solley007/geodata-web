@@ -21,7 +21,7 @@ export default function HomeUpdates() {
             <p className="eyebrow text-ink-faint dark:text-bone/40 mb-3">From the sites</p>
             <h2 className="text-display-md md:text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest leading-[1.05]">
               What's happening{" "}
-              <em className="font-light">on the ground.</em>
+              on the ground.
             </h2>
           </div>
           <Link

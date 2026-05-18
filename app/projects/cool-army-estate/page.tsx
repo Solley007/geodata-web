@@ -71,7 +71,7 @@ export default async function CoolArmyEstatePage() {
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20 md:pb-28">
           <p className="eyebrow text-bone/80 mb-6">{project.location}</p>
           <h1 className="text-display-xl font-display text-bone tracking-tightest leading-none max-w-4xl">
-            Cool Army <em className="font-light">Estate</em>
+            Cool Army Estate
           </h1>
           <p className="mt-8 text-lg text-bone/80 max-w-xl leading-relaxed">
             Twenty residences across five typologies. Built by Geodata for Cool Real Estate.
@@ -98,7 +98,7 @@ export default async function CoolArmyEstatePage() {
           <div className="col-span-12 lg:col-span-8">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">About the development</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight mb-8">
-              A mixed-typology estate <em className="font-light">delivered to spec</em> in Owerri.
+              A mixed-typology estate delivered to spec in Owerri.
             </h2>
             <p className="text-lg leading-relaxed text-ink-muted dark:text-bone/70 max-w-2xl">
               Twenty residences across five distinct typologies, designed and built by Geodata on behalf of Cool Real Estate. The estate combines large family mansions with mid-sized duplexes and semi-detached homes — each finished to the same standard regardless of size.
@@ -226,7 +226,7 @@ export default async function CoolArmyEstatePage() {
               Owerri, Imo State.
             </h2>
             <p className="text-ink-muted dark:text-bone/70 leading-relaxed">
-              A quiet residential setting in Owerri, the Imo State capital. The estate sits within an area planned for established and serving Nigerian Army personnel and their families.
+              A quiet residential setting in Owerri, the Imo State capital. The estate sits within an area planned for serving Nigerian Army officers and their families.
             </p>
           </div>
         </div>

@@ -29,7 +29,7 @@ export default function Compliance() {
           <div className="col-span-12 lg:col-span-5">
             <p className="cmp-fade eyebrow mb-6">Compliance</p>
             <h2 className="cmp-fade text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              Regulated, registered, <em className="font-light">accountable.</em>
+              Regulated, registered, accountable.
             </h2>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-6">

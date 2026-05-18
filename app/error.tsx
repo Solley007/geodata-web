@@ -33,7 +33,7 @@ export default function Error({ error, reset }: ErrorProps) {
         <p className="eyebrow text-ink-faint dark:text-bone/40 mb-8">Something went wrong</p>
 
         <h1 className="text-display-xl font-display text-navy-950 dark:text-bone tracking-tightest mb-12">
-          We hit an <em className="font-light">unexpected snag.</em>
+          We hit an unexpected snag.
         </h1>
 
         <p className="text-lg text-ink dark:text-bone/75 leading-relaxed mb-16">

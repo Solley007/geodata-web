@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
         We've received your MREIF mortgage enquiry for <strong>${propertyOfInterest}</strong>.
       </p>
       <p style="margin:0 0 16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;">
-        A member of our team will reach out within one business day to walk you through pre-qualification and the formal application process with Zenith Bank.
+        A member of our team will reach out within one business day to walk you through pre-qualification and the formal MREIF application process.
       </p>
       <p style="margin:24px 0 0;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.6;color:#1F2D3D;">
         In the meantime, feel free to call or message us:<br>

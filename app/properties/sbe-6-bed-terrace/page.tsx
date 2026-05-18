@@ -34,7 +34,7 @@ export default function SBETerracePage() {
             Sold Out
           </div>
           <h1 className="text-display-xl font-display text-bone tracking-tightest leading-none max-w-3xl">
-            The <em className="font-light">6-Bedroom</em> Terrace
+            The 6-Bedroom Terrace
           </h1>
           <p className="mt-6 text-lg text-bone/80 max-w-xl">
             Twelve completed terrace residences. Fully sold, fully occupied.
@@ -48,7 +48,7 @@ export default function SBETerracePage() {
           <div className="col-span-12 lg:col-span-7">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">About this typology</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight mb-8">
-              The original residences of <em className="font-light">Southern Bridge Estate.</em>
+              The original residences of Southern Bridge Estate.
             </h2>
             <p className="text-lg leading-relaxed text-ink-muted dark:text-bone/70">
               Twelve six-bedroom terrace duplexes delivered as part of Southern Bridge Estate's first phase. Generous proportions, private gardens, and the same materials and finish standards that define every Geodata residence.

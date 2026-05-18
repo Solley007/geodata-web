@@ -54,7 +54,7 @@ export default function MortgageApplicationPage() {
             We've received your details.
           </h1>
           <p className="text-lg leading-relaxed text-ink-muted dark:text-bone/70 mb-10">
-            A member of our team will reach out within one business day to walk you through the next steps — KYC documentation, bank pre-approval through Zenith Bank, and property reservation.
+            A member of our team will reach out within one business day to walk you through the next steps — KYC documentation, bank pre-approval, and property reservation.
           </p>
           <Link href="/properties" className="inline-flex items-center gap-3 bg-navy-900 dark:bg-bone dark:text-navy-950 text-bone px-7 py-4 text-sm font-medium hover:bg-navy-800 transition-colors">
             Browse available residences <span aria-hidden>→</span>
@@ -72,10 +72,10 @@ export default function MortgageApplicationPage() {
         <div className="container-editorial max-w-4xl">
           <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">MREIF Mortgage</p>
           <h1 className="text-display-lg font-display tracking-tightest leading-none mb-6">
-            Begin your <em className="font-light">MREIF</em> application.
+            Begin your MREIF application.
           </h1>
           <p className="text-lg text-ink-muted dark:text-bone/70 leading-relaxed max-w-2xl">
-            Tell us a little about yourself and the property you're considering. We'll review your pre-qualification and connect you with the right team at Zenith Bank to begin your formal mortgage application.
+            Tell us a little about yourself and the property you're considering. We'll review your pre-qualification and connect you with the partner bank to begin your formal MREIF mortgage application.
           </p>
         </div>
       </section>
@@ -87,7 +87,7 @@ export default function MortgageApplicationPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <Step n={1} title="Express interest" body="Submit the form below with your contact details, employment, and the property you're considering." />
             <Step n={2} title="Pre-qualification" body="Our team reviews your details and contacts you within one business day to confirm next steps." />
-            <Step n={3} title="Bank application" body="We connect you to a dedicated officer at Zenith Bank to begin your formal MREIF mortgage application." />
+            <Step n={3} title="Bank application" body="We connect you to a dedicated officer at the partner bank to begin your formal MREIF mortgage application." />
           </div>
         </div>
       </section>

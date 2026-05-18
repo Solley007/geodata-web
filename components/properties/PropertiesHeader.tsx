@@ -37,7 +37,7 @@ export default function PropertiesHeader({ activeFilter, onFilterChange, count }
         <div className="grid grid-cols-12 gap-12 items-end">
           <div className="col-span-12 lg:col-span-8">
             <h1 className="plist-title text-display-xl font-display text-navy-950 dark:text-bone tracking-tightest">
-              Currently <em className="font-light">available.</em>
+              Currently available.
             </h1>
           </div>
 

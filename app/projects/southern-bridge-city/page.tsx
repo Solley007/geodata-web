@@ -6,7 +6,7 @@ import { getAllProperties } from "@/lib/property-data";
 export const metadata: Metadata = {
   title: "Southern Bridge City — Idu, Abuja",
   description:
-    "321 MREIF-eligible residences across five typologies at Southern Bridge City, Idu. Financed by Zenith Bank, backed by ARM Investment Managers. 9.75% fixed mortgage for 20 years.",
+    "321 MREIF-eligible residences across five typologies at Southern Bridge City, Idu. 9.75% fixed mortgage for 20 years, naira denominated.",
   alternates: { canonical: "/projects/southern-bridge-city" },
   openGraph: {
     title: "Southern Bridge City — Phase One",
@@ -92,7 +92,7 @@ export default function SouthernBridgeCityPage() {
             <div className="col-span-12 lg:col-span-5">
               <p className="eyebrow mb-6">The development</p>
               <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-                A new address <em className="font-light">for Abuja.</em>
+                A new address for Abuja.
               </h2>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:col-start-7 space-y-6">
@@ -104,12 +104,11 @@ export default function SouthernBridgeCityPage() {
                 infrastructure and a coherent architectural language.
               </p>
               <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
-                The development is financed by Zenith Bank and backed by ARM
-                Investment Managers through the Ministry of Finance Real Estate
-                Investment Fund (MREIF) Offtake Guarantee. Every residence in
-                Phase One qualifies for MREIF mortgage financing at 9.75% fixed
-                for up to 20 years — terms unmatched by any commercial lender
-                in Nigeria.
+                The development is qualified under the Ministry of Finance
+                Incorporated Real Estate Investment Fund (MREIF) Offtake
+                Guarantee. Every residence in Phase One is eligible for MREIF
+                mortgage financing at 9.75% fixed for up to 20 years — terms
+                no commercial lender in Nigeria currently matches.
               </p>
               <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
                 Independent quantity surveyors verify monthly progress against
@@ -125,7 +124,7 @@ export default function SouthernBridgeCityPage() {
             {[
               { label: "Location", value: "Idu Industrial Layout, Abuja FCT" },
               { label: "Developer", value: "Geodata World Services Limited" },
-              { label: "Mortgage guarantee", value: "ARM Investment Managers / MREIF" },
+              { label: "Mortgage guarantee", value: "MREIF Offtake Guarantee" },
               { label: "Phase 1 units", value: "321 residences" },
               { label: "Compliance", value: "REDAN Member · RC 688927" },
             ].map((f) => (
@@ -145,7 +144,7 @@ export default function SouthernBridgeCityPage() {
             <div className="col-span-12 lg:col-span-5">
               <p className="eyebrow mb-6">Site & infrastructure</p>
               <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-                Built from the <em className="font-light">ground up.</em>
+                Built from the ground up.
               </h2>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:col-start-7">
@@ -218,10 +217,10 @@ export default function SouthernBridgeCityPage() {
             <div className="col-span-12 md:col-span-7">
               <p className="eyebrow text-ink-muted dark:text-bone/50 mb-5">The brochure</p>
               <h2 className="font-display text-display-md text-navy-950 dark:text-bone tracking-tightest leading-tight mb-6">
-                Take the full <em className="font-light">details</em> with you.
+                Take the full details with you.
               </h2>
               <p className="text-lg text-ink-muted dark:text-bone/70 leading-relaxed max-w-xl">
-                Floor plans, typology specifications,  — the complete Southern Bridge City brochure, ready to download and share.
+                Floor plans, typology specifications, finishes — the complete Southern Bridge City brochure, ready to download and share.
               </p>
             </div>
  
@@ -254,7 +253,7 @@ export default function SouthernBridgeCityPage() {
             <div className="col-span-12 lg:col-span-5">
               <p className="eyebrow mb-6">The residences</p>
               <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-                Five typologies. <em className="font-light">One address.</em>
+                Five typologies. One address.
               </h2>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:col-start-7">
@@ -349,7 +348,7 @@ export default function SouthernBridgeCityPage() {
               <div className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-4 py-3 mb-8">
                 <Image
                   src="/mreif-logo.png"
-                  alt="MREIF — Ministry of Finance Real Estate Investment Fund"
+                  alt="MREIF — Ministry of Finance Incorporated Real Estate Investment Fund"
                   width={40}
                   height={40}
                   className="h-10 w-10 shrink-0"
@@ -360,16 +359,15 @@ export default function SouthernBridgeCityPage() {
               </div>
               <p className="eyebrow text-bone/60 mb-6">MREIF Mortgage</p>
               <h2 className="text-display-lg font-display tracking-tightest">
-                9.75% fixed. <em className="font-light">Twenty years.</em>
+                9.75% fixed. Twenty years.
               </h2>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:col-start-7 space-y-5">
               <p className="text-lg leading-relaxed text-bone/85">
                 Every Southern Bridge City residence qualifies for MREIF
-                financing — a federal government mortgage programme backed by
-                ARM Investment Managers and administered through partner banks.
-                The rate of 9.75% per annum is fixed for the full 20-year term.
-                No variable rate risk. No renegotiation.
+                financing — a federal mortgage programme administered through
+                partner banks. The rate of 9.75% per annum is fixed for the
+                full 20-year term. No variable rate risk. No renegotiation.
               </p>
               <p className="text-lg leading-relaxed text-bone/85">
                 The minimum equity contribution is 10% of the purchase price.
@@ -441,7 +439,7 @@ export default function SouthernBridgeCityPage() {
             <div className="col-span-12 lg:col-span-5">
               <p className="eyebrow mb-6">Why Southern Bridge City</p>
               <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-                The case for <em className="font-light">buying now.</em>
+                The case for buying now.
               </h2>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:col-start-7">
@@ -475,7 +473,7 @@ export default function SouthernBridgeCityPage() {
                   },
                   {
                     title: "Quality you can verify",
-                    desc: "Independent quantity surveyors audit every stage. Construction photographs are published regularly. ARM Investment Managers' guarantee means a major institution has reviewed and underwritten the project — not just the developer's word.",
+                    desc: "Independent quantity surveyors audit every stage. Construction photographs are published regularly. The MREIF Offtake Guarantee means the project has passed federal-programme due diligence — not just the developer's word.",
                   },
                   {
                     title: "Location with trajectory",
@@ -506,8 +504,8 @@ export default function SouthernBridgeCityPage() {
                     desc: "At 10% equity in, you control ₦130–220M of real estate with ₦13–22M of your own capital. If the asset appreciates 20% in three years — conservative for this corridor — your return on equity is 200%+. Leverage works when the underlying asset is credible.",
                   },
                   {
-                    title: "Institutional counterparty risk mitigation",
-                    desc: "ARM Investment Managers holds the Offtake Guarantee. Zenith Bank holds the construction loan. Both institutions have reviewed and underwritten this development. The developer cannot abandon the project without triggering both relationships. That is a risk profile most Nigerian residential investments cannot match.",
+                    title: "Independent oversight, not just developer assurances",
+                    desc: "Southern Bridge City sits inside the MREIF Offtake Guarantee — a federal-programme review that examined the site, the developer's track record, and the construction programme before granting eligibility. Independent quantity surveyors verify progress monthly. REDAN membership and an 18-year compliance record (RC 688927) sit behind every commitment we make.",
                   },
                   {
                     title: "Exit liquidity from a captive buyer pool",
@@ -533,7 +531,7 @@ export default function SouthernBridgeCityPage() {
             <div className="col-span-12 lg:col-span-7">
               <p className="eyebrow text-bone/60 mb-6">Begin a conversation</p>
               <h2 className="text-display-lg font-display tracking-tightest leading-none">
-                Ready to learn <em className="font-light">more?</em>
+                Ready to learn more?
               </h2>
               <p className="mt-8 text-lg leading-relaxed text-bone/80 max-w-xl">
                 Our sales team responds to every enquiry personally within one

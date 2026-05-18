@@ -167,18 +167,18 @@ export default function ImageCollage() {
           <div className="col-span-12 lg:col-span-5">
             <p className="eyebrow mb-6">A study in restraint</p>
             <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              Built for the way <em className="font-light">life</em> is actually lived.
+              Built for the way life is actually lived.
             </h2>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-6">
             <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
-              Each residence is composed around proportion, light, and the
-              quiet rituals of daily life. Materials are selected for how they
-              age. Floor plates are drawn for how they're inhabited.
+              Each residence is sized for use, not for show. Materials are
+              specified for how they age. Floor plates are drawn for how a
+              household actually moves through a day.
             </p>
             <p className="mt-6 text-lg leading-relaxed text-ink dark:text-bone/75">
               The result is architecture that feels considered now — and will
-              feel considered in twenty years.
+              still feel considered in twenty years.
             </p>
           </div>
         </div>

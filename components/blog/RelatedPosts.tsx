@@ -37,7 +37,7 @@ export default function RelatedPosts({ posts }: Props) {
           <div>
             <p className="eyebrow mb-4">Continue reading</p>
             <h2 className="font-display text-display-md text-navy-950 dark:text-bone tracking-tightest">
-              Related <em className="font-light">posts.</em>
+              Related posts.
             </h2>
           </div>
           <Link

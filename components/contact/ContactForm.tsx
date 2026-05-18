@@ -74,7 +74,7 @@ export default function ContactForm() {
       <div ref={root} className="bg-navy-950 text-bone p-10 lg:p-16">
         <p className="eyebrow text-bone/60 mb-6">Message received</p>
         <h2 className="font-display text-display-md tracking-tightest leading-none">
-          Thank you. <em className="font-light">We'll be in touch.</em>
+          Thank you. We'll be in touch.
         </h2>
         <p className="mt-8 text-bone/80 leading-relaxed max-w-md">
           A member of our sales team will reach out within one business day. For

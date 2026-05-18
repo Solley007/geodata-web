@@ -86,7 +86,7 @@ export default function MortgageCalculator() {
           <div className="col-span-12 lg:col-span-7 calc-fade">
             <p className="eyebrow mb-6">Mortgage Calculator</p>
             <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              Find your <em className="font-light">monthly figure.</em>
+              Find your monthly figure.
             </h2>
             <p className="mt-8 text-lg text-ink dark:text-bone/75 leading-relaxed max-w-xl">
               Adjust property price, equity contribution, and tenor to see
@@ -260,7 +260,7 @@ export default function MortgageCalculator() {
 
               <p className="mt-6 text-[11px] text-bone/50 leading-relaxed">
                 Indicative figures only. Final terms subject to MREIF
-                eligibility verification by Federal Mortgage Bank of Nigeria.
+                eligibility verification by the partner bank.
               </p>
             </div>
           </div>

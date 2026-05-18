@@ -20,12 +20,6 @@ const TERMS = [
   { label: "Currency", value: "₦", note: "Naira denominated" },
 ];
 
-const PARTNERS = [
-  { label: "Fund Manager", name: "ARM Investment Managers" },
-  { label: "Construction Lender", name: "Zenith Bank" },
-  { label: "Programme Sponsor", name: "Federal Mortgage Bank of Nigeria" },
-];
-
 export default function MreifSection() {
   const root = useRef<HTMLElement>(null);
 
@@ -60,12 +54,12 @@ export default function MreifSection() {
       <div className="container-editorial">
         <div className="grid grid-cols-12 gap-12">
           {/* Eyebrow + headline */}
-          <div className="col-span-12 lg:col-span-7 mreif-headline">
+          <div className="col-span-12 lg:col-span-8 mreif-headline">
             {/* MREIF logo — programme identity mark */}
             <div className="mb-4">
               <Image
                 src="/mreif-logo.png"
-                alt="MREIF — Ministry of Finance Real Estate Investment Fund"
+                alt="MREIF — Ministry of Finance Incorporated Real Estate Investment Fund"
                 width={96}
                 height={96}
                 className="h-24 w-24"
@@ -73,29 +67,14 @@ export default function MreifSection() {
             </div>
             <p className="eyebrow mb-3">MREIF Mortgage Programme</p>
             <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              The most accessible <em className="font-light">premium home loan</em> in Nigeria.
+              The most accessible premium home loan in Nigeria.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-ink dark:text-bone/75 max-w-2xl">
-              Through the Ministry of Finance Real Estate Investment Fund — managed
-              by ARM and underwritten by Federal Mortgage Bank — Geodata residences
-              qualify for fixed-rate mortgage financing at terms unmatched by
-              commercial banks.
+              Through the Ministry of Finance Incorporated Real Estate Investment
+              Fund — a federal mortgage programme administered through partner
+              banks — every Geodata residence qualifies for fixed-rate financing
+              at terms no commercial bank in Nigeria currently matches.
             </p>
-          </div>
-
-          {/* Right column — partners */}
-          <div className="col-span-12 lg:col-span-4 lg:col-start-9 lg:pt-6">
-            <p className="eyebrow mb-3">Backed by</p>
-            <ul className="space-y-5">
-              {PARTNERS.map((p) => (
-                <li key={p.name} className="border-t border-hairline dark:border-white/10 pt-5">
-                  <p className="text-[11px] uppercase tracking-eyebrow text-ink-faint dark:text-bone/40 mb-1">
-                    {p.label}
-                  </p>
-                  <p className="font-display text-xl text-navy-950 dark:text-bone">{p.name}</p>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 

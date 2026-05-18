@@ -37,7 +37,7 @@ export default function BlogHeader({ activeCategory, onCategoryChange, count }: 
         <div className="grid grid-cols-12 gap-12 items-end">
           <div className="col-span-12 lg:col-span-8">
             <h1 className="bh-title text-display-xl font-display text-navy-950 dark:text-bone tracking-tightest">
-              Notes on building, <em className="font-light">slowly.</em>
+              Notes on building, slowly.
             </h1>
           </div>
 

@@ -64,10 +64,10 @@ export default function MortgageHero() {
         </h1>
 
         <p className="mhero-sub mt-12 max-w-2xl text-lg text-bone/80 leading-relaxed">
-          Through the Ministry of Finance Real Estate Investment Fund — managed
-          by ARM Investment Managers and underwritten by Federal Mortgage Bank
-          of Nigeria — Geodata residences qualify for fixed-rate financing at
-          terms unmatched by any commercial bank in Nigeria.
+          Through the Ministry of Finance Incorporated Real Estate Investment
+          Fund — a federal mortgage programme administered through partner banks
+          — Geodata residences qualify for fixed-rate financing at terms no
+          commercial bank in Nigeria currently matches.
         </p>
       </div>
     </section>

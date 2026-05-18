@@ -17,7 +17,7 @@ const STEPS = [
   {
     n: "03",
     title: "MREIF assessment",
-    body: "ARM Investment Managers reviews eligibility on behalf of the fund. Federal Mortgage Bank issues approval-in-principle within 14 working days.",
+    body: "Your application is reviewed for MREIF eligibility through the partner bank. Approval-in-principle is typically issued within 14 working days.",
   },
   {
     n: "04",
@@ -51,14 +51,14 @@ export default function MortgageHowItWorks() {
           <div className="col-span-12 lg:col-span-5 mhow-fade">
             <p className="eyebrow mb-6">How it works</p>
             <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              Four steps. <em className="font-light">Roughly six weeks.</em>
+              Four steps. Roughly six weeks.
             </h2>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-6 mhow-fade">
             <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
-              Geodata's relationship with ARM streamlines the application. Most
-              of the paperwork happens once, behind the scenes. You speak with
-              one person at Geodata, and the rest is coordinated for you.
+              Geodata guides you through reservation and equity, and helps you
+              assemble what the lender will need. MREIF assessment, approval,
+              and disbursement run on the bank's side from there.
             </p>
           </div>
         </div>

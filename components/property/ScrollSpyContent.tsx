@@ -101,7 +101,7 @@ export default function ScrollSpyContent({ property }: Props) {
             <article id="overview" className="spy-section pt-12 pb-32 first:pt-0">
               <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">01 — Overview</p>
               <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest mb-12 spy-fade max-w-2xl">
-                A house composed for <em className="font-light">how families actually live.</em>
+                A house composed for how families actually live.
               </h2>
               <div className="space-y-6 max-w-2xl">
                 {property.overview.map((para, i) => (

@@ -75,8 +75,8 @@ export const HERO_SLIDES: HeroSlide[] = [
     videoUrl:    "https://geodata-wsl.s3.us-east-1.amazonaws.com/Showcase.mp4",
     videoPoster: "/collage-1.jpg",
     eyebrow:     "Southern Bridge City — Phase One",
-    headline:    "Reimagining\nurban living\nin Abuja.",
-    subheadline: "A 320-unit residential development by Geodata World Services, financed by Zenith Bank and qualified for the MREIF mortgage programme — 9.75% fixed for 20 years.",
+    headline:    "A new\naddress\nfor Abuja.",
+    subheadline: "321 residences at Idu. MREIF-eligible from ₦130M — 9.75% fixed for twenty years, the most competitive home loan in Nigeria.",
     cta1:        { label: "Explore residences",         href: "/properties" },
     cta2:        { label: "View construction progress", href: "/properties/4-bed-semi-detached#progress" },
     duration:    8000,
@@ -85,9 +85,9 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     type:        "image",
     image:       "/collage-2.jpg",   // ← replace with a real SBE photo
-    eyebrow:     "Southern Bridge Estate — Idu, Abuja",
-    headline:    "Nine residences\nstill available.",
-    subheadline: "Two completed units ready for immediate occupancy. Seven more at finishing stage.",
+    eyebrow:     "Southern Bridge Estate — Jabi, Abuja",
+    headline:    "Nine residences.\nReady now.",
+    subheadline: "Two ready to move into. Seven at finishing stage. All inside a fully delivered, gated estate.",
     cta1:        { label: "View available units", href: "/projects/southern-bridge-estate" },
     duration:    6000,
   },
@@ -96,8 +96,8 @@ export const HERO_SLIDES: HeroSlide[] = [
     type:        "image",
     image:       "/ize-hostel/Exterior.JPG",
     eyebrow:     "Ize Hostel — Jabi, Abuja",
-    headline:    "Purpose-built\nstudent living.",
-    subheadline: "Modern hostel accommodation serving Nile University and Baze University students.",
+    headline:    "Built for\nstudents.",
+    subheadline: "23 rooms. 50 bed spaces. Designed around how students actually study, rest, and live — minutes from Nile and Baze.",
     cta1:        { label: "Explore the hostel", href: "/projects/ize-hostel" },
     duration:    6000,
   },
@@ -107,7 +107,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     image:       "/Cool.png",
     eyebrow:     "Cool Army Estate — Owerri, Imo State",
     headline:    "Twenty homes.\nDelivered.",
-    subheadline: "A mixed-typology residential estate designed and built for Cool Real Estate.",
+    subheadline: "A 20-residence estate in Owerri — designed and built by Geodata on behalf of Cool Real Estate.",
     cta1:        { label: "See the estate", href: "/projects/cool-army-estate" },
     duration:    6000,
   },
@@ -128,10 +128,10 @@ export const HERO = HERO_SLIDES[0];
 // Each stat: value (displayed large) + label (displayed below)
 
 export const STATS = [
-  { value: "17+", label: "Years of delivery" },
+  { value: "17+", label: "Years building" },
   { value: "321", label: "Units under construction" },
-  { value: "12",  label: "Completed projects" },
-  { value: "4+",  label: "States delivered" },
+  { value: "12",  label: "Projects delivered" },
+  { value: "4+",  label: "States built in" },
 ];
 
 // ─── 5. About section ────────────────────────────────────────────────────────
@@ -216,7 +216,7 @@ type DevelopmentItem = {
   location: string;
   description: string;
   image: string;
-  status: "Available" | "Limited" | "Sold Out" | "Selling Soon";
+  status?: "Available" | "Limited" | "Sold Out" | "Selling Soon";
 };
 
 export const DEVELOPMENTS: DevelopmentItem[] =  [
@@ -231,8 +231,8 @@ export const DEVELOPMENTS: DevelopmentItem[] =  [
   {
     slug:        "southern-bridge-estate",
     name:        "Southern Bridge Estate",
-    location:    "Idu, Abuja",
-    description: "27 completed semi-detached and terraced homes in a gated community.",
+    location:    "Jabi, Abuja",
+    description: "27 semi-detached and terraced homes inside a fully delivered, gated estate.",
     image:       "/SBDrone4.webp",
     status:      "Limited" as const,
   },
@@ -240,7 +240,7 @@ export const DEVELOPMENTS: DevelopmentItem[] =  [
     slug:        "country-court-estate",
     name:        "Country Court Estate",
     location:    "Abuja",
-    description: "24 mixed-unit development delivered across two phases.",
+    description: "24 homes across three typologies. Delivered, sold, fully occupied.",
     image:       "/DRONECC8.png",
     status:      "Sold Out" as const,
   },
@@ -248,7 +248,7 @@ export const DEVELOPMENTS: DevelopmentItem[] =  [
     slug:        "ize-hostel",
     name:        "Ize Hostel",
     location:    "Jabi, Abuja",
-    description: "Student Hostel for Nile and Baze Student",
+    description: "23 rooms and 50 bed spaces — purpose-built for Nile and Baze students.",
     image:       "/ize-hostel/Exterior.JPG",
     status:      "Available" as const,
   },
@@ -256,8 +256,7 @@ export const DEVELOPMENTS: DevelopmentItem[] =  [
     slug:        "cool-army-estate",
     name:        "Cool Army Estate",
     location:    "Owerri, Imo State",
-    description: "Army Estate in Imo State.",
+    description: "20 residences across five typologies in Owerri. Built for Cool Real Estate.",
     image:       "/Cool.png",
-    status:      "Selling Soon" as const,
   },
 ];

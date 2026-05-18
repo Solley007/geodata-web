@@ -29,7 +29,7 @@ export default function Leadership() {
           <div className="col-span-12 lg:col-span-5">
             <p className="ld-fade eyebrow mb-6">Leadership</p>
             <h2 className="ld-fade text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              Drawn from <em className="font-light">specialised fields.</em>
+              Drawn from specialised fields.
             </h2>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-6">

@@ -37,15 +37,15 @@ export default function ProjectsHeader({ activeCategory, onCategoryChange, count
         <div className="grid grid-cols-12 gap-12 items-end">
           <div className="col-span-12 lg:col-span-8">
             <h1 className="prh-title text-display-xl font-display text-navy-950 dark:text-bone tracking-tightest">
-              The body of <em className="font-light">work.</em>
+              The body of work.
             </h1>
           </div>
 
           <div className="col-span-12 lg:col-span-4 lg:pb-3">
             <p className="prh-sub text-lg leading-relaxed text-ink dark:text-bone/75 max-w-md">
               Eighteen years of residential, commercial, institutional, and
-              infrastructure projects across Nigeria. A selection of completed
-              and active work.
+              infrastructure work across Nigeria. Selected completed and active
+              projects.
             </p>
           </div>
         </div>

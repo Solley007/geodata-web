@@ -51,12 +51,12 @@ export default function PropertyEnquire({ property }: Props) {
               Begin a conversation
             </p>
             <h2 className="enquire-fade text-display-lg font-display tracking-tightest leading-none">
-              Visit {property.title} <em className="font-light">in person.</em>
+              Visit {property.title} in person.
             </h2>
             <p className="enquire-fade mt-10 text-lg text-bone/80 leading-relaxed max-w-xl">
-              Our sales pavilion is open daily on-site at Southern Bridge City.
-              We'll walk you through the show home, talk through MREIF
-              eligibility, and share the full reservation process.
+              Our sales pavilion is open six days a week at Southern Bridge City.
+              Walk the show home with our team, talk through MREIF eligibility
+              on the spot, and leave with the reservation paperwork in hand.
             </p>
 
             <div className="enquire-fade mt-12 flex flex-wrap items-center gap-4">

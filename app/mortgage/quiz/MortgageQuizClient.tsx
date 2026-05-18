@@ -203,7 +203,7 @@ export default function MortgageQuizClient({ inline = false }: { inline?: boolea
         {step === 4 && (
           <QuizStep
             title="Bank pre-approval status?"
-            subtitle="MREIF mortgages go through Eligible Financial Institutions like Zenith Bank."
+            subtitle="MREIF mortgages are issued through Eligible Financial Institutions accredited by the programme."
             onBack={() => setStep(3)}
           >
             <OptionList
@@ -387,7 +387,7 @@ function ResultView({
       </p>
       <h1 className="font-display text-display-md md:text-display-lg text-navy-950 dark:text-bone tracking-tightest leading-[1.05] mb-6">
         {primaryMatch
-          ? <>You qualify for <em className="font-light">{primaryMatch.title}.</em></>
+          ? <>You qualify for {primaryMatch.title}.</>
           : <>Let's find your fit.</>}
       </h1>
 

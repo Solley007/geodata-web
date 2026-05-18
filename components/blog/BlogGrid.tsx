@@ -34,7 +34,7 @@ export default function BlogGrid({ posts }: Props) {
         <div className="container-editorial text-center">
           <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6">Nothing here yet</p>
           <h2 className="font-display text-display-md text-navy-950 dark:text-bone tracking-tightest">
-            No posts in this category, <em className="font-light">yet.</em>
+            No posts in this category, yet.
           </h2>
         </div>
       </section>

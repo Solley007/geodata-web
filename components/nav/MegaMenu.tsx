@@ -35,13 +35,6 @@ const DEVELOPMENTS = [
     detail: "27 units · few spots remain",
     href: "/projects/southern-bridge-estate",
   },
-  {
-    name: "Mabushi Shopping Complex",
-    location: "Mabushi, Abuja",
-    status: "Selling Soon" as SalesStatus,
-    detail: "6-storey commercial · 2026",
-    href: "/projects/mabushi-shopping-complex",
-  },
 ];
 
 // Two featured unit types from Southern Bridge City — pulled from site-content.ts

@@ -33,7 +33,7 @@ export default function ProjectOverview({ project }: Props) {
           <div className="col-span-12 lg:col-span-4">
             <p className="po-fade eyebrow text-ink-faint dark:text-bone/40 mb-6">Overview</p>
             <h2 className="po-fade font-display text-display-md text-navy-950 dark:text-bone tracking-tightest leading-tight">
-              About this <em className="font-light">project.</em>
+              About this project.
             </h2>
           </div>
 

@@ -65,7 +65,7 @@ export default function InstitutionalClients() {
           <div className="col-span-12 lg:col-span-7">
             <p className="ic-fade eyebrow text-bone/60 mb-6">Institutional clients</p>
             <h2 className="ic-fade text-display-lg font-display tracking-tightest">
-              Trusted by the <em className="font-light">institutions</em> that don't choose lightly.
+              Trusted by the institutions that don't choose lightly.
             </h2>
           </div>
           <div className="col-span-12 lg:col-span-4 lg:col-start-9 lg:pt-6">

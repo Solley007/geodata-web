@@ -12,19 +12,19 @@ import SubscribePopup from "@/components/shared/SubscribePopup";
 export const metadata: Metadata = {
   title: "Premium Real Estate in Abuja", // template adds " | Geodata World Services"
   description:
-    "320 MREIF-eligible residences at Southern Bridge City, Idu — Abuja. Backed by ARM Investment Managers, financed by Zenith Bank. 9.75% fixed mortgage for 20 years.",
+    "321 MREIF-eligible residences at Southern Bridge City, Idu — Abuja. 9.75% fixed mortgage for 20 years, naira denominated.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Premium Real Estate in Abuja",
     description:
-      "320 MREIF-eligible residences at Southern Bridge City, Idu — Abuja. 9.75% fixed mortgage for 20 years.",
+      "321 MREIF-eligible residences at Southern Bridge City, Idu — Abuja. 9.75% fixed mortgage for 20 years.",
     url: "/",
     images: [
       {
-        url: `/api/og?eyebrow=${encodeURIComponent("Southern Bridge City")}&title=${encodeURIComponent("Reimagining urban living in Abuja.")}&subtitle=${encodeURIComponent("320 residences, MREIF-eligible. 9.75% fixed mortgage for 20 years.")}`,
+        url: `/api/og?eyebrow=${encodeURIComponent("Southern Bridge City")}&title=${encodeURIComponent("A new address for Abuja.")}&subtitle=${encodeURIComponent("321 residences, MREIF-eligible. 9.75% fixed mortgage for 20 years.")}`,
         width: 1200,
         height: 630,
-        alt: "Geodata World Services — Reimagining urban living in Abuja",
+        alt: "Geodata World Services — A new address for Abuja",
       },
     ],
   },

@@ -80,9 +80,9 @@ export const PROJECTS: Project[] = [
       { src: "/Drone10.webp", alt: "Southern Bridge City — drone perspective" },
     ],
     overview: [
-      "Southern Bridge City is Geodata's flagship residential development — a 321-unit master-planned community currently under construction at Idu, in Abuja's quiet northern growth corridor. The site spans Phase One of a larger 2,000+ unit vision, organised around five distinct housing typologies and a central park spine.",
-      "The development is qualified under the Ministry of Finance Real Estate Investment Fund (MREIF), making every residence eligible for fixed-rate mortgage financing at 9.75% over 20 years — terms unmatched by commercial lenders in Nigeria. ARM Investment Managers serves as fund manager; Zenith Bank provides construction finance.",
-      "Architecture is composed around proportion, daylight, and the rituals of family life. Materials were specified for how they age — lime render, brushed limestone, matte clay tile — and infrastructure is fully underground. Independent quantity surveyors verify monthly progress against programme.",
+      "Southern Bridge City is Geodata's flagship development — a 321-unit master-planned community under construction at Idu, in Abuja's northern growth corridor. The site is Phase One of a larger 2,000+ unit vision, organised around five housing typologies and a central park spine.",
+      "Every residence qualifies under the Ministry of Finance Incorporated Real Estate Investment Fund (MREIF) for fixed-rate mortgage financing at 9.75% over 20 years — terms no commercial lender in Nigeria currently matches.",
+      "The architecture is drawn around proportion, daylight, and the way a family actually uses a home. Materials are specified to age: lime render, brushed limestone, matte clay tile. All utilities run underground. Independent quantity surveyors verify monthly progress against programme.",
     ],
     keyFacts: [
       { label: "Total units", value: "321" },
@@ -96,12 +96,12 @@ export const PROJECTS: Project[] = [
   {
     slug: "cool-army-estate",
     name: "Cool Army Estate",
-    subtitle: "Mixed housing development in Owerri, Imo State",
+    subtitle: "A 20-residence mixed-typology estate in Owerri, Imo State",
     category: "Residential",
     status: "Ongoing",
     year: 2024,
     location: "Owerri, Imo State",
-    scope: "Mixed housing types",
+    scope: "20 residences · five housing typologies",
     coverImage: "/Cool.png",
     gallery: [
       { src: "/Cool.png", alt: "Cool Army Estate — site overview" },
@@ -109,8 +109,8 @@ export const PROJECTS: Project[] = [
       { src: "/construction/structure-cool-army-estate-1778773244331.jpg", alt: "Cool Army Estate — construction detail" },
     ],
     overview: [
-      "Cool Army Estate represents Geodata's expansion beyond Abuja into the South-East corridor. The development comprises mixed residential typologies designed for officers and middle-income families in Owerri, Imo State.",
-      "Construction is currently in active phase. The project applies the same engineering standards and material specifications as Geodata's Abuja portfolio — reinforced concrete frame, underground utilities, planned road infrastructure — adapted to the regional climate and site conditions of Owerri.",
+      "Cool Army Estate is Geodata's first project in the South-East — twenty residences across five typologies, designed and built on behalf of Cool Real Estate to serve army officers and middle-income families in Owerri.",
+      "Construction is active on site. The build follows Geodata's standard specification — reinforced concrete frame, underground utilities, paved internal roads — adapted to Owerri's climate and ground conditions.",
     ],
     keyFacts: [
       { label: "Status", value: "Ongoing" },
@@ -137,8 +137,8 @@ export const PROJECTS: Project[] = [
       { src: "/ize-hostel/2-bed.JPG", alt: "2-bed room" },
     ],
     overview: [
-      "Ize Hostel is a purpose-built student residence designed to serve students of Nile University and Baze University in Abuja. The hostel comprises 23 rooms offering 50 bed spaces in total, with thoughtful layouts that prioritise study, rest, and community.",
-      "Every room is engineered to support academic life — proper desks, generous storage, and reliable utilities — within a managed building that takes the friction out of off-campus living.",
+      "Ize Hostel is a purpose-built residence for students at Nile University and Baze University in Abuja. 23 rooms, 50 bed spaces, planned around how students actually use their day — study, rest, and time with friends.",
+      "Every room is built to support academic life: proper desks, generous storage, reliable utilities. Managed end-to-end, so off-campus living doesn't add friction to the work that brought students here in the first place.",
     ],
     keyFacts: [
       { label: "Rooms", value: "23" },
@@ -154,12 +154,12 @@ export const PROJECTS: Project[] = [
   {
     slug: "southern-bridge-estate",
     name: "Southern Bridge Estate",
-    subtitle: "27-unit residential development in Idu, Abuja",
+    subtitle: "27-unit residential development in Jabi, Abuja",
     category: "Residential",
     status: "Completed",
     year: 2023,
     completionYear: 2025,
-    location: "Idu, Abuja",
+    location: "Jabi, Abuja",
     scope: "27 units · full infrastructure",
     coverImage: "/SBDrone2.webp",
     gallery: [
@@ -171,13 +171,13 @@ export const PROJECTS: Project[] = [
       { src: "/properties/SBE/SBE0.jpeg", alt: "Southern Bridge Estate — frontage" },
     ],
     overview: [
-      "Southern Bridge Estate is the predecessor development to Southern Bridge City and the proof point for the Idu site selection. Twenty-seven residences across multiple typologies, delivered with full estate infrastructure — roads, drainage, perimeter security, and underground utilities.",
-      "Completed in 2025, the estate validated the architectural language and construction methodology now scaling to 321 units at Southern Bridge City. Every residence was occupied within six months of handover.",
+      "Southern Bridge Estate is Geodata's gated residential development in Jabi — twenty-seven residences across multiple typologies, delivered with the full estate infrastructure: paved roads, drainage, perimeter security, every utility underground.",
+      "Completed in 2025, the estate proved the design and construction approach now scaling to 321 residences at Southern Bridge City. Every unit was occupied within six months of handover.",
     ],
     keyFacts: [
       { label: "Units", value: "27" },
       { label: "Completed", value: "2025" },
-      { label: "Location", value: "Idu, Abuja" },
+      { label: "Location", value: "Jabi, Abuja" },
       { label: "Status", value: "Fully delivered" },
     ],
   },

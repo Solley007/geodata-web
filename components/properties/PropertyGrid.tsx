@@ -36,7 +36,7 @@ export default function PropertyGrid({ properties }: Props) {
         <div className="container-editorial text-center">
           <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6">No matches</p>
           <h2 className="font-display text-display-md text-navy-950 dark:text-bone tracking-tightest">
-            None in this category, <em className="font-light">yet.</em>
+            None in this category, yet.
           </h2>
           <p className="mt-6 text-lg text-ink dark:text-bone/75 max-w-lg mx-auto">
             We're adding new residences quarterly. Speak with our sales team

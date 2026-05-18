@@ -50,7 +50,7 @@ export default function ProjectGallery({ project }: Props) {
             <div className="col-span-12 lg:col-span-5">
               <p className="pg-fade eyebrow mb-6">Imagery</p>
               <h2 className="pg-fade font-display text-display-md text-navy-950 dark:text-bone tracking-tightest">
-                The work, <em className="font-light">in light.</em>
+                The work, in light.
               </h2>
             </div>
           </div>

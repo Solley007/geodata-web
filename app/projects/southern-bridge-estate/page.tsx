@@ -92,7 +92,7 @@ export default function SouthernBridgeEstatePage() {
         <div className="absolute inset-0 container-editorial flex flex-col justify-end pb-20 md:pb-28">
           <p className="eyebrow text-bone/80 mb-6">{project.location}</p>
           <h1 className="text-display-xl font-display text-bone tracking-tightest leading-none max-w-4xl">
-            Southern <em className="font-light">Bridge</em> Estate
+            Southern Bridge Estate
           </h1>
           <p className="mt-8 text-lg text-bone/80 max-w-xl leading-relaxed">
             27 residences. Mostly delivered. {totalAvailable > 0 && <>{totalAvailable} units still available.</>}
@@ -106,10 +106,10 @@ export default function SouthernBridgeEstatePage() {
           <div className="col-span-12 lg:col-span-8">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">About the development</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight mb-8">
-              A quiet, fully infrastructured residential estate <em className="font-light">a few hundred metres from Southern Bridge City.</em>
+              Twenty-seven gated residences in Jabi — minutes from Southern Bridge City.
             </h2>
             <p className="text-lg leading-relaxed text-ink-muted dark:text-bone/70 max-w-2xl">
-              Southern Bridge Estate was Geodata's first development in the Idu corridor — twenty-seven residences across two phases, designed for families seeking space, privacy, and the same build quality that defines our larger developments.
+              Southern Bridge Estate is Geodata's gated development in Jabi — twenty-seven residences across two phases, designed for families seeking space, privacy, and the same build quality that defines our larger developments.
             </p>
           </div>
 
@@ -183,7 +183,7 @@ export default function SouthernBridgeEstatePage() {
                 Jabi, Abuja.
               </h2>
               <p className="text-ink-muted dark:text-bone/70 leading-relaxed mb-8">
-                A residential pocket inside Jabi, Abuja's. A few hundred metres from Southern Bridge City — close enough to share infrastructure, far enough to feel like its own neighbourhood.
+                A residential pocket inside Jabi. Minutes from Southern Bridge City — close enough to share the corridor's amenities, far enough to feel like its own neighbourhood.
               </p>
               <a
                 href="https://www.google.com/maps/dir/?api=1&destination=9.0252,7.3685"

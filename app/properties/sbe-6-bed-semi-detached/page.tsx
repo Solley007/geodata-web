@@ -48,7 +48,7 @@ export default function SBESemiDetachedPage() {
             9 Available
           </div>
           <h1 className="text-display-xl font-display text-bone tracking-tightest leading-none max-w-3xl">
-            The <em className="font-light">6-Bedroom</em> Semi-Detached
+            The 6-Bedroom Semi-Detached
           </h1>
           <p className="mt-6 text-lg text-bone/80 max-w-xl">
             Fifteen semi-detached residences across two phases. Two completed, seven at finishing stage.
@@ -62,7 +62,7 @@ export default function SBESemiDetachedPage() {
           <div className="col-span-12 lg:col-span-7">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">About this typology</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight mb-8">
-              A premium six-bedroom <em className="font-light">family residence</em>.
+              A premium six-bedroom family residence.
             </h2>
             <p className="text-lg leading-relaxed text-ink-muted dark:text-bone/70">
               Generous interiors, dual-aspect living areas, en-suite primary bedrooms, and the kind of unhurried detailing that has come to define Southern Bridge Estate. Phase One is delivered; Phase Two is at the finishing stage and reservations are open.
@@ -87,7 +87,7 @@ export default function SBESemiDetachedPage() {
         <div className="container-editorial">
           <p className="eyebrow text-ink-muted dark:text-bone/50 mb-4">Two phases, two opportunities</p>
           <h2 className="text-display-md font-display tracking-tightest leading-none mb-12">
-            Move in now <em className="font-light">or reserve at finishing stage.</em>
+            Move in now or reserve at finishing stage.
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

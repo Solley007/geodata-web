@@ -52,7 +52,7 @@ export default function TrackRecord() {
           <div className="col-span-12 lg:col-span-5">
             <p className="tr-fade eyebrow mb-6">The work</p>
             <h2 className="tr-fade text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              Built and <em className="font-light">building.</em>
+              Built and building.
             </h2>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-6">

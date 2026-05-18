@@ -65,7 +65,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
             <div className="col-span-12 lg:col-span-8">
               <p className="eyebrow text-bone/60 mb-6">Considering working with us?</p>
               <h2 className="font-display text-display-md tracking-tightest leading-none">
-                Let's discuss <em className="font-light">your project.</em>
+                Let's discuss your project.
               </h2>
               <p className="mt-8 max-w-xl text-lg text-bone/80 leading-relaxed">
                 Whether you're a private client, federal agency, or

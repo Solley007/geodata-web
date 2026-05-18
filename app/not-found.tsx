@@ -21,7 +21,7 @@ export default function NotFound() {
         <p className="eyebrow text-ink-faint dark:text-bone/40 mb-8">Error 404</p>
 
         <h1 className="text-display-xl font-display text-navy-950 dark:text-bone tracking-tightest mb-12">
-          The page you're <em className="font-light">looking for</em> isn't here.
+          The page you're looking for isn't here.
         </h1>
 
         <p className="text-lg text-ink dark:text-bone/75 leading-relaxed mb-16">

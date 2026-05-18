@@ -9,12 +9,12 @@ import MortgageQuizClient from "./quiz/MortgageQuizClient";
 export const metadata: Metadata = {
   title: "MREIF Mortgage — 9.75% Fixed for 20 Years",
   description:
-    "Through the Ministry of Finance Real Estate Investment Fund (MREIF), Geodata residences qualify for fixed-rate mortgage financing at 9.75% for up to 20 years. Backed by ARM Investment Managers and Federal Mortgage Bank of Nigeria.",
+    "Through the Ministry of Finance Incorporated Real Estate Investment Fund (MREIF), Geodata residences qualify for fixed-rate mortgage financing at 9.75% for up to 20 years. Naira denominated, 10% minimum equity.",
   alternates: { canonical: "/mortgage" },
   openGraph: {
     title: "MREIF Mortgage — 9.75% Fixed for 20 Years",
     description:
-      "Fixed-rate mortgage financing for Geodata residences. Naira denominated. 10% minimum equity. Backed by ARM Investment Managers.",
+      "Fixed-rate mortgage financing for Geodata residences. Naira denominated. 10% minimum equity. The most competitive home loan in Nigeria.",
     url: "/mortgage",
     images: [
       {

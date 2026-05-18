@@ -72,7 +72,7 @@ export default function FeaturedProperties() {
           <div className="max-w-xl">
             <p className="eyebrow mb-6">Southern Bridge City</p>
             <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest">
-              Currently <em className="font-light">available.</em>
+              Currently available.
             </h2>
           </div>
           <Link

@@ -37,7 +37,7 @@ export default function RelatedProjects({ projects }: Props) {
           <div>
             <p className="eyebrow mb-4">More work</p>
             <h2 className="font-display text-display-md text-navy-950 dark:text-bone tracking-tightest">
-              Related <em className="font-light">projects.</em>
+              Related projects.
             </h2>
           </div>
           <Link

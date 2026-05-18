@@ -71,7 +71,7 @@ export default function IzeHostelPage() {
             ← All projects
           </Link>
           <h1 className="text-display-xl font-display text-bone tracking-tightest leading-none max-w-3xl">
-            Ize <em className="font-light">Hostel.</em>
+            Ize Hostel.
           </h1>
           <p className="mt-6 text-lg text-bone/80 max-w-xl">
             A purpose-built student hostel — 23 rooms, 50 bed spaces — for Nile and Baze University students.
@@ -85,7 +85,7 @@ export default function IzeHostelPage() {
           <div className="col-span-12 md:col-span-5">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">About the project</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight">
-              A new standard for <em className="font-light">student living</em> in Abuja.
+              A new standard for student living in Abuja.
             </h2>
           </div>
 

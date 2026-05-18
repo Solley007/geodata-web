@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { COMPANY } from "@/lib/site-content";
 import BookViewingButton from "@/components/shared/BookViewingButton";
 
@@ -13,7 +12,7 @@ export default function Footer() {
           <div className="col-span-12 lg:col-span-7">
             <p className="eyebrow text-bone/60 mb-6">Schedule a private viewing</p>
             <h2 className="text-display-md font-display tracking-tightest leading-none">
-              Visit Southern <br />Bridge City <em className="font-light">in person.</em>
+              Visit Southern <br />Bridge City in person.
             </h2>
             <BookViewingButton
               calLink="geodata/sbc-viewing"
@@ -27,12 +26,16 @@ export default function Footer() {
         {/* Middle */}
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-12 py-12">
           <div className="col-span-2 lg:col-span-4">
-            <img
-              src="/geodata-full-logo-white.png"
-              alt="Geodata World Services Limited"
-              width={260}
-              height={99}
-              className="h-auto w-auto max-w-[240px]"
+            {/* Crops the 4000×4000 PNG to its 2396×907 lockup (bbox starts at 665,1743). */}
+            <div
+              role="img"
+              aria-label="Geodata World Services Limited"
+              className="block w-full max-w-[240px] aspect-[2396/907] bg-no-repeat"
+              style={{
+                backgroundImage: "url(/geodata-full-logo-white.png)",
+                backgroundSize: "166.94% auto",
+                backgroundPosition: "41.46% 56.36%",
+              }}
             />
           </div>
 

@@ -132,7 +132,7 @@ export default function SubscribePopup() {
               <p className="eyebrow text-ink-faint dark:text-bone/40 mb-3">Stay informed</p>
               <h2 id="subscribe-title" className="font-display text-3xl text-navy-950 dark:text-bone mb-3 tracking-tightest leading-[1.1]">
                 Get what{" "}
-                <em className="font-light">matters to you.</em>
+                matters to you.
               </h2>
               <p className="text-sm text-ink dark:text-bone/70 leading-relaxed mb-5">
                 Pick what you'd like to hear about. We'll email a preview with a link straight to the post — no spam.

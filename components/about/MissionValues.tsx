@@ -31,7 +31,7 @@ export default function MissionValues() {
           <div className="col-span-12 lg:col-span-5 mv-fade">
             <p className="eyebrow mb-6">Who we are</p>
             <h2 className="text-display-lg font-display text-navy-950 dark:text-bone tracking-tightest">
-              Purpose, vision <em className="font-light">&amp; values.</em>
+              Purpose, vision &amp; values.
             </h2>
           </div>
         </div>

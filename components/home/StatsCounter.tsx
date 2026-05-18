@@ -73,7 +73,7 @@ export default function StatsCounter() {
           <div className="col-span-12 lg:col-span-5">
             <p className="eyebrow text-bone/60 mb-6">By the numbers</p>
             <h2 className="text-display-md font-display tracking-tightest">
-              Eighteen years.<em className="font-light"> The receipts.</em>
+              Eighteen years. The receipts.
             </h2>
           </div>
         </div>
