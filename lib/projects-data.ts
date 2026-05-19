@@ -313,34 +313,58 @@ export const PROJECTS: Project[] = [
   // -------------------------------------------------------------------------
   // INFRASTRUCTURE
   // -------------------------------------------------------------------------
-  {
-    slug: "kogi-state-infrastructure",
-    name: "Kogi State Infrastructure Programme",
-    subtitle: "World Bank-funded rural roads and agricultural logistics in Kogi State",
-    category: "Infrastructure",
+    {
+    slug: "kogi-raamp-rural-roads",
+    name: "Kogi RAAMP Rural Roads",
+    subtitle: "World Bank-funded upgrade of 33.56 km of rural roads in Kogi State",
+    category: "World Bank",
     status: "Ongoing",
     year: 2024,
     location: "Kogi State",
     client: "World Bank / Kogi State Government — KOGI RAAMP",
-    scope: "33.56km rural roads · AKU & Agro Logistic Centre, Adavi LGA",
-    coverImage: "/kogi/freshly-paved-road.jpeg",
+    scope: "33.56 km rural roads · Lots 1 and 2",
+    coverImage:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=2000&q=85&auto=format&fit=crop",
     gallery: [
-      { src: "/kogi/freshly-paved-road.jpeg", alt: "Kogi RAAMP — freshly paved road" },
-      { src: "/kogi/asphalt-road-streetlight.jpeg", alt: "Kogi RAAMP — road with streetlights" },
-      { src: "/kogi/road-roller.jpeg", alt: "Kogi RAAMP — road compaction" },
-      { src: "/kogi/asphalt-paving.jpeg", alt: "Kogi RAAMP — asphalt laying" },
-      { src: "/kogi/lockup-shop.jpeg", alt: "Kogi RAAMP — agro logistic centre" },
-      { src: "/kogi/warehouse.jpeg", alt: "Kogi RAAMP — warehouse construction" },
+      { src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=85&auto=format&fit=crop", alt: "Rural infrastructure" },
+      { src: "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=1600&q=85&auto=format&fit=crop", alt: "Logistics centre construction" },
     ],
     overview: [
-      "Geodata is engaged on two contracts under the Kogi State Rural Access & Agricultural Marketing Project (KOGI RAAMP) — a World Bank-funded programme delivered in partnership with the Kogi State Government to expand rural connectivity and agricultural value-chain infrastructure.",
-      "The first contract covers upgrading of 33.56 kilometres of rural roads across Lots 1 and 2. The second is the construction and physical improvement of the AKU and Agro Logistic Centre in Adavi Local Government Area (Contract NG-KOGIRAAMP-459307-CW-RFB/LOT 3). Both projects are currently in execution and support farmer access to markets and post-harvest storage capacity across central Nigeria.",
+      "Under the Kogi State Rural Access & Agricultural Marketing Project (KOGI RAAMP) — a World Bank-funded programme delivered in partnership with the Kogi State Government — Geodata is upgrading 33.56 kilometres of rural roads across Lots 1 and 2 to expand connectivity for farming communities in central Nigeria.",
+      "The upgraded roads link smallholder farmers to markets and post-harvest infrastructure, reducing the cost of moving produce and strengthening the agricultural value chain across the state.",
     ],
     keyFacts: [
       { label: "Funded by",      value: "The World Bank" },
       { label: "Programme",      value: "KOGI RAAMP" },
       { label: "Roads upgraded", value: "33.56 km" },
-      { label: "Logistics hub",  value: "Adavi LGA" },
+      { label: "Lots",           value: "Lots 1 and 2" },
+    ],
+  },
+  {
+    slug: "aku-agro-logistic-centre",
+    name: "AKU Agro Logistic Centre",
+    subtitle: "World Bank-funded agricultural logistics centre in Adavi LGA, Kogi State",
+    category: "World Bank",
+    status: "Ongoing",
+    year: 2024,
+    location: "Adavi LGA, Kogi State",
+    client: "World Bank / Kogi State Government — KOGI RAAMP",
+    scope: "Construction of AKU & Agro Logistic Centre · Contract NG-KOGIRAAMP-459307-CW-RFB/LOT 3",
+    coverImage:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=2000&q=85&auto=format&fit=crop",
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=85&auto=format&fit=crop", alt: "Rural infrastructure" },
+      { src: "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=1600&q=85&auto=format&fit=crop", alt: "Logistics centre construction" },
+    ],
+    overview: [
+      "Under the Kogi State Rural Access & Agricultural Marketing Project (KOGI RAAMP) — a World Bank-funded programme — Geodata is constructing and physically improving the AKU and Agro Logistic Centre in Adavi Local Government Area (Contract NG-KOGIRAAMP-459307-CW-RFB/LOT 3).",
+      "The centre provides aggregation, sorting, and post-harvest storage capacity for produce from across the state, complementing the rural-roads programme that connects farmers to markets.",
+    ],
+    keyFacts: [
+      { label: "Funded by",      value: "The World Bank" },
+      { label: "Programme",      value: "KOGI RAAMP" },
+      { label: "Contract",       value: "NG-KOGIRAAMP-459307-CW-RFB/LOT 3" },
+      { label: "Location",       value: "Adavi LGA, Kogi State" },
     ],
   },
 ];
