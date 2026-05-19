@@ -31,11 +31,11 @@ export default function TrackRecord() {
     return () => ctx.revert();
   }, []);
 
-  // Show residential, commercial, and infrastructure projects in this section.
-  // Institutional projects (CBN, FIRS, Federal Uni) get their own dedicated
+  // Show residential, commercial, and World Bank projects in this section.
+  // Government projects (CBN, FIRS, Federal Uni, etc.) get their own dedicated
   // InstitutionalClients section below — including them here would duplicate.
   const projects = PROJECTS.filter(
-    (p) => p.category !== "Institutional"
+    (p) => p.category !== "Federal Government" && p.category !== "State Government"
   ).sort((a, b) => {
     // Ongoing first, then newest completed first
     if (a.status === "Ongoing" && b.status !== "Ongoing") return -1;

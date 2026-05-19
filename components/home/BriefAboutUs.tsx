@@ -53,7 +53,7 @@ export default function BriefAboutUs() {
 
           {/* Left — full logo */}
           <div className="col-span-12 lg:col-span-4 about-fade">
-            <p className="eyebrow text-bone/60 mb-5">About Geodata</p>
+            <p className="eyebrow !text-white mb-5">About Geodata</p>
             {/* Crops the 4000×4000 PNG to its 2396×907 lockup (bbox starts at 665,1743). */}
             <div
               role="img"
@@ -77,12 +77,12 @@ export default function BriefAboutUs() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="about-fade">
-                <p className="eyebrow text-bone/50 mb-5">Mission</p>
+                <p className="eyebrow !text-white mb-5">Mission</p>
                 <p className="text-lg leading-relaxed text-bone/80">{ABOUT.mission}</p>
               </div>
 
               <div className="about-fade">
-                <p className="eyebrow text-bone/50 mb-5">Vision</p>
+                <p className="eyebrow !text-white mb-5">Vision</p>
                 <p className="text-lg leading-relaxed text-bone/80">{ABOUT.vision}</p>
               </div>
             </div>

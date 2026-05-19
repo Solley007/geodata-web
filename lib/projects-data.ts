@@ -12,8 +12,9 @@
 export type ProjectCategory =
   | "Residential"
   | "Commercial"
-  | "Institutional"
-  | "Infrastructure";
+  | "Federal Government"
+  | "State Government"
+  | "World Bank";
 
 export type ProjectStatus = "Completed" | "Ongoing";
 
@@ -51,8 +52,9 @@ export const PROJECT_CATEGORIES: ("All" | ProjectCategory)[] = [
   "All",
   "Residential",
   "Commercial",
-  "Institutional",
-  "Infrastructure",
+  "Federal Government",
+  "State Government",
+  "World Bank",
 ];
 
 // PLACEHOLDER IMAGERY — Unsplash architectural references
@@ -281,7 +283,7 @@ export const PROJECTS: Project[] = [
     slug: "firs-office-programme",
     name: "Federal Inland Revenue Service — Office Programme",
     subtitle: "Office retrofitting and partitioning across FIRS facilities",
-    category: "Institutional",
+    category: "Federal Government",
     status: "Completed",
     year: 2014,
     completionYear: 2018,

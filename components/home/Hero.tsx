@@ -122,7 +122,7 @@ export default function Hero() {
       <div className="relative z-10 container-editorial pt-6 pb-8 md:absolute md:inset-0 md:flex md:h-full md:flex-col md:justify-end md:pt-32 md:pb-24">
         <div ref={textRef} className="max-w-5xl">
 
-          <p className="slide-anim eyebrow text-bone/80 mb-2 md:mb-6">{slide.eyebrow}</p>
+          <p className="slide-anim eyebrow !text-white mb-2 md:mb-6">{slide.eyebrow}</p>
 
           <h1 className="text-[1.875rem] md:text-display-xl font-display text-bone tracking-tightest leading-[1.1] md:leading-none">
             {slide.headline.split("\n").map((line, i) => (

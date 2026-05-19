@@ -17,7 +17,7 @@ import { PROJECTS, type ProjectCategory } from "@/lib/projects-data";
 
 const CATEGORY_COLUMNS: ProjectCategory[][] = [
   ["Residential", "Commercial"],
-  ["Institutional", "Infrastructure"],
+  ["Federal Government", "State Government", "World Bank"],
 ];
 
 export default function ProjectsMegaMenu() {

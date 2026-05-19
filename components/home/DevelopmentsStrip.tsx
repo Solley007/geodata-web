@@ -111,7 +111,7 @@ export default function DevelopmentsStrip() {
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-navy-950 transition-colors duration-400 group-hover:bg-navy-900">
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-bone p-8 text-center">
-                  <p className="eyebrow text-bone/60 mb-6">More work</p>
+                  <p className="eyebrow !text-white mb-6">More work</p>
                   <p className="font-display text-3xl leading-tight mb-8">
                     View the full portfolio
                   </p>

@@ -71,7 +71,7 @@ export default function StatsCounter() {
       <div className="container-editorial relative">
         <div className="grid grid-cols-12 gap-12 mb-20">
           <div className="col-span-12 lg:col-span-5">
-            <p className="eyebrow text-bone/60 mb-6">By the numbers</p>
+            <p className="eyebrow !text-white mb-6">By the numbers</p>
             <h2 className="text-display-md font-display tracking-tightest">
               Eighteen years. The receipts.
             </h2>

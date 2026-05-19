@@ -29,7 +29,7 @@ const PROPERTY_UNITS = PROPERTY_NAV.map((p) => ({
 }));
 
 // Project categories shown in the Projects expansion
-const PROJECT_CATEGORIES = ["Residential", "Commercial", "Institutional", "Infrastructure"] as const;
+const PROJECT_CATEGORIES = ["Residential", "Commercial", "Federal Government", "State Government", "World Bank"] as const;
 
 type ExpandedSection = "properties" | "projects" | null;
 
