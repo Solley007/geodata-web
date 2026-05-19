@@ -217,6 +217,33 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "kashere-bungalows",
+    name: "Kashere Bungalow Project",
+    subtitle: "20 three-bedroom bungalows in Gombe State",
+    category: "State Government",
+    status: "Completed",
+    year: 2017,
+    completionYear: 2018,
+    location: "Kashere, Gombe State",
+    scope: "20 three-bedroom bungalows with BQ",
+    coverImage:
+      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=2000&q=85&auto=format&fit=crop",
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=85&auto=format&fit=crop", alt: "Bungalow frontage" },
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85&auto=format&fit=crop", alt: "Compound view" },
+    ],
+    overview: [
+      "Twenty three-bedroom bungalows with attached boys' quarters, delivered at Kashere in Gombe State. The project served institutional residential demand around the Federal University Kashere campus, where Geodata had concurrent construction work.",
+      "Built to standard residential specification with concrete frame, blockwork infill, and corrugated steel roofing — adapted for the harsher northern climate.",
+    ],
+    keyFacts: [
+      { label: "Units", value: "20" },
+      { label: "Type", value: "3-bedroom bungalow + BQ" },
+      { label: "Completed", value: "2018" },
+      { label: "Location", value: "Gombe State" },
+    ],
+  },
+  {
     slug: "sil-estate",
     name: "SIL Estate",
     subtitle: "180+ unit residential development",
@@ -280,6 +307,35 @@ export const PROJECTS: Project[] = [
   // INSTITUTIONAL — federal agencies, banks, universities
   // -------------------------------------------------------------------------
   {
+    slug: "cbn-maitama-portfolio",
+    name: "Central Bank of Nigeria — Maitama Portfolio",
+    subtitle: "Six property renovations across CBN's Maitama estate",
+    category: "Federal Government",
+    status: "Completed",
+    year: 2019,
+    completionYear: 2019,
+    location: "Maitama, Abuja",
+    client: "Central Bank of Nigeria",
+    scope: "Six properties · two addresses · multiple scopes of work",
+    coverImage:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&q=85&auto=format&fit=crop",
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=85&auto=format&fit=crop", alt: "Renovated interior" },
+      { src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600&q=85&auto=format&fit=crop", alt: "Building exterior" },
+      { src: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=85&auto=format&fit=crop", alt: "Architectural detail" },
+    ],
+    overview: [
+      "Through 2019, Geodata executed a programme of six renovation and improvement contracts across the Central Bank of Nigeria's Maitama property portfolio. Work spanned two addresses — 51A Usuma Street and 14 Vattern Street — with scopes including full property renovation, outdoor kitchen and poolside development, swimming pool facility re-roofing and kitchen installation, balcony tile and POP ceiling replacement, and re-tiling and alteration works.",
+      "Engagement by an institution of CBN's standards reflects the firm's regulatory compliance, audit-ready financial systems, and capacity to deliver discreet, high-quality work to government and financial-sector clients. All six contracts were delivered on programme.",
+    ],
+    keyFacts: [
+      { label: "Client", value: "Central Bank of Nigeria" },
+      { label: "Properties", value: "Six" },
+      { label: "Year", value: "2019" },
+      { label: "Locations", value: "Usuma & Vattern, Maitama" },
+    ],
+  },
+  {
     slug: "firs-office-programme",
     name: "Federal Inland Revenue Service — Office Programme",
     subtitle: "Office retrofitting and partitioning across FIRS facilities",
@@ -314,6 +370,62 @@ export const PROJECTS: Project[] = [
   // INFRASTRUCTURE
   // -------------------------------------------------------------------------
     {
+    slug: "federal-university-kashere",
+    name: "Federal University Kashere",
+    subtitle: "Construction and furnishing of Schools of Remedial Studies",
+    category: "State Government",
+    status: "Completed",
+    year: 2018,
+    completionYear: 2018,
+    location: "Kashere, Gombe State",
+    client: "Federal University Kashere",
+    scope: "Schools of Remedial Studies · construction and furnishing",
+    coverImage:
+      "https://images.unsplash.com/photo-1562774053-701939374585?w=2000&q=85&auto=format&fit=crop",
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1600&q=85&auto=format&fit=crop", alt: "Academic building" },
+      { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&auto=format&fit=crop", alt: "Classroom interior" },
+    ],
+    overview: [
+      "Geodata delivered the construction and furnishing of the Schools of Remedial Studies facility at Federal University Kashere in Gombe State. The project encompassed structural construction, internal fit-out, and full furnishing supply for academic use.",
+      "The contract was executed alongside Geodata's residential bungalow project in the same location, demonstrating the firm's ability to manage concurrent civil and institutional construction programmes within a single regional engagement.",
+    ],
+    keyFacts: [
+      { label: "Client", value: "Federal University Kashere" },
+      { label: "Scope", value: "Construction + furnishing" },
+      { label: "Location", value: "Gombe State" },
+      { label: "Completed", value: "2018" },
+    ],
+  },
+  {
+    slug: "okpella-community-centre",
+    name: "Okpella Community Centre",
+    subtitle: "Community centre and sporting facilities",
+    category: "Federal Government",
+    status: "Completed",
+    year: 2017,
+    completionYear: 2017,
+    location: "Okpella, Edo State",
+    client: "Federal Ministry of Lands, Housing & Urban Development",
+    scope: "Community centre · sporting facilities",
+    coverImage:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=2000&q=85&auto=format&fit=crop",
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=1600&q=85&auto=format&fit=crop", alt: "Community building" },
+      { src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=85&auto=format&fit=crop", alt: "Sporting facility" },
+    ],
+    overview: [
+      "Construction of a community centre and sporting facilities at Okpella in Edo State, delivered for the Federal Ministry of Lands, Housing and Urban Development. The project served public infrastructure objectives in support of community development in the region.",
+    ],
+    keyFacts: [
+      { label: "Client", value: "Federal Ministry of Lands" },
+      { label: "Scope", value: "Community + sporting facilities" },
+      { label: "Location", value: "Okpella, Edo State" },
+      { label: "Completed", value: "2017" },
+    ],
+    hideFromNav: true,
+  },
+  {
     slug: "kogi-raamp-rural-roads",
     name: "Kogi RAAMP Rural Roads",
     subtitle: "World Bank-funded upgrade of 33.56 km of rural roads in Kogi State",
@@ -323,11 +435,15 @@ export const PROJECTS: Project[] = [
     location: "Kogi State",
     client: "World Bank / Kogi State Government — KOGI RAAMP",
     scope: "33.56 km rural roads · Lots 1 and 2",
-    coverImage:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/kogi/freshly-paved-road.jpeg",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=85&auto=format&fit=crop", alt: "Rural infrastructure" },
-      { src: "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=1600&q=85&auto=format&fit=crop", alt: "Logistics centre construction" },
+      { src: "/kogi/freshly-paved-road.jpeg",         alt: "Freshly paved rural road section, Kogi RAAMP" },
+      { src: "/kogi/asphalt-paver.jpeg",              alt: "Asphalt paver laying new road surface" },
+      { src: "/kogi/road-roller.jpeg",                alt: "Compaction roller finishing fresh asphalt" },
+      { src: "/kogi/night-asphalt-crew.jpeg",         alt: "Night asphalt crew working under floodlights" },
+      { src: "/kogi/road-inspection-officials.jpeg",  alt: "Site inspection with project officials" },
+      { src: "/kogi/completed-village-drainage.jpeg", alt: "Completed roadside drainage through village" },
+      { src: "/kogi/bridge-approach-earthworks.jpeg", alt: "Bridge approach earthworks underway" },
     ],
     overview: [
       "Under the Kogi State Rural Access & Agricultural Marketing Project (KOGI RAAMP) — a World Bank-funded programme delivered in partnership with the Kogi State Government — Geodata is upgrading 33.56 kilometres of rural roads across Lots 1 and 2 to expand connectivity for farming communities in central Nigeria.",
@@ -350,11 +466,16 @@ export const PROJECTS: Project[] = [
     location: "Adavi LGA, Kogi State",
     client: "World Bank / Kogi State Government — KOGI RAAMP",
     scope: "Construction of AKU & Agro Logistic Centre · Contract NG-KOGIRAAMP-459307-CW-RFB/LOT 3",
-    coverImage:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=2000&q=85&auto=format&fit=crop",
+    coverImage: "/kogi/admin-block.jpeg",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=85&auto=format&fit=crop", alt: "Rural infrastructure" },
-      { src: "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=1600&q=85&auto=format&fit=crop", alt: "Logistics centre construction" },
+      { src: "/kogi/admin-block.jpeg",              alt: "AKU Agro Logistic Centre administrative block" },
+      { src: "/kogi/warehouse.jpeg",                alt: "Completed warehouse at the logistics centre" },
+      { src: "/kogi/open-shed-a.jpeg",              alt: "Open-sided storage shed — type A" },
+      { src: "/kogi/open-shed-b-1.jpeg",            alt: "Open-sided storage shed — type B" },
+      { src: "/kogi/lockup-shop-row.jpeg",          alt: "Row of completed lockup shops" },
+      { src: "/kogi/market-foundation.jpeg",        alt: "Market hall foundation works" },
+      { src: "/kogi/processing-1.jpeg",             alt: "Produce processing area" },
+      { src: "/kogi/admin-block-construction.jpeg", alt: "Admin block during construction" },
     ],
     overview: [
       "Under the Kogi State Rural Access & Agricultural Marketing Project (KOGI RAAMP) — a World Bank-funded programme — Geodata is constructing and physically improving the AKU and Agro Logistic Centre in Adavi Local Government Area (Contract NG-KOGIRAAMP-459307-CW-RFB/LOT 3).",
