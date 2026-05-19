@@ -12,7 +12,7 @@ import { PROJECTS, type ProjectCategory } from "@/lib/projects-data";
  *
  * Layout: two columns.
  *   Left  — Residential (6) + Commercial (1)
- *   Right — Institutional (3) + Infrastructure (2)
+ *   Right — Federal Government + State Government + World Bank
  */
 
 const CATEGORY_COLUMNS: ProjectCategory[][] = [
