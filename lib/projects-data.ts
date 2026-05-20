@@ -194,7 +194,7 @@ export const PROJECTS: Project[] = [
     location: "Abuja, FCT",
     scope: "24 units · mixed housing types · full infrastructure",
     coverImage: "/DRONECC3.webp",
-    heroVideoUrl: "https://geodata-wsl.s3.us-east-1.amazonaws.com/Country%20court%20Edited.mp4",
+    heroVideoUrl: "https://res.cloudinary.com/drort9cs1/video/upload/v1779272709/Country_court_Edited_jzaily.mov",
     heroVideoPoster: "/DRONECC3.webp",
     gallery: [
       { src: "/DRONECC2.webp", alt: "Country Court Estate aerial view" },
