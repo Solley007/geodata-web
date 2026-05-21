@@ -11,6 +11,7 @@ import {
   formatUpdateDate,
   type ConstructionUpdate,
 } from "@/lib/construction-updates";
+import { useSwipe } from "@/lib/use-swipe";
 
 interface Props {
   property: Property;
@@ -45,6 +46,8 @@ export default function ProgressBar({ property }: Props) {
   function closeLightbox()           { setLightboxIdx(null); }
   function next() { if (lightboxIdx !== null) setLightboxIdx((lightboxIdx + 1) % updates.length); }
   function prev() { if (lightboxIdx !== null) setLightboxIdx((lightboxIdx - 1 + updates.length) % updates.length); }
+
+  const swipe = useSwipe({ onSwipeLeft: next, onSwipeRight: prev });
 
   useEffect(() => {
     if (lightboxIdx === null) return;
@@ -264,7 +267,11 @@ export default function ProgressBar({ property }: Props) {
           )}
 
           {/* Image + caption */}
-          <div className="relative w-full h-full max-w-6xl flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="relative w-full h-full max-w-6xl flex flex-col items-center justify-center touch-pan-y"
+            onClick={(e) => e.stopPropagation()}
+            {...swipe}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={lightbox.imageUrl}

@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import type { Project } from "@/lib/projects-data";
+import { useSwipe } from "@/lib/use-swipe";
 
 interface Props { project: Project; }
 
@@ -26,6 +27,8 @@ export default function ProjectGallery({ project }: Props) {
   function close()          { setLightboxIdx(null); }
   function next() { if (lightboxIdx !== null) setLightboxIdx((lightboxIdx + 1) % project.gallery.length); }
   function prev() { if (lightboxIdx !== null) setLightboxIdx((lightboxIdx - 1 + project.gallery.length) % project.gallery.length); }
+
+  const swipe = useSwipe({ onSwipeLeft: next, onSwipeRight: prev });
 
   useEffect(() => {
     if (lightboxIdx === null) return;
@@ -143,8 +146,9 @@ export default function ProjectGallery({ project }: Props) {
           )}
 
           <div
-            className="relative max-w-6xl w-full flex flex-col items-center"
+            className="relative max-w-6xl w-full flex flex-col items-center touch-pan-y"
             onClick={(e) => e.stopPropagation()}
+            {...swipe}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

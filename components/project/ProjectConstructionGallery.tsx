@@ -7,6 +7,7 @@ import {
   formatUpdateDate,
   type ConstructionUpdate,
 } from "@/lib/construction-updates";
+import { useSwipe } from "@/lib/use-swipe";
 
 interface Props {
   /** Construction-updates slug for this project (matches what was uploaded in admin) */
@@ -61,6 +62,8 @@ export default function ProjectConstructionGallery({
   function close()          { setLightboxIdx(null); }
   function next() { if (lightboxIdx !== null) setLightboxIdx((lightboxIdx + 1) % updates.length); }
   function prev() { if (lightboxIdx !== null) setLightboxIdx((lightboxIdx - 1 + updates.length) % updates.length); }
+
+  const swipe = useSwipe({ onSwipeLeft: next, onSwipeRight: prev });
 
   useEffect(() => {
     if (lightboxIdx === null) return;
@@ -223,7 +226,11 @@ export default function ProjectConstructionGallery({
               </button>
             </>
           )}
-          <div className="relative w-full h-full max-w-6xl flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="relative w-full h-full max-w-6xl flex flex-col items-center justify-center touch-pan-y"
+            onClick={(e) => e.stopPropagation()}
+            {...swipe}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={lightbox.imageUrl} alt={lightbox.caption} className="max-w-full max-h-[80vh] object-contain" />
             <div className="mt-6 text-center">

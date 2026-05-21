@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import HLSVideoPlayer from "@/components/shared/HLSVideoPlayer";
 import { cloudinaryHLSUrl } from "@/lib/site-updates-types";
+import { useSwipe } from "@/lib/use-swipe";
 
 export interface GalleryItem {
   type:    "photo" | "video";
@@ -26,6 +27,11 @@ interface Props {
  */
 export default function ProjectGallery({ items, eyebrow = "Gallery", title = "See it in detail." }: Props) {
   const [active, setActive] = useState<number | null>(null);
+
+  const swipe = useSwipe({
+    onSwipeLeft:  () => setActive((i) => (i === null ? i : (i + 1) % items.length)),
+    onSwipeRight: () => setActive((i) => (i === null ? i : (i - 1 + items.length) % items.length)),
+  });
 
   // Lightbox keyboard nav + scroll lock
   useEffect(() => {
@@ -109,7 +115,11 @@ export default function ProjectGallery({ items, eyebrow = "Gallery", title = "Se
             aria-label="Next"
             className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-bone hover:text-accent text-3xl px-3 py-2">›</button>
 
-          <div className="relative max-w-6xl w-full max-h-full" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="relative max-w-6xl w-full max-h-full touch-pan-y"
+            onClick={(e) => e.stopPropagation()}
+            {...swipe}
+          >
             {current.type === "video" ? (
               <HLSVideoPlayer
                 src={cloudinaryHLSUrl(current.src)}
