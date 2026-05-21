@@ -27,11 +27,11 @@ export default function AboutHero() {
       className="relative bg-bone dark:bg-navy-950 pt-40 pb-24 md:pt-48 md:pb-32 border-b border-hairline dark:border-white/10"
     >
       <div className="container-editorial">
-        {/* Full logo — light background, all colours and text visible */}
+        {/* Full logo, light background, all colours and text visible */}
         <div className="ah-eyebrow mb-8">
           <Image
             src="/geodata-full-logo.png"
-            alt="Geodata World Services Limited — Real Estate · Investment · Infrastructure"
+            alt="Geodata World Services Limited, Real Estate · Investment · Infrastructure"
             width={260}
             height={65}
           />

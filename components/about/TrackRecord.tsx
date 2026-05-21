@@ -33,7 +33,7 @@ export default function TrackRecord() {
 
   // Show residential, commercial, and World Bank projects in this section.
   // Government projects (CBN, FIRS, Federal Uni, etc.) get their own dedicated
-  // InstitutionalClients section below — including them here would duplicate.
+  // InstitutionalClients section below, including them here would duplicate.
   const projects = PROJECTS.filter(
     (p) => p.category !== "Federal Government" && p.category !== "State Government"
   ).sort((a, b) => {

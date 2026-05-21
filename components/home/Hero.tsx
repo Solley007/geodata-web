@@ -75,7 +75,7 @@ export default function Hero() {
   useLayoutEffect(() => {
     if (!containerRef.current) return;
     const ctx = gsap.context(() => {
-      // Backgrounds use CSS transitions for slide changes — no GSAP here,
+      // Backgrounds use CSS transitions for slide changes, no GSAP here,
       // because GSAP from() leaves inline opacity styles that block CSS transitions
       setTimeout(animateText, 100);
     }, containerRef);
@@ -111,7 +111,7 @@ export default function Hero() {
           <SlideBackground key={i} slide={s} active={i === current} />
         ))}
 
-        {/* Dark overlays — desktop only (mobile has no text over image to obscure) */}
+        {/* Dark overlays, desktop only (mobile has no text over image to obscure) */}
         <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-navy-950/55 via-navy-950/40 to-navy-950/85 pointer-events-none z-[2]" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-navy-950/55 via-navy-950/20 to-transparent pointer-events-none z-[2]" />
       </div>

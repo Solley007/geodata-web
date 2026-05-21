@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Blog types and constants — CLIENT-SAFE
+// Blog types and constants, CLIENT-SAFE
 // ---------------------------------------------------------------------------
 // Pure types and small constants. No filesystem access, no Node built-ins,
 // no markdown processing libraries.

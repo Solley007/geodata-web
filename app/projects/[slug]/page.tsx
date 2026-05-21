@@ -15,7 +15,7 @@ interface PageProps {
   params: { slug: string };
 }
 
-// Static generation — Next.js builds a page per slug at build time.
+// Static generation, Next.js builds a page per slug at build time.
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }));
 }
@@ -29,7 +29,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
     description: project.subtitle,
     alternates: { canonical: `/projects/${params.slug}` },
     openGraph: {
-      title: `${project.name} — ${project.location}`,
+      title: `${project.name}, ${project.location}`,
       description: project.subtitle,
       url: `/projects/${params.slug}`,
       type: "website",
@@ -69,7 +69,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
               </h2>
               <p className="mt-8 max-w-xl text-lg text-bone/80 leading-relaxed">
                 Whether you're a private client, federal agency, or
-                institutional investor — we'd be glad to talk through what
+                institutional investor, we'd be glad to talk through what
                 we can build together.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">

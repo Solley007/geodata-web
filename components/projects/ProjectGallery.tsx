@@ -55,7 +55,7 @@ export default function ProjectGallery({ project }: Props) {
             </div>
           </div>
 
-          {/* Editorial grid — clickable */}
+          {/* Editorial grid, clickable */}
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             {project.gallery.map((img, i) => {
               const ratioClass =

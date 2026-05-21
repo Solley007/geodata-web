@@ -74,7 +74,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   const [updates,      setUpdates]      = useState<SiteUpdate[]>([]);
   const [loadingList,  setLoadingList]  = useState(false);
 
-  // Edit mode — null = creating new; string = editing this update id
+  // Edit mode, null = creating new; string = editing this update id
   const [editingId, setEditingId] = useState<string | null>(null);
   const formTopRef = useRef<HTMLDivElement>(null);
 
@@ -184,7 +184,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
 
     const isEditing = editingId !== null;
 
-    // Validate media — only required when CREATING; editing can keep existing media
+    // Validate media, only required when CREATING; editing can keep existing media
     if (!isEditing) {
       if (mediaType === "video" && videoInputMode === "paste") {
         if (!pastedVideoUrl.trim()) { setMsg({ ok: false, text: "Paste a Cloudinary video URL." }); return; }
@@ -226,7 +226,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
         coverImage = urls[0];
       }
 
-      // Build payload — omit media fields that are undefined so the PUT handler
+      // Build payload, omit media fields that are undefined so the PUT handler
       // keeps the existing values
       const payload: any = { title, date, body, projectSlug, mediaType };
       if (coverImage !== undefined) payload.coverImage = coverImage;
@@ -342,7 +342,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
           <div>
             <label className="admin-label">Description</label>
             <textarea value={body} onChange={(e) => setBody(e.target.value)} rows={4}
-              placeholder="A few sentences about this update — what was done, what's next."
+              placeholder="A few sentences about this update, what was done, what's next."
               className="w-full border border-hairline bg-bone px-3 py-2 text-sm text-navy-950 focus:outline-none focus:border-accent resize-none" />
           </div>
 
@@ -366,7 +366,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
                 {mediaType === "photo" ? "Photo file" :
                  mediaType === "video" ? "Video" : "Photos (multiple)"}
               </label>
-              {/* Toggle: upload vs paste URL — only for video */}
+              {/* Toggle: upload vs paste URL, only for video */}
               {mediaType === "video" && (
                 <div className="flex text-[11px] border border-hairline">
                   {(["upload", "paste"] as const).map((mode) => (
@@ -383,7 +383,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
               )}
             </div>
 
-            {/* Paste URL input — video only */}
+            {/* Paste URL input, video only */}
             {mediaType === "video" && videoInputMode === "paste" ? (
               <div>
                 <input

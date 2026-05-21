@@ -49,7 +49,7 @@ export default function PropertiesHeader({ activeFilter, onFilterChange, count }
           </div>
         </div>
 
-        {/* Filter bar — minimal, editorial. No dropdowns, no slider. */}
+        {/* Filter bar, minimal, editorial. No dropdowns, no slider. */}
         <div className="mt-16 flex flex-wrap items-center gap-2 md:gap-3">
           {PROPERTY_TYPES.map((type) => (
             <button

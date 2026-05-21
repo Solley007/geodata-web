@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Construction Updates — reads from /public/construction-updates.json
+// Construction Updates, reads from /public/construction-updates.json
 // ---------------------------------------------------------------------------
 // Photos and metadata are managed via the admin page at /admin.
 // After adding photos locally, commit and push to publish:
@@ -19,7 +19,7 @@ export interface ConstructionUpdate {
 
 /**
  * Fetch all construction updates from the static JSON file.
- * Runs in the browser — no API key needed.
+ * Runs in the browser, no API key needed.
  */
 export async function fetchConstructionUpdates(): Promise<ConstructionUpdate[]> {
   try {

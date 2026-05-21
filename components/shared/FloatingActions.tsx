@@ -106,7 +106,7 @@ export default function FloatingActions() {
       aria-label="Quick links and actions"
     >
 
-      {/* Social icons — fan upward when open */}
+      {/* Social icons, fan upward when open */}
       <div className="flex flex-col items-center gap-2.5">
         {SOCIALS.map((s, i) => {
           const delay = open

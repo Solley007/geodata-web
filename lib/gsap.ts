@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Refresh on font load — Fraunces shifts metrics and would mis-trigger
+  // Refresh on font load, Fraunces shifts metrics and would mis-trigger
   // ScrollTriggers calculated against fallback fonts.
   if ("fonts" in document) {
     document.fonts.ready.then(() => ScrollTrigger.refresh());

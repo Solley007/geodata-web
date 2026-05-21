@@ -59,7 +59,7 @@ export default function RelatedProjects({ projects }: Props) {
               <div className="relative aspect-[4/3] overflow-hidden bg-navy-100 dark:bg-navy-800 mb-6">
                 <Image
                   src={p.coverImage}
-                  alt={`${p.name} — ${p.location}`}
+                  alt={`${p.name}, ${p.location}`}
                   fill
                   sizes="(min-width: 768px) 30vw, 100vw"
                   className="object-cover transition-transform duration-1200 ease-editorial group-hover:scale-[1.04]"

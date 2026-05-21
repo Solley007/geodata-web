@@ -74,7 +74,7 @@ export default function StickySubNav({ property }: Props) {
         >
           <div className="bg-bone/85 backdrop-blur-xl border-b border-hairline dark:border-white/10">
             <div className="container-editorial flex h-[72px] items-center md:justify-between justify-end gap-4">
-              {/* Property identity — hidden on mobile to give buttons room */}
+              {/* Property identity, hidden on mobile to give buttons room */}
               <div className="hidden md:flex items-baseline gap-4 min-w-0">
                 <p className="font-display text-lg text-navy-900 dark:text-bone/90 truncate">
                   {property.title}
@@ -111,7 +111,7 @@ export default function StickySubNav({ property }: Props) {
               </ul>
 
               <div className="flex items-center gap-3">
-                {/* Mobile sections trigger — shows current section name */}
+                {/* Mobile sections trigger, shows current section name */}
                 <button
                   onClick={() => setSheetOpen(true)}
                   className="lg:hidden inline-flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-eyebrow font-medium text-navy-900 dark:text-bone/90 border border-hairline dark:border-white/10 hover:border-navy-900 dark:border-white/20 transition-colors"

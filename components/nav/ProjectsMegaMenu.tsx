@@ -11,8 +11,8 @@ import { PROJECTS, type ProjectCategory } from "@/lib/projects-data";
  * Opens on hover/focus of the Projects link in the desktop nav.
  *
  * Layout: two columns.
- *   Left  — Residential (6) + Commercial (1)
- *   Right — Federal Government + State Government + World Bank
+ *   Left , Residential (6) + Commercial (1)
+ *   Right, Federal Government + State Government + World Bank
  */
 
 const CATEGORY_COLUMNS: ProjectCategory[][] = [
@@ -62,7 +62,7 @@ export default function ProjectsMegaMenu() {
           ))}
         </div>
 
-        {/* Right — CTA panel */}
+        {/* Right, CTA panel */}
         <div className="col-span-3 flex flex-col justify-between">
           <div>
             <p className="eyebrow mb-4">Portfolio</p>

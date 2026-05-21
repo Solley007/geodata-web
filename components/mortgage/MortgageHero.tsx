@@ -35,7 +35,7 @@ export default function MortgageHero() {
       />
 
       <div className="container-editorial relative">
-        {/* Official programme badge — bone pill on dark bg so logo text is legible */}
+        {/* Official programme badge, bone pill on dark bg so logo text is legible */}
         <div className="mhero-eyebrow inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-4 py-3 mb-10">
           <Image
             src="/mreif-logo.png"
@@ -65,8 +65,8 @@ export default function MortgageHero() {
 
         <p className="mhero-sub mt-12 max-w-2xl text-lg text-bone/80 leading-relaxed">
           Through the Ministry of Finance Incorporated Real Estate Investment
-          Fund — a federal mortgage programme administered through partner banks
-          — Geodata residences qualify for fixed-rate financing at terms no
+          Fund, a federal mortgage programme administered through partner banks
+         , Geodata residences qualify for fixed-rate financing at terms no
           commercial bank in Nigeria currently matches.
         </p>
       </div>

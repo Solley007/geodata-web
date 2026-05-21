@@ -10,14 +10,14 @@ function auth(req: NextRequest): boolean {
   return want.length > 0 && got === want;
 }
 
-// GET — subscriber count for admin dashboard
+// GET, subscriber count for admin dashboard
 export async function GET(req: NextRequest) {
   if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const count = await getSubscriberCount();
   return NextResponse.json({ count });
 }
 
-// POST — broadcast a specific update to all subscribers
+// POST, broadcast a specific update to all subscribers
 export async function POST(req: NextRequest) {
   if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
@@ -32,11 +32,11 @@ export async function POST(req: NextRequest) {
     const baseUrl   = process.env.NEXT_PUBLIC_SITE_URL ?? "https://geodata.com.ng";
     const updateUrl = `${baseUrl}/updates/${update.slug}`;
 
-    // Excerpt — first 220 chars of body
+    // Excerpt, first 220 chars of body
     const excerpt = (update.body || "").slice(0, 220).trim()
       + ((update.body?.length ?? 0) > 220 ? "…" : "");
 
-    // Build the HTML email — branded, simple, mobile-friendly
+    // Build the HTML email, branded, simple, mobile-friendly
     const html = `
 <!DOCTYPE html>
 <html>

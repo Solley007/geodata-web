@@ -7,12 +7,12 @@ import SectionErrorBoundary from "@/components/shared/SectionErrorBoundary";
 import MortgageQuizClient from "./quiz/MortgageQuizClient";
 
 export const metadata: Metadata = {
-  title: "MREIF Mortgage — 9.75% Fixed for 20 Years",
+  title: "MREIF Mortgage, 9.75% Fixed for 20 Years",
   description:
     "Through the Ministry of Finance Incorporated Real Estate Investment Fund (MREIF), Geodata residences qualify for fixed-rate mortgage financing at 9.75% for up to 20 years. Naira denominated, 10% minimum equity.",
   alternates: { canonical: "/mortgage" },
   openGraph: {
-    title: "MREIF Mortgage — 9.75% Fixed for 20 Years",
+    title: "MREIF Mortgage, 9.75% Fixed for 20 Years",
     description:
       "Fixed-rate mortgage financing for Geodata residences. Naira denominated. 10% minimum equity. The most competitive home loan in Nigeria.",
     url: "/mortgage",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: `/api/og?eyebrow=${encodeURIComponent("MREIF Mortgage")}&title=${encodeURIComponent("9.75% fixed. Twenty years.")}&subtitle=${encodeURIComponent("The most accessible premium home loan in Nigeria.")}`,
         width: 1200,
         height: 630,
-        alt: "MREIF Mortgage — 9.75% Fixed for 20 Years",
+        alt: "MREIF Mortgage, 9.75% Fixed for 20 Years",
       },
     ],
   },
@@ -32,13 +32,13 @@ export default function MortgagePage() {
     <>
       <MortgageHero />
 
-      {/* Embedded affordability quiz — primary engagement tool */}
+      {/* Embedded affordability quiz, primary engagement tool */}
       <SectionErrorBoundary sectionName="MortgageQuiz">
         <MortgageQuizClient inline />
       </SectionErrorBoundary>
 
       <MortgageHowItWorks />
-      {/* Calculator has complex client state — guard against runtime errors
+      {/* Calculator has complex client state, guard against runtime errors
           so a calc bug doesn't take down the whole mortgage page */}
       <SectionErrorBoundary sectionName="MortgageCalculator">
         <MortgageCalculator />

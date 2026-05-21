@@ -36,7 +36,7 @@ export default function Leadership() {
             <p className="ld-fade text-lg leading-relaxed text-ink dark:text-bone/75">
               The leadership team brings decades of combined experience in
               engineering, real estate development, finance, and public-sector
-              project delivery — supported by an in-house team of {""}
+              project delivery, supported by an in-house team of {""}
               <span className="text-navy-950 dark:text-bone">80+</span> specialists across all
               construction disciplines.
             </p>
@@ -46,7 +46,7 @@ export default function Leadership() {
         {/* Top hairline */}
         <div className="ld-fade h-px w-full bg-navy-950" />
 
-        {/* Leadership entries — each is a row, considered, no faces yet */}
+        {/* Leadership entries, each is a row, considered, no faces yet */}
         <div>
           {LEADERSHIP.map((person) => (
             <div

@@ -21,7 +21,7 @@ const DEVELOPMENTS = [
   { href: "/projects/ize-hostel", name: "Ize Hostel", status: "Available" },
 ];
 
-// Individual units — sourced from lib/site-content.ts, edit prices there
+// Individual units, sourced from lib/site-content.ts, edit prices there
 const PROPERTY_UNITS = PROPERTY_NAV.map((p) => ({
   href:  `/properties/${p.slug}`,
   label: p.label,
@@ -111,7 +111,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
             {/* Home */}
             <NavItem href="/" onClose={onClose}>Home</NavItem>
 
-            {/* Properties — expandable */}
+            {/* Properties, expandable */}
             <li className="border-b border-hairline">
               <button
                 onClick={() => toggle("properties")}
@@ -188,7 +188,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
               )}
             </li>
 
-            {/* Projects — expandable */}
+            {/* Projects, expandable */}
             <li className="border-b border-hairline">
               <button
                 onClick={() => toggle("projects")}
@@ -280,7 +280,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
   );
 }
 
-// Small helper for flat nav links — keeps the list DRY
+// Small helper for flat nav links, keeps the list DRY
 function NavItem({
   href,
   onClose,

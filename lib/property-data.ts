@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Property data — Southern Bridge City, Phase One
+// Property data, Southern Bridge City, Phase One
 // ---------------------------------------------------------------------------
 // Five typologies, each with its own editorial copy, specs, and gallery.
 // Shared data (amenities, location, construction methodology) is factored
@@ -79,7 +79,7 @@ export const PROPERTY_SECTIONS: PropertySection[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// SHARED DATA — same across all five typologies
+// SHARED DATA, same across all five typologies
 // ---------------------------------------------------------------------------
 
 // Per-typology plot addresses
@@ -91,7 +91,7 @@ const ADDRESSES = {
   "4-bed-block-flats":   "Plot 7266, Southern Bridge City, Idu, Abuja",
 };
 
-// Per-typology coordinates — each pinned to its specific cluster within
+// Per-typology coordinates, each pinned to its specific cluster within
 // the Southern Bridge City development.
 const COORDS = {
   "4-bed-semi-detached": { lat: 9.0272080689693,    lng: 7.368666226041666  },
@@ -123,7 +123,7 @@ const ESTATE_AMENITIES: PropertyAmenity[] = [
   {
     title: "On-site clubhouse & gym",
     description:
-      "Phase 1 includes a 1,200m² clubhouse with gym, lap pool, co-working lounge, and meeting rooms — accessible to all residents.",
+      "Phase 1 includes a 1,200m² clubhouse with gym, lap pool, co-working lounge, and meeting rooms, accessible to all residents.",
   },
   {
     title: "Boreholes & treated water",
@@ -142,17 +142,17 @@ const ESTATE_AMENITIES: PropertyAmenity[] = [
   },
 ];
 
-// Construction methodology — shared across all typologies (same contractor,
+// Construction methodology, shared across all typologies (same contractor,
 // same specification, same quality standard) with per-typology variations
 // in the individual property records below.
 const CONSTRUCTION_DETAILS = [
-  "Construction is reinforced concrete frame with infill blockwork, finished externally in lime render and architectural concrete. The roof structure is steel truss with insulated standing-seam aluminium covering — engineered for Abuja's climate and rated for a 50-year service life.",
+  "Construction is reinforced concrete frame with infill blockwork, finished externally in lime render and architectural concrete. The roof structure is steel truss with insulated standing-seam aluminium covering, engineered for Abuja's climate and rated for a 50-year service life.",
   "The principal living spaces are 3.2 metres clear floor-to-ceiling, with north-facing glazing scaled to control solar gain. Mechanical ventilation with heat recovery reduces dependence on AC; underfloor cooling is offered as a configurable upgrade.",
   "Bathrooms are specified to international standard with thermostatic mixers, full-height tile, and dedicated extract. Kitchens are German-engineered modular cabinetry with quartz worktops; integrated appliance packages are configurable at fit-out stage.",
   "All units are wired for fibre internet, structured Cat-6, and a managed smart-home backbone. Solar-ready roof structure permits future PV installation without reroofing.",
 ];
 
-// Current construction status — same across Phase 1 (all under same contractor)
+// Current construction status, same across Phase 1 (all under same contractor)
 const CURRENT_PROGRESS = {
   currentPhase: "Structure" as PropertyPhase,
   percent: 78,
@@ -164,13 +164,13 @@ const CURRENT_PROGRESS = {
 
 const ALL_PROPERTIES: Property[] = [
   // -------------------------------------------------------------------------
-  // 1. THE SEMI-DETACHED — 4 bed · ₦180M
+  // 1. THE SEMI-DETACHED, 4 bed · ₦180M
   // -------------------------------------------------------------------------
   {
     slug: "4-bed-semi-detached",
     title: "The Semi-Detached",
     subtitle: "A four-bedroom residence at Southern Bridge City",
-    location: "Idu, Abuja — Federal Capital Territory",
+    location: "Idu, Abuja, Federal Capital Territory",
     heroImage:
       "/properties/4-bed-semi-detached.jpg",
     specs: [
@@ -182,13 +182,13 @@ const ALL_PROPERTIES: Property[] = [
     ],
     progress: CURRENT_PROGRESS,
     overview: [
-      "The Semi-Detached is the most considered residence at Southern Bridge City — a four-bedroom home composed around proportion, light, and the rituals of family life. Each unit anchors a quiet corner of the development, set back from the main avenue and oriented to capture morning light through the principal rooms.",
-      "The plan reads as three volumes joined by a generous double-height entry: a public ground floor for living and gathering, an intimate first floor for the family, and a private guest suite tucked above. The result is architecture that adapts to the household — formal when it needs to be, quietly informal the rest of the time.",
+      "The Semi-Detached is the most considered residence at Southern Bridge City, a four-bedroom home composed around proportion, light, and the rituals of family life. Each unit anchors a quiet corner of the development, set back from the main avenue and oriented to capture morning light through the principal rooms.",
+      "The plan reads as three volumes joined by a generous double-height entry: a public ground floor for living and gathering, an intimate first floor for the family, and a private guest suite tucked above. The result is architecture that adapts to the household, formal when it needs to be, quietly informal the rest of the time.",
       "Materials were selected for how they age. Untreated timber, brushed limestone, and matte clay tile carry the palette inside; landscaped courtyards thread daylight through the heart of the plan.",
     ],
     details: [
       ...CONSTRUCTION_DETAILS,
-      "Each semi-detached benefits from dual-aspect orientation, with windows on two sides of the principal rooms. The shared party wall is acoustically isolated — 200mm dense blockwork with 50mm mineral wool cavity — delivering near-detached acoustic performance.",
+      "Each semi-detached benefits from dual-aspect orientation, with windows on two sides of the principal rooms. The shared party wall is acoustically isolated, 200mm dense blockwork with 50mm mineral wool cavity, delivering near-detached acoustic performance.",
     ],
     amenities: [
       {
@@ -235,7 +235,7 @@ const ALL_PROPERTIES: Property[] = [
         ratio: "square",
       },
     ],
-    // PLACEHOLDER — add images to /public/floor-plans/4-bed-semi-detached/
+    // PLACEHOLDER, add images to /public/floor-plans/4-bed-semi-detached/
     floorPlans: [
       { floor: "Ground Floor", imageUrl: "/floor-plans/4-bed-semi-detached/ground.jpg" },
       { floor: "First Floor", imageUrl: "/floor-plans/4-bed-semi-detached/first.jpg" },
@@ -250,13 +250,13 @@ const ALL_PROPERTIES: Property[] = [
   },
 
   // -------------------------------------------------------------------------
-  // 2. THE TERRACE — 4 bed · ₦150M
+  // 2. THE TERRACE, 4 bed · ₦150M
   // -------------------------------------------------------------------------
   {
     slug: "4-bed-terrace",
     title: "The Terrace",
     subtitle: "A four-bedroom terrace residence at Southern Bridge City",
-    location: "Idu, Abuja — Federal Capital Territory",
+    location: "Idu, Abuja, Federal Capital Territory",
     heroImage: "/properties/4-bed-terrace.jpg",
     specs: [
       { label: "Type", value: "Terrace", hint: "4 bedroom" },
@@ -267,13 +267,13 @@ const ALL_PROPERTIES: Property[] = [
     ],
     progress: CURRENT_PROGRESS,
     overview: [
-      "The Terrace is the entry point to Southern Bridge City — a four-bedroom residence designed for families who understand that quality and scale are not the same thing. At 240m², it is precisely sized: no wasted circulation, no rooms that exist for status rather than use.",
-      "The ground floor opens generously from a covered entrance to a connected kitchen, dining, and living zone that extends to a private walled garden at the rear. The first floor holds three bedrooms and a family bathroom arranged around a landing that doubles as a reading nook. The second floor is the master suite — the whole floor, with a dressing room, a double-aspect bathroom, and its own small terrace.",
+      "The Terrace is the entry point to Southern Bridge City, a four-bedroom residence designed for families who understand that quality and scale are not the same thing. At 240m², it is precisely sized: no wasted circulation, no rooms that exist for status rather than use.",
+      "The ground floor opens generously from a covered entrance to a connected kitchen, dining, and living zone that extends to a private walled garden at the rear. The first floor holds three bedrooms and a family bathroom arranged around a landing that doubles as a reading nook. The second floor is the master suite, the whole floor, with a dressing room, a double-aspect bathroom, and its own small terrace.",
       "The Terrace is also the most MREIF-accessible typology at Southern Bridge City. At ₦150M, the required 10% equity contribution is ₦15M, with a monthly repayment on MREIF terms that compares favourably to the equivalent rent in the surrounding area.",
     ],
     details: [
       ...CONSTRUCTION_DETAILS,
-      "Terrace units share party walls on both sides, with acoustic isolation specified to a higher standard than statutory minimum: 250mm dense blockwork with 75mm mineral wool achieves Rw 58dB — comparable to high-quality European apartment construction.",
+      "Terrace units share party walls on both sides, with acoustic isolation specified to a higher standard than statutory minimum: 250mm dense blockwork with 75mm mineral wool achieves Rw 58dB, comparable to high-quality European apartment construction.",
     ],
     amenities: [
       {
@@ -321,7 +321,7 @@ const ALL_PROPERTIES: Property[] = [
         ratio: "tall",
       },
     ],
-    // PLACEHOLDER — add images to /public/floor-plans/4-bed-terrace/
+    // PLACEHOLDER, add images to /public/floor-plans/4-bed-terrace/
     floorPlans: [
       { floor: "Ground Floor", imageUrl: "/floor-plans/4-bed-terrace/ground.jpg" },
       { floor: "First Floor", imageUrl: "/floor-plans/4-bed-terrace/first.jpg" },
@@ -336,13 +336,13 @@ const ALL_PROPERTIES: Property[] = [
   },
 
   // -------------------------------------------------------------------------
-  // 3. THE SIX — 6 bed · ₦220M
+  // 3. THE SIX, 6 bed · ₦220M
   // -------------------------------------------------------------------------
   {
     slug: "6-bed-terrace",
     title: "The Six",
     subtitle: "A six-bedroom terrace residence at Southern Bridge City",
-    location: "Idu, Abuja — Federal Capital Territory",
+    location: "Idu, Abuja, Federal Capital Territory",
     heroImage:
       "/properties/6-bed-terrace.jpg",
     specs: [
@@ -354,25 +354,25 @@ const ALL_PROPERTIES: Property[] = [
     ],
     progress: CURRENT_PROGRESS,
     overview: [
-      "The Six is the largest typology at Southern Bridge City — a six-bedroom terrace residence for households that need space without sacrificing the close-knit feeling of a well-planned home. At 250m² per floor across four storeys — close to 1,000m² of built area in total — it is more house than most Abuja neighbourhoods can offer at any price.",
-      "The plan is organised by generation: the ground floor hosts guests and formal gatherings; the first floor is the family heart — open kitchen, double-height living space, a breakfast room that becomes a homework room by afternoon. The second and third floors divide cleanly into two zones, each with its own bathrooms and adequate natural light, so parents and children each have a floor that feels like theirs.",
-      "For those who work from home, The Six includes a dedicated study on the ground floor — a room that closes properly, with acoustic separation from the main living spaces, independent air conditioning, and its own WC. It reads as a proper office, not an afterthought.",
+      "The Six is the largest typology at Southern Bridge City, a six-bedroom terrace residence for households that need space without sacrificing the close-knit feeling of a well-planned home. At 250m² per floor across four storeys, close to 1,000m² of built area in total, it is more house than most Abuja neighbourhoods can offer at any price.",
+      "The plan is organised by generation: the ground floor hosts guests and formal gatherings; the first floor is the family heart, open kitchen, double-height living space, a breakfast room that becomes a homework room by afternoon. The second and third floors divide cleanly into two zones, each with its own bathrooms and adequate natural light, so parents and children each have a floor that feels like theirs.",
+      "For those who work from home, The Six includes a dedicated study on the ground floor, a room that closes properly, with acoustic separation from the main living spaces, independent air conditioning, and its own WC. It reads as a proper office, not an afterthought.",
     ],
     details: [
       ...CONSTRUCTION_DETAILS,
-      "The Six spans four storeys, requiring a stiffer structural frame than the three-storey typologies. The concrete frame is uprated accordingly — 400mm columns at the lower levels — and the stair core is designed as a structural shear wall, providing lateral stability without visible cross-bracing.",
+      "The Six spans four storeys, requiring a stiffer structural frame than the three-storey typologies. The concrete frame is uprated accordingly, 400mm columns at the lower levels, and the stair core is designed as a structural shear wall, providing lateral stability without visible cross-bracing.",
       "A dedicated study on the ground floor is acoustically isolated from the main living space: 150mm acoustic partition, independent HVAC zone, and Cat-6/fibre terminated at a dedicated server shelf.",
     ],
     amenities: [
       {
         title: "Dedicated home study",
         description:
-          "A fully enclosed ground-floor office with acoustic isolation, independent air conditioning, structured cabling, and its own WC — designed for professionals working from home.",
+          "A fully enclosed ground-floor office with acoustic isolation, independent air conditioning, structured cabling, and its own WC, designed for professionals working from home.",
       },
       {
         title: "Double rear garden",
         description:
-          "The largest private garden of any typology — approximately 80m² — with a separate utility area and a children's lawn zone delivered with mature planting.",
+          "The largest private garden of any typology, approximately 80m², with a separate utility area and a children's lawn zone delivered with mature planting.",
       },
       {
         title: "Three covered parking bays",
@@ -384,7 +384,7 @@ const ALL_PROPERTIES: Property[] = [
     gallery: [
       {
         src: "/properties/7270/front-elevation.png",
-        alt: "The Six — four-storey facade at Southern Bridge City",
+        alt: "The Six, four-storey facade at Southern Bridge City",
         ratio: "tall",
       },
       {
@@ -404,7 +404,7 @@ const ALL_PROPERTIES: Property[] = [
       },
       {
         src: "/properties/7270/ground-floor.png",
-        alt: "Principal master suite — third floor",
+        alt: "Principal master suite, third floor",
         ratio: "wide",
       },
       {
@@ -413,7 +413,7 @@ const ALL_PROPERTIES: Property[] = [
         ratio: "square",
       },
     ],
-    // PLACEHOLDER — add images to /public/floor-plans/6-bed-terrace/
+    // PLACEHOLDER, add images to /public/floor-plans/6-bed-terrace/
     floorPlans: [
       { floor: "Ground Floor", imageUrl: "/floor-plans/6-bed-terrace/ground.jpg" },
       { floor: "First Floor", imageUrl: "/floor-plans/6-bed-terrace/first.jpg" },
@@ -429,13 +429,13 @@ const ALL_PROPERTIES: Property[] = [
   },
 
   // -------------------------------------------------------------------------
-  // 4. THE FIVE — 5 bed · ₦220M
+  // 4. THE FIVE, 5 bed · ₦220M
   // -------------------------------------------------------------------------
   {
     slug: "5-bed-semi-detached",
     title: "The Five",
     subtitle: "A five-bedroom semi-detached residence at Southern Bridge City",
-    location: "Idu, Abuja — Federal Capital Territory",
+    location: "Idu, Abuja, Federal Capital Territory",
     heroImage:
       "/properties/5-bed-semi-detached.jpg",
     specs: [
@@ -447,20 +447,20 @@ const ALL_PROPERTIES: Property[] = [
     ],
     progress: CURRENT_PROGRESS,
     overview: [
-      "The Five is the premium semi-detached — the typology that offers the most generous balance of indoor and outdoor space across the Phase One portfolio. Five bedrooms across three floors, with one positioned on the ground floor as a proper guest suite: separate entrance from the covered walkway, its own bathroom, independently air-conditioned.",
-      "The upper floors follow a clear logic: the first holds three family bedrooms around a generous landing with a study alcove, sharing two bathrooms. The second floor is the master — the full footprint of the plan, with a dressing room equal in size to a fourth bedroom, a freestanding bath in the en-suite, and a private roof terrace looking back into the estate's landscaped spine.",
+      "The Five is the premium semi-detached, the typology that offers the most generous balance of indoor and outdoor space across the Phase One portfolio. Five bedrooms across three floors, with one positioned on the ground floor as a proper guest suite: separate entrance from the covered walkway, its own bathroom, independently air-conditioned.",
+      "The upper floors follow a clear logic: the first holds three family bedrooms around a generous landing with a study alcove, sharing two bathrooms. The second floor is the master, the full footprint of the plan, with a dressing room equal in size to a fourth bedroom, a freestanding bath in the en-suite, and a private roof terrace looking back into the estate's landscaped spine.",
       "Unlike the terrace typologies, The Five has windows on three sides of the structure. The dual aspect at the rear floods the kitchen and main living space with changing light across the day, making the rooms feel larger than their floor area suggests.",
     ],
     details: [
       ...CONSTRUCTION_DETAILS,
-      "The Five includes a ground-floor guest suite with acoustic isolation from the main house: a full party wall separation rather than a standard internal partition. The suite has its own air-conditioning unit, structured cabling, and an independently metered electricity connection — suitable for use as a home office, a dependent relative's accommodation, or a revenue-generating short-let.",
-      "The master-level roof terrace is waterproofed and delivered with drainage, a tap, and a power socket. Balustrade is powder-coated steel — maintenance-free, rated for Abuja's climate.",
+      "The Five includes a ground-floor guest suite with acoustic isolation from the main house: a full party wall separation rather than a standard internal partition. The suite has its own air-conditioning unit, structured cabling, and an independently metered electricity connection, suitable for use as a home office, a dependent relative's accommodation, or a revenue-generating short-let.",
+      "The master-level roof terrace is waterproofed and delivered with drainage, a tap, and a power socket. Balustrade is powder-coated steel, maintenance-free, rated for Abuja's climate.",
     ],
     amenities: [
       {
         title: "Ground-floor guest suite",
         description:
-          "An acoustically isolated bedroom with its own bathroom and separate external door — suitable as a guest suite, a home office, or an annexed living unit for a dependent relative.",
+          "An acoustically isolated bedroom with its own bathroom and separate external door, suitable as a guest suite, a home office, or an annexed living unit for a dependent relative.",
       },
       {
         title: "Master-level roof terrace",
@@ -475,14 +475,14 @@ const ALL_PROPERTIES: Property[] = [
       {
         title: "Side courtyard garden",
         description:
-          "The semi-detached configuration allows a side passage that becomes a private courtyard — screened from the road, accessible from the kitchen and the guest suite.",
+          "The semi-detached configuration allows a side passage that becomes a private courtyard, screened from the road, accessible from the kitchen and the guest suite.",
       },
       ...ESTATE_AMENITIES,
     ],
     gallery: [
       {
         src: "/properties/7261/front-elevation.png",
-        alt: "The Five — semi-detached facade with side courtyard",
+        alt: "The Five, semi-detached facade with side courtyard",
         ratio: "tall",
       },
       {
@@ -506,7 +506,7 @@ const ALL_PROPERTIES: Property[] = [
         ratio: "wide",
       },
     ],
-    // PLACEHOLDER — add images to /public/floor-plans/5-bed-semi-detached/
+    // PLACEHOLDER, add images to /public/floor-plans/5-bed-semi-detached/
     floorPlans: [
       { floor: "Ground Floor", imageUrl: "/floor-plans/5-bed-semi-detached/ground.jpg" },
       { floor: "First Floor", imageUrl: "/floor-plans/5-bed-semi-detached/first.jpg" },
@@ -521,13 +521,13 @@ const ALL_PROPERTIES: Property[] = [
   },
 
   // -------------------------------------------------------------------------
-  // 5. THE PAVILION — 4 bed · ₦130M
+  // 5. THE PAVILION, 4 bed · ₦130M
   // -------------------------------------------------------------------------
   {
     slug: "4-bed-block-flats",
     title: "The Pavilion",
     subtitle: "A four-bedroom apartment at Southern Bridge City",
-    location: "Idu, Abuja — Federal Capital Territory",
+    location: "Idu, Abuja, Federal Capital Territory",
     heroImage:
       "/properties/4-bed-block-flats.jpg",
     specs: [
@@ -539,21 +539,21 @@ const ALL_PROPERTIES: Property[] = [
     ],
     progress: CURRENT_PROGRESS,
     overview: [
-      "The Pavilion is Southern Bridge City's apartment typology — a four-bedroom flat within a low-rise block designed for households who want the full benefit of the estate without the overhead of a standalone house. At ₦130M, it is the most accessible entry to Phase One and the most compelling investment case on the site.",
-      "The flat plan is direct: a wide entrance hallway that doubles as a gallery, opening to an L-shaped living and dining space with a kitchen off one arm and a balcony off the other. Three standard bedrooms share a family bathroom and a second shower room; the master bedroom is at the far end of the plan — quiet, with its own bathroom and a balcony facing the estate's landscaped interior.",
-      "For investors, The Pavilion is the primary target. The professional rental market in Idu commands ₦5–7M annually for four-bedroom flats; at purchase, this represents a gross yield of between 3.8% and 5.4% before capital appreciation. MREIF financing reduces the equity-in to ₦13M — making this one of the few investment-grade properties in Abuja accessible without significant upfront capital.",
+      "The Pavilion is Southern Bridge City's apartment typology, a four-bedroom flat within a low-rise block designed for households who want the full benefit of the estate without the overhead of a standalone house. At ₦130M, it is the most accessible entry to Phase One and the most compelling investment case on the site.",
+      "The flat plan is direct: a wide entrance hallway that doubles as a gallery, opening to an L-shaped living and dining space with a kitchen off one arm and a balcony off the other. Three standard bedrooms share a family bathroom and a second shower room; the master bedroom is at the far end of the plan, quiet, with its own bathroom and a balcony facing the estate's landscaped interior.",
+      "For investors, The Pavilion is the primary target. The professional rental market in Idu commands ₦5–7M annually for four-bedroom flats; at purchase, this represents a gross yield of between 3.8% and 5.4% before capital appreciation. MREIF financing reduces the equity-in to ₦13M, making this one of the few investment-grade properties in Abuja accessible without significant upfront capital.",
     ],
     details: [
-      "The Pavilion block is four storeys with a passenger lift serving all levels. Structural frame is the same reinforced concrete specification as the standalone typologies. Floor-to-ceiling height is 3.0 metres — 200mm lower than the houses, but still markedly above standard apartment construction in Abuja.",
+      "The Pavilion block is four storeys with a passenger lift serving all levels. Structural frame is the same reinforced concrete specification as the standalone typologies. Floor-to-ceiling height is 3.0 metres, 200mm lower than the houses, but still markedly above standard apartment construction in Abuja.",
       "Sound isolation between apartments is achieved through concrete slab and screed construction on all floors (no timber joists), with acoustic underlay below finished floor finishes. Party walls are 200mm dense blockwork with mineral wool cavity.",
-      "Each apartment has its own utility space within the flat — no shared plant rooms or external metres. Hot water is delivered by an individual high-recovery electric geyser sized for a four-person household. Air conditioning units are individually owned and maintained; the block specification includes concealed condenser positions on the external wall so units are installed without exposed pipework on the facade.",
-      "Balconies are 1,200mm deep — usable as an outdoor dining or seating area, not merely a token gesture. Balustrade is structural glass with a powder-coated steel handrail, maintaining the view from inside.",
+      "Each apartment has its own utility space within the flat, no shared plant rooms or external metres. Hot water is delivered by an individual high-recovery electric geyser sized for a four-person household. Air conditioning units are individually owned and maintained; the block specification includes concealed condenser positions on the external wall so units are installed without exposed pipework on the facade.",
+      "Balconies are 1,200mm deep, usable as an outdoor dining or seating area, not merely a token gesture. Balustrade is structural glass with a powder-coated steel handrail, maintaining the view from inside.",
     ],
     amenities: [
       {
         title: "Private balconies",
         description:
-          "Each apartment has at least one 1,200mm-deep usable balcony. The master bedroom and living room each have their own — the living balcony faces the estate garden, the master balcony faces east.",
+          "Each apartment has at least one 1,200mm-deep usable balcony. The master bedroom and living room each have their own, the living balcony faces the estate garden, the master balcony faces east.",
       },
       {
         title: "Passenger lift",
@@ -609,7 +609,7 @@ const ALL_PROPERTIES: Property[] = [
         ratio: "square",
       },
     ],
-    // PLACEHOLDER — add images to /public/floor-plans/4-bed-block-flats/
+    // PLACEHOLDER, add images to /public/floor-plans/4-bed-block-flats/
     floorPlans: [
       { floor: "Ground Floor", imageUrl: "/floor-plans/4-bed-block-flats/ground.jpg" },
     ],
@@ -627,34 +627,34 @@ const ALL_PROPERTIES: Property[] = [
 // LOOKUP HELPERS
 // ---------------------------------------------------------------------------
 
-// Display order for listing pages — low → high price, with The Six last.
+// Display order for listing pages, low → high price, with The Six last.
 const DISPLAY_ORDER: string[] = [
-  "4-bed-block-flats",   // The Pavilion   — ₦130M
-  "4-bed-terrace",       // The Terrace    — ₦150M
-  "4-bed-semi-detached", // The Semi-Det.  — ₦180M
-  "5-bed-semi-detached", // The Five       — ₦220M
-  "6-bed-terrace",       // The Six        — ₦220M (6-bed, shown last)
+  "4-bed-block-flats",   // The Pavilion  , ₦130M
+  "4-bed-terrace",       // The Terrace   , ₦150M
+  "4-bed-semi-detached", // The Semi-Det. , ₦180M
+  "5-bed-semi-detached", // The Five      , ₦220M
+  "6-bed-terrace",       // The Six       , ₦220M (6-bed, shown last)
 ];
 
-/** Get all properties — for listing pages and static generation */
+/** Get all properties, for listing pages and static generation */
 export function getAllProperties(): Property[] {
   return [...ALL_PROPERTIES].sort(
     (a, b) => DISPLAY_ORDER.indexOf(a.slug) - DISPLAY_ORDER.indexOf(b.slug),
   );
 }
 
-/** Get all slugs — for generateStaticParams */
+/** Get all slugs, for generateStaticParams */
 export function getAllPropertySlugs(): string[] {
   return ALL_PROPERTIES.map((p) => p.slug);
 }
 
-/** Get a single property by slug — returns undefined if not found */
+/** Get a single property by slug, returns undefined if not found */
 export function getPropertyBySlug(slug: string): Property | undefined {
   return ALL_PROPERTIES.find((p) => p.slug === slug);
 }
 
 // ---------------------------------------------------------------------------
-// BACKWARDS COMPAT — kept so any existing import of SAMPLE_PROPERTY doesn't
+// BACKWARDS COMPAT, kept so any existing import of SAMPLE_PROPERTY doesn't
 // break until the detail page is updated. Remove once [slug]/page.tsx is done.
 // ---------------------------------------------------------------------------
 export const SAMPLE_PROPERTY = ALL_PROPERTIES[0];

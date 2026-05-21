@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
     </p>
 
     <p style="margin:0 0 18px;font-size:15px;line-height:1.75;color:#1F2D3D;">
-      You're now subscribed to updates from Geodata World Services. We build residential and commercial developments in Abuja and across Nigeria — and we try to be thoughtful about the emails we send.
+      You're now subscribed to updates from Geodata World Services. We build residential and commercial developments in Abuja and across Nigeria, and we try to be thoughtful about the emails we send.
     </p>
 
     <p style="margin:0 0 18px;font-size:15px;line-height:1.75;color:#1F2D3D;">
@@ -69,11 +69,11 @@ export async function POST(req: NextRequest) {
     </p>
 
     <p style="margin:0 0 18px;font-size:15px;line-height:1.75;color:#1F2D3D;">
-      That means construction photos from our active sites, articles on real estate and building well in Nigeria, news when new properties become available, and the occasional announcement when we hit a milestone worth sharing. We don't send newsletters for the sake of it — you'll only hear from us when there's something worth saying.
+      That means construction photos from our active sites, articles on real estate and building well in Nigeria, news when new properties become available, and the occasional announcement when we hit a milestone worth sharing. We don't send newsletters for the sake of it, you'll only hear from us when there's something worth saying.
     </p>
 
     <p style="margin:0 0 32px;font-size:15px;line-height:1.75;color:#1F2D3D;">
-      If you'd like to know more about what we're currently building — Southern Bridge City, a 321-unit residential development in Idu, Abuja — the site is a good place to start.
+      If you'd like to know more about what we're currently building, Southern Bridge City, a 321-unit residential development in Idu, Abuja, the site is a good place to start.
     </p>
 
     <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:32px;">
@@ -112,7 +112,7 @@ export async function POST(req: NextRequest) {
         "",
         `That means construction photos from our active sites, articles on real estate and building in Nigeria, news when new properties become available, and occasional announcements. We only send emails when there's something worth saying.`,
         "",
-        `To explore what we're currently building — Southern Bridge City, a 321-unit residential development in Idu, Abuja — visit: ${siteUrl}`,
+        `To explore what we're currently building, Southern Bridge City, a 321-unit residential development in Idu, Abuja, visit: ${siteUrl}`,
         "",
         `Questions? Reply to this email or call us on ${COMPANY.phone}.`,
         "",
@@ -122,11 +122,11 @@ export async function POST(req: NextRequest) {
         `Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}`,
       ].join("\n");
 
-      // Fire-and-forget — don't fail the subscription if the welcome email fails
+      // Fire-and-forget, don't fail the subscription if the welcome email fails
       await resend.emails.send({
         from:    `Geodata <${fromEmail}>`,
         to:      cleanEmail,
-        subject: firstName ? `Welcome, ${firstName} — you're subscribed` : "Welcome — you're subscribed to Geodata",
+        subject: firstName ? `Welcome, ${firstName}, you're subscribed` : "Welcome, you're subscribed to Geodata",
         html,
         text,
         headers: {

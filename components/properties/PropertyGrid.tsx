@@ -55,7 +55,7 @@ export default function PropertyGrid({ properties }: Props) {
             <Link
               key={p.slug}
               href={`/properties/${p.slug}`}
-              // Asymmetric vertical offset — odd cards drop 24 units
+              // Asymmetric vertical offset, odd cards drop 24 units
               className={clsx(
                 "pgrid-card group block",
                 i % 2 === 1 ? "md:translate-y-24" : ""
@@ -69,9 +69,9 @@ export default function PropertyGrid({ properties }: Props) {
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-1200 ease-editorial group-hover:scale-[1.04]"
                 />
-                {/* Save button — top right (sits above the image, ignores parent link click via stopPropagation) */}
+                {/* Save button, top right (sits above the image, ignores parent link click via stopPropagation) */}
                 <SaveButton slug={p.slug} variant="overlay" />
-                {/* Status pill — top left */}
+                {/* Status pill, top left */}
                 <div
                   className={clsx(
                     "absolute top-6 left-6 inline-flex items-center px-3 py-1.5 backdrop-blur-sm",
@@ -88,7 +88,7 @@ export default function PropertyGrid({ properties }: Props) {
                       : p.status}
                   </span>
                 </div>
-                {/* Type label — bottom left */}
+                {/* Type label, bottom left */}
                 <div className="absolute bottom-6 left-6">
                   <p className="text-[10px] uppercase tracking-eyebrow font-medium text-bone/90">
                     {p.type}

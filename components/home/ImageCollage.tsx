@@ -11,15 +11,15 @@ import { gsap, ScrollTrigger, motionMatch } from "@/lib/gsap";
  * lock into a deliberate asymmetric grid, then drift slowly while the
  * accompanying text comes up beside them.
  *
- * The composition is the *point* of this section — it's a printed-magazine
+ * The composition is the *point* of this section, it's a printed-magazine
  * spread translated into scroll. Resist the urge to make it symmetrical.
  */
 
-// PLACEHOLDER IMAGERY — replace with real Geodata renders / site photography
+// PLACEHOLDER IMAGERY, replace with real Geodata renders / site photography
 const PLATES = [
   {
     src: "/collage-1.jpg",
-    alt: "Southern Bridge City — residential facade at dusk",
+    alt: "Southern Bridge City, residential facade at dusk",
     objectPosition: "center center",
     className: "col-start-1 col-span-5 row-start-1 aspect-[4/3]",
     fromX: -120, // travels in from left
@@ -28,7 +28,7 @@ const PLATES = [
   },
   {
     src: "/collage-2.jpg",
-    alt: "Southern Bridge City — drone view of terrace houses and courtyard",
+    alt: "Southern Bridge City, drone view of terrace houses and courtyard",
     objectPosition: "center top",
     className: "col-start-7 col-span-6 row-start-1 aspect-[5/4] mt-24",
     fromX: 120,
@@ -37,7 +37,7 @@ const PLATES = [
   },
   {
     src: "/collage-3.jpg",
-    alt: "Southern Bridge City — aerial view of development and surroundings",
+    alt: "Southern Bridge City, aerial view of development and surroundings",
     objectPosition: "center top",
     className: "col-start-3 col-span-5 row-start-2 aspect-[4/3] -mt-12",
     fromX: -60,
@@ -46,7 +46,7 @@ const PLATES = [
   },
   {
     src: "/collage-4.jpg",
-    alt: "Southern Bridge City — top-down aerial of completed residential blocks",
+    alt: "Southern Bridge City, top-down aerial of completed residential blocks",
     objectPosition: "center center",
     className: "col-start-9 col-span-4 row-start-2 aspect-[4/3] mt-16",
     fromX: 80,
@@ -55,7 +55,7 @@ const PLATES = [
   },
   {
     src: "/collage-5.jpg",
-    alt: "Southern Bridge City — balcony and facade detail at golden hour",
+    alt: "Southern Bridge City, balcony and facade detail at golden hour",
     objectPosition: "center center",
     className: "col-start-2 col-span-9 row-start-3 aspect-[16/9] mt-20",
     fromX: 0,
@@ -72,7 +72,7 @@ export default function ImageCollage() {
 
     const ctx = gsap.context(() => {
       motionMatch({
-        // Full motion — the multi-speed parallax composition
+        // Full motion, the multi-speed parallax composition
         full: () => {
           gsap.utils.toArray<HTMLElement>(".collage-plate").forEach((plate) => {
             const fromX = parseFloat(plate.dataset.fromX ?? "0");
@@ -136,7 +136,7 @@ export default function ImageCollage() {
           });
         },
 
-        // Reduced motion — plates and text simply present, gentle opacity fade
+        // Reduced motion, plates and text simply present, gentle opacity fade
         reduced: () => {
           gsap.set(".collage-plate", { x: 0, y: 0, opacity: 1, scale: 1 });
           gsap.set(".collage-inner", { yPercent: 0 });
@@ -162,7 +162,7 @@ export default function ImageCollage() {
   return (
     <section ref={root} className="relative bg-bone dark:bg-navy-950 py-16 md:py-24 [overflow:clip]">
       <div className="container-editorial">
-        {/* Top text block — set against the upper edge of the collage */}
+        {/* Top text block, set against the upper edge of the collage */}
         <div className="collage-text grid grid-cols-12 gap-12 mb-20">
           <div className="col-span-12 lg:col-span-5">
             <p className="eyebrow mb-6">A study in restraint</p>
@@ -177,13 +177,13 @@ export default function ImageCollage() {
               household actually moves through a day.
             </p>
             <p className="mt-6 text-lg leading-relaxed text-ink dark:text-bone/75">
-              The result is architecture that feels considered now — and will
+              The result is architecture that feels considered now, and will
               still feel considered in twenty years.
             </p>
           </div>
         </div>
 
-        {/* The collage itself — 12-col grid with plates placed asymmetrically */}
+        {/* The collage itself, 12-col grid with plates placed asymmetrically */}
         <div className="grid grid-cols-12 gap-6 relative">
           {PLATES.map((plate, i) => (
             <div

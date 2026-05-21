@@ -83,7 +83,7 @@ export default function ProjectHero({ project }: Props) {
         </div>
       </div>
 
-      {/* Cover — video or image, full container width */}
+      {/* Cover, video or image, full container width */}
       <div className="container-editorial mt-16 md:mt-20">
         <div className="pdh-cover relative aspect-[16/9] overflow-hidden bg-navy-100 dark:bg-navy-800">
           {project.heroVideoUrl ? (
@@ -100,7 +100,7 @@ export default function ProjectHero({ project }: Props) {
           ) : (
             <Image
               src={project.coverImage}
-              alt={`${project.name} — cover image showing ${project.location}`}
+              alt={`${project.name}, cover image showing ${project.location}`}
               fill
               priority
               sizes="100vw"

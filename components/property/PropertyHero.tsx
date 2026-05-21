@@ -16,7 +16,7 @@ export default function PropertyHero({ property }: Props) {
     if (!root.current) return;
 
     const ctx = gsap.context(() => {
-      // Title entrance — slow, deliberate. This is the cover of a book,
+      // Title entrance, slow, deliberate. This is the cover of a book,
       // not a movie title. Resist the urge to make it dramatic.
       const tl = gsap.timeline({
         defaults: { ease: "power3.out" },
@@ -28,7 +28,7 @@ export default function PropertyHero({ property }: Props) {
         .from(".phero-sub", { y: 16, opacity: 0, duration: 0.9 }, "-=0.7")
         .from(".phero-meta > *", { opacity: 0, duration: 0.8, stagger: 0.1 }, "-=0.5");
 
-      // Parallax — image drifts up slower than the page scrolls down.
+      // Parallax, image drifts up slower than the page scrolls down.
       // The classic "the building is huge and we're walking past it" effect.
       gsap.to(".phero-bg", {
         yPercent: 25,
@@ -41,7 +41,7 @@ export default function PropertyHero({ property }: Props) {
         },
       });
 
-      // Title fades + lifts gently as we scroll past — feels handheld rather
+      // Title fades + lifts gently as we scroll past, feels handheld rather
       // than locked. Subtle, but the difference is felt.
       gsap.to(".phero-content", {
         yPercent: -20,
@@ -74,12 +74,12 @@ export default function PropertyHero({ property }: Props) {
           sizes="100vw"
           className="object-cover object-[center_65%] md:object-bottom"
         />
-        {/* Layered scrim — vertical for legibility, vignette for depth */}
+        {/* Layered scrim, vertical for legibility, vignette for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/20 via-navy-950/30 to-navy-950/60" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(10,22,40,0.4)_100%)]" />
       </div>
 
-      {/* Content — centered. This is the "book cover" composition. */}
+      {/* Content, centered. This is the "book cover" composition. */}
       <div className="phero-content relative z-10 container-editorial flex h-full flex-col items-center justify-center text-center">
         <p className="phero-eyebrow eyebrow text-bone/85 mb-8">
           {property.location}

@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // About page content
 // ---------------------------------------------------------------------------
-// Sourced from GEODATA_COMPANY_BACKGROUND.pdf — translated into editorial
+// Sourced from GEODATA_COMPANY_BACKGROUND.pdf, translated into editorial
 // language. The receipts (CBN portfolio, regulatory registrations, completed
 // projects) do the trust-building. The copy stays restrained.
 // ---------------------------------------------------------------------------
@@ -20,7 +20,7 @@ export const COMPANY_FACTS = {
 // ---------------------------------------------------------------------------
 
 
-// Institutional client work — reframed as proof, not a list.
+// Institutional client work, reframed as proof, not a list.
 export interface InstitutionalClient {
   client: string;
   context: string;
@@ -57,8 +57,8 @@ export const INSTITUTIONAL_WORK: InstitutionalClient[] = [
     projects: [
       { year: 2026, description: "33.56km rural road upgrading, Kogi State (ongoing)" },
       { year: 2026, description: "AKU and Agro Logistic Centre, Adavi LGA, Kogi State (ongoing)" },
-      { year: 2018, description: "Federal University Kashere — Schools of Remedial Studies" },
-      { year: 2017, description: "Federal Ministry of Lands — Community Centre, Okpella, Edo State" },
+      { year: 2018, description: "Federal University Kashere, Schools of Remedial Studies" },
+      { year: 2017, description: "Federal Ministry of Lands, Community Centre, Okpella, Edo State" },
     ],
   },
 ];
@@ -94,7 +94,7 @@ export const LEADERSHIP: LeadershipMember[] = [
   },
 ];
 
-// Regulatory compliance — the trust-signal grid.
+// Regulatory compliance, the trust-signal grid.
 // Order matters: most recognisable / highest-stakes first.
 export const COMPLIANCE: { name: string; detail?: string }[] = [
   { name: "Corporate Affairs Commission", detail: "RC 688927" },

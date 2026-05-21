@@ -25,12 +25,12 @@ const GALLERY: GalleryItem[] = [
 // ============================================================================
 
 export const metadata = {
-  title:       "6-Bedroom Semi-Detached — Southern Bridge Estate — Geodata",
+  title:       "6-Bedroom Semi-Detached, Southern Bridge Estate, Geodata",
   description: "Nine 6-bedroom semi-detached residences across two phases. Two completed and ready, seven at finishing stage.",
 };
 
 const WA_PHASE1 = `${SOCIAL.whatsapp}?text=${encodeURIComponent("Hello, I'd like to enquire about the completed 6-bedroom semi-detached unit at Southern Bridge Estate (Phase One).")}`;
-const WA_PHASE2 = `${SOCIAL.whatsapp}?text=${encodeURIComponent("Hello, I'd like to enquire about the 6-bedroom semi-detached units at Southern Bridge Estate (Phase Two — finishing stage).")}`;
+const WA_PHASE2 = `${SOCIAL.whatsapp}?text=${encodeURIComponent("Hello, I'd like to enquire about the 6-bedroom semi-detached units at Southern Bridge Estate (Phase Two, finishing stage).")}`;
 
 export default function SBESemiDetachedPage() {
   return (

@@ -1,12 +1,12 @@
 // ---------------------------------------------------------------------------
-// /api/contact — server-side email delivery
+// /api/contact, server-side email delivery
 // ---------------------------------------------------------------------------
 // Receives form submissions from /contact, validates input, and sends an
 // email to hello@geodata.com.ng via Resend.
 //
 // SETUP REQUIRED:
 //   1. Sign up at https://resend.com (free tier: 100 emails/day, 3000/month)
-//   2. Verify your sending domain (geodata.com.ng) — takes ~10 min via DNS
+//   2. Verify your sending domain (geodata.com.ng), takes ~10 min via DNS
 //   3. Generate an API key in the Resend dashboard
 //   4. Add to .env.local:
 //        RESEND_API_KEY=re_xxxxxxxxxxxx
@@ -26,7 +26,7 @@ interface ContactPayload {
   message: string;
 }
 
-// Whitelist of valid interest values — guards against arbitrary input
+// Whitelist of valid interest values, guards against arbitrary input
 const VALID_INTERESTS = [
   "Specific property",
   "Schedule a visit",
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactPayload;
 
-    // Validation — fail fast with clear errors
+    // Validation, fail fast with clear errors
     if (!body.name?.trim() || body.name.length > 200) {
       return NextResponse.json({ error: "Invalid name" }, { status: 400 });
     }
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid interest" }, { status: 400 });
     }
 
-    // Resend init — fails clearly if env not configured
+    // Resend init, fails clearly if env not configured
     const apiKey = process.env.RESEND_API_KEY;
     const from = process.env.CONTACT_FROM;
     const to = process.env.CONTACT_TO;
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
 
     const resend = new Resend(apiKey);
 
-    // Email body — plain HTML, editorial styling, easy to read in any client
+    // Email body, plain HTML, editorial styling, easy to read in any client
     const html = `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; padding: 32px;">
         <div style="margin: 0 0 32px;">

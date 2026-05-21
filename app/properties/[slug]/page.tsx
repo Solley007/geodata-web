@@ -27,11 +27,11 @@ export function generateMetadata({ params }: PageProps): Metadata {
   if (!property) return { title: "Property not found" };
 
   return {
-    title: `${property.title} — ${property.location}`,
+    title: `${property.title}, ${property.location}`,
     description: property.subtitle,
     alternates: { canonical: `/properties/${params.slug}` },
     openGraph: {
-      title: `${property.title} — Southern Bridge City`,
+      title: `${property.title}, Southern Bridge City`,
       description: property.subtitle,
       url: `/properties/${params.slug}`,
       type: "website",
@@ -53,7 +53,7 @@ export default function PropertyDetailPage({ params }: PageProps) {
   // Slug not in our list → proper 404 page, not a blank or error
   if (!property) notFound();
 
-  // Structured data — RealEstateListing schema for Google rich results
+  // Structured data, RealEstateListing schema for Google rich results
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",

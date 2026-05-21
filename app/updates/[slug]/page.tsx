@@ -21,9 +21,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const update = readSiteUpdates().find((u) => u.slug === slug);
-  if (!update) return { title: "Update — Geodata" };
+  if (!update) return { title: "Update, Geodata" };
   return {
-    title: `${update.title} — Geodata Updates`,
+    title: `${update.title}, Geodata Updates`,
     description: update.body.slice(0, 160) || `An update from ${update.projectSlug}.`,
     openGraph: {
       title:   update.title,

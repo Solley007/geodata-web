@@ -11,7 +11,7 @@ import { PROPERTY_SECTIONS, type Property } from "@/lib/property-data";
 import SectionErrorBoundary from "@/components/shared/SectionErrorBoundary";
 import FloorPlans from "./FloorPlans";
 
-// Mapbox uses browser-only APIs — load PropertyMap on the client only.
+// Mapbox uses browser-only APIs, load PropertyMap on the client only.
 // This prevents SSR errors and reduces initial JS bundle (the map only
 // downloads when this section is reached during prefetch).
 const PropertyMap = dynamic(() => import("./PropertyMap"), {
@@ -51,7 +51,7 @@ export default function ScrollSpyContent({ property }: Props) {
     if (!root.current) return;
 
     const ctx = gsap.context(() => {
-      // Active-section detection — one trigger per section
+      // Active-section detection, one trigger per section
       PROPERTY_SECTIONS.forEach((section) => {
         ScrollTrigger.create({
           trigger: `#${section.id}`,
@@ -64,7 +64,7 @@ export default function ScrollSpyContent({ property }: Props) {
         });
       });
 
-      // Section-content fade-up reveals — staggered children per section
+      // Section-content fade-up reveals, staggered children per section
       gsap.utils.toArray<HTMLElement>(".spy-section").forEach((section) => {
         gsap.from(section.querySelectorAll(".spy-fade"), {
           y: 32,
@@ -95,11 +95,11 @@ export default function ScrollSpyContent({ property }: Props) {
     <section ref={root} className="bg-bone dark:bg-navy-950 py-24 md:py-32">
       <div className="container-editorial">
         <div className="grid grid-cols-12 gap-x-12 items-start">
-          {/* LEFT — long-form content */}
+          {/* LEFT, long-form content */}
           <div className="col-span-12 lg:col-span-8">
             {/* OVERVIEW */}
             <article id="overview" className="spy-section pt-12 pb-32 first:pt-0">
-              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">01 — Overview</p>
+              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">01, Overview</p>
               <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest mb-12 spy-fade max-w-2xl">
                 A house composed for how families actually live.
               </h2>
@@ -116,15 +116,15 @@ export default function ScrollSpyContent({ property }: Props) {
 
             {/* VIDEO */}
             <article id="video" className="spy-section py-32">
-              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">02 — Video</p>
+              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">02, Video</p>
               <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest mb-12 spy-fade max-w-2xl">
                 Walk through the residence.
               </h2>
               <div className="spy-fade relative aspect-video bg-navy-950 overflow-hidden">
-                {/* PLACEHOLDER — replace with embedded Vimeo/YouTube or HLS player */}
+                {/* PLACEHOLDER, replace with embedded Vimeo/YouTube or HLS player */}
                 <Image
                   src={property.gallery[1].src}
-                  alt={`Video walkthrough preview — ${property.title}`}
+                  alt={`Video walkthrough preview, ${property.title}`}
                   fill
                   sizes="(min-width: 1024px) 60vw, 100vw"
                   className="object-cover opacity-70"
@@ -149,7 +149,7 @@ export default function ScrollSpyContent({ property }: Props) {
 
             {/* DETAILS */}
             <article id="details" className="spy-section py-32">
-              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">03 — Details</p>
+              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">03, Details</p>
               <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest mb-12 spy-fade max-w-2xl">
                 Construction, finish, and the things you only notice over time.
               </h2>
@@ -161,7 +161,7 @@ export default function ScrollSpyContent({ property }: Props) {
                 ))}
               </div>
 
-              {/* Floor plans — tabbed per floor, click to enlarge, download PDF */}
+              {/* Floor plans, tabbed per floor, click to enlarge, download PDF */}
               {property.floorPlans?.length > 0 && (
                 <FloorPlans
                   floorPlans={property.floorPlans}
@@ -175,7 +175,7 @@ export default function ScrollSpyContent({ property }: Props) {
 
             {/* AMENITIES */}
             <article id="amenities" className="spy-section py-32">
-              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">04 — Amenities</p>
+              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">04, Amenities</p>
               <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest mb-12 spy-fade max-w-2xl">
                 What's included, by default.
               </h2>
@@ -195,7 +195,7 @@ export default function ScrollSpyContent({ property }: Props) {
 
             {/* GALLERY */}
             <article id="gallery" className="spy-section py-32">
-              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">05 — Images</p>
+              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">05, Images</p>
               <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest mb-12 spy-fade max-w-2xl">
                 The residence, in light.
               </h2>
@@ -229,7 +229,7 @@ export default function ScrollSpyContent({ property }: Props) {
 
             {/* LOCATION */}
             <article id="location" className="spy-section py-32">
-              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">06 — Location</p>
+              <p className="eyebrow text-ink-faint dark:text-bone/40 mb-6 spy-fade">06, Location</p>
               <h2 className="text-display-md font-display text-navy-950 dark:text-bone tracking-tightest mb-12 spy-fade max-w-2xl">
                 Idu, Abuja.
               </h2>
@@ -266,7 +266,7 @@ export default function ScrollSpyContent({ property }: Props) {
             </article>
           </div>
 
-          {/* RIGHT — sticky ToC */}
+          {/* RIGHT, sticky ToC */}
           <aside className="hidden lg:block col-span-4 sticky top-32 self-start">
             <div className="border-t border-navy-950 dark:border-white/10 pt-6">
               <p className="eyebrow text-ink-faint dark:text-bone/40 mb-8">Contents</p>

@@ -9,7 +9,7 @@ import { gsap } from "@/lib/gsap";
  * ----
  * This is the most important section on the homepage commercially.
  * 9.75% fixed for 20 years on a ₦150M home is a genuinely compelling
- * pitch — but only if it's framed clearly. Resist the urge to bury it
+ * pitch, but only if it's framed clearly. Resist the urge to bury it
  * in a "Buy with Mortgage" card the way the current site does.
  */
 
@@ -55,11 +55,11 @@ export default function MreifSection() {
         <div className="grid grid-cols-12 gap-12">
           {/* Eyebrow + headline */}
           <div className="col-span-12 lg:col-span-8 mreif-headline">
-            {/* MREIF logo — programme identity mark */}
+            {/* MREIF logo, programme identity mark */}
             <div className="mb-4">
               <Image
                 src="/mreif-logo.png"
-                alt="MREIF — Ministry of Finance Incorporated Real Estate Investment Fund"
+                alt="MREIF, Ministry of Finance Incorporated Real Estate Investment Fund"
                 width={96}
                 height={96}
                 className="h-24 w-24"
@@ -71,8 +71,8 @@ export default function MreifSection() {
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-ink dark:text-bone/75 max-w-2xl">
               Through the Ministry of Finance Incorporated Real Estate Investment
-              Fund — a federal mortgage programme administered through partner
-              banks — every Geodata residence qualifies for fixed-rate financing
+              Fund, a federal mortgage programme administered through partner
+              banks, every Geodata residence qualifies for fixed-rate financing
               at terms no commercial bank in Nigeria currently matches.
             </p>
           </div>

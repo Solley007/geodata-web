@@ -16,7 +16,7 @@ interface Props {
  * Editorial-styled Mapbox view for property location sections.
  *
  * Design notes:
- *  - Uses Mapbox's "Light" style as a base — minimal, monochrome, won't fight
+ *  - Uses Mapbox's "Light" style as a base, minimal, monochrome, won't fight
  *    the brand. Could swap to a fully custom style later (Mapbox Studio).
  *  - Custom marker: navy ring with gold dot, pulsing softly. Matches the
  *    hairline aesthetic used throughout the site.
@@ -33,7 +33,7 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
   const [loaded, setLoaded] = useState(false);
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-  // Smooth flyTo when the map loads — subtle entrance, not flashy
+  // Smooth flyTo when the map loads, subtle entrance, not flashy
   useEffect(() => {
     if (!loaded || !mapRef.current) return;
     const map = mapRef.current.getMap();
@@ -80,7 +80,7 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
           latitude,
           zoom: 10, // start zoomed out, then easeTo zooms in on load
         }}
-        // Satellite Streets — shows real aerial imagery + road labels.
+        // Satellite Streets, shows real aerial imagery + road labels.
         // Best choice for development sites in areas with low OSM vector coverage
         // like Idu, where vector styles render mostly blank.
         mapStyle="mapbox://styles/mapbox/satellite-streets-v12"
@@ -91,12 +91,12 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
         // (Tilted 3D maps feel like Google Earth, not editorial.)
         dragRotate={false}
         touchPitch={false}
-        // Disable the attribution control's default position — we add our own
+        // Disable the attribution control's default position, we add our own
         attributionControl={false}
         onLoad={() => setLoaded(true)}
         style={{ width: "100%", height: "100%" }}
       >
-        {/* Custom marker — pulsing navy ring + gold dot */}
+        {/* Custom marker, pulsing navy ring + gold dot */}
         <Marker longitude={longitude} latitude={latitude} anchor="center">
           <div className="relative flex items-center justify-center">
             {/* Outer pulse */}
@@ -108,7 +108,7 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
           </div>
         </Marker>
 
-        {/* Navigation control — only zoom, top-right, minimal */}
+        {/* Navigation control, only zoom, top-right, minimal */}
         <NavigationControl
           position="top-right"
           showCompass={false}
@@ -117,12 +117,12 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
         />
       </Map>
 
-      {/* Custom attribution overlay — bottom-right, minimal */}
+      {/* Custom attribution overlay, bottom-right, minimal */}
       <div className="absolute bottom-2 right-2 bg-bone/80 backdrop-blur-sm px-2 py-1 text-[9px] uppercase tracking-eyebrow text-ink-faint dark:text-bone/40">
         © Mapbox · OSM
       </div>
 
-      {/* Optional address label — bottom-left */}
+      {/* Optional address label, bottom-left */}
       {label && (
         <div className="absolute bottom-4 left-4 bg-bone/95 backdrop-blur-sm px-4 py-3 max-w-xs">
           <p className="eyebrow text-ink-faint dark:text-bone/40 mb-1">Location</p>

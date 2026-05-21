@@ -16,7 +16,7 @@ interface Props {
  *  - RIGHT: rendered article HTML in a styled .prose container
  *
  * The .prose class (defined in globals.css) is where editorial typography
- * lives — measure, line-height, heading rhythm, list bullet styling,
+ * lives, measure, line-height, heading rhythm, list bullet styling,
  * blockquote treatment, code blocks, etc.
  */
 export default function PostBody({ post }: Props) {
@@ -60,7 +60,7 @@ export default function PostBody({ post }: Props) {
     <section ref={root} id="article-body" className="bg-bone dark:bg-navy-950 py-20 md:py-24">
       <div className="container-editorial">
         <div className="grid grid-cols-12 gap-x-12 items-start">
-          {/* LEFT — sticky meta column (desktop only) */}
+          {/* LEFT, sticky meta column (desktop only) */}
           <aside className="hidden lg:block col-span-3 sticky top-32 self-start">
             <div className="pb-fade space-y-10">
               <div>
@@ -119,7 +119,7 @@ export default function PostBody({ post }: Props) {
             </div>
           </aside>
 
-          {/* RIGHT — article body */}
+          {/* RIGHT, article body */}
           <div className="col-span-12 lg:col-span-8 lg:col-start-5">
             <article
               className="pb-fade prose"

@@ -1,5 +1,5 @@
 /**
- * HLSVideoPlayer — adaptive bitrate via hls.js, with native HLS fallback.
+ * HLSVideoPlayer, adaptive bitrate via hls.js, with native HLS fallback.
  * Priority: hls.js first (since Chrome lies about HLS support with canPlayType="maybe").
  */
 "use client";

@@ -54,7 +54,7 @@ export default function MortgageApplicationPage() {
             We've received your details.
           </h1>
           <p className="text-lg leading-relaxed text-ink-muted dark:text-bone/70 mb-10">
-            A member of our team will reach out within one business day to walk you through the next steps — KYC documentation, bank pre-approval, and property reservation.
+            A member of our team will reach out within one business day to walk you through the next steps, KYC documentation, bank pre-approval, and property reservation.
           </p>
           <Link href="/properties" className="inline-flex items-center gap-3 bg-navy-900 dark:bg-bone dark:text-navy-950 text-bone px-7 py-4 text-sm font-medium hover:bg-navy-800 transition-colors">
             Browse available residences <span aria-hidden>→</span>
@@ -122,8 +122,8 @@ export default function MortgageApplicationPage() {
               <Field label="Employment status *" name="employment">
                 <select required value={form.employment} onChange={handle("employment")} className="form-input">
                   <option value="">Select…</option>
-                  <option value="Salaried (Public sector)">Salaried — Public sector</option>
-                  <option value="Salaried (Private sector)">Salaried — Private sector</option>
+                  <option value="Salaried (Public sector)">Salaried, Public sector</option>
+                  <option value="Salaried (Private sector)">Salaried, Private sector</option>
                   <option value="Self-employed">Self-employed</option>
                   <option value="Business owner">Business owner</option>
                   <option value="Other">Other</option>
@@ -144,9 +144,9 @@ export default function MortgageApplicationPage() {
               <select required value={form.propertyOfInterest} onChange={handle("propertyOfInterest")} className="form-input">
                 <option value="">Select a residence…</option>
                 {PROPERTY_NAV.map((p) => (
-                  <option key={p.slug} value={p.label}>{p.label} — {p.price}</option>
+                  <option key={p.slug} value={p.label}>{p.label}, {p.price}</option>
                 ))}
-                <option value="Not sure yet">I'm not sure yet — open to options</option>
+                <option value="Not sure yet">I'm not sure yet, open to options</option>
               </select>
             </Field>
 

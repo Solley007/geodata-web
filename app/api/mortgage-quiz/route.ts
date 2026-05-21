@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
         email: cleanEmail,
         firstName,
         unsubscribed: false,
-      }).catch(() => { /* ignore — duplicate emails are fine */ });
+      }).catch(() => { /* ignore, duplicate emails are fine */ });
     }
 
     // ── Compose result email ────────────────────────────────────────
@@ -84,7 +84,7 @@ Approval status: ${approvalLabel}
 Deposit: ${depositLabel}
 
 ${primaryMatch ? `YOUR STRONGEST MATCH
-${primaryMatch.title} — ${primaryMatch.priceLabel}
+${primaryMatch.title}, ${primaryMatch.priceLabel}
 ${primaryMatch.location}
 ${primaryMatch.beds} bed · ${primaryMatch.area} · ${primaryMatch.available} units available
 
@@ -95,7 +95,7 @@ Loan amount:         ${formatNaira(primaryMatch.price * (1 - cleanDeposit))}
 Monthly payment:     ${formatNaira(monthlyPaymentForPrimary)}
 % of your income:    ${Math.round(affordabilityRatio * 100)}%` : `As a cash buyer, total outlay is ${primaryMatch.priceLabel}.`}
 
-See full details: ${propertyUrl}` : `We couldn't find an exact match for your bedroom preference within your budget — but our team can suggest closest alternatives. Reply to this email and we'll help.`}
+See full details: ${propertyUrl}` : `We couldn't find an exact match for your bedroom preference within your budget, but our team can suggest closest alternatives. Reply to this email and we'll help.`}
 
 NEXT STEPS
 • Reserve a viewing: WhatsApp +234 704 762 0492
@@ -147,7 +147,7 @@ Reply to this email to start a conversation.`;
   </td></tr>` : ""}
 
   ${primaryMatch && !isCash ? `<tr><td style="padding:0 40px 32px;">
-    <p style="margin:0 0 14px;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#5c6b7e;">Mortgage breakdown — MREIF 9.75% fixed, 20 years</p>
+    <p style="margin:0 0 14px;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#5c6b7e;">Mortgage breakdown, MREIF 9.75% fixed, 20 years</p>
     <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #e5e0d5;">
       <tr><td style="padding:12px 0;border-bottom:1px solid #e5e0d5;font-size:14px;color:#5c6b7e;">Property price</td><td style="padding:12px 0;border-bottom:1px solid #e5e0d5;font-size:14px;color:#0a1628;text-align:right;font-weight:600;">${primaryMatch.priceLabel}</td></tr>
       <tr><td style="padding:12px 0;border-bottom:1px solid #e5e0d5;font-size:14px;color:#5c6b7e;">Deposit (${depositLabel})</td><td style="padding:12px 0;border-bottom:1px solid #e5e0d5;font-size:14px;color:#0a1628;text-align:right;font-weight:600;">${formatNaira(primaryMatch.price * cleanDeposit)}</td></tr>
@@ -181,7 +181,7 @@ Reply to this email to start a conversation.`;
 </td></tr></table>
 </body></html>`;
 
-    // Send (fire-and-forget — saving the data matters more than email delivery)
+    // Send (fire-and-forget, saving the data matters more than email delivery)
     try {
       await resend.emails.send({
         from: FROM,
@@ -203,7 +203,7 @@ Reply to this email to start a conversation.`;
         from: FROM,
         to: process.env.CONTACT_TO ?? "hello@geodata.com.ng",
         replyTo: cleanEmail,
-        subject: `New affordability quiz lead — ${cleanName}`,
+        subject: `New affordability quiz lead, ${cleanName}`,
         text: `${cleanName} (${cleanEmail}) completed the affordability quiz.
 
 Income: ${incomeLabel}
@@ -212,7 +212,7 @@ Timeline: ${timelineLabel}
 Approval: ${approvalLabel}
 Deposit: ${depositLabel}
 
-Matched: ${primaryMatch ? `${primaryMatch.title} (${primaryMatch.priceLabel})` : "No direct match — closest alternatives shown"}
+Matched: ${primaryMatch ? `${primaryMatch.title} (${primaryMatch.priceLabel})` : "No direct match, closest alternatives shown"}
 ${primaryMatch && !isCash ? `Monthly payment: ${formatNaira(monthlyPaymentForPrimary)} (${Math.round(affordabilityRatio * 100)}% of income)` : ""}
 
 Reply to this email to reach ${firstName} directly.`,

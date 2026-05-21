@@ -16,7 +16,7 @@ interface Props {
 }
 
 /**
- * BookViewingButton — single button that opens the Cal.com booking popup.
+ * BookViewingButton, single button that opens the Cal.com booking popup.
  * Drop anywhere a "Reserve a viewing" CTA is wanted.
  *
  * Example:

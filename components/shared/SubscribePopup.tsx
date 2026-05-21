@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 /**
- * SubscribePopup — site-wide email capture with preference checkboxes
+ * SubscribePopup, site-wide email capture with preference checkboxes
  * Shows after 4 seconds on first eligible visit. Once subscribed: never
  * shown again. Once dismissed: 14 day cooldown.
  */
@@ -22,7 +22,7 @@ function shouldShow(): boolean {
   if (typeof window === "undefined") return false;
   // Don't show inside admin pages
   if (window.location.pathname.startsWith("/admin")) return false;
-  // Only check subscription state — non-subscribers see the popup every visit
+  // Only check subscription state, non-subscribers see the popup every visit
   if (localStorage.getItem("geodata_subscribed") === "true") return false;
   return true;
 }
@@ -135,7 +135,7 @@ export default function SubscribePopup() {
                 matters to you.
               </h2>
               <p className="text-sm text-ink dark:text-bone/70 leading-relaxed mb-5">
-                Pick what you'd like to hear about. We'll email a preview with a link straight to the post — no spam.
+                Pick what you'd like to hear about. We'll email a preview with a link straight to the post, no spam.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">

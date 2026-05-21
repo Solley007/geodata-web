@@ -8,7 +8,7 @@ import PropertyMap from "@/components/property/PropertyMap";
 import BookViewingButton from "@/components/shared/BookViewingButton";
 
 // ============================================================================
-//  EDIT GALLERY HERE — drop your own image / Cloudinary video URLs in
+//  EDIT GALLERY HERE, drop your own image / Cloudinary video URLs in
 // ============================================================================
 const GALLERY: GalleryItem[] = [
   { type: "photo", src: "/SBDrone6.webp", caption: "Phase One streetscape" },
@@ -40,7 +40,7 @@ const UNITS = [
   {
     id:          "sbe-6bsd-phase1",
     name:        "6-Bedroom Semi-Detached",
-    subtitle:    "Phase One — Completed",
+    subtitle:    "Phase One, Completed",
     count:       8,
     available:   2,
     status:      "2 Available" as const,
@@ -52,7 +52,7 @@ const UNITS = [
   {
     id:          "sbe-6bsd-phase2",
     name:        "6-Bedroom Semi-Detached",
-    subtitle:    "Phase Two — Finishing Stage",
+    subtitle:    "Phase Two, Finishing Stage",
     count:       7,
     available:   7,
     status:      "Under Construction" as const,
@@ -65,7 +65,7 @@ const UNITS = [
 // ============================================================================
 
 export const metadata = {
-  title:       "Southern Bridge Estate — Geodata World Services",
+  title:       "Southern Bridge Estate, Geodata World Services",
   description: "27-unit residential development in Idu, Abuja. Mostly delivered.",
 };
 
@@ -106,10 +106,10 @@ export default function SouthernBridgeEstatePage() {
           <div className="col-span-12 lg:col-span-8">
             <p className="eyebrow text-ink-muted dark:text-bone/50 mb-6">About the development</p>
             <h2 className="text-display-md font-display tracking-tightest leading-tight mb-8">
-              Twenty-seven gated residences in Jabi — minutes from Southern Bridge City.
+              Twenty-seven gated residences in Jabi, minutes from Southern Bridge City.
             </h2>
             <p className="text-lg leading-relaxed text-ink-muted dark:text-bone/70 max-w-2xl">
-              Southern Bridge Estate is Geodata's gated development in Jabi — twenty-seven residences across two phases, designed for families seeking space, privacy, and the same build quality that defines our larger developments.
+              Southern Bridge Estate is Geodata's gated development in Jabi, twenty-seven residences across two phases, designed for families seeking space, privacy, and the same build quality that defines our larger developments.
             </p>
           </div>
 
@@ -183,7 +183,7 @@ export default function SouthernBridgeEstatePage() {
                 Jabi, Abuja.
               </h2>
               <p className="text-ink-muted dark:text-bone/70 leading-relaxed mb-8">
-                A residential pocket inside Jabi. Minutes from Southern Bridge City — close enough to share the corridor's amenities, far enough to feel like its own neighbourhood.
+                A residential pocket inside Jabi. Minutes from Southern Bridge City, close enough to share the corridor's amenities, far enough to feel like its own neighbourhood.
               </p>
               <a
                 href="https://www.google.com/maps/dir/?api=1&destination=9.0252,7.3685"
@@ -204,7 +204,7 @@ export default function SouthernBridgeEstatePage() {
           <PropertyMap
             latitude={9.04739952921162}
             longitude={7.41298425593227}
-            label="Southern Bridge Estate — Jabi, Abuja"
+            label="Southern Bridge Estate, Jabi, Abuja"
           />
         </div>
       </section>

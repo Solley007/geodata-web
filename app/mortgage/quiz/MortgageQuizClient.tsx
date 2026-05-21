@@ -135,7 +135,7 @@ export default function MortgageQuizClient({ inline = false }: { inline?: boolea
     <Wrapper className={wrapperClass} id={inline ? "quiz" : undefined}>
       <div className="container-editorial max-w-3xl mx-auto">
 
-        {/* Progress bar — hidden on result */}
+        {/* Progress bar, hidden on result */}
         {step !== "result" && (
           <div className="mb-12">
             <div className="flex items-center justify-between mb-3">
@@ -159,7 +159,7 @@ export default function MortgageQuizClient({ inline = false }: { inline?: boolea
         {step === 1 && (
           <QuizStep
             title="What's your monthly take-home?"
-            subtitle="After tax and statutory deductions — your actual deposit each month."
+            subtitle="After tax and statutory deductions, your actual deposit each month."
           >
             <OptionList
               options={INCOME_BRACKETS.map(b => ({ id: b.id, label: b.label }))}
@@ -398,7 +398,7 @@ function ResultView({
           ({primaryMatch.priceLabel}) sits within your comfort zone
           {!isCash && (
             <>
-              {" "}— roughly{" "}
+              , roughly{" "}
               <strong className="text-navy-950 dark:text-bone font-semibold">
                 {formatNaira(monthlyPaymentForPrimary)}/month
               </strong>{" "}

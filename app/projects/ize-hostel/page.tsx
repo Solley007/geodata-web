@@ -4,7 +4,7 @@ import { SOCIAL } from "@/lib/site-content";
 import ProjectGallery, { type GalleryItem } from "@/components/project/ProjectGallery";
 
 // ============================================================================
-//  EDIT GALLERY HERE — drop your Ize Hostel photos / renders
+//  EDIT GALLERY HERE, drop your Ize Hostel photos / renders
 //  Replace `/collage-*.jpg` with paths to your actual images in /public/
 //  Or use full URLs from Cloudinary / S3
 // ============================================================================
@@ -14,15 +14,15 @@ const GALLERY: GalleryItem[] = [
   { type: "photo", src: "/ize-hostel/block-a-sign.JPG",              caption: "Block A" },
   { type: "photo", src: "/ize-hostel/block-b.JPG",                   caption: "Block B" },
   { type: "photo", src: "/ize-hostel/Block C.JPG",                   caption: "Block C" },
-  { type: "photo", src: "/ize-hostel/Block-C-view.JPG",              caption: "Block C — view" },
+  { type: "photo", src: "/ize-hostel/Block-C-view.JPG",              caption: "Block C, view" },
   { type: "photo", src: "/ize-hostel/Block-d.JPG",                   caption: "Block D" },
   { type: "photo", src: "/ize-hostel/block-c-d.JPG",                 caption: "Blocks C & D" },
-  { type: "photo", src: "/ize-hostel/common-area-exterior.JPG",      caption: "Common area — exterior" },
+  { type: "photo", src: "/ize-hostel/common-area-exterior.JPG",      caption: "Common area, exterior" },
   { type: "photo", src: "/ize-hostel/walk-area.JPG",                 caption: "Walkway" },
 
   // Common areas & amenities
   { type: "photo", src: "/ize-hostel/common-area.JPG",               caption: "Common area" },
-  { type: "photo", src: "/ize-hostel/common-area-space.JPG",         caption: "Common area — lounge" },
+  { type: "photo", src: "/ize-hostel/common-area-space.JPG",         caption: "Common area, lounge" },
   { type: "photo", src: "/ize-hostel/common-area-roof.JPG",          caption: "Rooftop common area" },
   { type: "photo", src: "/ize-hostel/common-area-showing-pool.JPG",  caption: "Common area & pool" },
   { type: "photo", src: "/ize-hostel/pool.JPG",                      caption: "Swimming pool" },
@@ -30,14 +30,14 @@ const GALLERY: GalleryItem[] = [
 
   // Rooms
   { type: "photo", src: "/ize-hostel/1-bed.JPG",                     caption: "1-bed room" },
-  { type: "photo", src: "/ize-hostel/1-bed-view.JPG",                caption: "1-bed room — view" },
+  { type: "photo", src: "/ize-hostel/1-bed-view.JPG",                caption: "1-bed room, view" },
   { type: "photo", src: "/ize-hostel/2-bed.JPG",                     caption: "2-bed room" },
-  { type: "photo", src: "/ize-hostel/2-bed-view.JPG",                caption: "2-bed room — view" },
-  { type: "photo", src: "/ize-hostel/2-bed-view-1.JPG",              caption: "2-bed room — alt view" },
+  { type: "photo", src: "/ize-hostel/2-bed-view.JPG",                caption: "2-bed room, view" },
+  { type: "photo", src: "/ize-hostel/2-bed-view-1.JPG",              caption: "2-bed room, alt view" },
   { type: "photo", src: "/ize-hostel/3-bed.JPG",                     caption: "3-bed room" },
-  { type: "photo", src: "/ize-hostel/3-bed-view.JPG",                caption: "3-bed room — view" },
-  { type: "photo", src: "/ize-hostel/3-bed-right-side.JPG",          caption: "3-bed room — right side" },
-  { type: "photo", src: "/ize-hostel/3room-view.JPG",                caption: "3-bed room — panorama" },
+  { type: "photo", src: "/ize-hostel/3-bed-view.JPG",                caption: "3-bed room, view" },
+  { type: "photo", src: "/ize-hostel/3-bed-right-side.JPG",          caption: "3-bed room, right side" },
+  { type: "photo", src: "/ize-hostel/3room-view.JPG",                caption: "3-bed room, panorama" },
 
   // Room facilities
   { type: "photo", src: "/ize-hostel/wardrobe-space.JPG",            caption: "Wardrobe space" },
@@ -51,7 +51,7 @@ const GALLERY: GalleryItem[] = [
 ];
 
 export const metadata = {
-  title:       "Ize Hostel — Geodata World Services",
+  title:       "Ize Hostel, Geodata World Services",
   description: "A purpose-built 23-room, 50-bed-space student hostel for Nile University and Baze University students in Abuja.",
 };
 
@@ -74,7 +74,7 @@ export default function IzeHostelPage() {
             Ize Hostel.
           </h1>
           <p className="mt-6 text-lg text-bone/80 max-w-xl">
-            A purpose-built student hostel — 23 rooms, 50 bed spaces — for Nile and Baze University students.
+            A purpose-built student hostel, 23 rooms, 50 bed spaces, for Nile and Baze University students.
           </p>
         </div>
       </section>
@@ -123,7 +123,7 @@ export default function IzeHostelPage() {
             Reserve a room.
           </h2>
           <p className="text-ink-muted dark:text-bone/70 mb-10 leading-relaxed">
-            For room availability, pricing, and tour bookings — get in touch directly.
+            For room availability, pricing, and tour bookings, get in touch directly.
           </p>
           <a
             href={WA_LINK}

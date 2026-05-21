@@ -60,7 +60,7 @@ export default function SpecGrid({ property }: Props) {
                 className={`spec-cell py-10 px-2 lg:px-6 ${
                   !isLastInRow ? "lg:border-r border-hairline dark:border-white/10" : ""
                 } ${isTopRow ? "border-b border-hairline dark:border-white/10" : ""} ${
-                  // Mobile uses 2 cols — different border logic
+                  // Mobile uses 2 cols, different border logic
                   i % 2 === 0 ? "border-r border-hairline dark:border-white/10 lg:border-r" : ""
                 }`}
               >
@@ -69,7 +69,7 @@ export default function SpecGrid({ property }: Props) {
                   <p className="font-display text-4xl md:text-5xl text-navy-950 dark:text-bone tracking-tightest leading-none">
                     {spec.value}
                   </p>
-                  {/* MREIF logo badge — only on the mortgage/MREIF spec cell */}
+                  {/* MREIF logo badge, only on the mortgage/MREIF spec cell */}
                   {(spec.label === "Mortgage" || spec.value.toLowerCase().includes("mreif")) && (
                     <Image
                       src="/mreif-logo.png"

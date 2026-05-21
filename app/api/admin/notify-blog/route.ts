@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     const { slug } = body;
     if (!slug) return NextResponse.json({ error: "Slug is required" }, { status: 400 });
 
-    // Auto-pull post details from the markdown file — no need for the admin to
+    // Auto-pull post details from the markdown file, no need for the admin to
     // re-enter title/excerpt/cover image. Form overrides still accepted.
     const post = await getPostBySlug(slug);
     if (!post) return NextResponse.json({ error: `Post '${slug}' not found in content/blog/` }, { status: 404 });

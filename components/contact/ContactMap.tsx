@@ -92,13 +92,13 @@ export default function ContactMap() {
         </div>
       </div>
 
-      {/* Map — full viewport width, 480px tall */}
+      {/* Map, full viewport width, 480px tall */}
       <div className="relative w-full h-[480px] md:h-[560px]">
         <SectionErrorBoundary sectionName="Office Map">
           <MapInner />
         </SectionErrorBoundary>
 
-        {/* Address card overlay — bottom left */}
+        {/* Address card overlay, bottom left */}
         <div className="absolute bottom-6 left-6 z-10 bg-bone/97 dark:bg-navy-950/97 backdrop-blur-sm border border-hairline dark:border-white/10 px-6 py-5 max-w-xs shadow-lg">
           <p className="eyebrow text-ink-faint dark:text-bone/40 mb-2">{OFFICE.label}</p>
           <p className="text-sm text-navy-950 dark:text-bone leading-relaxed whitespace-pre-line">

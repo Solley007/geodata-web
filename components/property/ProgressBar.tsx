@@ -178,7 +178,7 @@ export default function ProgressBar({ property }: Props) {
             )}
           </div>
 
-          {/* Right: current photo — compact, not full-width */}
+          {/* Right: current photo, compact, not full-width */}
           <div>
             {loading ? (
               <div className="aspect-[4/3] bg-hairline/40 dark:bg-white/5 animate-pulse" />

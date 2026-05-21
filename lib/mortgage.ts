@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // MREIF Mortgage Calculator
 // ---------------------------------------------------------------------------
-// IMPORTANT — VERIFY WITH ARM INVESTMENT MANAGERS BEFORE LAUNCH
+// IMPORTANT, VERIFY WITH ARM INVESTMENT MANAGERS BEFORE LAUNCH
 //
 // Current MREIF parameters used here:
 //   - Interest rate: 9.75% fixed (annual)
@@ -54,7 +54,7 @@ export function calculateMortgage(input: MortgageInput): MortgageOutput {
   const monthlyRate = MREIF.rate / 12;
   const numPayments = tenorYears * 12;
 
-  // Edge case — zero loan, zero payment
+  // Edge case, zero loan, zero payment
   if (loanAmount <= 0 || numPayments <= 0) {
     return {
       loanAmount: 0,

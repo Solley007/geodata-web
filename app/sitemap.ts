@@ -6,12 +6,12 @@ import { PROJECTS } from "@/lib/projects-data";
 
 const BASE_URL = "https://geodata.com.ng";
 
-// Generated automatically — Next.js serves this at /sitemap.xml
+// Generated automatically, Next.js serves this at /sitemap.xml
 // Includes all static routes + every blog post + every property page
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // Static routes — these are the editorial backbone of the site
+  // Static routes, these are the editorial backbone of the site
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Property detail pages — generated from the canonical property-data source
+  // Property detail pages, generated from the canonical property-data source
   const propertyRoutes: MetadataRoute.Sitemap = getAllProperties().map((p) => ({
     url: `${BASE_URL}/properties/${p.slug}`,
     lastModified: now,
@@ -73,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Blog post pages — lastModified pulled from frontmatter
+  // Blog post pages, lastModified pulled from frontmatter
 const blogRoutes: MetadataRoute.Sitemap = getAllPostsMeta()
   .filter((post) => post.date && !isNaN(new Date(post.date).getTime()))
   .map((post) => ({

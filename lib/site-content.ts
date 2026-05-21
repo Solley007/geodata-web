@@ -65,49 +65,49 @@ export type HeroSlide = {
   subheadline?: string;
   cta1?:        { label: string; href: string };
   cta2?:        { label: string; href: string };
-  duration?:    number;   // milliseconds — default 6000
+  duration?:    number;   // milliseconds, default 6000
 };
 
 export const HERO_SLIDES: HeroSlide[] = [
-  // ── Slide 1 — Southern Bridge City (video) ──────────────────────────────
+  // ── Slide 1, Southern Bridge City (video) ──────────────────────────────
   {
     type:        "video",
     videoUrl:    "https://geodata-wsl.s3.us-east-1.amazonaws.com/Showcase.mp4",
     videoPoster: "/collage-1.jpg",
-    eyebrow:     "Southern Bridge City — Phase One",
+    eyebrow:     "Southern Bridge City, Phase One",
     headline:    "A new\naddress\nfor Abuja.",
-    subheadline: "321 residences at Idu. MREIF-eligible from ₦130M — 9.75% fixed for twenty years, the most competitive home loan in Nigeria.",
+    subheadline: "321 residences at Idu. MREIF-eligible from ₦130M, 9.75% fixed for twenty years, the most competitive home loan in Nigeria.",
     cta1:        { label: "Explore residences",         href: "/properties" },
     cta2:        { label: "View construction progress", href: "/properties/4-bed-semi-detached#progress" },
     duration:    8000,
   },
-  // ── Slide 2 — Southern Bridge Estate ────────────────────────────────────
+  // ── Slide 2, Southern Bridge Estate ────────────────────────────────────
   {
     type:        "image",
     image:       "/collage-2.jpg",   // ← replace with a real SBE photo
-    eyebrow:     "Southern Bridge Estate — Jabi, Abuja",
+    eyebrow:     "Southern Bridge Estate, Jabi, Abuja",
     headline:    "Nine residences.\nReady now.",
     subheadline: "Two ready to move into. Seven at finishing stage. All inside a fully delivered, gated estate.",
     cta1:        { label: "View available units", href: "/projects/southern-bridge-estate" },
     duration:    6000,
   },
-  // ── Slide 3 — Ize Hostel ────────────────────────────────────────────────
+  // ── Slide 3, Ize Hostel ────────────────────────────────────────────────
   {
     type:        "image",
     image:       "/ize-hostel/Exterior.JPG",
-    eyebrow:     "Ize Hostel — Jabi, Abuja",
+    eyebrow:     "Ize Hostel, Jabi, Abuja",
     headline:    "Built for\nstudents.",
-    subheadline: "23 rooms. 50 bed spaces. Designed around how students actually study, rest, and live — minutes from Nile and Baze.",
+    subheadline: "23 rooms. 50 bed spaces. Designed around how students actually study, rest, and live, minutes from Nile and Baze.",
     cta1:        { label: "Explore the hostel", href: "/projects/ize-hostel" },
     duration:    6000,
   },
-  // ── Slide 4 — Cool Army Estate ──────────────────────────────────────────
+  // ── Slide 4, Cool Army Estate ──────────────────────────────────────────
   {
     type:        "image",
     image:       "/Cool.png",
-    eyebrow:     "Cool Army Estate — Owerri, Imo State",
+    eyebrow:     "Cool Army Estate, Owerri, Imo State",
     headline:    "Twenty homes.\nDelivered.",
-    subheadline: "A 20-residence estate in Owerri — designed and built by Geodata on behalf of Cool Real Estate.",
+    subheadline: "A 20-residence estate in Owerri, designed and built by Geodata on behalf of Cool Real Estate.",
     cta1:        { label: "See the estate", href: "/projects/cool-army-estate" },
     duration:    6000,
   },
@@ -115,7 +115,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   // {
   //   type:    "image",
   //   image:   "/your-photo.jpg",
-  //   eyebrow: "Project Name — Location",
+  //   eyebrow: "Project Name, Location",
   //   headline: "Your headline\nhere.",
   //   cta1:    { label: "Learn more", href: "/projects/your-project" },
   // },
@@ -208,7 +208,7 @@ export const PROPERTY_NAV = [
 
 // ─── 8. Development strip cards ──────────────────────────────────────────────
 // Images and text for the scrolling cards just below the hero.
-// Replace image paths with your own photos — they won't be overwritten.
+// Replace image paths with your own photos, they won't be overwritten.
 
 type DevelopmentItem = {
   slug: string;
@@ -248,7 +248,7 @@ export const DEVELOPMENTS: DevelopmentItem[] =  [
     slug:        "ize-hostel",
     name:        "Ize Hostel",
     location:    "Jabi, Abuja",
-    description: "23 rooms and 50 bed spaces — purpose-built for Nile and Baze students.",
+    description: "23 rooms and 50 bed spaces, purpose-built for Nile and Baze students.",
     image:       "/ize-hostel/Exterior.JPG",
     status:      "Available" as const,
   },

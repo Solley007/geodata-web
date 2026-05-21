@@ -11,7 +11,7 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
  * stays perfectly in sync.
  *
  * Reduced-motion handling: if the user prefers reduced motion (OS-level
- * accessibility setting), Lenis is not initialized at all — the page uses
+ * accessibility setting), Lenis is not initialized at all, the page uses
  * native browser scroll, which is more predictable and respects the
  * intent of the preference.
  */
@@ -21,7 +21,7 @@ export default function SmoothScrollProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    // Skip Lenis on touch/mobile devices — those use native scroll which is
+    // Skip Lenis on touch/mobile devices, those use native scroll which is
     // faster and more reliable on mobile. Lenis adds value on desktop (inertia,
     // smooth deceleration) but causes layout interference on mobile viewports.
     const prefersReduced = window.matchMedia(

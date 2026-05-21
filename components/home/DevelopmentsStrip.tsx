@@ -47,7 +47,7 @@ export default function DevelopmentsStrip() {
           </div>
           <div className="col-span-12 lg:col-span-4 lg:col-start-9">
             <p className="dev-fade text-lg leading-relaxed text-ink dark:text-bone/75">
-              From Southern Bridge City — our flagship under construction —
+              From Southern Bridge City (our flagship under construction)
               to delivered estates across Abuja, here are the residential and
               commercial developments that define our portfolio.
             </p>
@@ -56,7 +56,7 @@ export default function DevelopmentsStrip() {
       </div>
 
       {/* Horizontal scroll track. Container goes full-bleed (left padding only)
-          so the rightmost cards bleed off the viewport edge — the standard
+          so the rightmost cards bleed off the viewport edge, the standard
           luxury-hotel "more-to-see" cue. */}
       <div className="dev-track relative">
         <div className="overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory">
@@ -77,7 +77,7 @@ export default function DevelopmentsStrip() {
                     className="object-cover object-bottom transition-transform duration-1200 ease-editorial group-hover:scale-[1.04]"
                   />
 
-                  {/* Status pill — top left. Color signals availability. */}
+                  {/* Status pill, top left. Color signals availability. */}
                   {d.status && (
                     <div className={clsx("absolute top-5 left-5", statusPillStyle(d.status))}>
                       {(d.status === "Available" || d.status === "Limited") && (
@@ -102,7 +102,7 @@ export default function DevelopmentsStrip() {
               </Link>
             ))}
 
-            {/* "View all" trailing card — completes the strip with a clear CTA */}
+            {/* "View all" trailing card, completes the strip with a clear CTA */}
             <Link
               href="/projects"
               className="dev-card group flex shrink-0 snap-start
@@ -130,10 +130,10 @@ export default function DevelopmentsStrip() {
 
 /**
  * Status pill styling. Each status gets a distinct visual treatment:
- *  - Available: bone background, navy text — neutral, "yes you can buy"
- *  - Limited: gold background, navy text — urgent, "few left"
- *  - Selling Soon: navy background, gold text — anticipatory
- *  - Sold Out: muted, low-contrast — historical credibility marker
+ *  - Available: bone background, navy text, neutral, "yes you can buy"
+ *  - Limited: gold background, navy text, urgent, "few left"
+ *  - Selling Soon: navy background, gold text, anticipatory
+ *  - Sold Out: muted, low-contrast, historical credibility marker
  */
 function statusPillStyle(status: Exclude<SalesStatus, undefined>): string {
   const base = "inline-flex items-center px-3 py-1.5 backdrop-blur-sm";

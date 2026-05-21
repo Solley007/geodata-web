@@ -11,7 +11,7 @@ import ThemeToggle from "@/components/shared/ThemeToggle";
 import BookViewingButton from "@/components/shared/BookViewingButton";
 import SavedIndicator from "@/components/shared/SavedIndicator";
 
-// Which mega panel is open — null when both are closed
+// Which mega panel is open, null when both are closed
 type MegaKey = "properties" | "projects";
 
 const NAV_ITEMS = [

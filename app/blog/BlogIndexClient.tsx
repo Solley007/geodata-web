@@ -18,7 +18,7 @@ export default function BlogIndexClient({ posts }: Props) {
     return posts.filter((p) => p.category === category);
   }, [posts, category]);
 
-  // Featured post — only when looking at "All". Otherwise we just show the grid.
+  // Featured post, only when looking at "All". Otherwise we just show the grid.
   const featured = category === "All" ? filtered.find((p) => p.featured) ?? filtered[0] : null;
   const rest = featured ? filtered.filter((p) => p.slug !== featured.slug) : filtered;
 

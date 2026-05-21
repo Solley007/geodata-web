@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Organization-level structured data — used site-wide.
+// Organization-level structured data, used site-wide.
 // This is what Google uses to populate the knowledge panel
 // for "Geodata World Services" searches.
 const organizationSchema = {

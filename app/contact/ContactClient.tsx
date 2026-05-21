@@ -31,7 +31,7 @@ export default function ContactClient() {
         <p className="contact-eyebrow eyebrow mb-6">Begin a conversation</p>
 
         <div className="grid grid-cols-12 gap-12">
-          {/* LEFT — letter and contact details */}
+          {/* LEFT, letter and contact details */}
           <div className="col-span-12 lg:col-span-5">
             <h1 className="contact-title text-display-xl font-display text-navy-950 dark:text-bone tracking-tightest">
               Hello.
@@ -40,7 +40,7 @@ export default function ContactClient() {
             <div className="contact-letter mt-12 space-y-6 max-w-md">
               <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
                 Whether you're considering a residence, exploring an investment,
-                or have a question about our development pipeline — we'd be
+                or have a question about our development pipeline, we'd be
                 glad to hear from you.
               </p>
               <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
@@ -80,7 +80,7 @@ export default function ContactClient() {
             </div>
           </div>
 
-          {/* RIGHT — form */}
+          {/* RIGHT, form */}
           <div className="col-span-12 lg:col-span-6 lg:col-start-7">
             <SectionErrorBoundary sectionName="ContactForm">
               <ContactForm />
@@ -90,7 +90,7 @@ export default function ContactClient() {
       </div>
     </section>
 
-    {/* Office map — full width below the contact section */}
+    {/* Office map, full width below the contact section */}
     <ContactMap />
     </>
   );

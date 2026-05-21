@@ -7,7 +7,7 @@ import { createContext, useContext, useEffect, useState, useCallback } from "rea
  * ----
  * - Persists to localStorage under `geodata_saved_residences` as a JSON array of slugs
  * - Syncs across browser tabs via the `storage` event
- * - SSR-safe — starts empty server-side, hydrates on mount
+ * - SSR-safe, starts empty server-side, hydrates on mount
  */
 
 const STORAGE_KEY = "geodata_saved_residences";
@@ -19,7 +19,7 @@ interface SavedContext {
   toggle: (slug: string) => void;
   remove: (slug: string) => void;
   clear: () => void;
-  /** True after first client-side hydration — use to avoid SSR/CSR mismatch */
+  /** True after first client-side hydration, use to avoid SSR/CSR mismatch */
   hydrated: boolean;
 }
 
@@ -56,7 +56,7 @@ export function SavedResidencesProvider({ children }: { children: React.ReactNod
     setHydrated(true);
   }, []);
 
-  // Cross-tab sync — listen for changes from other tabs
+  // Cross-tab sync, listen for changes from other tabs
   useEffect(() => {
     function onStorage(e: StorageEvent) {
       if (e.key !== STORAGE_KEY) return;

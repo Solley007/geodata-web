@@ -30,7 +30,7 @@ export default function Preloader() {
         exiting ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      {/* Logo — large, centred, lifts in */}
+      {/* Logo, large, centred, lifts in */}
       <div
         className="w-[95vw] max-w-6xl px-4"
         style={{
@@ -47,7 +47,7 @@ export default function Preloader() {
         />
       </div>
 
-      {/* Gold progress bar — sweeps over 3.2s */}
+      {/* Gold progress bar, sweeps over 3.2s */}
       <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#E5E0D5]">
         <div
           className="h-full bg-[#C9A961] origin-left"

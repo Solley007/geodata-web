@@ -6,7 +6,7 @@ import Link from "next/link";
 import { gsap } from "@/lib/gsap";
 import { PROPERTY_NAV } from "@/lib/site-content";
 
-// Prices come from lib/site-content.ts — edit PROPERTY_NAV to update them.
+// Prices come from lib/site-content.ts, edit PROPERTY_NAV to update them.
 const PROPERTIES = [
   {
     slug:     "4-bed-semi-detached",

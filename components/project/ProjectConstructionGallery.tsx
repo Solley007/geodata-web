@@ -41,7 +41,7 @@ export default function ProjectConstructionGallery({
   useEffect(() => {
     fetchConstructionUpdates()
       .then((all) => {
-        // Filter by slug only — ignore phase
+        // Filter by slug only, ignore phase
         const filtered = all
           .filter((u) => u.propertySlug === slug)
           .sort((a, b) => +new Date(b.date) - +new Date(a.date));

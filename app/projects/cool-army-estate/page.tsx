@@ -7,7 +7,7 @@ import { readSiteUpdates } from "@/lib/site-updates";
 import { formatUpdateDate } from "@/lib/site-updates-types";
 
 // ============================================================================
-//  Cool Army Estate — built by Geodata for Cool Real Estate.
+//  Cool Army Estate, built by Geodata for Cool Real Estate.
 //  Geodata is the developer/contractor, not the seller. No prices, no
 //  inquiries on this page. Shown as portfolio / case study work.
 // ============================================================================
@@ -47,7 +47,7 @@ const UNITS = [
 ];
 
 export const metadata = {
-  title:       "Cool Army Estate — Geodata World Services",
+  title:       "Cool Army Estate, Geodata World Services",
   description: "20-unit mixed housing development in Owerri, Imo State. Built by Geodata for Cool Real Estate.",
 };
 
@@ -101,7 +101,7 @@ export default async function CoolArmyEstatePage() {
               A mixed-typology estate delivered to spec in Owerri.
             </h2>
             <p className="text-lg leading-relaxed text-ink-muted dark:text-bone/70 max-w-2xl">
-              Twenty residences across five distinct typologies, designed and built by Geodata on behalf of Cool Real Estate. The estate combines large family mansions with mid-sized duplexes and semi-detached homes — each finished to the same standard regardless of size.
+              Twenty residences across five distinct typologies, designed and built by Geodata on behalf of Cool Real Estate. The estate combines large family mansions with mid-sized duplexes and semi-detached homes, each finished to the same standard regardless of size.
             </p>
           </div>
 
@@ -232,7 +232,7 @@ export default async function CoolArmyEstatePage() {
         </div>
       </section>
 
-      {/* ─── CTA (no sales — back to portfolio) ────────────────────── */}
+      {/* ─── CTA (no sales, back to portfolio) ────────────────────── */}
       <section className="py-20 bg-navy-950 text-bone">
         <div className="container-editorial text-center">
           <h2 className="text-display-lg font-display tracking-tightest leading-none mb-6">

@@ -5,7 +5,7 @@ import { useSavedResidences } from "@/lib/SavedResidencesProvider";
 
 interface Props {
   slug: string;
-  /** Visual variant — "overlay" sits on top of an image; "inline" sits in a regular text flow */
+  /** Visual variant, "overlay" sits on top of an image; "inline" sits in a regular text flow */
   variant?: "overlay" | "inline";
   className?: string;
 }

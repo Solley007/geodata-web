@@ -11,7 +11,7 @@ interface PageProps {
   params: { slug: string };
 }
 
-// Static generation — Next.js builds a page per slug at build time.
+// Static generation, Next.js builds a page per slug at build time.
 // New post added → next deploy → page exists. No runtime cost.
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -56,7 +56,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const related = getRelatedPosts(post.slug, post.category, 3);
 
-  // Structured data — Article schema. Improves how Google renders the post
+  // Structured data, Article schema. Improves how Google renders the post
   // in search results (publish date, author, image card).
   const articleSchema = {
     "@context": "https://schema.org",
@@ -94,7 +94,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <PostHero post={post} />
       <PostBody post={post} />
 
-      {/* End-of-post CTA — converts readers into leads */}
+      {/* End-of-post CTA, converts readers into leads */}
       <section className="bg-navy-950 text-bone py-24 md:py-32 border-t border-bone/10">
         <div className="container-editorial">
           <div className="grid grid-cols-12 gap-12">

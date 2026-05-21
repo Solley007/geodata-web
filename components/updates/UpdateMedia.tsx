@@ -37,7 +37,7 @@ export default function UpdateMedia({ update }: { update: SiteUpdate }) {
             >
               <Image
                 src={url}
-                alt={`${update.title} — photo ${i + 1}`}
+                alt={`${update.title}, photo ${i + 1}`}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 unoptimized

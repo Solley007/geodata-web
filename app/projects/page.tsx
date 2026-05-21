@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: `${PROJECTS.length} projects across residential, commercial, institutional, and infrastructure work. Eighteen years of construction experience including federal government and Central Bank of Nigeria contracts.`,
   alternates: { canonical: "/projects" },
   openGraph: {
-    title: "Projects — Geodata World Services",
+    title: "Projects, Geodata World Services",
     description: `${PROJECTS.length} projects across residential, commercial, institutional, and infrastructure work in Nigeria.`,
     url: "/projects",
     images: [

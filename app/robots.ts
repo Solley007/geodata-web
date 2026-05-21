@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-// Generated automatically — Next.js serves this at /robots.txt
+// Generated automatically, Next.js serves this at /robots.txt
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [

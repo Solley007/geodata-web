@@ -106,7 +106,7 @@ export default function ContactForm() {
           />
         </div>
 
-        {/* Email + Phone — paired */}
+        {/* Email + Phone, paired */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="cf-fade">
             <label className="eyebrow text-ink-muted dark:text-bone/60 mb-3 block">Email</label>
@@ -192,7 +192,7 @@ export default function ContactForm() {
                   <span className="cf-dot inline-block h-1 w-1 rounded-full bg-bone dark:bg-navy-950" />
                 </span>
                 <span>Sending</span>
-                <span className="sr-only">— please wait</span>
+                <span className="sr-only">, please wait</span>
               </>
             ) : (
               <>

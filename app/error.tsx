@@ -14,7 +14,7 @@ interface ErrorProps {
 
 export default function Error({ error, reset }: ErrorProps) {
   useEffect(() => {
-    // PLACEHOLDER — wire to your error tracker (Sentry, LogRocket, etc.)
+    // PLACEHOLDER, wire to your error tracker (Sentry, LogRocket, etc.)
     // For now, log to console so you see it during development
     console.error("Unhandled error:", error);
   }, [error]);

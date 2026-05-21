@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Site Update types — published updates from active construction sites
+// Site Update types, published updates from active construction sites
 // Used in both server (admin API) and client (gallery, feed page).
 // ---------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ export interface SiteUpdate {
   mediaType:   UpdateMediaType;
 
   // All assets are Cloudinary URLs (or in some cases external photos for testing)
-  coverImage:  string;          // always required — used as card thumbnail
+  coverImage:  string;          // always required, used as card thumbnail
   videoUrl?:   string;          // Cloudinary video URL if mediaType === "video"
   gallery?:    string[];        // additional photo URLs if mediaType === "gallery"
 }
@@ -56,7 +56,7 @@ export function cloudinaryVideoPoster(videoUrl: string): string {
 
 /**
  * Convert a Cloudinary video URL to an HLS adaptive bitrate manifest URL.
- * Uses Cloudinary's sp_hd streaming profile — serves 360p / 480p / 720p
+ * Uses Cloudinary's sp_hd streaming profile, serves 360p / 480p / 720p
  * and the player picks the right quality automatically based on network speed.
  * Falls back gracefully: returns the original URL unchanged for non-Cloudinary
  * sources so the player can still play them as regular MP4.

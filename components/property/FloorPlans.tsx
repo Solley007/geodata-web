@@ -23,7 +23,7 @@ export default function FloorPlans({ floorPlans, floorPlanPdf, propertyTitle }: 
   return (
     <>
       <div className="mt-16 pt-12 border-t border-hairline dark:border-white/10">
-        {/* Header row — title left, single PDF download right */}
+        {/* Header row, title left, single PDF download right */}
         <div className="flex items-start justify-between gap-6 mb-8 flex-wrap">
           <div>
             <p className="eyebrow text-ink-faint dark:text-bone/40 mb-2">Floor plans</p>
@@ -54,7 +54,7 @@ export default function FloorPlans({ floorPlans, floorPlanPdf, propertyTitle }: 
           </a>
         </div>
 
-        {/* Floor tabs — only render if more than one floor */}
+        {/* Floor tabs, only render if more than one floor */}
         {floorPlans.length > 1 && (
           <div className="flex gap-0 border-b border-hairline dark:border-white/10 overflow-x-auto scrollbar-hide mb-6">
             {floorPlans.map((plan, i) => (
@@ -84,7 +84,7 @@ export default function FloorPlans({ floorPlans, floorPlanPdf, propertyTitle }: 
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={active.imageUrl}
-              alt={`${propertyTitle} — ${active.floor}`}
+              alt={`${propertyTitle}, ${active.floor}`}
               className="w-full h-auto object-contain max-h-[600px] transition-transform duration-700 group-hover:scale-[1.02]"
               onError={() =>
                 setImageErrors((prev) => ({ ...prev, [activeIndex]: true }))
@@ -139,7 +139,7 @@ export default function FloorPlans({ floorPlans, floorPlanPdf, propertyTitle }: 
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={active.imageUrl}
-              alt={`${propertyTitle} — ${active.floor}`}
+              alt={`${propertyTitle}, ${active.floor}`}
               className="max-w-none w-full md:w-auto md:max-w-5xl md:max-h-[85vh] object-contain"
               style={{ touchAction: "pinch-zoom" }}
             />

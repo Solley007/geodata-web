@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Blog post parser — SERVER ONLY
+// Blog post parser, SERVER ONLY
 // ---------------------------------------------------------------------------
 // Reads markdown files from /content/blog. Uses Node's fs module, so this
 // file must NEVER be imported from a client component.
@@ -81,7 +81,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   const frontmatter = data as BlogFrontmatter;
   const stats = readingTime(content);
 
-  // Extract headings BEFORE rendering — used for the article TOC if needed
+  // Extract headings BEFORE rendering, used for the article TOC if needed
   const headings = extractHeadings(content);
 
   // Process markdown -> HTML with the full editorial pipeline
@@ -141,7 +141,7 @@ function extractHeadings(markdown: string) {
   return headings;
 }
 
-/** Get related posts — same category, excluding the current one */
+/** Get related posts, same category, excluding the current one */
 export function getRelatedPosts(
   currentSlug: string,
   category: BlogCategory,

@@ -9,12 +9,12 @@ function auth(req: NextRequest): boolean {
   return want.length > 0 && got === want;
 }
 
-// GET — public read of all updates (no auth — same as the static JSON)
+// GET, public read of all updates (no auth, same as the static JSON)
 export async function GET() {
   return NextResponse.json(readSiteUpdates());
 }
 
-// POST — create a new update
+// POST, create a new update
 export async function POST(req: NextRequest) {
   if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// PUT — edit an existing update by id
+// PUT, edit an existing update by id
 export async function PUT(req: NextRequest) {
   if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
@@ -92,7 +92,7 @@ export async function PUT(req: NextRequest) {
   }
 }
 
-// DELETE — by id
+// DELETE, by id
 export async function DELETE(req: NextRequest) {
   if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {

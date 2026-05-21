@@ -11,7 +11,7 @@ interface Props {
 }
 
 /**
- * BookViewingEmbed — inline Cal.com calendar widget.
+ * BookViewingEmbed, inline Cal.com calendar widget.
  * Styled to match Geodata brand (red accent, navy palette, Euclid Circular).
  * Use this for full booking pages. For a button that opens a popup, use BookViewingButton.
  */

@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// /api/og — programmatic Open Graph image generator
+// /api/og, programmatic Open Graph image generator
 // ---------------------------------------------------------------------------
 // Generates a branded 1200x630 share card on demand. Pages call this with
 // query params:
@@ -19,7 +19,7 @@ import { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
-// Sensible upper bounds — protects against weird URLs
+// Sensible upper bounds, protects against weird URLs
 const MAX_TITLE = 90;
 const MAX_SUBTITLE = 200;
 
@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
     const eyebrow = (params.get("eyebrow") || "Geodata").slice(0, 50);
     const subtitle = (params.get("subtitle") || "").slice(0, MAX_SUBTITLE);
 
-    // Fetch fonts from Google Fonts at edge — cached aggressively after first call
+    // Fetch fonts from Google Fonts at edge, cached aggressively after first call
     const [frauncesData, dmSansData] = await Promise.all([
       fetchFont(
         "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,300&display=swap"
@@ -69,7 +69,7 @@ export async function GET(request: NextRequest) {
             }}
           />
 
-          {/* Top — eyebrow + brand mark */}
+          {/* Top, eyebrow + brand mark */}
           <div
             style={{
               display: "flex",
@@ -103,7 +103,7 @@ export async function GET(request: NextRequest) {
             </div>
           </div>
 
-          {/* Middle — title and subtitle */}
+          {/* Middle, title and subtitle */}
           <div
             style={{
               display: "flex",
@@ -141,7 +141,7 @@ export async function GET(request: NextRequest) {
             )}
           </div>
 
-          {/* Bottom — gold rule + meta */}
+          {/* Bottom, gold rule + meta */}
           <div
             style={{
               display: "flex",

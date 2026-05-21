@@ -26,7 +26,7 @@ export default function MortgageCalculator() {
   );
 
   // Animate the headline numbers when they change. We tween a counter object
-  // and write into the DOM directly — same pattern as StatsCounter on home.
+  // and write into the DOM directly, same pattern as StatsCounter on home.
   const monthlyRef = useRef<HTMLSpanElement>(null);
   const totalRef = useRef<HTMLSpanElement>(null);
   const interestRef = useRef<HTMLSpanElement>(null);
@@ -96,7 +96,7 @@ export default function MortgageCalculator() {
         </div>
 
         <div className="grid grid-cols-12 gap-x-12 gap-y-16">
-          {/* LEFT — Inputs */}
+          {/* LEFT, Inputs */}
           <div className="col-span-12 lg:col-span-7 space-y-12">
             {/* Price input */}
             <div className="calc-fade">
@@ -217,7 +217,7 @@ export default function MortgageCalculator() {
             )}
           </div>
 
-          {/* RIGHT — Results panel */}
+          {/* RIGHT, Results panel */}
           <div className="col-span-12 lg:col-span-5">
             <div className="calc-fade bg-navy-950 text-bone p-6 sm:p-8 lg:p-10 sticky top-32">
               <p className="eyebrow text-bone/60 mb-3">Monthly repayment</p>

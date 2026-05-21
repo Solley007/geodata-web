@@ -44,14 +44,14 @@ export default function BriefAboutUs() {
         priority={false}
       />
 
-      {/* Dark overlay — navy tint keeps brand palette, 70% gives legible text */}
+      {/* Dark overlay, navy tint keeps brand palette, 70% gives legible text */}
       <div className="absolute inset-0 bg-navy-950/70" />
 
       {/* Content */}
       <div className="relative z-10 container-editorial">
         <div className="grid grid-cols-12 gap-12">
 
-          {/* Left — full logo */}
+          {/* Left, full logo */}
           <div className="col-span-12 lg:col-span-4 about-fade">
             <p className="eyebrow !text-white mb-5">About Geodata</p>
             {/* Crops the 4000×4000 PNG to its 2396×907 lockup (bbox starts at 665,1743). */}
@@ -67,7 +67,7 @@ export default function BriefAboutUs() {
             />
           </div>
 
-          {/* Right — manifesto headline + mission/vision */}
+          {/* Right, manifesto headline + mission/vision */}
           <div className="col-span-12 lg:col-span-8">
             <h2 className="about-fade text-display-lg font-display text-bone tracking-tightest leading-[1.05] mb-10">
               {ABOUT.manifesto}

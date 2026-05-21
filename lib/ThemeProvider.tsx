@@ -17,7 +17,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 const STORAGE_KEY = "geodata-theme";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Start with "light" to match SSR — the inline script in <head>
+  // Start with "light" to match SSR, the inline script in <head>
   // has already set the correct class on <html> before JS hydrates,
   // so there's no flash. We sync state here after mount.
   const [theme, setTheme] = useState<Theme>("light");
@@ -53,7 +53,7 @@ export function useTheme() {
 }
 
 /**
- * Inline script injected into <head> — runs synchronously before any render,
+ * Inline script injected into <head>, runs synchronously before any render,
  * preventing flash of wrong theme. Reads localStorage then falls back to
  * OS preference.
  */

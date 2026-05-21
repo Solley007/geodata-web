@@ -4,12 +4,12 @@ import Image from "next/image";
 import { getAllProperties } from "@/lib/property-data";
 
 export const metadata: Metadata = {
-  title: "Southern Bridge City — Idu, Abuja",
+  title: "Southern Bridge City, Idu, Abuja",
   description:
     "321 MREIF-eligible residences across five typologies at Southern Bridge City, Idu. 9.75% fixed mortgage for 20 years, naira denominated.",
   alternates: { canonical: "/projects/southern-bridge-city" },
   openGraph: {
-    title: "Southern Bridge City — Phase One",
+    title: "Southern Bridge City, Phase One",
     description:
       "321 residences at Idu, Abuja. Five typologies from ₦130M. MREIF-eligible at 9.75% fixed for 20 years.",
     url: "/projects/southern-bridge-city",
@@ -32,7 +32,7 @@ function statusStyle(status: string) {
   return "bg-navy-950/80 text-bone/70";
 }
 
-// MREIF illustrative payments — calculated at 9.75% / 20yr / 90% LTV
+// MREIF illustrative payments, calculated at 9.75% / 20yr / 90% LTV
 function monthlyPayment(price: number): string {
   const principal = price * 0.9;
   const r = 0.0975 / 12;
@@ -51,7 +51,7 @@ export default function SouthernBridgeCityPage() {
       <section className="relative min-h-[80vh] flex items-end bg-navy-950 overflow-hidden">
         <Image
           src="/SBC-poster.png"
-          alt="Southern Bridge City aerial — Idu, Abuja"
+          alt="Southern Bridge City aerial, Idu, Abuja"
           fill
           priority
           className="object-cover opacity-60"
@@ -99,7 +99,7 @@ export default function SouthernBridgeCityPage() {
               <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
                 Southern Bridge City is a 321-unit master-planned residential
                 development at Idu, in Abuja's northern growth corridor. Phase
-                One — currently 78% complete — delivers five distinct housing
+                One, currently 78% complete, delivers five distinct housing
                 typologies on a single contiguous site, united by shared
                 infrastructure and a coherent architectural language.
               </p>
@@ -107,7 +107,7 @@ export default function SouthernBridgeCityPage() {
                 The development is qualified under the Ministry of Finance
                 Incorporated Real Estate Investment Fund (MREIF) Offtake
                 Guarantee. Every residence in Phase One is eligible for MREIF
-                mortgage financing at 9.75% fixed for up to 20 years — terms
+                mortgage financing at 9.75% fixed for up to 20 years, terms
                 no commercial lender in Nigeria currently matches.
               </p>
               <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
@@ -137,7 +137,7 @@ export default function SouthernBridgeCityPage() {
         </div>
       </section>
 
-      {/* ─── MASTER PLAN (commented out — no site plan available yet) ───
+      {/* ─── MASTER PLAN (commented out, no site plan available yet) ───
       <section id="masterplan" className="bg-bone-100 dark:bg-navy-900 py-32 md:py-48">
         <div className="container-editorial">
           <div className="grid grid-cols-12 gap-12 mb-16">
@@ -151,7 +151,7 @@ export default function SouthernBridgeCityPage() {
               <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
                 The estate is planned around a landscaped central spine with
                 pedestrian paths, mature planting, and a 1,200m² clubhouse.
-                Every service — power, water, fibre, drainage — runs
+                Every service, power, water, fibre, drainage, runs
                 underground. No overhead cables, no visible infrastructure.
               </p>
             </div>
@@ -159,16 +159,16 @@ export default function SouthernBridgeCityPage() {
 
           Master plan image placeholder
           <div className="relative aspect-[16/9] bg-navy-100 overflow-hidden mb-12">
-            PLACEHOLDER — replace with real master plan image
+            PLACEHOLDER, replace with real master plan image
             <Image
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=2400&q=85&auto=format&fit=crop"
-              alt="Southern Bridge City site plan — Idu, Abuja"
+              alt="Southern Bridge City site plan, Idu, Abuja"
               fill
               className="object-cover opacity-80"
             />
             <div className="absolute bottom-6 left-6 bg-bone/95 px-4 py-3">
               <p className="eyebrow text-ink-faint dark:text-bone/40 mb-1">Site plan</p>
-              <p className="text-sm text-navy-950 dark:text-bone">Southern Bridge City — Phase One, Idu</p>
+              <p className="text-sm text-navy-950 dark:text-bone">Southern Bridge City, Phase One, Idu</p>
             </div>
           </div>
 
@@ -220,7 +220,7 @@ export default function SouthernBridgeCityPage() {
                 Take the full details with you.
               </h2>
               <p className="text-lg text-ink-muted dark:text-bone/70 leading-relaxed max-w-xl">
-                Floor plans, typology specifications, finishes — the complete Southern Bridge City brochure, ready to download and share.
+                Floor plans, typology specifications, finishes, the complete Southern Bridge City brochure, ready to download and share.
               </p>
             </div>
  
@@ -260,8 +260,8 @@ export default function SouthernBridgeCityPage() {
               <p className="text-lg leading-relaxed text-ink dark:text-bone/75">
                 Every residence shares the same estate infrastructure, security,
                 and management. The five typologies differ in size, configuration,
-                and price — from The Pavilion apartment at ₦130M to The Six
-                and The Five at ₦220M — so buyers can choose the home that
+                and price, from The Pavilion apartment at ₦130M to The Six
+                and The Five at ₦220M, so buyers can choose the home that
                 fits their household, not just their budget.
               </p>
             </div>
@@ -348,7 +348,7 @@ export default function SouthernBridgeCityPage() {
               <div className="inline-flex items-center gap-3 bg-bone dark:bg-navy-950 px-4 py-3 mb-8">
                 <Image
                   src="/mreif-logo.png"
-                  alt="MREIF — Ministry of Finance Incorporated Real Estate Investment Fund"
+                  alt="MREIF, Ministry of Finance Incorporated Real Estate Investment Fund"
                   width={40}
                   height={40}
                   className="h-10 w-10 shrink-0"
@@ -365,7 +365,7 @@ export default function SouthernBridgeCityPage() {
             <div className="col-span-12 lg:col-span-6 lg:col-start-7 space-y-5">
               <p className="text-lg leading-relaxed text-bone/85">
                 Every Southern Bridge City residence qualifies for MREIF
-                financing — a federal mortgage programme administered through
+                financing, a federal mortgage programme administered through
                 partner banks. The rate of 9.75% per annum is fixed for the
                 full 20-year term. No variable rate risk. No renegotiation.
               </p>
@@ -465,7 +465,7 @@ export default function SouthernBridgeCityPage() {
                 {[
                   {
                     title: "Fixed payments for 20 years",
-                    desc: "The 9.75% MREIF rate is locked for the full term. In a high-inflation economy, a fixed-rate naira mortgage is a rare and valuable instrument — your monthly payment stays the same while rents around you rise.",
+                    desc: "The 9.75% MREIF rate is locked for the full term. In a high-inflation economy, a fixed-rate naira mortgage is a rare and valuable instrument, your monthly payment stays the same while rents around you rise.",
                   },
                   {
                     title: "A finished estate from day one",
@@ -473,11 +473,11 @@ export default function SouthernBridgeCityPage() {
                   },
                   {
                     title: "Quality you can verify",
-                    desc: "Independent quantity surveyors audit every stage. Construction photographs are published regularly. The MREIF Offtake Guarantee means the project has passed federal-programme due diligence — not just the developer's word.",
+                    desc: "Independent quantity surveyors audit every stage. Construction photographs are published regularly. The MREIF Offtake Guarantee means the project has passed federal-programme due diligence, not just the developer's word.",
                   },
                   {
                     title: "Location with trajectory",
-                    desc: "Idu is the next growth corridor — proximate to the CBD, the airport, and Maitama, but priced and positioned as Abuja's answer to mid-market quality housing. Values in well-built gated estates in this corridor have appreciated 40–60% over the last five years.",
+                    desc: "Idu is the next growth corridor, proximate to the CBD, the airport, and Maitama, but priced and positioned as Abuja's answer to mid-market quality housing. Values in well-built gated estates in this corridor have appreciated 40–60% over the last five years.",
                   },
                 ].map((r) => (
                   <li key={r.title} className="border-t border-hairline dark:border-white/10 pt-6">
@@ -497,19 +497,19 @@ export default function SouthernBridgeCityPage() {
                 {[
                   {
                     title: "Gross yield of 3.8–5.4%",
-                    desc: "Idu professional rental market commands ₦5–7M annually for a four-bedroom flat. On The Pavilion at ₦130M, that is a gross yield of 3.8–5.4% before capital appreciation — competitive with the best residential yields in Abuja.",
+                    desc: "Idu professional rental market commands ₦5–7M annually for a four-bedroom flat. On The Pavilion at ₦130M, that is a gross yield of 3.8–5.4% before capital appreciation, competitive with the best residential yields in Abuja.",
                   },
                   {
                     title: "MREIF leverage amplifies equity returns",
-                    desc: "At 10% equity in, you control ₦130–220M of real estate with ₦13–22M of your own capital. If the asset appreciates 20% in three years — conservative for this corridor — your return on equity is 200%+. Leverage works when the underlying asset is credible.",
+                    desc: "At 10% equity in, you control ₦130–220M of real estate with ₦13–22M of your own capital. If the asset appreciates 20% in three years, conservative for this corridor, your return on equity is 200%+. Leverage works when the underlying asset is credible.",
                   },
                   {
                     title: "Independent oversight, not just developer assurances",
-                    desc: "Southern Bridge City sits inside the MREIF Offtake Guarantee — a federal-programme review that examined the site, the developer's track record, and the construction programme before granting eligibility. Independent quantity surveyors verify progress monthly. REDAN membership and an 18-year compliance record (RC 688927) sit behind every commitment we make.",
+                    desc: "Southern Bridge City sits inside the MREIF Offtake Guarantee, a federal-programme review that examined the site, the developer's track record, and the construction programme before granting eligibility. Independent quantity surveyors verify progress monthly. REDAN membership and an 18-year compliance record (RC 688927) sit behind every commitment we make.",
                   },
                   {
                     title: "Exit liquidity from a captive buyer pool",
-                    desc: "MREIF eligibility means your buyer pool at resale includes anyone who qualifies for a federal mortgage — a far larger pool than most premium developments can access. You are not limited to cash buyers.",
+                    desc: "MREIF eligibility means your buyer pool at resale includes anyone who qualifies for a federal mortgage, a far larger pool than most premium developments can access. You are not limited to cash buyers.",
                   },
                 ].map((r) => (
                   <li key={r.title} className="border-t border-hairline dark:border-white/10 pt-6">

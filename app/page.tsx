@@ -12,26 +12,26 @@ import SubscribePopup from "@/components/shared/SubscribePopup";
 export const metadata: Metadata = {
   title: "Premium Real Estate in Abuja", // template adds " | Geodata World Services"
   description:
-    "321 MREIF-eligible residences at Southern Bridge City, Idu — Abuja. 9.75% fixed mortgage for 20 years, naira denominated.",
+    "321 MREIF-eligible residences at Southern Bridge City, Idu, Abuja. 9.75% fixed mortgage for 20 years, naira denominated.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Premium Real Estate in Abuja",
     description:
-      "321 MREIF-eligible residences at Southern Bridge City, Idu — Abuja. 9.75% fixed mortgage for 20 years.",
+      "321 MREIF-eligible residences at Southern Bridge City, Idu, Abuja. 9.75% fixed mortgage for 20 years.",
     url: "/",
     images: [
       {
         url: `/api/og?eyebrow=${encodeURIComponent("Southern Bridge City")}&title=${encodeURIComponent("A new address for Abuja.")}&subtitle=${encodeURIComponent("321 residences, MREIF-eligible. 9.75% fixed mortgage for 20 years.")}`,
         width: 1200,
         height: 630,
-        alt: "Geodata World Services — A new address for Abuja",
+        alt: "Geodata World Services, A new address for Abuja",
       },
     ],
   },
 };
 
 export default function HomePage() {
-  // Site-wide Organization schema — what populates Google's knowledge panel
+  // Site-wide Organization schema, what populates Google's knowledge panel
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",

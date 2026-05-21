@@ -14,7 +14,7 @@ interface FadeUpProps {
 }
 
 /**
- * FadeUp — drop-in scroll-reveal wrapper
+ * FadeUp, drop-in scroll-reveal wrapper
  * --------------------------------------
  * Usage:
  *   <FadeUp>

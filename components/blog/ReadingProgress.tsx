@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  * ----
  * Hairline at the very top of the page that fills as you scroll the article.
  * Calibrated to the article element so it reflects reading progress, not
- * page-scroll progress (different concept — page includes nav, footer, etc).
+ * page-scroll progress (different concept, page includes nav, footer, etc).
  */
 export default function ReadingProgress({ targetId }: { targetId: string }) {
   const fill = useRef<HTMLDivElement>(null);

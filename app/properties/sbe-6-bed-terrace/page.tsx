@@ -3,7 +3,7 @@ import Link from "next/link";
 import ProjectGallery, { type GalleryItem } from "@/components/project/ProjectGallery";
 
 // ============================================================================
-//  EDIT GALLERY HERE — drop your own image / Cloudinary video URLs in
+//  EDIT GALLERY HERE, drop your own image / Cloudinary video URLs in
 // ============================================================================
 const GALLERY: GalleryItem[] = [
   { type: "photo", src: "/properties/SBE/SBE-TERRACE.jpeg", caption: "Estate aerial view" },
@@ -14,7 +14,7 @@ const GALLERY: GalleryItem[] = [
 // ============================================================================
 
 export const metadata = {
-  title:       "6-Bedroom Terrace Duplex — Southern Bridge Estate — Geodata",
+  title:       "6-Bedroom Terrace Duplex, Southern Bridge Estate, Geodata",
   description: "Twelve completed 6-bedroom terrace residences at Southern Bridge Estate.",
 };
 

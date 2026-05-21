@@ -3,7 +3,7 @@ import UpdateCard from "@/components/updates/UpdateCard";
 import { readSiteUpdates, sortByDate } from "@/lib/site-updates";
 
 /**
- * HomeUpdates — shows the 3 most recent site updates on the homepage.
+ * HomeUpdates, shows the 3 most recent site updates on the homepage.
  * Renders nothing if no updates have been published yet (graceful fallback).
  */
 export default function HomeUpdates() {

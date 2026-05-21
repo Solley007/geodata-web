@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { STATS } from "@/lib/site-content";
 
-// Stats sourced from lib/site-content.ts — edit there to update numbers.
+// Stats sourced from lib/site-content.ts, edit there to update numbers.
 const STAT_ITEMS = STATS.map((s) => ({
   value:  parseInt(s.value.replace(/\D/g, ""), 10) || 0,
   suffix: s.value.replace(/[0-9]/g, ""),
@@ -57,7 +57,7 @@ export default function StatsCounter() {
       ref={root}
       className="bg-navy-950 text-bone py-10 md:py-12 relative overflow-hidden"
     >
-      {/* Texture overlay — not pure flat black. Adds atmosphere. */}
+      {/* Texture overlay, not pure flat black. Adds atmosphere. */}
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.04] pointer-events-none"

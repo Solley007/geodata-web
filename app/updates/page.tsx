@@ -3,7 +3,7 @@ import { readSiteUpdates, sortByDate } from "@/lib/site-updates";
 import UpdatesGrid from "@/components/updates/UpdatesGrid";
 
 export const metadata: Metadata = {
-  title: "Updates — Geodata World Services",
+  title: "Updates, Geodata World Services",
   description: "Latest photos and videos from active Geodata construction sites across Nigeria.",
 };
 

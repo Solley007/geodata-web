@@ -22,7 +22,7 @@ const CLIENT_PROJECT_LINKS: Record<string, string> = {
  * trust-conferring fact in the entire document, and it deserves a section
  * that lets the reader feel the weight.
  *
- * Dark background sets it apart from the rest of the page — used here
+ * Dark background sets it apart from the rest of the page, used here
  * because the content is institutional, formal, and important.
  */
 export default function InstitutionalClients() {
@@ -78,7 +78,7 @@ export default function InstitutionalClients() {
         </div>
 
         <div className="grid grid-cols-12 gap-12">
-          {/* Tabs — left column on desktop, top on mobile */}
+          {/* Tabs, left column on desktop, top on mobile */}
           <div className="col-span-12 lg:col-span-4">
             <div className="ic-fade flex lg:flex-col gap-2 lg:gap-1 overflow-x-auto lg:overflow-visible -mx-6 px-6 lg:mx-0 lg:px-0">
               {INSTITUTIONAL_WORK.map((client, i) => (

@@ -39,7 +39,7 @@ export default function FeaturedPost({ post }: Props) {
       <div className="container-editorial">
         <Link href={`/blog/${post.slug}`} className="group block">
           <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Image — 2/3 width, dominant */}
+            {/* Image, 2/3 width, dominant */}
             <div className="fp-fade col-span-12 lg:col-span-8 relative aspect-[4/3] overflow-hidden bg-navy-100 dark:bg-navy-800">
               <Image
                 src={post.coverImage}
@@ -56,7 +56,7 @@ export default function FeaturedPost({ post }: Props) {
               </div>
             </div>
 
-            {/* Content — 1/3 width, breathes */}
+            {/* Content, 1/3 width, breathes */}
             <div className="col-span-12 lg:col-span-4">
               <p className="fp-fade eyebrow text-ink-faint dark:text-bone/40 mb-6">
                 {dateFormatted} · {post.readingTime}

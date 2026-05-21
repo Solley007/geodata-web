@@ -10,7 +10,7 @@ export default function PropertiesListClient() {
 
   // Hide typologies explicitly marked Sold Out.
   // (We previously filtered by `available > 0`, but inventory counts aren't
-  // tracked reliably yet — so we trust the status field instead.)
+  // tracked reliably yet, so we trust the status field instead.)
   const activeProperties = useMemo(
     () => PROPERTIES.filter((p) => p.status !== "Sold Out"),
     []

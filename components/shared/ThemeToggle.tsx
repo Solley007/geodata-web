@@ -22,7 +22,7 @@ export default function ThemeToggle({ className }: Props) {
         className
       )}
     >
-      {/* Sun — visible in dark mode (click to go light) */}
+      {/* Sun, visible in dark mode (click to go light) */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18" height="18" viewBox="0 0 24 24"
@@ -47,7 +47,7 @@ export default function ThemeToggle({ className }: Props) {
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
       </svg>
 
-      {/* Moon — visible in light mode (click to go dark) */}
+      {/* Moon, visible in light mode (click to go dark) */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="17" height="17" viewBox="0 0 24 24"

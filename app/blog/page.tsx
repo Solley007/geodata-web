@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Notes on building, slowly. Construction updates, mortgage explainers, neighbourhood pieces, and occasional thoughts on the slow craft of building well.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — Geodata World Services",
+    title: "Blog, Geodata World Services",
     description:
       "Construction updates, mortgage explainers, and notes on the slow craft of building well.",
     url: "/blog",

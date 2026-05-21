@@ -12,7 +12,7 @@ const SITES = [
   {
     id: "sbc" as const,
     label: "Southern Bridge City",
-    sub: "Phase One — 320 residences",
+    sub: "Phase One, 320 residences",
     calLink: "geodata/sbc-viewing",
     location: "Plot 7266, Idu Industrial Layout, Abuja",
   },
@@ -44,7 +44,7 @@ export default function BookViewingClient() {
             See the work in person.
           </h1>
           <p className="text-lg text-ink-muted dark:text-bone/70 leading-relaxed max-w-2xl">
-            Pick a one-hour slot — Monday to Saturday — and we'll meet you on site. Morning tours work best for daylight inspection. Afternoon tours catch the golden hour for photos.
+            Pick a one-hour slot, Monday to Saturday, and we'll meet you on site. Morning tours work best for daylight inspection. Afternoon tours catch the golden hour for photos.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export default function BookViewingClient() {
           </p>
         </div>
 
-        {/* The actual calendar — keep BOTH mounted, hide inactive (avoids re-init on tab switch) */}
+        {/* The actual calendar, keep BOTH mounted, hide inactive (avoids re-init on tab switch) */}
         {SITES.map(site => (
           <div key={site.id} className={active === site.id ? "block" : "hidden"}>
             <BookViewingEmbed calLink={site.calLink} namespace={site.id} />

@@ -1,5 +1,5 @@
 /**
- * Mortgage Affordability Quiz — calculation utilities
+ * Mortgage Affordability Quiz, calculation utilities
  *
  * Math:
  *   - MREIF: 9.75% fixed annual rate, 20-year tenure (240 months)
@@ -45,14 +45,14 @@ export const TIMELINE_OPTIONS = [
 export type TimelineId = typeof TIMELINE_OPTIONS[number]["id"];
 
 export const APPROVAL_OPTIONS = [
-  { id: "yes",  label: "Yes — pre-approved",      sub: "I have an MREIF letter or bank pre-approval" },
-  { id: "no",   label: "Not yet — need guidance", sub: "I'd like help with the bank approval step" },
+  { id: "yes",  label: "Yes, pre-approved",      sub: "I have an MREIF letter or bank pre-approval" },
+  { id: "no",   label: "Not yet, need guidance", sub: "I'd like help with the bank approval step" },
   { id: "cash", label: "Paying cash",             sub: "No mortgage needed" },
 ] as const;
 export type ApprovalId = typeof APPROVAL_OPTIONS[number]["id"];
 
 // ─── Core math ─────────────────────────────────────────────────────────────
-/** Amortisation factor — multiply by loan to get monthly payment */
+/** Amortisation factor, multiply by loan to get monthly payment */
 function amortisationFactor(annualRate = MREIF.annualRate, months = MREIF.tenureMonths): number {
   const r = annualRate / 12;
   return (r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
@@ -92,7 +92,7 @@ export interface QuizResult {
   primaryMatch: typeof PROPERTIES[number] | null;
   monthlyPaymentForPrimary: number;
   affordabilityRatio: number; // payment / income, e.g., 0.38
-  fallback: boolean; // true if no exact match — showing closest alternatives
+  fallback: boolean; // true if no exact match, showing closest alternatives
 }
 
 export function runQuiz(answers: QuizAnswers): QuizResult {

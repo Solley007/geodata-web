@@ -22,7 +22,7 @@ const fraunces = Fraunces({
   style: ["normal", "italic"],
 });
 
-// Euclid Circular B — Geodata brand body font (all weights + italics)
+// Euclid Circular B, Geodata brand body font (all weights + italics)
 const euclid = localFont({
   src: [
     { path: "../public/fonts/euclid/Euclid_Circular_B_Light.ttf",         weight: "300", style: "normal" },
@@ -45,13 +45,13 @@ const SITE_URL = "https://geodata.com.ng";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
-  // Templated title — pages override the part before "|"
+  // Templated title, pages override the part before "|"
   title: {
-    default: "Geodata World Services — Premium Real Estate in Abuja",
+    default: "Geodata World Services, Premium Real Estate in Abuja",
     template: "%s | Geodata World Services",
   },
   description:
-    "Geodata World Services Limited develops investment-grade real estate in Abuja, Nigeria. Discover Southern Bridge City — 320 MREIF-eligible homes with 9.75% fixed-rate mortgage financing.",
+    "Geodata World Services Limited develops investment-grade real estate in Abuja, Nigeria. Discover Southern Bridge City, 320 MREIF-eligible homes with 9.75% fixed-rate mortgage financing.",
 
   applicationName: "Geodata",
   authors: [{ name: "Geodata World Services Limited", url: SITE_URL }],
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     locale: "en_NG",
     url: SITE_URL,
     siteName: "Geodata World Services",
-    title: "Geodata World Services — Premium Real Estate in Abuja",
+    title: "Geodata World Services, Premium Real Estate in Abuja",
     description:
       "320 MREIF-eligible residences at Southern Bridge City, Idu. 9.75% fixed mortgage for 20 years.",
     images: [
@@ -93,13 +93,13 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Geodata World Services — Premium Real Estate in Abuja",
+    title: "Geodata World Services, Premium Real Estate in Abuja",
     description: "320 MREIF-eligible residences at Southern Bridge City, Idu.",
     images: ["/api/og"],
     creator: "@geodataworldservices",
   },
 
-  // Favicon set — covers all the major browser/OS use cases
+  // Favicon set, covers all the major browser/OS use cases
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -117,7 +117,7 @@ export const metadata: Metadata = {
 
   manifest: "/manifest.json",
 
-  // Verification placeholders — fill these in when you set up Search Console
+  // Verification placeholders, fill these in when you set up Search Console
   verification: {
     // google: "your-google-search-console-token",
     // other: { "facebook-domain-verification": ["..."] },
@@ -128,7 +128,7 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
 
-  // Format detection — prevents iOS auto-linking phone numbers in unexpected places
+  // Format detection, prevents iOS auto-linking phone numbers in unexpected places
   formatDetection: {
     email: false,
     address: false,
@@ -154,16 +154,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <body>
-        {/* Adobe Fonts (Typekit) — Adobe Caslon Pro
+        {/* Adobe Fonts (Typekit), Adobe Caslon Pro
             precedence prop is React 18 / Next 14 syntax that hoists this
             <link> to <head> automatically without a manual head tag */}
         <link
           rel="stylesheet"
           href="https://use.typekit.net/cvg7jux.css"
-          // @ts-ignore — precedence is a React 18 attribute not yet in TS types
+          // @ts-ignore, precedence is a React 18 attribute not yet in TS types
           precedence="default"
         />
-        {/* Runs before page paint — prevents dark/light mode flash on load */}
+        {/* Runs before page paint, prevents dark/light mode flash on load */}
         <Script
           id="theme-init"
           strategy="beforeInteractive"

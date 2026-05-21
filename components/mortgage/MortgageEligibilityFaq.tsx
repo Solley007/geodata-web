@@ -10,7 +10,7 @@ const REQUIREMENTS = [
   "Verifiable income (employment, business, or rental income)",
   "Minimum 10% equity contribution of property value",
   "Clean credit history with Credit Bureau Nigeria",
-  "Valid means of identification — international passport, driver's licence, or NIN",
+  "Valid means of identification, international passport, driver's licence, or NIN",
 ];
 
 const FAQS = [

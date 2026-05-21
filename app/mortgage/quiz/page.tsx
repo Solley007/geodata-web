@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import MortgageQuizClient from "./MortgageQuizClient";
 
 export const metadata: Metadata = {
-  title: "Affordability Quiz — MREIF Mortgages",
+  title: "Affordability Quiz, MREIF Mortgages",
   description: "Find out what you can afford at Southern Bridge City in 30 seconds. Calculate your monthly payment under the MREIF 9.75% fixed-rate, 20-year programme.",
   alternates: { canonical: "/mortgage/quiz" },
   openGraph: {

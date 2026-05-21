@@ -173,7 +173,7 @@ export default function ConstructionAdmin({ pw }: { pw: string }) {
               ) : (
                 <div className="text-center">
                   <p className="text-ink-muted text-sm">Drag &amp; drop or click to select</p>
-                  <p className="text-xs text-ink-faint mt-1">JPG, PNG, WebP — select multiple at once</p>
+                  <p className="text-xs text-ink-faint mt-1">JPG, PNG, WebP, select multiple at once</p>
                 </div>
               )}
             </div>

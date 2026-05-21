@@ -27,7 +27,7 @@ interface State {
  *   - Have complex client-side state (calculators, forms)
  *   - Depend on third-party scripts that might be blocked
  *
- * Don't bother for static editorial sections — they have no real failure
+ * Don't bother for static editorial sections, they have no real failure
  * mode beyond catastrophic React bugs which the app-level error boundary
  * will catch anyway.
  */
@@ -39,7 +39,7 @@ export default class SectionErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    // PLACEHOLDER — wire to your error tracker (Sentry, etc.)
+    // PLACEHOLDER, wire to your error tracker (Sentry, etc.)
     console.error(
       `[Section Error] ${this.props.sectionName ?? "unknown"}:`,
       error,
@@ -59,7 +59,7 @@ export default class SectionErrorBoundary extends Component<Props, State> {
         <p className="eyebrow text-ink-faint dark:text-bone/40 mb-3">Section unavailable</p>
         <p className="text-ink dark:text-bone/75 leading-relaxed max-w-md mx-auto">
           This part of the page couldn't load right now. The rest of the page
-          is still available — you can continue browsing or refresh to try again.
+          is still available, you can continue browsing or refresh to try again.
         </p>
         <button
           onClick={this.reset}

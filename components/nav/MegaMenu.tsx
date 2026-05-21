@@ -6,7 +6,7 @@ import Image from "next/image";
 import clsx from "clsx";
 
 /**
- * MegaMenu — opens on hover/focus over the "Properties" nav link.
+ * MegaMenu, opens on hover/focus over the "Properties" nav link.
  *
  * LEFT COLUMN:
  *   Our actual developments, listed by availability status. Links to their
@@ -14,7 +14,7 @@ import clsx from "clsx";
  *   deciding to enquire.
  *
  * RIGHT COLUMN:
- *   Two featured unit types from Southern Bridge City — the development
+ *   Two featured unit types from Southern Bridge City, the development
  *   currently under active sales. Links to the actual property listing pages.
  */
 
@@ -37,7 +37,7 @@ const DEVELOPMENTS = [
   },
 ];
 
-// Two featured unit types from Southern Bridge City — pulled from site-content.ts
+// Two featured unit types from Southern Bridge City, pulled from site-content.ts
 const FEATURED_UNITS = [
   {
     title:   PROPERTY_NAV.find((p) => p.slug === "4-bed-semi-detached")?.label ?? "The Semi-Detached",
@@ -73,7 +73,7 @@ export default function MegaMenu() {
     <div className="bg-bone dark:bg-navy-950 border-b border-hairline dark:border-white/10 shadow-[0_24px_48px_-24px_rgba(15,37,71,0.12)]">
       <div className="container-editorial grid grid-cols-12 gap-12 py-14">
 
-        {/* LEFT — Developments */}
+        {/* LEFT, Developments */}
         <div className="col-span-5">
           <p className="eyebrow mb-6">Our developments</p>
           <ul className="space-y-1">
@@ -128,7 +128,7 @@ export default function MegaMenu() {
           </div>
         </div>
 
-        {/* RIGHT — Two featured SB City unit types */}
+        {/* RIGHT, Two featured SB City unit types */}
         <div className="col-span-7 grid grid-cols-2 gap-6">
           {FEATURED_UNITS.map((unit) => (
             <Link
@@ -139,7 +139,7 @@ export default function MegaMenu() {
               <div className="relative aspect-[4/5] overflow-hidden bg-navy-100">
                 <Image
                   src={unit.image}
-                  alt={`${unit.title} — Southern Bridge City, Idu Abuja`}
+                  alt={`${unit.title}, Southern Bridge City, Idu Abuja`}
                   fill
                   sizes="(min-width: 1024px) 28vw, 50vw"
                   className="object-cover transition-transform duration-1200 ease-editorial group-hover:scale-[1.04]"

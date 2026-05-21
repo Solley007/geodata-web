@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Site Updates — server-side read/write to /public/site-updates.json
+// Site Updates, server-side read/write to /public/site-updates.json
 // ---------------------------------------------------------------------------
 import "server-only";
 import fs   from "fs";

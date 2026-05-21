@@ -84,7 +84,7 @@ export async function broadcast(
 
   const fromHeader = `${args.fromName ?? "Geodata"} <${fromEmail}>`;
 
-  // topic_id deliberately omitted — contacts must have explicitly opted into
+  // topic_id deliberately omitted, contacts must have explicitly opted into
   // a topic before a scoped broadcast has any recipients. Sending to the full
   // segment ensures the 2 existing subscribers (and all future ones) receive
   // the email. Resend's built-in unsubscribe link handles opt-outs.

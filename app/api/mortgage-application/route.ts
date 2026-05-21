@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
       from:     `Geodata MREIF <${fromEmail}>`,
       to:       toEmail,
       replyTo:  email,
-      subject:  `MREIF enquiry — ${name} — ${propertyOfInterest}`,
+      subject:  `MREIF enquiry, ${name}, ${propertyOfInterest}`,
       html:     teamHtml,
     });
 

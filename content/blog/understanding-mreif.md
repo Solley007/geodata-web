@@ -8,13 +8,13 @@ category: "Mortgage"
 coverImage: "/mreif-header-logo.png?w=2000&q=85&auto=format&fit=crop"
 ---
 
-When buyers first see the MREIF rate of 9.75% fixed for 20 years, the first reaction is usually disbelief. Commercial mortgage rates in Nigeria currently sit between 22% and 30%, and even those are floating — meaning they go up when the Central Bank tightens.
+When buyers first see the MREIF rate of 9.75% fixed for 20 years, the first reaction is usually disbelief. Commercial mortgage rates in Nigeria currently sit between 22% and 30%, and even those are floating, meaning they go up when the Central Bank tightens.
 
 So MREIF feels too good to be true. It isn't. But it is a specific product, designed for specific people, with specific tradeoffs. Here's what you need to know before applying.
 
 ## What MREIF actually is
 
-MREIF stands for **Ministry of Finance Incorporated Real Estate Investment Fund** — a federal initiative created to address the housing affordability gap for working Nigerians. The fund's structure has three layers:
+MREIF stands for **Ministry of Finance Incorporated Real Estate Investment Fund**, a federal initiative created to address the housing affordability gap for working Nigerians. The fund's structure has three layers:
 
 1. **Capital provider:** Federal Government of Nigeria, through the Ministry of Finance
 2. **Fund manager:** ARM Investment Managers Limited (one of Nigeria's largest asset managers)
@@ -24,7 +24,7 @@ The fund subsidises the rate gap between commercial bank mortgages and what buye
 
 ## Why the rate is fixed (and why that matters)
 
-In a typical Nigerian commercial mortgage, your rate floats with the Monetary Policy Rate (MPR). When the CBN raises rates to fight inflation — which has happened repeatedly since 2022 — your monthly repayment goes up.
+In a typical Nigerian commercial mortgage, your rate floats with the Monetary Policy Rate (MPR). When the CBN raises rates to fight inflation, which has happened repeatedly since 2022, your monthly repayment goes up.
 
 MREIF's 9.75% is locked at origination for the entire 20-year tenor. The CBN can raise rates to 30% tomorrow, and your payment doesn't move.
 
@@ -51,7 +51,7 @@ Not every developer's properties qualify. The development needs to meet build-qu
 
 ### Processing is more rigorous
 
-A commercial bank can approve a mortgage in 30 days. MREIF takes roughly six weeks because three institutions are coordinating. We've worked to streamline this — most of the document collection happens once, on our side — but the assessment itself is genuinely more thorough.
+A commercial bank can approve a mortgage in 30 days. MREIF takes roughly six weeks because three institutions are coordinating. We've worked to streamline this, most of the document collection happens once, on our side, but the assessment itself is genuinely more thorough.
 
 ## How to evaluate whether it suits you
 
@@ -61,10 +61,10 @@ Three questions to ask yourself:
 
 **Is your income stable enough that 33% of net for 20 years is comfortable?** This is the rule of thumb MREIF uses informally. If a job loss would put you in trouble within six months, the answer is probably not yet.
 
-**Does your equity contribution leave you with reasonable liquid reserves?** The minimum is 10% but more equity reduces your monthly payment. Don't drain your emergency fund to maximise equity — keep at least six months of expenses liquid.
+**Does your equity contribution leave you with reasonable liquid reserves?** The minimum is 10% but more equity reduces your monthly payment. Don't drain your emergency fund to maximise equity, keep at least six months of expenses liquid.
 
 ## A practical first step
 
 Use the [calculator on our mortgage page](/mortgage) to model your specific scenario. Plug in property prices you're considering, vary your equity contribution, see what monthly figure comes out.
 
-If you want to discuss whether MREIF suits your circumstances specifically — or whether you'd be better served by outright purchase — [book a conversation](/contact) with our team. We don't get paid more for steering you toward MREIF; we get paid the same commission either way. Better that you choose the right structure.
+If you want to discuss whether MREIF suits your circumstances specifically, or whether you'd be better served by outright purchase, [book a conversation](/contact) with our team. We don't get paid more for steering you toward MREIF; we get paid the same commission either way. Better that you choose the right structure.

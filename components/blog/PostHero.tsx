@@ -69,7 +69,7 @@ export default function PostHero({ post }: Props) {
         </div>
       </div>
 
-      {/* Cover image — full container width, dramatic but not full-bleed */}
+      {/* Cover image, full container width, dramatic but not full-bleed */}
       <div className="container-editorial mt-16 md:mt-20">
         <div className="ph-cover relative aspect-[16/9] overflow-hidden bg-navy-100 dark:bg-navy-800">
           <Image

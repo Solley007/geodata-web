@@ -7,14 +7,14 @@ import { usePathname } from "next/navigation";
  * NavigationProgress
  * ----
  * A 2px gold progress bar that appears at the top of the page during
- * route transitions. Critical UX feedback for slow connections — without
+ * route transitions. Critical UX feedback for slow connections, without
  * it, users on 3G mobile in Nigeria hit a link and have no idea anything
  * is happening for a second or two.
  *
  * Behavior:
  *   1. User clicks an internal link (same-origin) → bar appears, animates
  *      toward 90% on an ease curve (it never quite reaches 100% during
- *      load — that signals "still working")
+ *      load, that signals "still working")
  *   2. New pathname mounts (navigation complete) → bar snaps to 100%,
  *      fades out after a short hold
  *
@@ -25,7 +25,7 @@ export default function NavigationProgress() {
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
 
-  // Detect clicks on internal links — start of a navigation
+  // Detect clicks on internal links, start of a navigation
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       // Find the nearest anchor ancestor (Link renders as <a>)
@@ -60,7 +60,7 @@ export default function NavigationProgress() {
         return;
       }
 
-      // Modifier keys mean new tab / bypass — skip
+      // Modifier keys mean new tab / bypass, skip
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
       setVisible(true);
@@ -83,13 +83,13 @@ export default function NavigationProgress() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  // Animate toward 90% while waiting — "still working" signal
+  // Animate toward 90% while waiting, "still working" signal
   useEffect(() => {
     if (!visible || progress >= 90) return;
     const interval = setInterval(() => {
       setProgress((p) => {
         if (p >= 90) return p;
-        // Ease curve — moves fast at first, slows as it approaches 90%
+        // Ease curve, moves fast at first, slows as it approaches 90%
         return p + (90 - p) * 0.08;
       });
     }, 60);
