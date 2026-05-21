@@ -112,8 +112,8 @@ export default function SubscribePopup() {
         <div className="px-8 pt-10 pb-8">
           <div className="flex items-center gap-2.5 mb-7">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/geodata-mark.png" alt="" className="h-8 w-8" />
-            <p className="font-brand text-base text-navy-950 dark:text-bone leading-none">
+            <img src="/geodata-mark.png" alt="" className="h-8 w-8 shrink-0" />
+            <p className="font-brand text-lg text-navy-950 dark:text-bone leading-none translate-y-1">
               GEODATA
             </p>
           </div>
