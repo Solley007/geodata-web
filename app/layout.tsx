@@ -181,6 +181,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </SmoothScrollProvider>
           </SavedResidencesProvider>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
