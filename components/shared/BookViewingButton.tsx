@@ -43,6 +43,21 @@ export default function BookViewingButton({
       });
     })();
   }, []);
+  
+useEffect(() => {
+  (async () => {
+    const cal = await getCalApi();
+    cal("on", {
+      action: "bookingSuccessful",
+      callback: () => {
+        // small delay so the person sees the "booked" tick before moving
+        setTimeout(() => {
+          window.location.href = "/visit";
+        }, 1500);
+      },
+    });
+  })();
+}, []);
 
   const base = "inline-flex items-center gap-3 px-7 py-4 text-sm font-medium transition-colors duration-300";
   const styles = {
