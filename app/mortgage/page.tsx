@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import MortgageHero from "@/components/mortgage/MortgageHero";
 import MortgageHowItWorks from "@/components/mortgage/MortgageHowItWorks";
 import MortgageCalculator from "@/components/mortgage/MortgageCalculator";
+import MortgageRentVsBuy from "@/components/mortgage/MortgageRentVsBuy";
 import MortgageEligibilityFaq from "@/components/mortgage/MortgageEligibilityFaq";
 import SectionErrorBoundary from "@/components/shared/SectionErrorBoundary";
 import MortgageQuizClient from "./quiz/MortgageQuizClient";
@@ -42,6 +43,9 @@ export default function MortgagePage() {
           so a calc bug doesn't take down the whole mortgage page */}
       <SectionErrorBoundary sectionName="MortgageCalculator">
         <MortgageCalculator />
+      </SectionErrorBoundary>
+      <SectionErrorBoundary sectionName="MortgageRentVsBuy">
+        <MortgageRentVsBuy />
       </SectionErrorBoundary>
       <MortgageEligibilityFaq />
     </>

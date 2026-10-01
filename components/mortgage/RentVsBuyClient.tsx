@@ -1,8 +1,7 @@
 /**
- * Rent vs Buy calculator — the reframe page.
+ * Rent vs Buy calculator — the reframe section.
  *
- * Save as: app/rent-vs-buy/RentVsBuyClient.tsx
- * Paired with a thin server page.tsx (provided alongside this file).
+ * Lives on the MREIF mortgage page, wrapped by MortgageRentVsBuy.
  *
  * Core argument: Abuja rent is paid annually upfront and rises every year.
  * An MREIF mortgage at 9.75% fixed is a flat payment that builds equity.
@@ -159,7 +158,7 @@ export default function RentVsBuyClient() {
 
         <div className="mt-8">
           <a
-            href="/mreif"
+            href="#quiz"
             className="inline-flex items-center justify-center gap-3 bg-navy-900 text-bone px-7 py-4 text-xs uppercase tracking-eyebrow font-medium hover:bg-navy-800 transition-colors duration-400"
           >
             Check your MREIF eligibility →
