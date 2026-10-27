@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Map, { Marker, NavigationControl, MapRef } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import SiteImageryLayer from "@/components/shared/SiteImageryLayer";
+import { latestCaptureDate } from "@/lib/site-imagery";
+import { formatUpdateDate } from "@/lib/site-updates-types";
 
 interface Props {
   latitude: number;
@@ -32,6 +35,7 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
   const mapRef = useRef<MapRef>(null);
   const [loaded, setLoaded] = useState(false);
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+  const captured = latestCaptureDate();
 
   // Smooth flyTo when the map loads, subtle entrance, not flashy
   useEffect(() => {
@@ -94,8 +98,14 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
         // Disable the attribution control's default position, we add our own
         attributionControl={false}
         onLoad={() => setLoaded(true)}
+        // Fallback: image overlays can hold back the load event, so also
+        // start the fly-in the first time the map finishes rendering
+        onIdle={() => setLoaded(true)}
         style={{ width: "100%", height: "100%" }}
       >
+        {/* Our latest drone orthophoto, over Mapbox's older imagery */}
+        <SiteImageryLayer />
+
         {/* Custom marker, pulsing navy ring + gold dot */}
         <Marker longitude={longitude} latitude={latitude} anchor="center">
           <div className="relative flex items-center justify-center">
@@ -119,7 +129,7 @@ export default function PropertyMap({ latitude, longitude, label }: Props) {
 
       {/* Custom attribution overlay, bottom-right, minimal */}
       <div className="absolute bottom-2 right-2 bg-bone/80 backdrop-blur-sm px-2 py-1 text-[9px] uppercase tracking-eyebrow text-ink-faint dark:text-bone/40">
-        © Mapbox · OSM
+        {captured ? `Drone survey ${formatUpdateDate(captured)} · ` : ""}© Mapbox · OSM
       </div>
 
       {/* Optional address label, bottom-left */}

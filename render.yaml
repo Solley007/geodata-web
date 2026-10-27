@@ -27,6 +27,7 @@ services:
       #   RESEND_TOPIC_ID_BLOG
       #   RESEND_TOPIC_ID_PROPERTIES
       #   RESEND_TOPIC_ID_ANNOUNCEMENTS
+      #   RESEND_TOPIC_ID_FOLLOW_<TYPOLOGY_SLUG>  ← one per SBC typology, see .env.example
       # Optional (for video uploads via admin):
       #   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
       #   NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET

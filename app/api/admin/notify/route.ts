@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { broadcast, getSubscriberCount } from "@/lib/resend-audience";
+import { broadcast, followTopicId, getSubscriberCount } from "@/lib/resend-audience";
+import { getPropertyBySlug } from "@/lib/property-data";
 import { readSiteUpdates } from "@/lib/site-updates";
 import { PROJECTS } from "@/lib/projects-data";
 import { formatUpdateDate } from "@/lib/site-updates-types";
@@ -17,15 +18,29 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ count });
 }
 
-// POST, broadcast a specific update to all subscribers
+// POST, broadcast a specific update to all subscribers, or, with
+// `followSlug`, only to people following that typology
 export async function POST(req: NextRequest) {
   if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
-    const { updateId } = await req.json();
+    const { updateId, followSlug } = await req.json();
     const updates = readSiteUpdates();
     const update  = updates.find((u) => u.id === updateId);
     if (!update) return NextResponse.json({ error: "Update not found" }, { status: 404 });
+
+    // Follower broadcast, needs that typology's Resend topic
+    const followed = followSlug ? getPropertyBySlug(followSlug) : undefined;
+    if (followSlug && !followed) {
+      return NextResponse.json({ error: "Unknown residence" }, { status: 400 });
+    }
+    const topicId = followed ? followTopicId(followed.slug) : undefined;
+    if (followed && !topicId) {
+      return NextResponse.json(
+        { error: `No Resend topic configured for ${followed.title} followers` },
+        { status: 400 }
+      );
+    }
 
     const project   = PROJECTS.find((p) => p.slug === update.projectSlug);
     const projectName = project?.name ?? update.projectSlug;
@@ -87,7 +102,9 @@ export async function POST(req: NextRequest) {
           <p style="margin:0;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;line-height:1.6;color:#94A0B0;">
             Geodata World Services Limited · Plot 93, Cadastral Zone B10, Dakibiyu, FCT Abuja
             <br>
-            You're receiving this because you subscribed to construction updates at
+            ${followed
+              ? `You're receiving this because you followed ${followed.title} at`
+              : "You're receiving this because you subscribed to construction updates at"}
             <a href="${baseUrl}" style="color:#0F2547;text-decoration:none;">geodata.com.ng</a>.
             <br>
             <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#94A0B0;text-decoration:underline;">Unsubscribe</a>
@@ -100,12 +117,15 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`.trim();
 
-    const subject = `${projectName}: ${update.title}`;
+    const subject = followed
+      ? `${followed.title}: ${update.title}`
+      : `${projectName}: ${update.title}`;
 
     const result = await broadcast("updates", {
       subject,
       html,
       fromName: "Geodata Updates",
+      topicId,
     });
 
     if (!result.ok) {

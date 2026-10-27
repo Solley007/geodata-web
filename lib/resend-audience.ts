@@ -20,6 +20,17 @@ function topicId(category: SubscriptionCategory): string | undefined {
   }
 }
 
+/**
+ * Per-typology "follow" topics, one Resend topic per property slug:
+ *   4-bed-terrace → RESEND_TOPIC_ID_FOLLOW_4_BED_TERRACE
+ * Create each topic in the Resend dashboard with contacts NOT subscribed by
+ * default, so a broadcast only reaches people who followed that typology.
+ */
+export function followTopicId(propertySlug: string): string | undefined {
+  const key = `RESEND_TOPIC_ID_FOLLOW_${propertySlug.toUpperCase().replace(/[^A-Z0-9]/g, "_")}`;
+  return process.env[key];
+}
+
 function segmentId(): string | undefined {
   return process.env.RESEND_AUDIENCE_ID;
 }
@@ -36,13 +47,21 @@ export async function subscribe(
   categories: SubscriptionCategory[],
   firstName?: string
 ): Promise<{ ok: boolean; error?: string }> {
+  if (categories.length === 0) return { ok: false, error: "Pick at least one category" };
+  const ids = categories.map(topicId).filter((id): id is string => Boolean(id));
+  return upsertContact(email, ids, firstName);
+}
+
+/** Add a contact to the audience (or update them) and opt them in to topics */
+export async function upsertContact(
+  email: string,
+  topicIds: string[],
+  firstName?: string
+): Promise<{ ok: boolean; error?: string }> {
   const segId = segmentId();
   if (!segId) return { ok: false, error: "RESEND_AUDIENCE_ID not configured" };
-  if (categories.length === 0) return { ok: false, error: "Pick at least one category" };
 
-  const topics = categories
-    .map((cat) => ({ id: topicId(cat), subscription: "opt_in" as const }))
-    .filter((t): t is { id: string; subscription: "opt_in" } => Boolean(t.id));
+  const topics = topicIds.map((id) => ({ id, subscription: "opt_in" as const }));
 
   const createRes = await fetch(`${API_BASE}/audiences/${segId}/contacts`, {
     method:  "POST",
@@ -75,7 +94,7 @@ export async function subscribe(
 
 export async function broadcast(
   _category: SubscriptionCategory,
-  args: { subject: string; html: string; fromName?: string }
+  args: { subject: string; html: string; fromName?: string; topicId?: string }
 ): Promise<{ ok: boolean; broadcastId?: string; error?: string }> {
   const segId     = segmentId();
   const fromEmail = process.env.CONTACT_FROM;
@@ -96,6 +115,8 @@ export async function broadcast(
       from:        fromHeader,
       subject:     args.subject,
       html:        args.html,
+      // Only set for follower broadcasts, where everyone in the topic opted in
+      ...(args.topicId ? { topic_id: args.topicId } : {}),
     }),
   });
   if (!createRes.ok) {

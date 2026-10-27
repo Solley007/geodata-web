@@ -1,0 +1,925 @@
+{
+  "updatedAt": "2026-10-05",
+  "placeholder": true,
+  "plots": [
+    {
+      "slug": "4-bed-block-flats",
+      "units": [
+        {
+          "id": "7266-001",
+          "status": "available"
+        },
+        {
+          "id": "7266-002",
+          "status": "available"
+        },
+        {
+          "id": "7266-003",
+          "status": "available"
+        },
+        {
+          "id": "7266-004",
+          "status": "available"
+        },
+        {
+          "id": "7266-005",
+          "status": "available"
+        },
+        {
+          "id": "7266-006",
+          "status": "available"
+        },
+        {
+          "id": "7266-007",
+          "status": "available"
+        },
+        {
+          "id": "7266-008",
+          "status": "available"
+        },
+        {
+          "id": "7266-009",
+          "status": "available"
+        },
+        {
+          "id": "7266-010",
+          "status": "available"
+        },
+        {
+          "id": "7266-011",
+          "status": "available"
+        },
+        {
+          "id": "7266-012",
+          "status": "available"
+        },
+        {
+          "id": "7266-013",
+          "status": "available"
+        },
+        {
+          "id": "7266-014",
+          "status": "available"
+        },
+        {
+          "id": "7266-015",
+          "status": "available"
+        },
+        {
+          "id": "7266-016",
+          "status": "available"
+        },
+        {
+          "id": "7266-017",
+          "status": "available"
+        },
+        {
+          "id": "7266-018",
+          "status": "available"
+        },
+        {
+          "id": "7266-019",
+          "status": "available"
+        },
+        {
+          "id": "7266-020",
+          "status": "available"
+        },
+        {
+          "id": "7266-021",
+          "status": "available"
+        },
+        {
+          "id": "7266-022",
+          "status": "available"
+        },
+        {
+          "id": "7266-023",
+          "status": "available"
+        },
+        {
+          "id": "7266-024",
+          "status": "available"
+        },
+        {
+          "id": "7266-025",
+          "status": "available"
+        },
+        {
+          "id": "7266-026",
+          "status": "available"
+        },
+        {
+          "id": "7266-027",
+          "status": "available"
+        },
+        {
+          "id": "7266-028",
+          "status": "available"
+        },
+        {
+          "id": "7266-029",
+          "status": "available"
+        },
+        {
+          "id": "7266-030",
+          "status": "available"
+        },
+        {
+          "id": "7266-031",
+          "status": "available"
+        },
+        {
+          "id": "7266-032",
+          "status": "available"
+        },
+        {
+          "id": "7266-033",
+          "status": "available"
+        },
+        {
+          "id": "7266-034",
+          "status": "available"
+        },
+        {
+          "id": "7266-035",
+          "status": "available"
+        },
+        {
+          "id": "7266-036",
+          "status": "available"
+        },
+        {
+          "id": "7266-037",
+          "status": "available"
+        },
+        {
+          "id": "7266-038",
+          "status": "available"
+        },
+        {
+          "id": "7266-039",
+          "status": "available"
+        },
+        {
+          "id": "7266-040",
+          "status": "available"
+        },
+        {
+          "id": "7266-041",
+          "status": "available"
+        },
+        {
+          "id": "7266-042",
+          "status": "available"
+        },
+        {
+          "id": "7266-043",
+          "status": "available"
+        },
+        {
+          "id": "7266-044",
+          "status": "available"
+        },
+        {
+          "id": "7266-045",
+          "status": "available"
+        },
+        {
+          "id": "7266-046",
+          "status": "available"
+        },
+        {
+          "id": "7266-047",
+          "status": "available"
+        },
+        {
+          "id": "7266-048",
+          "status": "available"
+        },
+        {
+          "id": "7266-049",
+          "status": "available"
+        },
+        {
+          "id": "7266-050",
+          "status": "available"
+        },
+        {
+          "id": "7266-051",
+          "status": "available"
+        },
+        {
+          "id": "7266-052",
+          "status": "available"
+        },
+        {
+          "id": "7266-053",
+          "status": "available"
+        },
+        {
+          "id": "7266-054",
+          "status": "available"
+        },
+        {
+          "id": "7266-055",
+          "status": "available"
+        },
+        {
+          "id": "7266-056",
+          "status": "available"
+        },
+        {
+          "id": "7266-057",
+          "status": "sold"
+        },
+        {
+          "id": "7266-058",
+          "status": "sold"
+        },
+        {
+          "id": "7266-059",
+          "status": "sold"
+        },
+        {
+          "id": "7266-060",
+          "status": "sold"
+        },
+        {
+          "id": "7266-061",
+          "status": "sold"
+        },
+        {
+          "id": "7266-062",
+          "status": "sold"
+        },
+        {
+          "id": "7266-063",
+          "status": "sold"
+        },
+        {
+          "id": "7266-064",
+          "status": "sold"
+        },
+        {
+          "id": "7266-065",
+          "status": "sold"
+        },
+        {
+          "id": "7266-066",
+          "status": "sold"
+        },
+        {
+          "id": "7266-067",
+          "status": "sold"
+        },
+        {
+          "id": "7266-068",
+          "status": "sold"
+        },
+        {
+          "id": "7266-069",
+          "status": "sold"
+        },
+        {
+          "id": "7266-070",
+          "status": "sold"
+        },
+        {
+          "id": "7266-071",
+          "status": "sold"
+        },
+        {
+          "id": "7266-072",
+          "status": "sold"
+        },
+        {
+          "id": "7266-073",
+          "status": "sold"
+        },
+        {
+          "id": "7266-074",
+          "status": "sold"
+        },
+        {
+          "id": "7266-075",
+          "status": "sold"
+        },
+        {
+          "id": "7266-076",
+          "status": "sold"
+        },
+        {
+          "id": "7266-077",
+          "status": "sold"
+        },
+        {
+          "id": "7266-078",
+          "status": "sold"
+        },
+        {
+          "id": "7266-079",
+          "status": "sold"
+        },
+        {
+          "id": "7266-080",
+          "status": "sold"
+        }
+      ]
+    },
+    {
+      "slug": "4-bed-terrace",
+      "units": [
+        {
+          "id": "7253-001",
+          "status": "available"
+        },
+        {
+          "id": "7253-002",
+          "status": "available"
+        },
+        {
+          "id": "7253-003",
+          "status": "available"
+        },
+        {
+          "id": "7253-004",
+          "status": "available"
+        },
+        {
+          "id": "7253-005",
+          "status": "available"
+        },
+        {
+          "id": "7253-006",
+          "status": "available"
+        },
+        {
+          "id": "7253-007",
+          "status": "available"
+        },
+        {
+          "id": "7253-008",
+          "status": "available"
+        },
+        {
+          "id": "7253-009",
+          "status": "available"
+        },
+        {
+          "id": "7253-010",
+          "status": "available"
+        },
+        {
+          "id": "7253-011",
+          "status": "available"
+        },
+        {
+          "id": "7253-012",
+          "status": "available"
+        },
+        {
+          "id": "7253-013",
+          "status": "available"
+        },
+        {
+          "id": "7253-014",
+          "status": "available"
+        },
+        {
+          "id": "7253-015",
+          "status": "available"
+        },
+        {
+          "id": "7253-016",
+          "status": "available"
+        },
+        {
+          "id": "7253-017",
+          "status": "available"
+        },
+        {
+          "id": "7253-018",
+          "status": "available"
+        },
+        {
+          "id": "7253-019",
+          "status": "available"
+        },
+        {
+          "id": "7253-020",
+          "status": "available"
+        },
+        {
+          "id": "7253-021",
+          "status": "available"
+        },
+        {
+          "id": "7253-022",
+          "status": "available"
+        },
+        {
+          "id": "7253-023",
+          "status": "available"
+        },
+        {
+          "id": "7253-024",
+          "status": "available"
+        },
+        {
+          "id": "7253-025",
+          "status": "available"
+        },
+        {
+          "id": "7253-026",
+          "status": "available"
+        },
+        {
+          "id": "7253-027",
+          "status": "available"
+        },
+        {
+          "id": "7253-028",
+          "status": "available"
+        },
+        {
+          "id": "7253-029",
+          "status": "available"
+        },
+        {
+          "id": "7253-030",
+          "status": "available"
+        },
+        {
+          "id": "7253-031",
+          "status": "available"
+        },
+        {
+          "id": "7253-032",
+          "status": "available"
+        },
+        {
+          "id": "7253-033",
+          "status": "available"
+        },
+        {
+          "id": "7253-034",
+          "status": "available"
+        },
+        {
+          "id": "7253-035",
+          "status": "available"
+        },
+        {
+          "id": "7253-036",
+          "status": "available"
+        },
+        {
+          "id": "7253-037",
+          "status": "available"
+        },
+        {
+          "id": "7253-038",
+          "status": "available"
+        },
+        {
+          "id": "7253-039",
+          "status": "sold"
+        },
+        {
+          "id": "7253-040",
+          "status": "sold"
+        },
+        {
+          "id": "7253-041",
+          "status": "sold"
+        },
+        {
+          "id": "7253-042",
+          "status": "sold"
+        },
+        {
+          "id": "7253-043",
+          "status": "sold"
+        },
+        {
+          "id": "7253-044",
+          "status": "sold"
+        },
+        {
+          "id": "7253-045",
+          "status": "sold"
+        },
+        {
+          "id": "7253-046",
+          "status": "sold"
+        },
+        {
+          "id": "7253-047",
+          "status": "sold"
+        },
+        {
+          "id": "7253-048",
+          "status": "sold"
+        },
+        {
+          "id": "7253-049",
+          "status": "sold"
+        },
+        {
+          "id": "7253-050",
+          "status": "sold"
+        },
+        {
+          "id": "7253-051",
+          "status": "sold"
+        },
+        {
+          "id": "7253-052",
+          "status": "sold"
+        },
+        {
+          "id": "7253-053",
+          "status": "sold"
+        },
+        {
+          "id": "7253-054",
+          "status": "sold"
+        },
+        {
+          "id": "7253-055",
+          "status": "sold"
+        },
+        {
+          "id": "7253-056",
+          "status": "sold"
+        },
+        {
+          "id": "7253-057",
+          "status": "sold"
+        },
+        {
+          "id": "7253-058",
+          "status": "sold"
+        },
+        {
+          "id": "7253-059",
+          "status": "sold"
+        },
+        {
+          "id": "7253-060",
+          "status": "sold"
+        },
+        {
+          "id": "7253-061",
+          "status": "sold"
+        },
+        {
+          "id": "7253-062",
+          "status": "sold"
+        },
+        {
+          "id": "7253-063",
+          "status": "sold"
+        },
+        {
+          "id": "7253-064",
+          "status": "sold"
+        },
+        {
+          "id": "7253-065",
+          "status": "sold"
+        },
+        {
+          "id": "7253-066",
+          "status": "sold"
+        },
+        {
+          "id": "7253-067",
+          "status": "sold"
+        },
+        {
+          "id": "7253-068",
+          "status": "sold"
+        },
+        {
+          "id": "7253-069",
+          "status": "sold"
+        },
+        {
+          "id": "7253-070",
+          "status": "sold"
+        },
+        {
+          "id": "7253-071",
+          "status": "sold"
+        },
+        {
+          "id": "7253-072",
+          "status": "sold"
+        },
+        {
+          "id": "7253-073",
+          "status": "sold"
+        },
+        {
+          "id": "7253-074",
+          "status": "sold"
+        },
+        {
+          "id": "7253-075",
+          "status": "sold"
+        },
+        {
+          "id": "7253-076",
+          "status": "sold"
+        },
+        {
+          "id": "7253-077",
+          "status": "sold"
+        },
+        {
+          "id": "7253-078",
+          "status": "sold"
+        },
+        {
+          "id": "7253-079",
+          "status": "sold"
+        },
+        {
+          "id": "7253-080",
+          "status": "sold"
+        },
+        {
+          "id": "7253-081",
+          "status": "sold"
+        },
+        {
+          "id": "7253-082",
+          "status": "sold"
+        },
+        {
+          "id": "7253-083",
+          "status": "sold"
+        },
+        {
+          "id": "7253-084",
+          "status": "sold"
+        },
+        {
+          "id": "7253-085",
+          "status": "sold"
+        },
+        {
+          "id": "7253-086",
+          "status": "sold"
+        },
+        {
+          "id": "7253-087",
+          "status": "sold"
+        },
+        {
+          "id": "7253-088",
+          "status": "sold"
+        },
+        {
+          "id": "7253-089",
+          "status": "sold"
+        },
+        {
+          "id": "7253-090",
+          "status": "sold"
+        },
+        {
+          "id": "7253-091",
+          "status": "sold"
+        },
+        {
+          "id": "7253-092",
+          "status": "sold"
+        },
+        {
+          "id": "7253-093",
+          "status": "sold"
+        },
+        {
+          "id": "7253-094",
+          "status": "sold"
+        },
+        {
+          "id": "7253-095",
+          "status": "sold"
+        },
+        {
+          "id": "7253-096",
+          "status": "sold"
+        }
+      ]
+    },
+    {
+      "slug": "4-bed-semi-detached",
+      "units": []
+    },
+    {
+      "slug": "5-bed-semi-detached",
+      "units": []
+    },
+    {
+      "slug": "6-bed-terrace",
+      "units": [
+        {
+          "id": "7270-001",
+          "status": "available"
+        },
+        {
+          "id": "7270-002",
+          "status": "available"
+        },
+        {
+          "id": "7270-003",
+          "status": "available"
+        },
+        {
+          "id": "7270-004",
+          "status": "available"
+        },
+        {
+          "id": "7270-005",
+          "status": "available"
+        },
+        {
+          "id": "7270-006",
+          "status": "available"
+        },
+        {
+          "id": "7270-007",
+          "status": "available"
+        },
+        {
+          "id": "7270-008",
+          "status": "available"
+        },
+        {
+          "id": "7270-009",
+          "status": "available"
+        },
+        {
+          "id": "7270-010",
+          "status": "available"
+        },
+        {
+          "id": "7270-011",
+          "status": "available"
+        },
+        {
+          "id": "7270-012",
+          "status": "available"
+        },
+        {
+          "id": "7270-013",
+          "status": "available"
+        },
+        {
+          "id": "7270-014",
+          "status": "available"
+        },
+        {
+          "id": "7270-015",
+          "status": "available"
+        },
+        {
+          "id": "7270-016",
+          "status": "available"
+        },
+        {
+          "id": "7270-017",
+          "status": "available"
+        },
+        {
+          "id": "7270-018",
+          "status": "available"
+        },
+        {
+          "id": "7270-019",
+          "status": "available"
+        },
+        {
+          "id": "7270-020",
+          "status": "available"
+        },
+        {
+          "id": "7270-021",
+          "status": "available"
+        },
+        {
+          "id": "7270-022",
+          "status": "available"
+        },
+        {
+          "id": "7270-023",
+          "status": "available"
+        },
+        {
+          "id": "7270-024",
+          "status": "available"
+        },
+        {
+          "id": "7270-025",
+          "status": "sold"
+        },
+        {
+          "id": "7270-026",
+          "status": "sold"
+        },
+        {
+          "id": "7270-027",
+          "status": "sold"
+        },
+        {
+          "id": "7270-028",
+          "status": "sold"
+        },
+        {
+          "id": "7270-029",
+          "status": "sold"
+        },
+        {
+          "id": "7270-030",
+          "status": "sold"
+        },
+        {
+          "id": "7270-031",
+          "status": "sold"
+        },
+        {
+          "id": "7270-032",
+          "status": "sold"
+        },
+        {
+          "id": "7270-033",
+          "status": "sold"
+        },
+        {
+          "id": "7270-034",
+          "status": "sold"
+        },
+        {
+          "id": "7270-035",
+          "status": "sold"
+        },
+        {
+          "id": "7270-036",
+          "status": "sold"
+        },
+        {
+          "id": "7270-037",
+          "status": "sold"
+        },
+        {
+          "id": "7270-038",
+          "status": "sold"
+        },
+        {
+          "id": "7270-039",
+          "status": "sold"
+        },
+        {
+          "id": "7270-040",
+          "status": "sold"
+        },
+        {
+          "id": "7270-041",
+          "status": "sold"
+        },
+        {
+          "id": "7270-042",
+          "status": "sold"
+        },
+        {
+          "id": "7270-043",
+          "status": "sold"
+        },
+        {
+          "id": "7270-044",
+          "status": "sold"
+        },
+        {
+          "id": "7270-045",
+          "status": "sold"
+        },
+        {
+          "id": "7270-046",
+          "status": "sold"
+        },
+        {
+          "id": "7270-047",
+          "status": "sold"
+        },
+        {
+          "id": "7270-048",
+          "status": "sold"
+        }
+      ]
+    }
+  ]
+}

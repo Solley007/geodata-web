@@ -4,12 +4,16 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import type { Property } from "@/lib/property-data";
+import { ngnFromLabel } from "@/lib/currency";
+import Price from "@/components/shared/Price";
 
 interface Props {
   property: Property;
+  /** Units still available, null when no availability data is entered */
+  availableCount?: number | null;
 }
 
-export default function PropertyHero({ property }: Props) {
+export default function PropertyHero({ property, availableCount }: Props) {
   const root = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
@@ -98,13 +102,17 @@ export default function PropertyHero({ property }: Props) {
       <div className="phero-meta absolute inset-x-0 bottom-0 z-10 container-editorial pb-10">
         <div className="flex items-end justify-between border-t border-bone/15 pt-6 text-bone/70">
           <p className="text-[11px] uppercase tracking-eyebrow">
-            From {property.pricing.from}
+            From <Price ngn={ngnFromLabel(property.pricing.from)} label={property.pricing.from} />
           </p>
           <p className="text-[11px] uppercase tracking-eyebrow hidden md:block">
             Scroll to explore <span className="ml-2">↓</span>
           </p>
           <p className="text-[11px] uppercase tracking-eyebrow">
-            {property.specs[1].value} available
+            {availableCount == null
+              ? "MREIF eligible"
+              : availableCount === 0
+                ? "Sold out"
+                : `${availableCount} available`}
           </p>
         </div>
       </div>

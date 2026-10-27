@@ -5,6 +5,8 @@ import clsx from "clsx";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useActiveSection } from "@/lib/ActiveSectionContext";
 import { PROPERTY_SECTIONS } from "@/lib/property-data";
+import { ngnFromLabel } from "@/lib/currency";
+import Price from "@/components/shared/Price";
 
 interface Props {
   property: { title: string; pricing: { from: string } };
@@ -80,7 +82,7 @@ export default function StickySubNav({ property }: Props) {
                   {property.title}
                 </p>
                 <p className="hidden md:block text-[11px] uppercase tracking-eyebrow text-ink-faint dark:text-bone/40 whitespace-nowrap">
-                  From {property.pricing.from}
+                  From <Price ngn={ngnFromLabel(property.pricing.from)} label={property.pricing.from} />
                 </p>
               </div>
 

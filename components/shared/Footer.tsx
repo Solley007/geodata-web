@@ -46,6 +46,7 @@ export default function Footer() {
               <li><Link href="/projects/southern-bridge-city" className="hover:text-accent transition-colors">Southern Bridge City</Link></li>
               <li><Link href="/properties?type=outright" className="hover:text-accent transition-colors">Buy outright</Link></li>
               <li><Link href="/mortgage" className="hover:text-accent transition-colors">MREIF mortgage</Link></li>
+              <li><Link href="/diaspora" className="hover:text-accent transition-colors">Buying from abroad</Link></li>
             </ul>
           </div>
 

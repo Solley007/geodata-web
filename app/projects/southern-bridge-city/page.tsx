@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getAllProperties } from "@/lib/property-data";
+import { ngnFromLabel } from "@/lib/currency";
+import Price from "@/components/shared/Price";
+import SitePlan, { type SitePlanPlot } from "@/components/project/SitePlan";
+import { readAvailability } from "@/lib/availability";
+import { plotNumber } from "@/lib/availability-types";
 
 export const metadata: Metadata = {
   title: "Southern Bridge City, Idu, Abuja",
@@ -43,6 +48,21 @@ function monthlyPayment(price: number): string {
 
 export default function SouthernBridgeCityPage() {
   const properties = getAllProperties();
+  const availability = readAvailability();
+  const sitePlanPlots: SitePlanPlot[] = properties.map((p) => {
+    const type = p.specs.find((s) => s.label === "Type")?.value;
+    const beds = p.specs.find((s) => s.label === "Bedrooms")?.value;
+    return {
+      slug:       p.slug,
+      title:      p.title,
+      type:       `${type} · ${beds} bed`,
+      plotNo:     plotNumber(p.locationContext.address),
+      coords:     p.locationContext.coords,
+      priceNgn:   ngnFromLabel(p.pricing.from),
+      priceLabel: p.pricing.from,
+      units:      availability.plots.find((a) => a.slug === p.slug)?.units ?? [],
+    };
+  });
 
   return (
     <main>
@@ -246,6 +266,13 @@ export default function SouthernBridgeCityPage() {
         </div>
       </section>
 
+      {/* ─── LIVE AVAILABILITY / SITE PLAN ─────────────────────────── */}
+      <SitePlan
+        plots={sitePlanPlots}
+        updatedAt={availability.updatedAt}
+        placeholder={availability.placeholder}
+      />
+
       {/* ─── THE FIVE RESIDENCES ──────────────────────────────────── */}
       <section id="residences" className="bg-bone dark:bg-navy-950 py-32 md:py-48">
         <div className="container-editorial">
@@ -321,7 +348,7 @@ export default function SouthernBridgeCityPage() {
 
                 {/* Price + arrow */}
                 <div className="hidden md:flex col-span-4 items-center justify-end gap-6">
-                  <p className="font-display text-2xl text-navy-950 dark:text-bone">{p.pricing.from}</p>
+                  <p className="font-display text-2xl text-navy-950 dark:text-bone text-right"><Price ngn={ngnFromLabel(p.pricing.from)} label={p.pricing.from} stacked /></p>
                   <span aria-hidden className="text-ink-faint dark:text-bone/40 group-hover:text-navy-900 dark:text-bone/90 group-hover:translate-x-1 transition-all duration-300">→</span>
                 </div>
               </Link>

@@ -10,6 +10,7 @@ import { ThemeProvider, themeScript } from "@/lib/ThemeProvider";
 import FloatingActions from "@/components/shared/FloatingActions";
 import Preloader from "@/components/shared/Preloader";
 import { SavedResidencesProvider } from "@/lib/SavedResidencesProvider";
+import { CurrencyProvider } from "@/lib/CurrencyProvider";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -171,6 +172,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <ThemeProvider>
           <SavedResidencesProvider>
+           <CurrencyProvider>
             <Preloader />
             <SmoothScrollProvider>
               <NavigationProgress />
@@ -179,6 +181,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Footer />
               <FloatingActions />
             </SmoothScrollProvider>
+           </CurrencyProvider>
           </SavedResidencesProvider>
         </ThemeProvider>
       </body>

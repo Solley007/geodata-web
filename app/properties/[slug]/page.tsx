@@ -11,6 +11,7 @@ import SpecGrid from "@/components/property/SpecGrid";
 import ProgressBar from "@/components/property/ProgressBar";
 import ScrollSpyContent from "@/components/property/ScrollSpyContent";
 import PropertyEnquire from "@/components/property/PropertyEnquire";
+import { getAvailableCount } from "@/lib/availability";
 
 interface PageProps {
   params: { slug: string };
@@ -94,7 +95,7 @@ export default function PropertyDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <ActiveSectionProvider>
-        <PropertyHero property={property} />
+        <PropertyHero property={property} availableCount={getAvailableCount(property.slug)} />
         <StickySubNav property={property} />
         <SpecGrid property={property} />
         <ProgressBar property={property} />

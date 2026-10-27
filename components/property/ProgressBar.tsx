@@ -12,6 +12,7 @@ import {
   type ConstructionUpdate,
 } from "@/lib/construction-updates";
 import { useSwipe } from "@/lib/use-swipe";
+import FollowUnit from "./FollowUnit";
 
 interface Props {
   property: Property;
@@ -179,6 +180,8 @@ export default function ProgressBar({ property }: Props) {
                 </div>
               </div>
             )}
+
+            <FollowUnit slug={property.slug} title={property.title} />
           </div>
 
           {/* Right: current photo, compact, not full-width */}

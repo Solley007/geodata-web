@@ -251,6 +251,7 @@ export default function MobileNavDrawer({ open, onClose }: Props) {
 
             {/* Remaining flat links */}
             <NavItem href="/mortgage" onClose={onClose}>MREIF Mortgage</NavItem>
+            <NavItem href="/diaspora" onClose={onClose}>Buying from Abroad</NavItem>
             <NavItem href="/updates" onClose={onClose}>Updates</NavItem>
             <NavItem href="/blog" onClose={onClose}>Blog</NavItem>
             <NavItem href="/about" onClose={onClose}>About</NavItem>

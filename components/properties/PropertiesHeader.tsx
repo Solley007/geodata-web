@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import clsx from "clsx";
 import { gsap } from "@/lib/gsap";
+import CurrencySwitcher from "@/components/shared/CurrencySwitcher";
 import { PROPERTY_TYPES, type PropertyType } from "@/lib/properties-list";
 
 interface Props {
@@ -49,8 +50,9 @@ export default function PropertiesHeader({ activeFilter, onFilterChange, count }
           </div>
         </div>
 
+        <div className="mt-16 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
         {/* Filter bar, minimal, editorial. No dropdowns, no slider. */}
-        <div className="mt-16 flex flex-wrap items-center gap-2 md:gap-3">
+        <div className="flex flex-wrap items-center gap-2 md:gap-3">
           {PROPERTY_TYPES.map((type) => (
             <button
               key={type}
@@ -65,6 +67,8 @@ export default function PropertiesHeader({ activeFilter, onFilterChange, count }
               {type}
             </button>
           ))}
+        </div>
+        <CurrencySwitcher className="plist-filter lg:text-right" />
         </div>
       </div>
     </section>

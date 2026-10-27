@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import ConstructionAdmin from "./_components/ConstructionAdmin";
 import SiteUpdatesAdmin  from "./_components/SiteUpdatesAdmin";
+import AvailabilityAdmin from "./_components/AvailabilityAdmin";
 
 function BlogNotifyForm({ pw }: { pw: string }) {
   const [slug,    setSlug]    = useState("");
@@ -74,7 +75,7 @@ function BlogNotifyForm({ pw }: { pw: string }) {
   );
 }
 
-type Tab = "site-updates" | "construction";
+type Tab = "site-updates" | "construction" | "availability";
 
 export default function AdminPage() {
   const [password,  setPassword]  = useState("");
@@ -148,6 +149,7 @@ export default function AdminPage() {
           {([
             { id: "site-updates",  label: "Site Updates"        },
             { id: "construction",  label: "Construction Gallery" },
+            { id: "availability",  label: "Availability"         },
           ] as const).map((t) => (
             <button key={t.id} onClick={() => setTab(t.id)}
               className={`px-5 py-3 text-xs uppercase tracking-widest transition-colors ${
@@ -162,6 +164,7 @@ export default function AdminPage() {
       <div className="max-w-5xl mx-auto px-6 py-10">
         {tab === "site-updates" && <SiteUpdatesAdmin pw={pw.current} />}
         {tab === "construction" && <ConstructionAdmin pw={pw.current} />}
+        {tab === "availability" && <AvailabilityAdmin pw={pw.current} />}
         <BlogNotifyForm pw={pw.current} />
       </div>
 

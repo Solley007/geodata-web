@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { gsap } from "@/lib/gsap";
 import type { PropertyListItem } from "@/lib/properties-list";
 import SaveButton from "@/components/shared/SaveButton";
+import Price from "@/components/shared/Price";
 
 interface Props {
   properties: PropertyListItem[];
@@ -108,7 +109,7 @@ export default function PropertyGrid({ properties }: Props) {
                 </div>
                 <div className="text-right shrink-0">
                   <p className="font-display text-xl md:text-2xl text-navy-900 dark:text-bone/90 whitespace-nowrap">
-                    {p.priceLabel}
+                    {p.price > 0 ? <Price ngn={p.price} label={p.priceLabel} stacked /> : p.priceLabel}
                   </p>
                   <p className="text-[11px] uppercase tracking-eyebrow text-ink-faint dark:text-bone/40 mt-1">
                     From

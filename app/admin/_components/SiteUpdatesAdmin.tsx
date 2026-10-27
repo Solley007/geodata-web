@@ -4,6 +4,10 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { PROJECTS } from "@/lib/projects-data";
 import type { SiteUpdate, UpdateMediaType } from "@/lib/site-updates-types";
 import { formatUpdateDate, cloudinaryVideoPoster } from "@/lib/site-updates-types";
+import { getAllProperties } from "@/lib/property-data";
+
+// Southern Bridge City typologies people can follow from property pages
+const FOLLOW_TARGETS = getAllProperties().map((p) => ({ slug: p.slug, title: p.title }));
 
 const CLOUD_NAME    = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
@@ -81,6 +85,7 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   // Notify subscribers state
   const [notifyingId,   setNotifyingId]   = useState<string | null>(null);
   const [notifyMsg,     setNotifyMsg]     = useState<{ id: string; ok: boolean; text: string } | null>(null);
+  const [notifyTarget,  setNotifyTarget]  = useState<Record<string, string>>({});
   const [subscriberCount, setSubscriberCount] = useState<number | null>(null);
 
   const fileRef = useRef<HTMLInputElement>(null);
@@ -107,18 +112,22 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
   useEffect(() => { fetchList(); fetchSubscriberCount(); }, [fetchList, fetchSubscriberCount]);
 
   async function handleNotify(id: string) {
-    if (!confirm("Send email notification to all subscribers about this update?")) return;
+    const followSlug = notifyTarget[id] ?? "";
+    const audience = followSlug
+      ? `followers of ${FOLLOW_TARGETS.find((p) => p.slug === followSlug)?.title}`
+      : "all subscribers";
+    if (!confirm(`Send email notification to ${audience} about this update?`)) return;
     setNotifyingId(id);
     setNotifyMsg(null);
     try {
       const res  = await fetch("/api/admin/notify", {
         method:  "POST",
         headers: { "x-admin-password": pw, "Content-Type": "application/json" },
-        body:    JSON.stringify({ updateId: id }),
+        body:    JSON.stringify(followSlug ? { updateId: id, followSlug } : { updateId: id }),
       });
       const data = await res.json();
       if (res.ok) {
-        setNotifyMsg({ id, ok: true, text: "Notification sent to subscribers." });
+        setNotifyMsg({ id, ok: true, text: `Notification sent to ${audience}.` });
       } else {
         setNotifyMsg({ id, ok: false, text: data.error ?? "Failed to send." });
       }
@@ -495,13 +504,26 @@ export default function SiteUpdatesAdmin({ pw }: { pw: string }) {
                   </div>
                   {/* Notify action row */}
                   <div className="mt-3 pt-3 border-t border-hairline flex items-center justify-between gap-3">
-                    <button
-                      onClick={() => handleNotify(u.id)}
-                      disabled={notifyingId === u.id}
-                      className="text-xs font-medium text-navy-900 hover:text-gold-dark transition-colors uppercase tracking-widest disabled:opacity-50"
-                    >
-                      {notifyingId === u.id ? "Sending…" : "✉ Notify subscribers"}
-                    </button>
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => handleNotify(u.id)}
+                        disabled={notifyingId === u.id}
+                        className="text-xs font-medium text-navy-900 hover:text-gold-dark transition-colors uppercase tracking-widest disabled:opacity-50"
+                      >
+                        {notifyingId === u.id ? "Sending…" : "✉ Notify"}
+                      </button>
+                      <select
+                        value={notifyTarget[u.id] ?? ""}
+                        onChange={(e) => setNotifyTarget((t) => ({ ...t, [u.id]: e.target.value }))}
+                        className="text-xs bg-transparent border-b border-hairline py-0.5 text-ink-muted focus:outline-none"
+                        aria-label="Who to notify"
+                      >
+                        <option value="">All subscribers</option>
+                        {u.projectSlug === "southern-bridge-city" && FOLLOW_TARGETS.map((p) => (
+                          <option key={p.slug} value={p.slug}>Followers of {p.title}</option>
+                        ))}
+                      </select>
+                    </div>
                     {notifyMsg?.id === u.id && (
                       <p className={`text-xs ${notifyMsg.ok ? "text-green-700" : "text-red-500"}`}>{notifyMsg.text}</p>
                     )}
