@@ -1,21 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isAdmin } from "@/lib/admin-auth";
 import { readUpdates, writeUpdates, deleteImageFile } from "@/lib/fs-admin";
 
-function validateAuth(req: NextRequest): boolean {
-  const auth     = req.headers.get("x-admin-password") ?? "";
-  const expected = process.env.ADMIN_PASSWORD ?? "";
-  return expected.length > 0 && auth === expected;
-}
-
 export async function GET(req: NextRequest) {
-  if (!validateAuth(req)) {
+  if (!isAdmin(req)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   return NextResponse.json(readUpdates());
 }
 
 export async function DELETE(req: NextRequest) {
-  if (!validateAuth(req)) {
+  if (!isAdmin(req)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   try {

@@ -1,11 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import { subscribe, type SubscriptionCategory, CATEGORY_META } from "@/lib/resend-audience";
 import { COMPANY } from "@/lib/site-content";
+import { EMAIL_RE, escapeHtml, getResend } from "@/lib/email-utils";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const EMAIL_RE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const VALID_CATS = new Set<SubscriptionCategory>(["updates", "blog", "properties", "announcements"]);
 
 export async function POST(req: NextRequest) {
@@ -57,7 +54,7 @@ export async function POST(req: NextRequest) {
   <tr><td style="padding:36px 40px 32px;">
 
     <p style="margin:0 0 24px;font-family:Georgia,serif;font-size:26px;line-height:1.2;letter-spacing:-0.02em;color:#0A1628;">
-      ${firstName ? `Welcome, ${firstName}.` : "Welcome."}
+      ${firstName ? `Welcome, ${escapeHtml(firstName)}.` : "Welcome."}
     </p>
 
     <p style="margin:0 0 18px;font-size:15px;line-height:1.75;color:#1F2D3D;">
@@ -123,7 +120,7 @@ export async function POST(req: NextRequest) {
       ].join("\n");
 
       // Fire-and-forget, don't fail the subscription if the welcome email fails
-      await resend.emails.send({
+      await getResend().emails.send({
         from:    `Geodata <${fromEmail}>`,
         to:      cleanEmail,
         subject: firstName ? `Welcome, ${firstName}, you're subscribed` : "Welcome, you're subscribed to Geodata",

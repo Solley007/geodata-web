@@ -1,15 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isAdmin } from "@/lib/admin-auth";
 import { readUpdates, writeUpdates, saveImage } from "@/lib/fs-admin";
 import type { PropertyPhase } from "@/lib/property-data";
 
-function validateAuth(req: NextRequest): boolean {
-  const auth     = req.headers.get("x-admin-password") ?? "";
-  const expected = process.env.ADMIN_PASSWORD ?? "";
-  return expected.length > 0 && auth === expected;
-}
-
 export async function POST(req: NextRequest) {
-  if (!validateAuth(req)) {
+  if (!isAdmin(req)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

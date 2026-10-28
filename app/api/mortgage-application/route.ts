@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import { COMPANY } from "@/lib/site-content";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { EMAIL_RE, escapeHtml, getResend } from "@/lib/email-utils";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,6 +10,21 @@ export async function POST(req: NextRequest) {
     if (!name || !email || !phone || !employment || !incomeRange || !propertyOfInterest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
+    if (typeof email !== "string" || !EMAIL_RE.test(email.trim())) {
+      return NextResponse.json({ error: "Please provide a valid email." }, { status: 400 });
+    }
+
+    // Everything from the form is escaped before it goes into email HTML
+    const safe = {
+      name:               escapeHtml(name),
+      firstName:          escapeHtml(String(name).split(" ")[0]),
+      email:              escapeHtml(email),
+      phone:              escapeHtml(phone),
+      employment:         escapeHtml(employment),
+      incomeRange:        escapeHtml(incomeRange),
+      propertyOfInterest: escapeHtml(propertyOfInterest),
+      additionalInfo:     additionalInfo ? escapeHtml(additionalInfo) : "",
+    };
 
     const fromEmail = process.env.CONTACT_FROM;
     const toEmail   = process.env.CONTACT_TO ?? COMPANY.email;
@@ -28,26 +41,26 @@ export async function POST(req: NextRequest) {
 
     <tr><td style="padding:32px 40px;">
       <h1 style="margin:0 0 24px;font-family:Georgia,serif;font-size:24px;line-height:1.2;color:#0A1628;">
-        ${name}
+        ${safe.name}
       </h1>
 
       <table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;">
         <tr><td style="padding:8px 0;border-bottom:1px solid #F4F2EC;color:#94A0B0;width:160px;">Phone</td>
-            <td style="padding:8px 0;border-bottom:1px solid #F4F2EC;">${phone}</td></tr>
+            <td style="padding:8px 0;border-bottom:1px solid #F4F2EC;">${safe.phone}</td></tr>
         <tr><td style="padding:8px 0;border-bottom:1px solid #F4F2EC;color:#94A0B0;">Email</td>
-            <td style="padding:8px 0;border-bottom:1px solid #F4F2EC;"><a href="mailto:${email}" style="color:#0F2547;">${email}</a></td></tr>
+            <td style="padding:8px 0;border-bottom:1px solid #F4F2EC;"><a href="mailto:${safe.email}" style="color:#0F2547;">${safe.email}</a></td></tr>
         <tr><td style="padding:8px 0;border-bottom:1px solid #F4F2EC;color:#94A0B0;">Employment</td>
-            <td style="padding:8px 0;border-bottom:1px solid #F4F2EC;">${employment}</td></tr>
+            <td style="padding:8px 0;border-bottom:1px solid #F4F2EC;">${safe.employment}</td></tr>
         <tr><td style="padding:8px 0;border-bottom:1px solid #F4F2EC;color:#94A0B0;">Monthly income</td>
-            <td style="padding:8px 0;border-bottom:1px solid #F4F2EC;">${incomeRange}</td></tr>
+            <td style="padding:8px 0;border-bottom:1px solid #F4F2EC;">${safe.incomeRange}</td></tr>
         <tr><td style="padding:8px 0;color:#94A0B0;vertical-align:top;">Property of interest</td>
-            <td style="padding:8px 0;">${propertyOfInterest}</td></tr>
+            <td style="padding:8px 0;">${safe.propertyOfInterest}</td></tr>
       </table>
 
-      ${additionalInfo ? `
+      ${safe.additionalInfo ? `
       <div style="margin-top:24px;padding-top:24px;border-top:1px solid #E5E0D5;">
         <p style="margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#94A0B0;">Additional notes</p>
-        <p style="margin:0;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.6;color:#1F2D3D;white-space:pre-wrap;">${additionalInfo}</p>
+        <p style="margin:0;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.6;color:#1F2D3D;white-space:pre-wrap;">${safe.additionalInfo}</p>
       </div>` : ""}
 
       <p style="margin:32px 0 0;font-size:12px;color:#94A0B0;">
@@ -57,11 +70,11 @@ export async function POST(req: NextRequest) {
   </table>
 </body></html>`.trim();
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from:     `Geodata MREIF <${fromEmail}>`,
       to:       toEmail,
       replyTo:  email,
-      subject:  `MREIF enquiry, ${name}, ${propertyOfInterest}`,
+      subject:  `MREIF enquiry, ${safe.name}, ${safe.propertyOfInterest}`,
       html:     teamHtml,
     });
 
@@ -76,10 +89,10 @@ export async function POST(req: NextRequest) {
 
     <tr><td style="padding:36px 40px;">
       <h1 style="margin:0 0 16px;font-family:Georgia,serif;font-size:26px;line-height:1.2;letter-spacing:-0.01em;">
-        Thank you, ${name.split(" ")[0]}.
+        Thank you, ${safe.firstName}.
       </h1>
       <p style="margin:0 0 16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;">
-        We've received your MREIF mortgage enquiry for <strong>${propertyOfInterest}</strong>.
+        We've received your MREIF mortgage enquiry for <strong>${safe.propertyOfInterest}</strong>.
       </p>
       <p style="margin:0 0 16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;">
         A member of our team will reach out within one business day to walk you through pre-qualification and the formal MREIF application process.
@@ -98,9 +111,9 @@ export async function POST(req: NextRequest) {
   </table>
 </body></html>`.trim();
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from:    `Geodata <${fromEmail}>`,
-      to:      email,
+      to:      email.trim(),
       subject: "We've received your MREIF mortgage enquiry",
       html:    userHtml,
     });
@@ -108,6 +121,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (err: any) {
     console.error("Mortgage application error:", err);
-    return NextResponse.json({ error: err?.message ?? "Failed to submit" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to submit" }, { status: 500 });
   }
 }

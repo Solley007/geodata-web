@@ -1,14 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isAdmin } from "@/lib/admin-auth";
 import { broadcast } from "@/lib/resend-audience";
 import { COMPANY } from "@/lib/site-content";
 import { getPostBySlug } from "@/lib/blog";
 
-function auth(req: NextRequest) {
-  return req.headers.get("x-admin-password") === (process.env.ADMIN_PASSWORD ?? "");
-}
-
 export async function POST(req: NextRequest) {
-  if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!isAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
     const body = await req.json();

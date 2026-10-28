@@ -17,6 +17,7 @@
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { escapeHtml } from "@/lib/email-utils";
 
 interface ContactPayload {
   name: string;
@@ -147,12 +148,3 @@ export async function POST(request: Request) {
   }
 }
 
-/** Defang HTML to prevent injection in the email body */
-function escapeHtml(unsafe: string): string {
-  return unsafe
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}

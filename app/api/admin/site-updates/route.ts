@@ -1,13 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isAdmin } from "@/lib/admin-auth";
 import { readSiteUpdates, writeSiteUpdates } from "@/lib/site-updates";
 import { generateSlug } from "@/lib/site-updates-types";
 import type { SiteUpdate } from "@/lib/site-updates-types";
-
-function auth(req: NextRequest): boolean {
-  const got = req.headers.get("x-admin-password") ?? "";
-  const want = process.env.ADMIN_PASSWORD ?? "";
-  return want.length > 0 && got === want;
-}
 
 // GET, public read of all updates (no auth, same as the static JSON)
 export async function GET() {
@@ -16,7 +11,7 @@ export async function GET() {
 
 // POST, create a new update
 export async function POST(req: NextRequest) {
-  if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!isAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
     const body = await req.json();
     const updates = readSiteUpdates();
@@ -51,7 +46,7 @@ export async function POST(req: NextRequest) {
 
 // PUT, edit an existing update by id
 export async function PUT(req: NextRequest) {
-  if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!isAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
     const body = await req.json();
     if (!body.id) return NextResponse.json({ error: "Missing id" }, { status: 400 });
@@ -94,7 +89,7 @@ export async function PUT(req: NextRequest) {
 
 // DELETE, by id
 export async function DELETE(req: NextRequest) {
-  if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!isAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
     const { id } = await req.json();
     const updates = readSiteUpdates();

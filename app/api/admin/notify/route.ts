@@ -1,25 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isAdmin } from "@/lib/admin-auth";
 import { broadcast, getSubscriberCount } from "@/lib/resend-audience";
 import { readSiteUpdates } from "@/lib/site-updates";
 import { PROJECTS } from "@/lib/projects-data";
 import { formatUpdateDate } from "@/lib/site-updates-types";
 
-function auth(req: NextRequest): boolean {
-  const got  = req.headers.get("x-admin-password") ?? "";
-  const want = process.env.ADMIN_PASSWORD ?? "";
-  return want.length > 0 && got === want;
-}
-
 // GET, subscriber count for admin dashboard
 export async function GET(req: NextRequest) {
-  if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!isAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const count = await getSubscriberCount();
   return NextResponse.json({ count });
 }
 
 // POST, broadcast a specific update to all subscribers
 export async function POST(req: NextRequest) {
-  if (!auth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!isAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
     const { updateId } = await req.json();

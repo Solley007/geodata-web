@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import {
   runQuiz, formatNaira, formatNairaFull,
   INCOME_BRACKETS, BEDROOM_OPTIONS, TIMELINE_OPTIONS, APPROVAL_OPTIONS,
@@ -7,9 +6,7 @@ import {
   type QuizAnswers,
 } from "@/lib/mortgage-quiz";
 import { COMPANY, SOCIAL } from "@/lib/site-content";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-const EMAIL_RE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+import { EMAIL_RE, escapeHtml, getResend } from "@/lib/email-utils";
 
 export async function POST(req: NextRequest) {
   try {
@@ -47,7 +44,7 @@ export async function POST(req: NextRequest) {
     // ── Save to Resend audience (fire-and-forget) ───────────────────
     const audienceId = process.env.RESEND_AUDIENCE_ID;
     if (audienceId) {
-      resend.contacts.create({
+      getResend().contacts.create({
         audienceId,
         email: cleanEmail,
         firstName,
@@ -126,7 +123,7 @@ Reply to this email to start a conversation.`;
 
   <tr><td style="padding:36px 40px 24px;border-bottom:1px solid #e5e0d5;">
     <p style="margin:0;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#5c6b7e;">Your affordability report</p>
-    <h1 style="margin:14px 0 0;font-size:28px;font-weight:600;color:#0a1628;line-height:1.2;">Hi ${firstName},</h1>
+    <h1 style="margin:14px 0 0;font-size:28px;font-weight:600;color:#0a1628;line-height:1.2;">Hi ${escapeHtml(firstName)},</h1>
   </td></tr>
 
   <tr><td style="padding:32px 40px 8px;">
@@ -183,7 +180,7 @@ Reply to this email to start a conversation.`;
 
     // Send (fire-and-forget, saving the data matters more than email delivery)
     try {
-      await resend.emails.send({
+      await getResend().emails.send({
         from: FROM,
         to: cleanEmail,
         subject,
@@ -199,7 +196,7 @@ Reply to this email to start a conversation.`;
 
     // Also notify the team
     try {
-      await resend.emails.send({
+      await getResend().emails.send({
         from: FROM,
         to: process.env.CONTACT_TO ?? "hello@geodata.com.ng",
         replyTo: cleanEmail,
