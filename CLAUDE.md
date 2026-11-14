@@ -121,3 +121,12 @@ Keep: Google Analytics tag `G-PS3LFR5890` in `index.html`; Cal.com booking link 
 - Make changes, verify them (desktop and 390px mobile), then report briefly.
 - Ask before anything that changes live data or costs money.
 - Plain, human wording on the site. No em dashes.
+
+## Migration progress (14 Nov 2026)
+
+- Steps 1 to 5 done on `hercules-site` (preview: `geodata-web-git-hercules-site-solley007s-projects.vercel.app`, behind Vercel login). Production Branch in Vercel is `features/wave-1`.
+- Own Convex project: team `suleiman-yahya`, project `geodata-web`, dev deployment `ceaseless-cardinal-366`. Export imported there and checked (1,380 documents, 287 files). Vercel Preview env has `VITE_CONVEX_URL` and `VITE_CONVEX_SITE_URL`.
+- Exports and backups live outside the repo in `/Volumes/SSD DRIVE/geodata-exports/`. The Files library zip there is truncated (incomplete download); not needed, because the site's images were downloaded straight from hercules-cdn.com.
+- Images and fonts are self-hosted in `public/media/` as `file_<id>.<ext>`. Absolute links (og:image, JSON-LD, email logos, Convex share pages) use `https://geodata.com.ng/media/...`, so they only resolve once the domain points to Vercel.
+- Data fixes applied to the dev deployment after import, which must be repeated when importing into the production deployment: replace `watchful-wombat-208.convex.cloud`/`.site` with the new deployment's host in `properties`, `galleryItems`, `groupBusinesses`, `estates`, `siteSettings`; set `siteSettings` key `branding` `logoUrl` to `/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png`.
+- `convex/auth.config.ts` has no providers until step 6 replaces Hercules sign-in.
