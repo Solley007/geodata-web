@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /partner/apply
+Disallow: /admin
+Disallow: /staff
+Disallow: /partner/login
+Disallow: /partner
+Disallow: /client
+Disallow: /auth
+
+Sitemap: https://geodata.com.ng/sitemap.xml
+Sitemap: https://watchful-wombat-208.convex.site/sitemap.xml

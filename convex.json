@@ -1,0 +1,6 @@
+{
+  "$schema": "https://raw.githubusercontent.com/get-convex/convex-backend/refs/heads/main/npm-packages/convex/schemas/convex.schema.json",
+  "node": {
+    "externalPackages": ["@usehercules/sdk", "escape-html", "jspdf", "jspdf-autotable", "qrcode", "@phosphor-icons/react", "@aws-sdk/client-s3", "pdfjs-dist"]
+  }
+}
