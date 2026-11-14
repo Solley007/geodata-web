@@ -1,8 +1,12 @@
 import { httpRouter } from "convex/server";
+import { auth } from "./auth";
 import { httpAction } from "./_generated/server";
 import { api, internal } from "./_generated/api";
 
 const http = httpRouter();
+
+// Convex Auth sign-in routes
+auth.addHttpRoutes(http);
 
 // ─── OG Preview endpoint for properties ─────────────────────────────────────
 // Social crawlers (WhatsApp, Telegram, Facebook) are bots that don't run JS.

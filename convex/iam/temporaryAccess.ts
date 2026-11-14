@@ -5,6 +5,7 @@ import { internal } from "../_generated/api.js";
 import { requireIamAdmin } from "./roles.ts";
 import { hasApprovalAuthority } from "./approvalAuthority.ts";
 import { logAudit } from "../taskboard.ts";
+import { tokenOf } from "../authIdentity";
 
 // ── Temporary access grants (auto-expiring) ─────────────────────────────────
 // Grants a role, permission, or data scope for a bounded window. Expiry is
@@ -115,7 +116,7 @@ export const listMyActiveTemporaryAccess = query({
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return [];
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return [];
     const now = new Date().toISOString();
     const rows = await ctx.db.query("temporaryAccess").withIndex("by_user", (q) => q.eq("userId", user._id)).collect();

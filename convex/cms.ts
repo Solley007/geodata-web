@@ -3,6 +3,7 @@ import { mutation, query, internalQuery } from "./_generated/server";
 import { paginationOptsValidator } from "convex/server";
 import type { MutationCtx, QueryCtx } from "./_generated/server";
 import type { Id } from "./_generated/dataModel.d.ts";
+import { tokenOf } from "./authIdentity";
 
 // ─── Auth helpers ──────────────────────────────────────────────────────────
 
@@ -14,7 +15,7 @@ async function resolveUser(ctx: MutationCtx | QueryCtx) {
   // Try by token first
   const byToken = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .first();
   if (byToken) return byToken;
   // Fallback: match by email (handles issuer URL changes)
@@ -533,7 +534,7 @@ export const addComment = mutation({
       email: args.email,
       content: args.content.trim(),
       approved: false,
-      tokenIdentifier: identity?.tokenIdentifier,
+      tokenIdentifier: (identity ? tokenOf(identity) : undefined),
     });
   },
 });

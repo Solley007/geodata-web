@@ -1,6 +1,7 @@
 import { query } from "../_generated/server";
 import type { QueryCtx } from "../_generated/server";
 import type { Id } from "../_generated/dataModel.d.ts";
+import { tokenOf } from "../authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // STAFF SELF-SERVICE PORTAL (/staff) — access gate + profile header.
@@ -41,7 +42,7 @@ export const getMyStaffPortalProfile = query({
   handler: async (ctx): Promise<StaffPortalProfile | null> => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return null;
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return null;
 
     const assignment = await getPrimaryAssignment(ctx, user._id);

@@ -6,6 +6,7 @@ import { api } from "./_generated/api.js";
 import { logAudit } from "./taskboard.ts";
 import { isFeatureEnabled, requireFeatureEnabled } from "./featureToggles.ts";
 import { supersedeStampsForVersion } from "./estamp.ts";
+import { tokenOf } from "./authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // ENHANCED DOCUMENT MANAGEMENT
@@ -24,7 +25,7 @@ const STAFF_ROLES = ["super_admin", "admin", "manager", "agent"];
 async function requireStaff(ctx: QueryCtx | MutationCtx): Promise<Doc<"users">> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Sign in required" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user || !STAFF_ROLES.includes(user.role ?? "")) {
     throw new ConvexError({ code: "FORBIDDEN", message: "Staff access required" });
   }
@@ -271,7 +272,7 @@ export const getEnhancedDocumentsAccess = query({
     const featureEnabled = await isFeatureEnabled(ctx, "feature_enhanced_documents");
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return { featureEnabled, isStaff: false };
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     return { featureEnabled, isStaff: !!user && STAFF_ROLES.includes(user.role ?? "") };
   },
 });

@@ -2,6 +2,7 @@ import { query, mutation } from "./_generated/server";
 import { v } from "convex/values";
 import { ConvexError } from "convex/values";
 import type { MutationCtx } from "./_generated/server";
+import { tokenOf } from "./authIdentity";
 
 // ── helpers ─────────────────────────────────────────────────────────
 
@@ -10,7 +11,7 @@ async function requireAdmin(ctx: MutationCtx) {
   if (!identity) throw new ConvexError({ message: "Unauthenticated", code: "UNAUTHENTICATED" });
   const user = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .unique();
   if (!user) throw new ConvexError({ message: "User not found", code: "NOT_FOUND" });
   const allowed = ["admin", "manager", "agent"];

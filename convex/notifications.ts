@@ -2,6 +2,7 @@ import { ConvexError, v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 import type { MutationCtx, QueryCtx } from "./_generated/server";
 import type { Id } from "./_generated/dataModel.d.ts";
+import { tokenOf } from "./authIdentity";
 
 // ── Shared in-app notification inbox ────────────────────────────────────────
 // Powers the bell icon on every dashboard (client, partner, admin). Rows are
@@ -14,7 +15,7 @@ import type { Id } from "./_generated/dataModel.d.ts";
 async function getCurrentUserRow(ctx: QueryCtx | MutationCtx) {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) return null;
-  return ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  return ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
 }
 
 /** Resolves the current signed-in user's linked `clients` row, or null. */

@@ -2,19 +2,20 @@ import { ConvexError } from "convex/values";
 import { mutation, query, type QueryCtx, type MutationCtx } from "./_generated/server";
 import { v } from "convex/values";
 import { internal } from "./_generated/api.js";
-import type { Doc } from "./_generated/dataModel.d.ts";
-import { paginationOptsValidator } from "convex/server";
+import type { Doc, Id } from "./_generated/dataModel.d.ts";
+import { paginationOptsValidator, type UserIdentity } from "convex/server";
+import { tokenOf } from "./authIdentity";
 
 // Resolves the calling user: try tokenIdentifier first, then fall back to
 // matching by email. This survives Hercules Auth issuer URL drift, where the
 // same end user can get a new tokenIdentifier between sign-ins.
 async function resolveCurrentUser(
   ctx: QueryCtx | MutationCtx,
-  identity: { tokenIdentifier: string; email?: string },
+  identity: UserIdentity,
 ): Promise<Doc<"users"> | null> {
   const byToken = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .unique();
   if (byToken) return byToken;
   if (identity.email) {
@@ -43,6 +44,55 @@ async function syncStaffProfile(ctx: MutationCtx, user: Doc<"users">): Promise<v
   });
 }
 
+// Side effects for a brand-new self sign-up (welcome email, CRM clients row,
+// partner link). Called from updateCurrentUser and from Convex Auth's
+// createOrUpdateUser in auth.ts.
+export async function onNewSelfSignup(
+  ctx: MutationCtx,
+  newId: Id<"users">,
+  email: string | undefined,
+  name: string | undefined,
+): Promise<void> {
+  // Send welcome email to brand-new clients
+  if (email) {
+    await ctx.scheduler.runAfter(0, internal.emails.sendClientWelcomeEmail, {
+      to: email,
+      name: name ?? "there",
+    });
+  }
+
+  // Every new self-signup is a lead: create a matching CRM `clients` row
+  // immediately, unless one with this email already exists (e.g. created
+  // earlier via a public inquiry/inspection request).
+  if (email) {
+    const existingClient = await ctx.db
+      .query("clients")
+      .filter((q) => q.eq(q.field("email"), email))
+      .first();
+    if (existingClient) {
+      if (!existingClient.userId) await ctx.db.patch(existingClient._id, { userId: newId });
+    } else {
+      await ctx.db.insert("clients", {
+        userId: newId,
+        fullName: name ?? email,
+        email,
+        phone: "",
+        kycStatus: "pending",
+        source: "website",
+        createdBy: newId,
+      });
+    }
+  }
+
+  // Link any approved partner record that still has userId: null
+  if (email) {
+    await ctx.scheduler.runAfter(0, internal.partners.linkPartnerToUser, {
+      email,
+      userId: newId,
+    });
+  }
+}
+
 // Called from auth/Callback after every sign-in
 export const updateCurrentUser = mutation({
   args: {},
@@ -55,7 +105,7 @@ export const updateCurrentUser = mutation({
     // 1. Does a full user record already exist for this identity?
     const existing = await ctx.db
       .query("users")
-      .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+      .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
       .unique();
 
     if (existing) {
@@ -65,6 +115,27 @@ export const updateCurrentUser = mutation({
         email: identity.email ?? existing.email,
         preRegistered: false,
       });
+      // First sign-in of a client pre-registered by an admin: make sure they
+      // have a matching CRM `clients` row (auth.ts links them by email).
+      if (existing.preRegistered && (existing.role ?? "client") === "client" && existing.email) {
+        const existingClient = await ctx.db
+          .query("clients")
+          .filter((q) => q.eq(q.field("email"), existing.email))
+          .first();
+        if (existingClient) {
+          if (!existingClient.userId) await ctx.db.patch(existingClient._id, { userId: existing._id });
+        } else {
+          await ctx.db.insert("clients", {
+            userId: existing._id,
+            fullName: existing.name ?? existing.email,
+            email: existing.email,
+            phone: existing.phone ?? "",
+            kycStatus: "pending",
+            source: "website",
+            createdBy: existing._id,
+          });
+        }
+      }
       // Link any approved partner record that still has userId: null
       if (identity.email) {
         await ctx.scheduler.runAfter(0, internal.partners.linkPartnerToUser, {
@@ -89,7 +160,7 @@ export const updateCurrentUser = mutation({
         // Claim or re-link the existing record — update the tokenIdentifier and
         // refresh name/email; preserve role and all other fields.
         await ctx.db.patch(emailMatch._id, {
-          tokenIdentifier: identity.tokenIdentifier,
+          tokenIdentifier: tokenOf(identity),
           name: identity.name ?? emailMatch.name,
           email: identity.email ?? emailMatch.email,
           preRegistered: false,
@@ -133,53 +204,13 @@ export const updateCurrentUser = mutation({
     const newId = await ctx.db.insert("users", {
       name: identity.name,
       email: identity.email,
-      tokenIdentifier: identity.tokenIdentifier,
+      tokenIdentifier: tokenOf(identity),
       role: isFirst ? "admin" : "client",
       isActive: true,
       preRegistered: false,
     });
 
-    // Send welcome email to brand-new clients
-    if (!isFirst && identity.email) {
-      await ctx.scheduler.runAfter(0, internal.emails.sendClientWelcomeEmail, {
-        to: identity.email,
-        name: identity.name ?? "there",
-      });
-    }
-
-    // Every new self-signup is a lead — create a matching CRM `clients` row
-    // immediately so sales/support see them right away, instead of only
-    // after they happen to submit an inquiry. Skip for the first user (they
-    // become admin, not a client) and skip if a clients row with this email
-    // already exists (e.g. created earlier via a public inquiry/inspection
-    // request) to avoid a duplicate.
-    if (!isFirst && identity.email) {
-      const existingClient = await ctx.db
-        .query("clients")
-        .filter((q) => q.eq(q.field("email"), identity.email))
-        .first();
-      if (existingClient) {
-        if (!existingClient.userId) await ctx.db.patch(existingClient._id, { userId: newId });
-      } else {
-        await ctx.db.insert("clients", {
-          userId: newId,
-          fullName: identity.name ?? identity.email,
-          email: identity.email,
-          phone: "",
-          kycStatus: "pending",
-          source: "website",
-          createdBy: newId,
-        });
-      }
-    }
-
-    // Link any approved partner record that still has userId: null
-    if (identity.email) {
-      await ctx.scheduler.runAfter(0, internal.partners.linkPartnerToUser, {
-        email: identity.email,
-        userId: newId,
-      });
-    }
+    if (!isFirst) await onNewSelfSignup(ctx, newId, identity.email, identity.name);
 
     return newId;
   },
@@ -193,7 +224,7 @@ export const getCurrentUser = query({
     // Primary lookup: by current tokenIdentifier
     const byToken = await ctx.db
       .query("users")
-      .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+      .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
       .unique();
     if (byToken) return byToken;
     // Fallback: token may differ (issuer URL change) — find by email

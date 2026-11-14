@@ -4,6 +4,7 @@ import type { QueryCtx, MutationCtx } from "./_generated/server";
 import type { Id, Doc } from "./_generated/dataModel.d.ts";
 import { logAudit } from "./taskboard.ts";
 import { hasPermission } from "./iam/access.ts";
+import { tokenOf } from "./authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // GEODATA LIVE INSPECT™ — INTERACTIVE 360°/VR TOUR (second mode).
@@ -42,7 +43,7 @@ const PERMISSION_LABELS: Record<TourPermission, string> = {
 async function requireSignedInUser(ctx: QueryCtx | MutationCtx): Promise<Doc<"users">> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not authenticated" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user) throw new ConvexError({ code: "NOT_FOUND", message: "User not found" });
   return user;
 }
@@ -148,7 +149,7 @@ export const getMyAccess = query({
   handler: async (ctx): Promise<{ signedIn: boolean; canView: boolean; isAdmin: boolean }> => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return { signedIn: false, canView: false, isAdmin: false };
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return { signedIn: false, canView: false, isAdmin: false };
     const isAdmin = user.role === "super_admin" || user.role === "admin";
     const canView = await hasPermission(ctx, user._id, "property_tour.view");

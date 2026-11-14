@@ -4,6 +4,7 @@ import type { Doc, Id } from "../_generated/dataModel.d.ts";
 import { logAudit } from "../taskboard.ts";
 import { requirePermission } from "./feature.ts";
 import { hasPermission } from "../iam/access.ts";
+import { tokenOf } from "../authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // Diaspora Campaigns — activations of the permanent platform (e.g. NBLBF2026
@@ -90,7 +91,7 @@ export const getPublicCampaignBySlug = query({
     if (campaign.landingPagePublished === "preview") {
       const identity = await ctx.auth.getUserIdentity();
       if (!identity) return null;
-      const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+      const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
       if (!user) return null;
       const allowed = (await hasPermission(ctx, user._id, "diaspora.view")) || user.role === "super_admin";
       if (!allowed) return null;

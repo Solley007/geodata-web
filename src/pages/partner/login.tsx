@@ -167,7 +167,7 @@ export default function PartnerLoginPage() {
               <Unauthenticated>
                 <div className="flex items-start gap-3 bg-blue-50 rounded-xl p-3 text-sm text-blue-700">
                   <Shield size={16} className="shrink-0 mt-0.5 text-[var(--brand)]" />
-                  <p>Sign in with your Google account to access your partner dashboard, commissions, and promo materials.</p>
+                  <p>Sign in with your email to access your partner dashboard, commissions, and promo materials.</p>
                 </div>
                 <SignInButton
                   signInText="Sign in to Partner Portal"

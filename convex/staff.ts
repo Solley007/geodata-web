@@ -5,6 +5,7 @@ import { requireAdmin } from "./admin.ts";
 import { internal } from "./_generated/api.js";
 import type { QueryCtx, MutationCtx } from "./_generated/server";
 import type { Id } from "./_generated/dataModel.d.ts";
+import { tokenOf } from "./authIdentity";
 
 // ── STAFF PROFILES ────────────────────────────────────────────────
 async function resolveAvatarUrl(ctx: QueryCtx, staff: { avatarStorageId?: Id<"_storage"> }) {
@@ -386,7 +387,7 @@ export const getStaffStats = query({
 async function requireStaffOwnerOrAdmin(ctx: MutationCtx, staffId: Id<"staffProfiles">) {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not logged in" });
-  const me = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const me = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!me) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not logged in" });
 
   const staff = await ctx.db.get(staffId);
@@ -418,7 +419,7 @@ export const listStaffDocuments = query({
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not logged in" });
-    const me = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const me = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!me) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not logged in" });
 
     const staff = await ctx.db.get(args.staffId);

@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, Navigate, useParams, useLocation } from "
 import { DefaultProviders } from "./components/providers/default.tsx";
 import AuthCallback from "./pages/auth/Callback.tsx";
 import AuthRedirect from "./pages/auth/Redirect.tsx";
+import SignInPage from "./pages/auth/SignIn.tsx";
 import Index from "./pages/Index.tsx";
 import RealEstateLandingPage, { HomeV2 } from "./pages/home/RealEstateLandingPage.tsx";
 import PropertiesPage from "./pages/properties/page.tsx";
@@ -180,6 +181,7 @@ export default function App() {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
+          <Route path="/auth/sign-in" element={<SignInPage />} />
           <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/auth/redirect" element={<AuthRedirect />} />
           <Route path="/admin/login" element={<AdminLogin />} />

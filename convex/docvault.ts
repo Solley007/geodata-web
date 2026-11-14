@@ -4,6 +4,7 @@ import { ConvexError } from "convex/values";
 import type { MutationCtx, QueryCtx } from "./_generated/server";
 import { format } from "date-fns";
 import { paginationOptsValidator } from "convex/server";
+import { tokenOf } from "./authIdentity";
 
 // ── Auth helpers ──────────────────────────────────────────────────────────────
 
@@ -12,7 +13,7 @@ async function requireStaff(ctx: QueryCtx | MutationCtx) {
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Sign in required" });
   const user = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .unique();
   if (!user || !["super_admin", "admin", "manager", "agent"].includes(user.role ?? "")) {
     throw new ConvexError({ code: "FORBIDDEN", message: "Staff access required" });
@@ -765,7 +766,7 @@ export const getMyAgreements = query({
     if (!identity) return [];
     const user = await ctx.db
       .query("users")
-      .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+      .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
       .unique();
     if (!user) return [];
     const client = await ctx.db

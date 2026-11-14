@@ -1,8 +1,14 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
+import { authTables } from "@convex-dev/auth/server";
 import { partnerProfileContent } from "./schema/partnerProfile.ts";
 
+// Convex Auth tables (sessions, accounts, codes). Our own `users` table below
+// replaces authTables.users and includes its fields.
+const { users: _authUsers, ...convexAuthTables } = authTables;
+
 export default defineSchema({
+  ...convexAuthTables,
   users: defineTable({
     tokenIdentifier: v.string(),
     name: v.optional(v.string()),
@@ -14,6 +20,11 @@ export default defineSchema({
     staffId: v.optional(v.string()),
     isActive: v.optional(v.boolean()),
     preRegistered: v.optional(v.boolean()), // true = created by admin, not yet signed in
+    // Convex Auth fields
+    image: v.optional(v.string()),
+    emailVerificationTime: v.optional(v.number()),
+    phoneVerificationTime: v.optional(v.number()),
+    isAnonymous: v.optional(v.boolean()),
   })
     .index("by_token", ["tokenIdentifier"])
     .index("by_role", ["role"])

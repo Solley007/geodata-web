@@ -5,6 +5,7 @@ import type { Doc, Id } from "./_generated/dataModel.d.ts";
 import { logAudit } from "./taskboard.ts";
 import { hasPermission } from "./iam/access.ts";
 import { requireFeatureEnabled, isFeatureEnabled } from "./featureToggles.ts";
+import { tokenOf } from "./authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // OFFICIAL GEODATA CORPORATE E-STAMP
@@ -35,7 +36,7 @@ export type StampPermission = (typeof STAMP_PERMISSIONS)[number];
 async function requireStaff(ctx: QueryCtx | MutationCtx): Promise<Doc<"users">> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Sign in required" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user || !STAFF_ROLES.includes(user.role ?? "")) {
     throw new ConvexError({ code: "FORBIDDEN", message: "Staff access required" });
   }
@@ -93,7 +94,7 @@ export const getMyEStampAccess = query({
     const featureEnabled = await isFeatureEnabled(ctx, "feature_corporate_estamp");
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return { featureEnabled, isStaff: false, canView: false, canApply: false, canRevoke: false, canAdmin: false, canAudit: false };
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user || !STAFF_ROLES.includes(user.role ?? "")) {
       return { featureEnabled, isStaff: false, canView: false, canApply: false, canRevoke: false, canAdmin: false, canAudit: false };
     }

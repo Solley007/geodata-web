@@ -4,6 +4,7 @@ import type { Id } from "../_generated/dataModel.d.ts";
 import { internal } from "../_generated/api.js";
 import { requireIamAdmin } from "./roles.ts";
 import { logAudit } from "../taskboard.ts";
+import { tokenOf } from "../authIdentity";
 
 // ── Explicit approval authority ─────────────────────────────────────────────
 // Approval authority is NEVER inferred from job title, system role, or
@@ -99,7 +100,7 @@ export const listMyApprovalAuthorities = query({
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return [];
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return [];
     const rows = await ctx.db.query("approvalAuthorities").withIndex("by_user", (q) => q.eq("userId", user._id)).collect();
     return rows.filter((r) => r.status === "active");

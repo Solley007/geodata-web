@@ -2,6 +2,7 @@ import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 import { internal } from "./_generated/api.js";
 import type { Id } from "./_generated/dataModel.d.ts";
+import { tokenOf } from "./authIdentity";
 
 export const create = mutation({
   args: {
@@ -19,7 +20,7 @@ export const create = mutation({
     const id = await ctx.db.insert("inquiries", {
       ...args,
       status: "new",
-      tokenIdentifier: identity?.tokenIdentifier,
+      tokenIdentifier: (identity ? tokenOf(identity) : undefined),
     });
 
     // Confirm receipt to the sender
@@ -52,13 +53,13 @@ export const listMyInquiries = query({
     // First try tokenIdentifier index
     const byToken = await ctx.db
       .query("inquiries")
-      .filter((q) => q.eq(q.field("tokenIdentifier"), identity.tokenIdentifier))
+      .filter((q) => q.eq(q.field("tokenIdentifier"), tokenOf(identity)))
       .collect();
     if (byToken.length > 0) return byToken;
     // Fallback: match by email
     const user = await ctx.db
       .query("users")
-      .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+      .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
       .unique();
     if (!user?.email) return [];
     return await ctx.db

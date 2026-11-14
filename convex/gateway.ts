@@ -5,6 +5,7 @@ import { paginationOptsValidator } from "convex/server";
 import { internal } from "./_generated/api.js";
 import type { QueryCtx, MutationCtx } from "./_generated/server";
 import type { Id } from "./_generated/dataModel";
+import { tokenOf } from "./authIdentity";
 
 // ── Shared gateway metadata (never contains live secrets) ────────────────────
 
@@ -75,7 +76,7 @@ async function requireAdmin(ctx: QueryCtx | MutationCtx) {
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not authenticated" });
   const user = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .unique();
   if (!user) throw new ConvexError({ code: "NOT_FOUND", message: "User not found" });
   const allowed = ["super_admin", "admin", "manager"];

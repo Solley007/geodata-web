@@ -4,6 +4,7 @@ import type { Id } from "../_generated/dataModel.js";
 import { internal } from "../_generated/api.js";
 import { requireIamAdmin } from "./roles.ts";
 import { logAudit } from "../taskboard.ts";
+import { tokenOf } from "../authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // EXTERNAL STRATEGIC PARTNER ENGAGEMENTS
@@ -513,7 +514,7 @@ export const getMyPartnerEngagement = query({
   handler: async (ctx): Promise<MyPartnerEngagement | null> => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return null;
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return null;
     return await getMyPartnerEngagementForUser(ctx, user._id);
   },

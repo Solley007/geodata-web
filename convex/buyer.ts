@@ -9,6 +9,7 @@ import { query, mutation } from "./_generated/server";
 import { v, ConvexError } from "convex/values";
 import type { QueryCtx, MutationCtx } from "./_generated/server";
 import type { Id } from "./_generated/dataModel.d.ts";
+import { tokenOf } from "./authIdentity";
 
 // ── Auth helper ───────────────────────────────────────────────────────────────
 
@@ -18,7 +19,7 @@ async function requireBuyer(ctx: QueryCtx | MutationCtx) {
 
   const user = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .unique();
   if (!user) throw new ConvexError({ code: "NOT_FOUND", message: "User record not found" });
 

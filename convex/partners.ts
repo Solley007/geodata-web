@@ -6,6 +6,7 @@ import { internal } from "./_generated/api.js";
 import type { MutationCtx, QueryCtx } from "./_generated/server";
 import type { Id } from "./_generated/dataModel.d.ts";
 import { campaignAcceptsLeads } from "./diaspora/campaigns.ts";
+import { tokenOf } from "./authIdentity";
 
 // ── helpers ─────────────────────────────────────────────────────────────────
 
@@ -15,7 +16,7 @@ export async function resolveUser(ctx: MutationCtx | QueryCtx) {
   if (!identity) return null;
   const byToken = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .unique();
   if (byToken) return byToken;
   // Fallback: issuer URL may have changed — find by email
@@ -486,7 +487,7 @@ export const enrollSelfAsPartner = mutation({
     if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not logged in" });
     const user = await ctx.db
       .query("users")
-      .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+      .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
       .unique();
     if (!user) throw new ConvexError({ code: "NOT_FOUND", message: "User not found" });
     if (!["super_admin", "admin", "manager", "agent"].includes(user.role ?? ""))

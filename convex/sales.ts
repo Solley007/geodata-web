@@ -7,6 +7,7 @@ import { internal } from "./_generated/api.js";
 import type { Id } from "./_generated/dataModel.d.ts";
 import type { MutationCtx, QueryCtx } from "./_generated/server";
 import { notifyUser } from "./notifications.ts";
+import { tokenOf } from "./authIdentity";
 
 // ── Purchase intent (Buy Outright / Buy With Mortgage) ─────────────────────
 // Lets a property-page visitor or signed-in client declare their financing
@@ -31,7 +32,7 @@ async function findOrCreatePublicClientForPurchase(
 async function requireBuyerClientForSales(ctx: QueryCtx | MutationCtx) {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not authenticated" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user) throw new ConvexError({ code: "NOT_FOUND", message: "User not found" });
   const allClients = await ctx.db.query("clients").collect();
   const client = allClients.find((c) => c.userId === user._id || c.email === user.email);
@@ -45,7 +46,7 @@ async function requireBuyerClientForSales(ctx: QueryCtx | MutationCtx) {
 async function tryGetBuyerClientForSales(ctx: QueryCtx) {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) return null;
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user) return null;
   const allClients = await ctx.db.query("clients").collect();
   return allClients.find((c) => c.userId === user._id || c.email === user.email) ?? null;

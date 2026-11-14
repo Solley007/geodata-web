@@ -6,6 +6,7 @@ import type { Id } from "./_generated/dataModel.d.ts";
 import { internal } from "./_generated/api.js";
 import { hasApprovalAuthority, isApprovalTypeGoverned } from "./iam/approvalAuthority.ts";
 import { resolveViewerScope, filterByScope } from "./iam/scope.ts";
+import { tokenOf } from "./authIdentity";
 
 // ── Auth helpers ───────────────────────────────────────────────────────────────
 
@@ -14,7 +15,7 @@ async function requireStaff(ctx: QueryCtx | MutationCtx) {
   if (!identity) throw new ConvexError({ message: "Not authenticated", code: "UNAUTHENTICATED" });
   const user = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .unique();
   if (!user) throw new ConvexError({ message: "User not found", code: "NOT_FOUND" });
   const STAFF_ROLES = ["super_admin", "admin", "manager", "agent"];
@@ -35,7 +36,7 @@ async function requireAuthenticated(ctx: QueryCtx | MutationCtx) {
   if (!identity) throw new ConvexError({ message: "Not authenticated", code: "UNAUTHENTICATED" });
   const user = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .unique();
   if (!user) throw new ConvexError({ message: "User not found", code: "NOT_FOUND" });
   return user;

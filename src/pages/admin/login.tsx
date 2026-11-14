@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
         <div className="px-6 py-8 space-y-5">
           <div className="flex items-start gap-3 bg-blue-50 rounded-xl p-3 text-sm text-blue-700">
             <Shield size={16} className="shrink-0 mt-0.5 text-[var(--brand)]" />
-            <p>This page is for authorised staff only. Sign in with your Google account to continue.</p>
+            <p>This page is for authorised staff only. Sign in with your work email to continue.</p>
           </div>
 
           <AuthLoading>
@@ -61,7 +61,7 @@ export default function AdminLoginPage() {
 
           <Unauthenticated>
             <SignInButton
-              signInText="Sign in with Google"
+              signInText="Sign in with email"
               showIcon={false}
               className="w-full bg-[var(--brand)] hover:bg-[var(--brand-dark)] text-white h-11 rounded-xl font-medium text-sm shadow-md cursor-pointer"
             />

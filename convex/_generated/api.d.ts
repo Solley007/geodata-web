@@ -10,6 +10,8 @@
 
 import type * as admin from "../admin.js";
 import type * as allocations from "../allocations.js";
+import type * as auth from "../auth.js";
+import type * as authIdentity from "../authIdentity.js";
 import type * as backup from "../backup.js";
 import type * as backupDestinations from "../backupDestinations.js";
 import type * as backupInternal from "../backupInternal.js";
@@ -131,6 +133,8 @@ import type {
 declare const fullApi: ApiFromModules<{
   admin: typeof admin;
   allocations: typeof allocations;
+  auth: typeof auth;
+  authIdentity: typeof authIdentity;
   backup: typeof backup;
   backupDestinations: typeof backupDestinations;
   backupInternal: typeof backupInternal;

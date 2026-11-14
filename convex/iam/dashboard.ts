@@ -7,6 +7,7 @@ import { buildBulkAcquisitionDashboardStats } from "../corporateMarketing/analyt
 import { isFeatureEnabled as isDiasporaFeatureEnabled } from "../diaspora/feature.ts";
 import { buildDiasporaDashboardStats } from "../diaspora/analytics.ts";
 import { getMyPartnerEngagementForUser } from "./partnerEngagements.ts";
+import { tokenOf } from "../authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // DYNAMIC DASHBOARD ENGINE
@@ -74,7 +75,7 @@ export const getMyDashboardProfile = query({
   handler: async (ctx): Promise<{ profileKey: DashboardProfileKey; profileLabel: string; roleLabel: string } | null> => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return null;
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return null;
     const resolved = await resolveExplicitDashboardProfile(ctx, user);
     if (!resolved) return null; // no explicit IAM assignment — caller keeps the legacy dashboard
@@ -92,7 +93,7 @@ export const getMyRoleKey = query({
   handler: async (ctx): Promise<string | null> => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return null;
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return null;
     const assignments = await ctx.db
       .query("userOrgAssignments")
@@ -109,7 +110,7 @@ export const getMyDashboardWidgets = query({
   handler: async (ctx): Promise<{ profileKey: DashboardProfileKey; profileLabel: string; widgets: DashboardWidget[] } | null> => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return null;
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return null;
 
     const resolved = await resolveExplicitDashboardProfile(ctx, user);

@@ -1,7 +1,11 @@
 import { AuthConfig } from "convex/server";
 
-// No sign-in provider yet. Hercules OIDC was removed when moving to our own
-// Convex project; the replacement provider (Convex Auth or Clerk) goes here.
+// Convex Auth (see auth.ts). CONVEX_SITE_URL is set automatically by Convex.
 export default {
-  providers: [],
+  providers: [
+    {
+      domain: process.env.CONVEX_SITE_URL!,
+      applicationID: "convex",
+    },
+  ],
 } satisfies AuthConfig;

@@ -3,6 +3,7 @@ import { mutation, query } from "./_generated/server";
 import { requireAdmin } from "./admin.ts";
 import type { QueryCtx } from "./_generated/server";
 import type { Doc, Id } from "./_generated/dataModel.d.ts";
+import { tokenOf } from "./authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // EMPLOYMENT LETTERS
@@ -17,7 +18,7 @@ import type { Doc, Id } from "./_generated/dataModel.d.ts";
 async function requireStaffLetterOwner(ctx: QueryCtx, staffId: Id<"staffProfiles">) {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not logged in" });
-  const me = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const me = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!me) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not logged in" });
 
   const staff = await ctx.db.get(staffId);

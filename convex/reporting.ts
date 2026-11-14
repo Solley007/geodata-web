@@ -7,6 +7,7 @@ import { logAudit } from "./taskboard.ts";
 import { hasPermission } from "./iam/access.ts";
 import { isFeatureEnabled, requireFeatureEnabled } from "./featureToggles.ts";
 import { notifyUser } from "./notifications.ts";
+import { tokenOf } from "./authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // MANAGEMENT REPORTING
@@ -31,7 +32,7 @@ export type ReportPermission = (typeof REPORT_PERMISSIONS)[number];
 async function requireStaff(ctx: QueryCtx | MutationCtx): Promise<Doc<"users">> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Sign in required" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user || !STAFF_ROLES.includes(user.role ?? "")) {
     throw new ConvexError({ code: "FORBIDDEN", message: "Staff access required" });
   }
@@ -77,7 +78,7 @@ export const getMyReportsAccess = query({
     const identity = await ctx.auth.getUserIdentity();
     const deny = { featureEnabled, isStaff: false, canView: false, canCreate: false, canApprove: false, canDistribute: false, canAdmin: false };
     if (!identity) return deny;
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user || !STAFF_ROLES.includes(user.role ?? "")) return deny;
     const isSuperAdmin = user.role === "super_admin";
     return {

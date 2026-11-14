@@ -2,6 +2,7 @@ import { v, ConvexError } from "convex/values";
 import { internalQuery, internalMutation, query, mutation } from "./_generated/server";
 import type { QueryCtx, MutationCtx } from "./_generated/server";
 import type { Id, TableNames } from "./_generated/dataModel.d.ts";
+import { tokenOf } from "./authIdentity";
 
 // ── V8-runtime internal helpers for the Backup & Recovery Center ───────────
 // Kept separate from backup.ts ("use node") since queries/mutations must run
@@ -25,7 +26,7 @@ async function resolveUser(ctx: QueryCtx | MutationCtx, tokenIdentifier: string,
 async function requireSuperAdminCtx(ctx: QueryCtx) {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ message: "Not authenticated", code: "UNAUTHENTICATED" });
-  const user = await resolveUser(ctx, identity.tokenIdentifier, identity.email);
+  const user = await resolveUser(ctx, tokenOf(identity), identity.email);
   if (!user || user.role !== "super_admin") {
     throw new ConvexError({ message: "Super admin access required", code: "FORBIDDEN" });
   }

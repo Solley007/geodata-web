@@ -2,6 +2,7 @@ import { v } from "convex/values";
 import { query, mutation } from "./_generated/server";
 import { ConvexError } from "convex/values";
 import type { MutationCtx, QueryCtx } from "./_generated/server";
+import { tokenOf } from "./authIdentity";
 
 // ─── helpers ───────────────────────────────────────────────────────────────
 
@@ -11,7 +12,7 @@ async function requireAdmin(ctx: MutationCtx | QueryCtx) {
   // Try by token first, then email fallback (handles issuer URL changes)
   let user = await ctx.db
     .query("users")
-    .withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
+    .withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity)))
     .first();
   if (!user && identity.email) {
     user = await ctx.db.query("users").filter((q) => q.eq(q.field("email"), identity.email)).first();

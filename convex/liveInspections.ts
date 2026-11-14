@@ -8,6 +8,7 @@ import { api, internal } from "./_generated/api.js";
 import { hasPermission } from "./iam/access.ts";
 import { resolveViewerScope, filterByScope } from "./iam/scope.ts";
 import { notifyClient } from "./notifications.ts";
+import { tokenOf } from "./authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // LIVE VIRTUAL INSPECTION — feature toggle + granular permission catalogue.
@@ -57,7 +58,7 @@ const PERMISSION_LABELS: Record<LiveInspectionPermission, string> = {
 async function requireSignedInUser(ctx: QueryCtx | MutationCtx): Promise<Doc<"users">> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not authenticated" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user) throw new ConvexError({ code: "NOT_FOUND", message: "User not found" });
   return user;
 }
@@ -110,7 +111,7 @@ export const getMyAccess = query({
   handler: async (ctx): Promise<{ signedIn: boolean; canView: boolean; isAdmin: boolean }> => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) return { signedIn: false, canView: false, isAdmin: false };
-    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+    const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
     if (!user) return { signedIn: false, canView: false, isAdmin: false };
     const isAdmin = user.role === "super_admin" || user.role === "admin";
     const canView = await hasPermission(ctx, user._id, "live_inspection.view");
@@ -665,7 +666,7 @@ export const remove = mutation({
 async function requireBuyerClient(ctx: QueryCtx | MutationCtx): Promise<Doc<"clients">> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not authenticated" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user) throw new ConvexError({ code: "NOT_FOUND", message: "User not found" });
   const allClients = await ctx.db.query("clients").collect();
   const client = allClients.find((c) => c.userId === user._id || c.email === user.email);
@@ -681,7 +682,7 @@ async function requireSessionParticipant(
 ): Promise<{ side: "officer"; user: Doc<"users"> } | { side: "client"; client: Doc<"clients"> }> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not authenticated" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user) throw new ConvexError({ code: "NOT_FOUND", message: "User not found" });
 
   const allowed = await hasPermission(ctx, user._id, "live_inspection.join");

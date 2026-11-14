@@ -3,6 +3,7 @@ import { mutation, query } from "./_generated/server";
 import type { QueryCtx, MutationCtx } from "./_generated/server";
 import type { Doc, Id } from "./_generated/dataModel.d.ts";
 import { logAudit } from "./taskboard.ts";
+import { tokenOf } from "./authIdentity";
 
 // ══════════════════════════════════════════════════════════════════════════
 // GEODATA GROUP CORPORATE DIRECTORY — business directory data model
@@ -22,7 +23,7 @@ const ADMIN_ROLES = ["super_admin", "admin", "manager"] as const;
 async function requireAdmin(ctx: QueryCtx | MutationCtx): Promise<Doc<"users">> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ code: "UNAUTHENTICATED", message: "Not logged in" });
-  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier)).unique();
+  const user = await ctx.db.query("users").withIndex("by_token", (q) => q.eq("tokenIdentifier", tokenOf(identity))).unique();
   if (!user || !(ADMIN_ROLES as readonly string[]).includes(user.role ?? "")) {
     throw new ConvexError({ code: "FORBIDDEN", message: "Admin, Manager access required" });
   }

@@ -6,6 +6,7 @@ import { action, internalAction } from "./_generated/server";
 import { internal } from "./_generated/api.js";
 import type { ActionCtx } from "./_generated/server";
 import type { Id, TableNames } from "./_generated/dataModel.d.ts";
+import { tokenOf } from "./authIdentity";
 
 // ── Tables included in a full backup snapshot ───────────────────────────────
 // Excludes auditLog (immutable trail, not restorable data) and the backup/
@@ -29,7 +30,7 @@ async function requireSuperAdmin(ctx: ActionCtx): Promise<{ id: string; name: st
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new ConvexError({ message: "Not authenticated", code: "UNAUTHENTICATED" });
   const user = await ctx.runQuery(internal.backupInternal.resolveUserByIdentity, {
-    tokenIdentifier: identity.tokenIdentifier,
+    tokenIdentifier: tokenOf(identity),
     email: identity.email,
   });
   if (!user || user.role !== "super_admin") {
