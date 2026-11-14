@@ -17,7 +17,7 @@ http.route({
 
     const appOrigin = "https://geodata.com.ng";
     const propertyUrl = `${appOrigin}/properties/${id}`;
-    const defaultImage = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+    const defaultImage = "https://geodata.com.ng/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
     const siteName = "GEODATA WORLD SERVICES LIMITED";
 
     if (!id) {
@@ -108,7 +108,7 @@ http.route({
 
     const appOrigin = "https://geodata.com.ng";
     const articleUrl = `${appOrigin}/news/${slug}`;
-    const defaultImage = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+    const defaultImage = "https://geodata.com.ng/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
     const siteName = "GEODATA WORLD SERVICES LIMITED";
 
     if (!slug) {

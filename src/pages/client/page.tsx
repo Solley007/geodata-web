@@ -116,7 +116,7 @@ function PortalSidebar({
         {/* Logo */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0">
           <Link to="/" className="flex items-center gap-2.5">
-            <img src="https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn" alt="Geodata"
+            <img src="/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png" alt="Geodata"
               className="w-8 h-8 rounded-md object-contain bg-white p-0.5" />
             <div>
               <div className="text-white font-bold text-xs leading-tight"
@@ -1285,7 +1285,7 @@ export default function BuyerPortal() {
         <div className="min-h-screen bg-gradient-to-br from-blue-950 to-blue-800 flex flex-col items-center justify-center gap-6 px-4">
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
             className="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full text-center">
-            <img src="https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn" alt="Geodata" className="h-14 w-auto mx-auto mb-4" />
+            <img src="/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png" alt="Geodata" className="h-14 w-auto mx-auto mb-4" />
             <h1 className="text-2xl font-bold text-gray-900 mb-1">Buyer Portal</h1>
             <p className="text-gray-500 text-sm mb-6">
               Sign in to track your transactions, check KYC status, view payments, and manage your property purchase.

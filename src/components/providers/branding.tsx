@@ -21,7 +21,7 @@ export type BrandingData = {
 export const BRANDING_DEFAULTS: BrandingData = {
   primaryColor: "#0B4DBB",
   companyName: "Geodata World Services Limited",
-  logoUrl: "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn",
+  logoUrl: "/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png",
   logoStorageId: null,
 };
 

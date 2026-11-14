@@ -208,7 +208,7 @@ export default function ArticlePage() {
           publisher: {
             "@type": "Organization",
             name: "Geodata World Services Limited",
-            logo: { "@type": "ImageObject", url: "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn" },
+            logo: { "@type": "ImageObject", url: "/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png" },
           },
           mainEntityOfPage: cleanUrl,
         }

@@ -697,12 +697,12 @@ html[data-site="public"] .gd-wordmark { font-weight: 400; }
    Public site design system, ported from the Next.js site (gd-v2)
    Euclid Circular B everywhere, navy and bone palette, coral red accent.
    ═══════════════════════════════════════════════════════════════════════════ */
-@font-face { font-family: "Euclid Circular B"; src: url("https://hercules-cdn.com/file_ppz0ZwjxKmLICXfTCfvIZt0O") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
-@font-face { font-family: "Euclid Circular B"; src: url("https://hercules-cdn.com/file_ZArKdkw74pIRnaOG0Jul614G") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Euclid Circular B"; src: url("https://hercules-cdn.com/file_XgGqtnDhoblHftNfWv4WWEDF") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: "Euclid Circular B"; src: url("https://hercules-cdn.com/file_0l4MjBWhdbp7CP11Kgc2rnI3") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: "Euclid Circular B"; src: url("https://hercules-cdn.com/file_FQ9fUBjq8x5IC35boMjyyQo6") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: "Euclid Circular B"; src: url("https://hercules-cdn.com/file_pan5fsDn16AU0ExYUVKEC5hS") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Euclid Circular B"; src: url("/media/file_ppz0ZwjxKmLICXfTCfvIZt0O.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Euclid Circular B"; src: url("/media/file_ZArKdkw74pIRnaOG0Jul614G.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Euclid Circular B"; src: url("/media/file_XgGqtnDhoblHftNfWv4WWEDF.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Euclid Circular B"; src: url("/media/file_0l4MjBWhdbp7CP11Kgc2rnI3.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Euclid Circular B"; src: url("/media/file_FQ9fUBjq8x5IC35boMjyyQo6.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Euclid Circular B"; src: url("/media/file_pan5fsDn16AU0ExYUVKEC5hS.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
 
 @theme {
   --color-navy-950: #0a1628;

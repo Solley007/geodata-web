@@ -7,7 +7,7 @@ import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api.js";
 import { toast } from "sonner";
 import { useContactInfo } from "@/hooks/use-contact-info.ts";
-const LOGO = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+const LOGO = "/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
 // ── Countdown hook ─────────────────────────────────────────────────────────
 function useCountdown(targetIso: string) {
   const calc = () => {

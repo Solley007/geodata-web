@@ -46,7 +46,7 @@ function StaffSidebar({ open, onClose }: { open: boolean; onClose: () => void })
       )}>
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0">
           <Link to="/" className="flex items-center gap-2.5">
-            <img src="https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn" alt="Logo"
+            <img src="/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png" alt="Logo"
               className="w-8 h-8 rounded-md object-contain bg-white p-0.5" />
             <div>
               <div className="text-white font-bold text-xs leading-tight"
@@ -209,7 +209,7 @@ export default function StaffLayout() {
       <Unauthenticated>
         <div className="min-h-screen bg-[var(--brand)] flex items-center justify-center p-6">
           <div className="bg-white rounded-3xl p-10 max-w-sm w-full text-center shadow-2xl">
-            <img src="https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn" alt="Logo"
+            <img src="/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png" alt="Logo"
               className="w-16 h-16 mx-auto mb-4 rounded-xl object-contain" />
             <h1 className="text-2xl font-bold text-gray-900 mb-1"
               style={{ fontFamily: "'Playfair Display', serif" }}>Staff Portal</h1>

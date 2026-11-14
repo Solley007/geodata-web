@@ -19,7 +19,7 @@ export default function GuideTab() {
         <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between pt-6">
           <div className="flex gap-3">
             <img
-              src="https://hercules-cdn.com/file_q36P1nTMa0sJIOlIlJlgeK1z"
+              src="/media/file_q36P1nTMa0sJIOlIlJlgeK1z.png"
               alt="Geodata World Services Limited logo"
               className="h-10 w-10 shrink-0 rounded-lg object-contain"
             />

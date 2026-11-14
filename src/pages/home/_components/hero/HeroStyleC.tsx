@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button.tsx";
 import { type Slide, PROPERTY_TYPES, STATES, useReadyMixButtonVisible } from "./shared.ts";
 import HeroFxLine from "./HeroFxLine.tsx";
 
-const LOGO = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+const LOGO = "/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
 
 type Props = { slides: Slide[] };
 

@@ -309,7 +309,7 @@ async function generatePropertyBrochure(p: {
   doc.rect(0, 0, PAGE_W, 30, "F");
 
   // Logo
-  const logoDataUrl = await loadImageAsDataUrl("https://hercules-cdn.com/file_RMTYfsU79rafY2hq3AP7BqTI");
+  const logoDataUrl = await loadImageAsDataUrl("/media/file_RMTYfsU79rafY2hq3AP7BqTI.png");
   if (logoDataUrl) {
     doc.addImage(logoDataUrl, "PNG", MARGIN, 5, 18, 18);
     doc.setTextColor(255, 255, 255);

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import TrackRecordSection from "@/components/track-record/TrackRecordSection.tsx";
 
-const LOGO = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+const LOGO = "/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
 
 export type BusinessCapability = {
   icon: LucideIcon;

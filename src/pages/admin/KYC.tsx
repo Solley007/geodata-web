@@ -583,7 +583,7 @@ function AddDocumentDialog({
           </div>
           <div>
             <Label>Document URL <span className="text-red-500">*</span></Label>
-            <Input className="mt-1" placeholder="https://hercules-cdn.com/file_..." value={url} onChange={(e) => setUrl(e.target.value)} />
+            <Input className="mt-1" placeholder="https://example.com/document.pdf" value={url} onChange={(e) => setUrl(e.target.value)} />
             <p className="text-xs text-gray-400 mt-1">Upload the file via Files & Media and paste the CDN URL here.</p>
           </div>
         </div>

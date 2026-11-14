@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils.ts";
 
-const LOGO = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+const LOGO = "/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
 
 const SECTIONS = [
   { label: "Our Businesses", href: "#businesses" },

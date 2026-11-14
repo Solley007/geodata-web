@@ -582,7 +582,7 @@ function MobileDrawer({ open, onClose, children }: { open: boolean; onClose: () 
       >
         <div className="flex items-center justify-between px-8 h-20 border-b border-hairline shrink-0">
           <Link to="/" onClick={onClose} className="flex items-center gap-2.5 text-navy-900">
-            <img src="https://hercules-cdn.com/file_o2fBFolF2Qj4CQwJJxVgli1T" alt="Geodata World Services" className="h-10 w-auto shrink-0" />
+            <img src="/media/file_o2fBFolF2Qj4CQwJJxVgli1T.png" alt="Geodata World Services" className="h-10 w-auto shrink-0" />
             
           </Link>
           <button
@@ -803,7 +803,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 shrink-0">
               <img
-                src="https://hercules-cdn.com/file_o2fBFolF2Qj4CQwJJxVgli1T"
+                src="/media/file_o2fBFolF2Qj4CQwJJxVgli1T.png"
                 alt="Geodata World Services"
                 className="h-11 lg:h-14 w-auto"
               />

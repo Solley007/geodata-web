@@ -3,7 +3,7 @@
 // any runtime (used exclusively by convex/emails.ts, a "use node" file).
 import escapeHtml from "escape-html";
 
-const LOGO_URL = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+const LOGO_URL = "https://geodata.com.ng/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
 const BRAND = "#0B4DBB";
 const BRAND_DARK = "#0940A0";
 const COMPANY = "GEODATA WORLD SERVICES LIMITED";

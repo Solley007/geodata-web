@@ -4,9 +4,9 @@ import { ArrowRight, Compass, FileCheck2, FolderDown, Landmark, MapPinned, Messa
 import { Button } from "@/components/ui/button.tsx";
 
 // AI-generated mood imagery (illustrative scenes, not real clients).
-const HERO_IMAGE = "https://hercules-cdn.com/cdn-cgi/image/w=2048,quality=85,fit=scale-down,format=auto/file_4StnID3HrjIm1BNONstnECE0";
-const ABROAD_IMAGE = "https://hercules-cdn.com/cdn-cgi/image/w=1200,quality=85,fit=scale-down,format=auto/file_5COF23cl5HFVzjJjyZXcUowF";
-const HOME_IMAGE = "https://hercules-cdn.com/cdn-cgi/image/w=1200,quality=85,fit=scale-down,format=auto/file_p1p632FXOmDzUcI0qaAkmfAN";
+const HERO_IMAGE = "/media/file_4StnID3HrjIm1BNONstnECE0.jpg";
+const ABROAD_IMAGE = "/media/file_5COF23cl5HFVzjJjyZXcUowF.jpg";
+const HOME_IMAGE = "/media/file_p1p632FXOmDzUcI0qaAkmfAN.jpg";
 
 const DIASPORA_WHATSAPP_URL = "https://wa.me/2347047620492?text=" + encodeURIComponent("Hello Geodata Diaspora Desk, I'd like to know more about Southern Bridge City.");
 

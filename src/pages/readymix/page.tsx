@@ -12,9 +12,9 @@ import { toast } from "sonner";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api.js";
 
-const HERO_BG = "https://hercules-cdn.com/file_wcLHoqM7Udr9X7f795p5vtbp";
-const CONCRETE_IMG = "https://hercules-cdn.com/file_ugIWXl5Awpnf8VZLFdm2SU3d";
-const LOGO = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+const HERO_BG = "/media/file_wcLHoqM7Udr9X7f795p5vtbp.jpg";
+const CONCRETE_IMG = "/media/file_ugIWXl5Awpnf8VZLFdm2SU3d.jpg";
+const LOGO = "/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
 const LAUNCH_DATE = new Date("2026-12-01T09:00:00.000Z");
 
 // ── Brand colours ─────────────────────────────────────────────────────────────

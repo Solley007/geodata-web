@@ -182,7 +182,7 @@ function AddDocumentDialog({ onClose }: { onClose: () => void }) {
           </div>
           <div>
             <Label>File URL (CDN) <span className="text-red-500">*</span></Label>
-            <Input className="mt-1" placeholder="https://hercules-cdn.com/file_..." value={form.fileUrl} onChange={(e) => set("fileUrl", e.target.value)} />
+            <Input className="mt-1" placeholder="https://example.com/document.pdf" value={form.fileUrl} onChange={(e) => set("fileUrl", e.target.value)} />
           </div>
           <div>
             <Label>File Name <span className="text-red-500">*</span></Label>
@@ -251,7 +251,7 @@ function NewVersionDialog({ doc, onClose }: { doc: { _id: Id<"vaultDocuments">; 
           </p>
           <div>
             <Label>File URL (CDN) <span className="text-red-500">*</span></Label>
-            <Input className="mt-1" placeholder="https://hercules-cdn.com/file_..." value={fileUrl} onChange={(e) => setFileUrl(e.target.value)} />
+            <Input className="mt-1" placeholder="https://example.com/document.pdf" value={fileUrl} onChange={(e) => setFileUrl(e.target.value)} />
           </div>
           <div>
             <Label>File Name <span className="text-red-500">*</span></Label>
@@ -1312,7 +1312,7 @@ function CreateAgreementDialog({ onClose }: { onClose: () => void }) {
           </div>
           <div>
             <Label>PDF URL (optional — can add later)</Label>
-            <Input className="mt-1" placeholder="https://hercules-cdn.com/file_..." value={form.pdfUrl} onChange={(e) => set("pdfUrl", e.target.value)} />
+            <Input className="mt-1" placeholder="https://example.com/document.pdf" value={form.pdfUrl} onChange={(e) => set("pdfUrl", e.target.value)} />
           </div>
           <div>
             <Label>Expires At</Label>
@@ -1405,7 +1405,7 @@ function AgreementStatusDialog({ agreementId, current, onClose }: { agreementId:
           {(status === "sent" || status === "approved") && (
             <div>
               <Label>PDF URL (optional)</Label>
-              <Input className="mt-1" placeholder="https://hercules-cdn.com/file_..." value={pdfUrl} onChange={(e) => setPdfUrl(e.target.value)} />
+              <Input className="mt-1" placeholder="https://example.com/document.pdf" value={pdfUrl} onChange={(e) => setPdfUrl(e.target.value)} />
             </div>
           )}
           {status === "declined" && (

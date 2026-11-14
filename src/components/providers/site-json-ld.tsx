@@ -2,7 +2,7 @@ import { useJsonLd } from "@/hooks/use-seo.ts";
 import { useContactInfo } from "@/hooks/use-contact-info.ts";
 
 const SITE_ORIGIN = "https://geodata.com.ng";
-const LOGO_URL = "https://hercules-cdn.com/file_hqjYSAKlVBBRqljHrAkEnfVn";
+const LOGO_URL = "https://geodata.com.ng/media/file_hqjYSAKlVBBRqljHrAkEnfVn.png";
 
 /**
  * Site-wide Organization + WebSite JSON-LD, mounted once at the app root.

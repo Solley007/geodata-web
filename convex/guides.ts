@@ -6,7 +6,7 @@ import { jsPDF } from "jspdf";
 
 const COMPANY_NAME = "GEODATA WORLD SERVICES LTD";
 const COMPANY_WEBSITE = "www.geodata.com.ng";
-const LOGO_URL = "https://hercules-cdn.com/file_H25zOEAam397jDXmMYnonPoJ";
+const LOGO_URL = "https://geodata.com.ng/media/file_H25zOEAam397jDXmMYnonPoJ.png";
 const BRAND_BLUE: [number, number, number] = [11, 77, 187];
 const BRAND_BLACK: [number, number, number] = [17, 17, 17];
 const LIGHT_BLUE: [number, number, number] = [230, 238, 255];
