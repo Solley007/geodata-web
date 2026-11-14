@@ -21,6 +21,7 @@ import { cn } from "@/lib/utils.ts";
 import { GATEWAY_CATALOG } from "@/lib/gateway-catalog.ts";
 import { useCursorPagination } from "@/hooks/use-cursor-pagination.ts";
 import TablePager from "@/components/ui/table-pager.tsx";
+import { CONVEX_SITE_URL } from "@/lib/convex-site";
 
 const PAYMENTS_PAGE_SIZE = 10;
 
@@ -265,7 +266,7 @@ function GatewayConfigDialog({
           <div className="space-y-3">
             <div>
               <Label>Webhook URL (register at provider)</Label>
-              <Input className="mt-1 font-mono text-xs" placeholder="https://watchful-wombat-208.convex.site/webhooks/paystack"
+              <Input className="mt-1 font-mono text-xs" placeholder={`${CONVEX_SITE_URL}/webhooks/paystack`}
                 value={webhookUrl} onChange={(e) => setWebhookUrl(e.target.value)} />
             </div>
             <div>

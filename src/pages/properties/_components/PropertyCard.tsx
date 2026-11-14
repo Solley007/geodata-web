@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import type { Doc } from "@/convex/_generated/dataModel.d.ts";
 import { cn } from "@/lib/utils.ts";
 import FxEquivalents from "@/components/fx/fx-equivalents.tsx";
+import { CONVEX_SITE_URL } from "@/lib/convex-site";
 
 type Property = Doc<"properties">;
 
@@ -63,7 +64,7 @@ export default function PropertyCard({
   const status = STATUS_CONFIG[property.status.toLowerCase()] ?? { label: property.status, className: "bg-gray-100 text-gray-700 border-gray-200" };
 
   const handleShare = () => {
-    const ogUrl = `https://watchful-wombat-208.convex.site/og/property?id=${property._id}`;
+    const ogUrl = `${CONVEX_SITE_URL}/og/property?id=${property._id}`;
     navigator.clipboard.writeText(ogUrl).catch(() => {});
     toast.success("Link copied to clipboard!");
   };

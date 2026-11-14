@@ -34,6 +34,7 @@ import { useContactInfo } from "@/hooks/use-contact-info.ts";
 import { useWishlist } from "@/hooks/use-wishlist.ts";
 import { useSeo, useJsonLd } from "@/hooks/use-seo.ts";
 import PropertyTourModal from "@/components/tours/PropertyTourModal.tsx";
+import { CONVEX_SITE_URL } from "@/lib/convex-site";
 
 // ──────────── Helpers ─────────────
 function formatPrice(price: number): string {
@@ -758,7 +759,7 @@ async function generatePropertyBrochure(p: {
   y += 2;
   sectionHeading("Verify This Listing");
 
-  const qrValue = `https://watchful-wombat-208.convex.site/og/property?id=${p._id}`;
+  const qrValue = `${CONVEX_SITE_URL}/og/property?id=${p._id}`;
   try {
     const qrDataUrl: string = await QRCodeLib.toDataURL(qrValue, {
       width: 256, margin: 1, color: { dark: "#0B4DBB", light: "#FFFFFF" },
@@ -1290,7 +1291,7 @@ export default function PropertyDetailPage() {
   const status = STATUS_CONFIG[p.status?.toLowerCase()] ?? { label: p.status, className: "bg-gray-100 text-gray-700" };
 
   const handleShare = () => {
-    const ogUrl = `https://watchful-wombat-208.convex.site/og/property?id=${p._id}`;
+    const ogUrl = `${CONVEX_SITE_URL}/og/property?id=${p._id}`;
     navigator.clipboard.writeText(ogUrl).catch(() => {});
     toast.success("Link copied to clipboard!");
   };
@@ -1803,7 +1804,7 @@ className="col-span-4 row-span-2 relative cursor-pointer group"
       {/* QR Modal */}
       {showQR && (
         <PropertyQRModal
-          qrData={`https://watchful-wombat-208.convex.site/og/property?id=${p._id}`}
+          qrData={`${CONVEX_SITE_URL}/og/property?id=${p._id}`}
           propertyId={p._id}
           onClose={() => setShowQR(false)}
         />

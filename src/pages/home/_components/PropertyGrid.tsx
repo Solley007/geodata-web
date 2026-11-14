@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge.tsx";
 import { toast } from "sonner";
 import type { Doc } from "@/convex/_generated/dataModel.d.ts";
 import FxEquivalents from "@/components/fx/fx-equivalents.tsx";
+import { CONVEX_SITE_URL } from "@/lib/convex-site";
 
 type Property = Doc<"properties">;
 
@@ -54,7 +55,7 @@ function PropertyCard({ property, index }: { property: Property; index: number }
   const handleShare = async () => {
     // Use the OG endpoint so WhatsApp/Telegram/Facebook crawlers
     // get the property image & title instead of the site logo.
-    const ogUrl = `https://watchful-wombat-208.convex.site/og/property?id=${property._id}`;
+    const ogUrl = `${CONVEX_SITE_URL}/og/property?id=${property._id}`;
     const cleanUrl = `${window.location.origin}/properties/${property._id}`;
     if (navigator.share) {
       try {

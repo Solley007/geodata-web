@@ -16,6 +16,7 @@ import Navbar from "../../home/_components/Navbar.tsx";
 import Footer from "../../home/_components/Footer.tsx";
 import WhatsAppButton from "../../home/_components/WhatsAppButton.tsx";
 import { useSeo, useJsonLd } from "@/hooks/use-seo.ts";
+import { CONVEX_SITE_URL } from "@/lib/convex-site";
 
 // ─── Share Button ─────────────────────────────────────────────────────────
 // ogUrl: the Convex HTTP endpoint that serves real og:image/title/description
@@ -179,7 +180,7 @@ export default function ArticlePage() {
   // OG endpoint URL: used for social shares so crawlers (WhatsApp, Facebook etc.)
   // receive proper og:image, og:title, og:description meta tags.
   // Real users who click the link are auto-redirected to the clean article URL.
-  const CONVEX_SITE = "https://watchful-wombat-208.convex.site";
+  const CONVEX_SITE = CONVEX_SITE_URL;
   const ogShareUrl = slug
     ? `${CONVEX_SITE}/og/news?slug=${encodeURIComponent(slug)}`
     : (typeof window !== "undefined" ? window.location.href : "");
