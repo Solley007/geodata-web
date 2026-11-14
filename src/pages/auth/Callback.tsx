@@ -18,8 +18,9 @@ export default function AuthCallback() {
   useEffect(() => {
     if (isLoading || started.current) return;
     if (!isAuthenticated) {
-      navigate("/auth/sign-in", { replace: true });
-      return;
+      // Give a just-started session a few seconds to become active.
+      const timer = setTimeout(() => navigate("/auth/sign-in", { replace: true }), 5000);
+      return () => clearTimeout(timer);
     }
     started.current = true;
     updateCurrentUser()

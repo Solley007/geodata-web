@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { useAuthActions } from "@convex-dev/auth/react";
+import { useConvexAuth } from "convex/react";
 import { Mail, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
 import { Input } from "@/components/ui/input.tsx";
@@ -19,6 +20,24 @@ export default function SignInPage() {
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [verified, setVerified] = useState(false);
+  const { isAuthenticated } = useConvexAuth();
+
+  // The session takes a moment to become active after the code is accepted,
+  // so wait for it before moving on.
+  useEffect(() => {
+    if (!verified) return;
+    if (isAuthenticated) {
+      navigate(`/auth/callback${next ? `?next=${encodeURIComponent(next)}` : ""}`, { replace: true });
+      return;
+    }
+    const t = setTimeout(() => {
+      setVerified(false);
+      setBusy(false);
+      setError("Your code was accepted but we couldn't start your session. Please refresh the page and try again.");
+    }, 15000);
+    return () => clearTimeout(t);
+  }, [verified, isAuthenticated, navigate, next]);
 
   async function sendCode(e?: React.FormEvent) {
     e?.preventDefault();
@@ -47,7 +66,7 @@ export default function SignInPage() {
     setError("");
     try {
       await signIn("email-code", { email, code: value });
-      navigate(`/auth/callback${next ? `?next=${encodeURIComponent(next)}` : ""}`, { replace: true });
+      setVerified(true);
     } catch {
       setError("That code didn't work. Check the latest email from us, or send a new code.");
       setCode("");
