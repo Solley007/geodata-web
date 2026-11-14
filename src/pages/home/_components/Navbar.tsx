@@ -349,9 +349,12 @@ function AuthMenu() {
 }
 
 // ─── Saved residences shortlist (desktop nav) ──────────────────────────
+// Hidden for now. Set to true to show the shortlist icon again.
+const SHOW_SHORTLIST = false;
+
 function ShortlistLink() {
   const { count } = useWishlist();
-  return null && (
+  return SHOW_SHORTLIST && (
     <Link
       to="/properties/saved"
       title={count ? `${count} saved residence${count === 1 ? "" : "s"}` : "Saved residences"}

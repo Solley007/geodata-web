@@ -665,7 +665,7 @@ function projectHref(slug: string) {
 
 // ─── Developments strip ──────────────────────────────────────────────────────
 
-type SalesStatus = "Available" | "Limited" | "Sold Out" | "Selling Soon";
+type SalesStatus = "Available" | "Limited" | "Sold Out" | "Selling Soon" | "Delivered" | "Ongoing";
 
 const DEVELOPMENTS: { slug: string; name: string; location: string; description: string; image: string; status?: SalesStatus }[] = [
   {
@@ -698,7 +698,7 @@ status: "Limited",
     location: "Jabi, Abuja",
     description: "23 rooms and 50 bed spaces, purpose-built for Nile and Baze students.",
     image: "/ize-hostel/Exterior.JPG",
-status: "Delivered",
+    status: "Delivered",
   },
   {
     slug: "cool-army-estate",
