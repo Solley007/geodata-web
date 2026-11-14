@@ -22,7 +22,7 @@ If the database zip is missing, the owner can re-download it from Hercules Setti
 
 ## Migration plan (do in this order)
 
-The owner already has a GitHub repo connected to Vercel (the older **Next.js** version of the site, deployed at `geodata-web-ruddy.vercel.app`). Reuse that repo and Vercel project, but on a **new branch**, because this Hercules export is a different app (Vite + React, not Next.js). Do not overwrite `main` until the new version is verified.
+The owner already has a GitHub repo connected to Vercel (the older **Next.js** version of the site, deployed at `geodata-web-ruddy.vercel.app`). Reuse that repo and Vercel project, but on a **new branch**, because this Hercules export is a different app (Vite + React, not Next.js). Do not overwrite `main` or `features/wave-1` (the Production Branch) until the new version is verified.
 
 1. **Repo, on a branch**:
    - Clone the existing repo (ask the owner for its URL if it is not already local) and tag the current state: `git tag nextjs-backup && git push origin nextjs-backup`.
@@ -45,7 +45,7 @@ The owner already has a GitHub repo connected to Vercel (the older **Next.js** v
 4. **Env vars**: set `VITE_CONVEX_URL` to the new Convex URL locally and in Vercel. Also look for `VITE_GOOGLE_MAPS_API_KEY` (used by `StyledMap`, falls back to a plain embed without it) and any others listed in `vite-env.d.ts` or `.env*` examples.
 5. **Images**: many images load from `https://hercules-cdn.com/file_...`. These may stop working when the subscription ends. Re-host the Files library (Cloudinary is already used for videos, account `drort9cs1`) and replace the URLs. In `src/pages/home/RealEstateLandingPage.tsx` there is a `V` map (filename to `file_...` id) plus `vimg()` and `CDN` used site-wide; updating that map and `CDN` handles a lot in one place. Also grep the whole repo for `hercules-cdn.com`.
 6. **Auth**: replace the Hercules sign-in flow (look for `dev-preview-auth`, `auth.config.ts`, `src/pages/auth/Callback.tsx`, `Redirect.tsx`, any Hercules OIDC provider). Convex Auth or Clerk are good replacements. Admin pages (`/admin/*`) depend on this.
-7. **Vercel go-live**: when the `hercules-site` preview works (homepage, properties, a listing, SBC page, mortgage, contact form, admin login), add the env vars for **Production** too, then merge `hercules-site` into `main` (or set it as the Production Branch in Vercel project settings). The `vercel.json` travels with it, so production builds as Vite. The old Next.js code stays recoverable from the `nextjs-backup` tag.
+7. **Vercel go-live**: when the `hercules-site` preview works (homepage, properties, a listing, SBC page, mortgage, contact form, admin login), add the env vars for **Production** too, then merge `hercules-site` into `features/wave-1`. **Vercel's Production Branch is `features/wave-1`, not `main`** (the owner decided on 14 Nov 2026 to keep it that way). The `vercel.json` travels with it, so production builds as Vite. The old Next.js code stays recoverable from the `nextjs-wave-1-backup` tag (what production ran) and `nextjs-backup` (older `main`).
 8. **Domain**: only when the production deployment is verified, point `geodata.com.ng` DNS to Vercel (add the domain in the Vercel project first). Resubmit the sitemap in Google Search Console afterwards.
 
 ## Phase 2: convert to Next.js (only after Phase 1 is live and stable)
